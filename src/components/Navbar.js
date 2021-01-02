@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import navbarLocales from "../locales/locales.navbar.json";
-import Logo from "./Logo";
+//import Logo from "./Logo";
 import { PrimaryButton, Button, NavbarLink } from "./styled";
 
 const imageChange = (updatePage, setImage) => {

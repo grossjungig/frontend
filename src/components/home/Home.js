@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import homeLocales from "../../locales/locales.home.json";
-import styled from "styled-components";
 import "./home.css";
 import { H1 } from "../typography";
 import {

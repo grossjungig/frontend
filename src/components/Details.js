@@ -27,13 +27,11 @@ class Details extends Component {
     event.preventDefault();
     const deleteRoomId = this.props.match.params.id;
     //console.log("deleteRoom?", deleteRoomId);
-    const response = await axios.delete(
+    await axios.delete(
       `${process.env.REACT_APP_BACKENDURL}api/rooms/${deleteRoomId}/delete`
     );
-    {
-      this.props.history.push("/berlin");
-      //console.log("DETAIL?", response);
-    }
+
+    this.props.history.push("/berlin");
   };
 
   render() {

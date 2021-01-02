@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import loginLocales from "../../locales/locales.login.json";
 import "./forgotpassword.css";
 import forgotLocales from "../../locales/locales.forgotpassword.json";
 
-const title = {
+/*const title = {
   pageTitle: "Forgot Password Screen",
-};
+};*/
 
 class ForgotPassword extends Component {
   constructor() {
