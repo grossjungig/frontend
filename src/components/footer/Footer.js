@@ -23,6 +23,13 @@ const Footer = () => {
           <FooterLinkSmall>FAQ</FooterLinkSmall>
         </Row>
         <Row>
+          <SocialPanel>
+            <img src="../image/facebook.png" alt="facebook" />
+            <img src="../image/instagram.png" alt="instagram" />
+            <img src="../image/Twitter.png" alt="twitter" />
+          </SocialPanel>
+        </Row>
+        <Row>
           <FooterBig>Großjungig AI</FooterBig>
         </Row>
         <Row>
@@ -31,13 +38,6 @@ const Footer = () => {
           <FooterSmall>2020 Grossjungig AI</FooterSmall>
         </Row>
       </MainPanel>
-      <SocialPanel>
-        <Row>
-          <img src="../image/facebook.png" alt="facebook" />
-          <img src="../image/instagram.png" alt="instagram" />
-          <img src="../image/Twitter.png" alt="twitter" />
-        </Row>
-      </SocialPanel>
     </Root>
   );
 };
@@ -50,15 +50,14 @@ const Root = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   padding: 0.5rem;
-  background-color: black;
+  background-color: darkblue;
   color: white;
-  /*Media quries Destop*/
+  /*Media queries Destop*/
   @media (min-width: 1060px) {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     padding: 3rem;
-    background-color: black;
     color: white;
     margin-left: auto;
     margin-right: auto;
@@ -84,7 +83,7 @@ const MainPanel = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
-  /*Media quries Destop*/
+  /*Media quries Desktop*/
   @media (min-width: 1060px) {
     display: flex;
     flex-direction: column;
@@ -107,6 +106,7 @@ const SocialPanel = styled.div`
   justify-content: center;
   padding-right: 3rem;
   padding-left: 3rem;
+  padding-top: 1rem;
 `;
 
 const FooterLink = styled.a`
@@ -115,7 +115,7 @@ const FooterLink = styled.a`
   font-weight: 500;
   font-size: 16px;
   color: #f9f8f8;
-  padding: 0.25rem 0.2rem;
+  padding: 0.25rem 0.25rem;
 `;
 
 const FooterLinkSmall = styled.a`
