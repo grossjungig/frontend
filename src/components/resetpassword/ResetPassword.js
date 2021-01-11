@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Button } from "./styled";
+import { Button } from "../styled";
 import resetLocales from "../../locales/locales.resetpassword.json";
 
 const loading = {
@@ -153,12 +153,3 @@ export default class ResetPassword extends Component {
     );
   }
 }
-
-// ResetPassword.propTypes = {
-//   // eslint-disable-next-line react/require-default-props
-//   match: PropTypes.shape({
-//     params: PropTypes.shape({
-//       token: PropTypes.string.isRequired,
-//     }),
-//   }),
-// };
