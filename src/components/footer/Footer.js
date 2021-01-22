@@ -17,18 +17,19 @@ const Footer = () => {
           <FooterLink>Community</FooterLink>
         </Row>
         <Row>
+          <FooterLinkSmall>Company</FooterLinkSmall>
           <FooterLinkSmall>Privacy Policy</FooterLinkSmall>
           <FooterLinkSmall>Cookies</FooterLinkSmall>
           <FooterLinkSmall>Policy </FooterLinkSmall>
           <FooterLinkSmall>FAQ</FooterLinkSmall>
         </Row>
-        <Row>
+        {/* <Row>
           <SocialPanel>
             <img src="../image/facebook.png" alt="facebook" />
             <img src="../image/instagram.png" alt="instagram" />
             <img src="../image/Twitter.png" alt="twitter" />
           </SocialPanel>
-        </Row>
+        </Row> */}
         <Row>
           <FooterBig>Großjungig AI</FooterBig>
         </Row>
@@ -49,10 +50,15 @@ const Root = styled.div`
   flex-basis: 100%;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 0.5rem;
+  /* width: 375px;
+  height: 200px; */
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   background-color: darkblue;
   color: white;
-  /*Media queries Destop*/
+  /*Media queries Desktop*/
   @media (min-width: 1060px) {
     display: flex;
     flex-direction: row;
@@ -101,13 +107,13 @@ const Row = styled.div`
   align-items: center;
 `;
 
-const SocialPanel = styled.div`
-  display: flex;
-  justify-content: center;
-  padding-right: 3rem;
-  padding-left: 3rem;
-  padding-top: 1rem;
-`;
+// const SocialPanel = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   padding-right: 3rem;
+//   padding-left: 3rem;
+//   padding-top: 1rem;
+// `;
 
 const FooterLink = styled.a`
   text-decoration: none;
