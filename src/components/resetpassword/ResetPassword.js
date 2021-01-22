@@ -30,13 +30,16 @@ export default class ResetPassword extends Component {
       },
     } = this.props;
     try {
-      const response = await axios.get("http://localhost:5555/reset", {
-        params: {
-          resetPasswordToken: token,
-        },
-      });
+      const response = await axios.get(
+        "http://localhost:5555/resetPassword/reset",
+        {
+          params: {
+            resetPasswordToken: token,
+          },
+        }
+      );
       // console.log(response);
-      if (response.data.message === "password reset link a-ok") {
+      if (response.data) {
         this.setState({
           username: response.data.username,
           updated: false,
@@ -70,7 +73,7 @@ export default class ResetPassword extends Component {
     } = this.props;
     try {
       const response = await axios.put(
-        "http://localhost:3000/updatePasswordViaEmail",
+        "http://localhost:5555/updatePassword/updatePasswordViaEmail",
         {
           email,
           password,
@@ -133,7 +136,7 @@ export default class ResetPassword extends Component {
             value={password}
             type="password"
           />
-          <button type="submit" label={resetLocales.update[lang]}></button>
+          <Button type="submit" label={resetLocales.update[lang]}></Button>
         </form>
 
         {updated && (
