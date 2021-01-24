@@ -89,7 +89,7 @@ class App extends React.Component {
           <Route exact path="/maps" component={MapView} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />
         </ThemeProvider>
-        <Footer />
+        <Footer className="footer-stick" />
       </div>
     );
   }

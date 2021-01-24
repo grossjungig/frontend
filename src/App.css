@@ -56,6 +56,12 @@ nav {
   color: black;
 }
 
+/****Footer*****/
+
+.footer-stick {
+  margin-top: -50px;
+}
+
 /* Media Queries: Tablet Portrait */
 /* @media screen and (min-width: 759px) {
   nav {
@@ -228,3 +234,22 @@ theader {
 }
 
 /* footer */
+
+/*styles for City component**+++++++++++++++*/
+.rooms-container {
+  padding: 20px;
+}
+.rooms-container input,
+select {
+  margin-right: 15px;
+}
+
+.room-preview {
+  display: flex;
+  /* border: 2px solid grey; */
+  padding: 15px;
+}
+.room-preview img {
+  padding-right: 50px;
+  width: 30vw;
+}

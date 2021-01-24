@@ -8,16 +8,16 @@ class Berlin extends Component {
     rooms: [],
     search: "",
     select: "--",
+    maxPrice: 10000,
     searchedRoom: [],
     photos: [], //[urls pointing to the images]
+    filter: false,
   };
   //1. from frontend, axios request a room data-> route rooms.js
   async componentDidMount() {
     const response = await axios.get(
       `${process.env.REACT_APP_BACKENDURL}api/rooms`
     );
-
-    // Set state
     this.setState({
       rooms: response.data.rooms,
     });
@@ -31,11 +31,13 @@ class Berlin extends Component {
     });
   };
 
-  handleSelect = (event) => {
-    this.setState({ select: event.target.value });
+  searchPrice = (event) => {
+    this.setState({
+      maxPrice: event.target.value,
+    });
   };
 
-  render() {
+  searchRequest = (e) => {
     const filteredRoomsBySelect = this.state.rooms.filter((room) => {
       if (this.state.select === "--") {
         return true;
@@ -43,42 +45,51 @@ class Berlin extends Component {
       return room.district === this.state.select;
     });
 
-    // const filteredRooms = filteredRoomsBySelect.filter((room) => {
-    //   return room.postcode.includes(this.state.search);
-    // });
-
     const filteredRooms = filteredRoomsBySelect.filter((room) => {
-      console.log("working");
-      console.log(this.state.search);
       if (this.state.search === "") {
         return true;
       }
       return room.postcode === parseInt(this.state.search);
     });
 
+    const filteredByPrice = filteredRooms.filter((room) => {
+      if (this.state.maxPrice === 10000) {
+        return true;
+      }
+      return parseInt(room.price) <= this.state.maxPrice;
+    });
+
+    this.setState({
+      filter: true,
+      searchedRoom: filteredByPrice,
+    });
+  };
+  render() {
     const lang = localStorage.getItem("lang");
 
-    const room = filteredRooms.map((el) => {
+    let display = this.state.filter ? "searchedRoom" : "rooms";
+    const room = this.state[display].map((el) => {
       return (
-        <tbody className="table" key={el._id}>
-          <tr>
-            <td>
-              <Link className="room-container" to={`/berlin/${el._id}`}>
-                {el.name}
-              </Link>
-            </td>
-
-            <td>{el.district}</td>
-          </tr>
-        </tbody>
+        <div className="room-preview" key={el._id}>
+          <Link className="room-preview" to={`/berlin/${el._id}`}>
+            <img src={"../../image/icon-home-8.jpg"}></img>
+            <div className="room-preview-info-container">
+              <h3>{el.name}</h3>
+              <p>
+                {el.adress} {el.postcode} {el.district}
+              </p>
+              <p>{el.price} €</p>
+            </div>
+          </Link>
+        </div>
       );
     });
     return (
-      <div
-        style={{ height: "60vh", textAlign: "center" }}
-        data-testid="berlin-root"
-      >
-        <h1>{roomsLocales.title[lang]}</h1>
+      <div className="rooms-container" data-testid="berlin-root">
+        <h1>
+          {roomsLocales.title[lang]} Berlin {this.state.rooms.length}{" "}
+          {roomsLocales.offers[lang]}
+        </h1>
         <label htmlFor="searchbypostcode">{roomsLocales.search[lang]}: </label>
         <input
           type="search"
@@ -87,7 +98,17 @@ class Berlin extends Component {
           onChange={this.searchedName}
           placeholder={roomsLocales.placeholder[lang]}
         />
-        <label htmlFor="filterbydistrict">Select: </label>
+        <label htmlFor="searchbyprice">
+          {roomsLocales["max-price"][lang]}:{" "}
+        </label>
+        <input
+          type="search"
+          name="search"
+          value={this.state.MaxPrice}
+          onChange={this.searchPrice}
+          placeholder={roomsLocales["max-price"][lang]}
+        />
+        <label htmlFor="filterbydistrict">{roomsLocales.suburb[lang]}: </label>
         <select
           name="select"
           type="select"
@@ -113,15 +134,8 @@ class Berlin extends Component {
           <option value="Tempelhof-Schoeneberg">Tempelhof-Schoeneberg</option>
           <option value="Treptow-Koepenick">Treptow-Koepenick</option>
         </select>
-        <table className="table-container">
-          <thead>
-            <tr>
-              <th width="20%">Room Name</th>
-              <th width="20%">{roomsLocales.neighborhood[lang]}</th>
-            </tr>
-          </thead>
-          {room}
-        </table>
+        <button onClick={this.searchRequest}>Search</button>
+        <div className="table-container">{room}</div>
       </div>
     );
   }
