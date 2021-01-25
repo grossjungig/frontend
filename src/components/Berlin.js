@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import roomsLocales from "../locales/locales.rooms.json";
+import { PrimaryButton } from "./styled";
 
 class Berlin extends Component {
   state = {
@@ -98,7 +99,7 @@ class Berlin extends Component {
           onChange={this.searchedName}
           placeholder={roomsLocales.placeholder[lang]}
         />
-        <label htmlFor="searchbyprice">
+        {/* <label htmlFor="searchbyprice">
           {roomsLocales["max-price"][lang]}:{" "}
         </label>
         <input
@@ -107,7 +108,7 @@ class Berlin extends Component {
           value={this.state.MaxPrice}
           onChange={this.searchPrice}
           placeholder={roomsLocales["max-price"][lang]}
-        />
+        /> */}
         <label htmlFor="filterbydistrict">{roomsLocales.suburb[lang]}: </label>
         <select
           name="select"
@@ -134,7 +135,7 @@ class Berlin extends Component {
           <option value="Tempelhof-Schoeneberg">Tempelhof-Schoeneberg</option>
           <option value="Treptow-Koepenick">Treptow-Koepenick</option>
         </select>
-        <button onClick={this.searchRequest}>Search</button>
+        <PrimaryButton onClick={this.searchRequest}>Search</PrimaryButton>
         <div className="table-container">{room}</div>
       </div>
     );
