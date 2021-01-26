@@ -1,6 +1,6 @@
 import Geocode from "react-geocode";
 
-Geocode.setApiKey(process.env.REACT_APP_MY_MAP_API_KEY);
+Geocode.setApiKey(process.env.REACT_APP_MY_MAP_API_KEY_NEW);
 
 // set response region. Its optional.
 // A Geocoding request with region=de (German) will return the German city.
