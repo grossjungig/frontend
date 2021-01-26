@@ -10,7 +10,7 @@ const imageChange = (updatePage, setImage) => {
   const lang = localStorage.getItem("lang");
   //console.log("LANG", lang);
   if (lang === "en") {
-    setImage("/image/uk.png");
+    setImage("/image/english.png");
     localStorage.setItem("lang", "de");
   } else if (lang === "de") {
     setImage("/image/germany.png");
@@ -46,22 +46,18 @@ const Navbar = (props) => {
     >
       <nav>
         <Link class="logo-box" to="/">
-          <img src="/image/new_logo.png" alt="logo_image" />
+          <img
+            style={{ height: "34px" }}
+            src="/image/Logo.png"
+            alt="logo_image"
+          />
         </Link>
         <div className="main-nav">
-          <Link to="/berlin">
-            <Button label={navbarLocales.berlin[lang]}></Button>
-          </Link>
-          <Link to="/maps">
-            <PrimaryButton>{navbarLocales.maps[lang]}</PrimaryButton>
-          </Link>
-          {/* <Link to="/munich">
-            <Button label={navbarLocales.munich[lang]}></Button>
-          </Link> */}
           <div className="navbarlink">
             <NavbarLink href="/#about"> About </NavbarLink>
             <NavbarLink href="/#how-it-works">How does it work? </NavbarLink>
             <NavbarLink href="/#community">Community</NavbarLink>
+            <NavbarLink href="/#contact">Contact</NavbarLink>
           </div>
         </div>
         {props.user ? (

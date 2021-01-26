@@ -2,9 +2,20 @@ import styled, { css } from "styled-components";
 import React from "react";
 
 export const basicButtonCSS = css`
-  padding: 0.5rem 1.5rem;
+  padding: 0.6rem 2rem;
   margin: 0.25rem;
-  border-radius: 0.9375rem;
+  border-radius: 0.85rem;
+`;
+export const basicButtonLongCSS = css`
+  padding: 0.65rem 6rem;
+  margin: 0.25rem;
+  border-radius: 0.85rem;
+`;
+
+export const basicButtonSearchCSS = css`
+  padding: 0.6rem 2.5rem;
+  margin: 0.25rem;
+  border-radius: 0.85rem;
 `;
 
 export const submitButtons = css`
@@ -25,13 +36,20 @@ export const SimpleButton = styled.button`
   border: 1px solid grey;
   background-color: white;
 `;
+
 export const Button = ({ onClick, label }) => (
   <SimpleButton onClick={onClick}>{label}</SimpleButton>
 );
 
 export const PrimaryButton = styled.button`
   ${basicButtonCSS};
-  background-color: ${(props) => props.theme.main};
+  background-color: #365da7;
+  border-style: none;
+`;
+
+export const PrimaryButtonLong = styled.button`
+  ${basicButtonLongCSS};
+  background-color: #365da7;
   border-style: none;
 `;
 
@@ -42,10 +60,23 @@ export const SecButton = styled.button`
   color: white;
 `;
 
+export const SecButtonLong = styled.button`
+  ${basicButtonLongCSS};
+  border: 1px solid grey;
+  background-color: black;
+  color: white;
+`;
+
 export const SearchField = styled.input`
   ${basicButtonCSS};
   border: 1px solid grey;
   background-color: #f2f0f0;
+`;
+
+export const SearchFieldLong = styled.input`
+  ${basicButtonSearchCSS};
+  border: 1px solid grey;
+  background-color: white;
 `;
 
 export const Card = ({ title, image, text, alt }) => (
@@ -96,7 +127,7 @@ const CardRoot = styled.div`
 `;
 
 const CardTitle = styled.div`
-  color: ${({ theme: { main } }) => main};
+  color: #365da7;
   font-style: normal;
   font-weight: bold;
   font-size: 1.5rem;

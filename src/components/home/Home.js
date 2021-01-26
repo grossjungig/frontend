@@ -6,17 +6,19 @@ import { H1 } from "../typography";
 import {
   Button,
   SecButton,
-  SearchField,
-  PrimaryButton,
+  SearchFieldLong,
+  PrimaryButtonLong,
   Card,
   Card2,
   Card3,
 } from "../styled";
 import {
   MainPanel,
+  MainRow,
   SecPanel,
   RowChoose,
   RowSelect,
+  RowSearch,
   Mission,
   Why,
   HowGrid,
@@ -34,22 +36,27 @@ class Home extends Component {
         <div className="home-component">
           <MainPanel>
             <H1 style={{ textAlign: "center" }}>
-              Find your second grand family
+              Find your <br /> second <br /> grand family
             </H1>
-            <RowChoose>
-              {homeLocales.choose[lang]}:
-              <Link to="/berlin">
-                <Button label={homeLocales.offers[lang]}></Button>
-              </Link>
-              <SecButton>{homeLocales.requests[lang]}</SecButton>
-            </RowChoose>
-            <RowSelect>
-              <SearchField
-                placeholder={homeLocales.city[lang]}
-                input=""
-              ></SearchField>
-              <PrimaryButton>{homeLocales.search[lang]}</PrimaryButton>
-            </RowSelect>
+            <MainRow>
+              <RowChoose>
+                <Link to="/berlin">
+                  <Button label={homeLocales.offers[lang]}></Button>
+                </Link>
+                <SecButton>{homeLocales.requests[lang]}</SecButton>
+              </RowChoose>
+              <RowSelect>
+                <SearchFieldLong
+                  placeholder={homeLocales.city[lang]}
+                  input=""
+                ></SearchFieldLong>
+              </RowSelect>
+              <RowSearch>
+                <PrimaryButtonLong>
+                  {homeLocales.search[lang]}
+                </PrimaryButtonLong>
+              </RowSearch>
+            </MainRow>
           </MainPanel>
         </div>
         <Mission id="about">
@@ -61,7 +68,7 @@ class Home extends Component {
         </Mission>
         <Why>
           <h3 style={{ fontSize: "25px", color: "black", textAlign: "center" }}>
-            Why should You use Großjungig?
+            {homeLocales.why[lang]}
           </h3>
           <div className="why-use">
             {cards.map(({ title, text, image }, index) => (

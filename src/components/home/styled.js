@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MainPanel = styled.div`
   display: flex;
-  flex-direction: column;
+
   align-content: center;
   align-items: center;
   border-radius: 24px;
@@ -10,17 +10,21 @@ export const MainPanel = styled.div`
     -4px -4px 8px rgba(255, 255, 255, 0.15);
   background-color: white;
   margin: 3rem;
-  padding: 0.5rem;
+  padding: 0.2rem;
 
   /* Media Queries: Tablet */
   @media screen and (min-width: 768px) {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   /* Media Queries: Desktop */
   @media screen and (min-width: 1060px) {
     margin: 8rem;
-    padding: 6rem;
+    padding: 3rem;
   }
+`;
+export const MainRow = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const SecPanel = styled.div`
@@ -49,6 +53,14 @@ export const RowChoose = styled.div`
 `;
 
 export const RowSelect = styled.div`
+  display: flex;
+  padding: 0.15rem;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+`;
+
+export const RowSearch = styled.div`
   display: flex;
   padding: 0.15rem;
   justify-content: center;

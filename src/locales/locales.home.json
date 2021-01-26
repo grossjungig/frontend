@@ -28,8 +28,8 @@
     "de": "Angebote"
   },
   "requests": {
-    "en": "Requests",
-    "de": "Anfrage"
+    "en": "People",
+    "de": "Leute"
   },
   "choose": {
     "en": "Choose One",
@@ -38,5 +38,13 @@
   "search": {
     "en": "Search",
     "de": "Suche"
+  },
+  "why": {
+    "en": "Why should You use Großjungig?",
+    "de": "Warum müssen Sie Grossjungig Benutzen?"
+  },
+  "how": {
+    "en": "How does it work?",
+    "de": "Wie funktioniert es?"
   }
 }
