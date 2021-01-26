@@ -46,5 +46,38 @@
   "how": {
     "en": "How does it work?",
     "de": "Wie funktioniert es?"
+  },
+  "find": {
+    "en": "Find your",
+    "de": "Finde deine"
+  },
+  "second": {
+    "en": "second",
+    "de": "zweite"
+  },
+  "grand": {
+    "en": "grand family",
+    "de": "große Familie"
+  },
+  "about": {
+    "en": "About",
+    "de": "Über uns"
+  },
+  "community": {
+    "en": "Community",
+    "de": "Gemeinschaft"
+  },
+  "mission_1": {
+    "en": "Grossjungig is reinventing intergenerational co-living in big cities by bringing seniors and youth together.",
+    "de": "Großjungig AI erfindet das generationenübergreifende Zusammenleben in Großstädten neu."
+  },
+  "mission_2": {
+    "en": "We make the world more connected and promote social cohesion.",
+    "de": "Indem wir Senioren und junge Menschen zusammenbringen, machen wir die Welt verbundener und fördern den sozialen Zusammenhalt."
+  },
+  "contact": {
+    "en": "Contact",
+    "de": "Kontakt"
   }
+
 }

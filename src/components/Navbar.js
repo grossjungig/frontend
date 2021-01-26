@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import navbarLocales from "../locales/locales.navbar.json";
+import homeLocales from "../locales/locales.home.json";
 //import Logo from "./Logo";
 import { PrimaryButton, Button, NavbarLink } from "./styled";
 
@@ -13,7 +14,7 @@ const imageChange = (updatePage, setImage) => {
     setImage("/image/english.png");
     localStorage.setItem("lang", "de");
   } else if (lang === "de") {
-    setImage("/image/germany.png");
+    setImage("/image/german.png");
     localStorage.setItem("lang", "en");
   }
   updatePage();
@@ -21,7 +22,7 @@ const imageChange = (updatePage, setImage) => {
 };
 
 const Navbar = (props) => {
-  const [img, setImage] = useState("/image/germany.png");
+  const [img, setImage] = useState("/image/german.png");
 
   // TODO:refactor this and get rid of update page (we will refactor to global state)
   const logout = (e) => {
@@ -54,10 +55,16 @@ const Navbar = (props) => {
         </Link>
         <div className="main-nav">
           <div className="navbarlink">
-            <NavbarLink href="/#about"> About </NavbarLink>
-            <NavbarLink href="/#how-it-works">How does it work? </NavbarLink>
-            <NavbarLink href="/#community">Community</NavbarLink>
-            <NavbarLink href="/#contact">Contact</NavbarLink>
+            <NavbarLink href="/#about">{homeLocales.about[lang]}</NavbarLink>
+            <NavbarLink href="/#how-it-works">
+              {homeLocales.how[lang]}
+            </NavbarLink>
+            <NavbarLink href="/#community">
+              {homeLocales.community[lang]}
+            </NavbarLink>
+            <NavbarLink href="/#contact">
+              {homeLocales.contact[lang]}
+            </NavbarLink>
           </div>
         </div>
         {props.user ? (

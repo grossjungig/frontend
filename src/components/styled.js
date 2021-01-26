@@ -186,22 +186,20 @@ const Card2Root = styled.div`
 
 const Card2Title = styled.div`
   font-style: normal;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 24px;
-  line-height: 28px;
+  line-height: 2.7425rem;
   display: flex;
   align-items: center;
   text-align: center;
   border: 2px solid;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background-color: black;
+  background-color: #365da7;
   /* white */
   color: #f9f8f8;
   /* neun */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15),
-    -2px -2px 8px rgba(255, 255, 255, 0.15);
   margin-left: auto;
   margin-right: auto;
 `;

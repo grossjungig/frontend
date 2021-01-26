@@ -56,7 +56,7 @@ const Root = styled.div`
   padding-bottom: 5rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  background-color: darkblue;
+  background-color: #365da7;
   color: white;
   /*Media queries Desktop*/
   @media (min-width: 1060px) {

@@ -14,3 +14,39 @@ export const h1CSS = css`
 export const H1 = styled.h1`
   ${h1CSS}
 `;
+
+export const h2CSS = css`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #202020;
+  @media screen and (min-width: 1060px) {
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2.04125rem;
+  }
+`;
+
+export const H2 = styled.h2`
+  ${h2CSS}
+`;
+
+export const h4CSS = css`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 250;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #202020;
+  @media screen and (min-width: 1060px) {
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.37125rem;
+  }
+`;
+
+export const H4 = styled.h4`
+  ${h4CSS}
+`;
