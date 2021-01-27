@@ -23,7 +23,7 @@ export const h2CSS = css`
   line-height: 2rem;
   color: #202020;
   @media screen and (min-width: 1060px) {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.5rem;
     line-height: 2.04125rem;
   }
@@ -49,4 +49,22 @@ export const h4CSS = css`
 
 export const H4 = styled.h4`
   ${h4CSS}
+`;
+
+export const h3CSS = css`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  color: #202020;
+  @media screen and (min-width: 1060px) {
+    font-weight: 300;
+    font-size: 2.25rem;
+    line-height: 2.7425rem;
+  }
+`;
+
+export const H3 = styled.h3`
+  ${h3CSS}
 `;

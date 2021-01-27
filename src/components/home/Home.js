@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import homeLocales from "../../locales/locales.home.json";
 import "./home.css";
-import { H1, H2, H4 } from "../typography";
+import { H1, H2, H3, H4 } from "../typography";
 import {
   Button,
   SecButton,
@@ -64,32 +64,19 @@ class Home extends Component {
           </MainPanel>
         </div>
         <Mission id="about">
-          <h2 style={{ color: "#202020", fontWeight: "500" }}>
+          <H3 style={{ textAlign: "center" }}>
             {homeLocales.mission_1[lang]} <br /> {homeLocales.mission_2[lang]}
-          </h2>
+          </H3>
         </Mission>
         <Why>
-          <h3 style={{ fontSize: "25px", color: "black", textAlign: "center" }}>
-            {homeLocales.why[lang]}
-          </h3>
+          <H2 style={{ textAlign: "center" }}>{homeLocales.why[lang]}</H2>
           <div className="why-use">
             {cards.map(({ title, text, image }, index) => (
               <Card key={index} title={title} text={text} image={image} />
             ))}
           </div>
         </Why>
-        <h3
-          id="how-it-works"
-          style={{
-            margin: "1.5rem",
-
-            fontSize: "25px",
-            color: "black",
-            textAlign: "center",
-          }}
-        >
-          {homeLocales.how[lang]}
-        </h3>
+        <H2 style={{ textAlign: "center" }}>{homeLocales.how[lang]}</H2>
         <HowGrid>
           {howCards.map(({ title, image, text }, index) => (
             <Card2 key={index} title={title} text={text} image={image} />
@@ -99,29 +86,18 @@ class Home extends Component {
           <Card3 text={card3[0].text} source={card3[0].source} />
         </SecPanel>
         <CommunityPanel id="community">
-          <p>{homeLocales.community[lang]}</p>
+          <H2 style={{ textAlign: "center" }}>{homeLocales.community[lang]}</H2>
           <img
             src="/image/community-group.png"
             alt="community"
             style={{ width: "100%", height: "auto" }}
           />
         </CommunityPanel>
-        <h3
-          id="how-it-works"
-          style={{
-            margin: "1.5rem",
-
-            fontSize: "25px",
-            color: "black",
-            textAlign: "center",
-          }}
-        >
-          {homeLocales.contact[lang]}
-        </h3>
+        <H2 style={{ textAlign: "center" }}>{homeLocales.contact[lang]}</H2>
         <ContactPanel>
           <ContactInfo>
             <H2 style={{ textAlign: "center" }}>
-              Grossjungig AI <br />
+              Großjungig AI <br />
               cares about our community
             </H2>
             <H4 style={{ textAlign: "center" }}>

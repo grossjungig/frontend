@@ -10,18 +10,17 @@ const Footer = () => {
         <p>12247 Berlin</p>
       </ContactPanel> */}
       <MainPanel>
-        <Row>
+        {/* <Row>
           <FooterLink> About </FooterLink>
           <FooterLink>How does it work </FooterLink>
           <FooterLink>Newsletter </FooterLink>
           <FooterLink>Community</FooterLink>
-        </Row>
+        </Row> */}
         <Row>
           <FooterLinkSmall>Company</FooterLinkSmall>
-          <FooterLinkSmall>Privacy Policy</FooterLinkSmall>
-          <FooterLinkSmall>Cookies</FooterLinkSmall>
-          <FooterLinkSmall>Policy </FooterLinkSmall>
+          <FooterLinkSmall>Contact</FooterLinkSmall>
           <FooterLinkSmall>FAQ</FooterLinkSmall>
+          <FooterLinkSmall>Privacy Policy</FooterLinkSmall>
         </Row>
         {/* <Row>
           <SocialPanel>
@@ -31,7 +30,13 @@ const Footer = () => {
           </SocialPanel>
         </Row> */}
         <Row>
-          <FooterBig>Großjungig AI</FooterBig>
+          <FooterBig>
+            <img
+              style={{ height: "34px" }}
+              src="/image/Frame.png"
+              alt="logo_image"
+            />
+          </FooterBig>
         </Row>
         <Row>
           <FooterSmall>COPYRIGHT</FooterSmall>
@@ -63,24 +68,12 @@ const Root = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding: 3rem;
+    padding: 2rem 0.5rem;
     color: white;
     margin-left: auto;
     margin-right: auto;
   }
 `;
-
-// const ContactPanel = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   padding-right: 3rem;
-//   padding-left: 3rem;
-//   p {
-//     text-align: left;
-//     margin: 0;
-//   }
-// `;
 
 const MainPanel = styled.div`
   display: flex;
@@ -115,23 +108,28 @@ const Row = styled.div`
 //   padding-top: 1rem;
 // `;
 
-const FooterLink = styled.a`
-  text-decoration: none;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  color: #f9f8f8;
-  padding: 0.25rem 0.25rem;
-`;
+// const FooterLink = styled.a`
+//   text-decoration: none;
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 16px;
+//   color: #f9f8f8;
+//   padding: 0.25rem 0.25rem;
+// `;
 
 const FooterLinkSmall = styled.a`
+  display: flex;
+  justify-content: space-around;
+  font-family: "Montserrat";
   text-decoration: none;
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 16px;
+  line-height: 23.7px;
   color: #f9f8f8;
   padding: 0.25rem 0.2rem;
-  text-transform: uppercase;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 `;
 
 const FooterBig = styled.p`
