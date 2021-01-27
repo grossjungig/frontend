@@ -31,7 +31,7 @@ export default class ResetPassword extends Component {
     } = this.props;
     try {
       const response = await axios.get(
-        "http://localhost:5555/resetPassword/reset",
+        `${process.env.REACT_APP_BACKENDURL}resetPassword/reset`,
         {
           params: {
             resetPasswordToken: token,
@@ -73,7 +73,7 @@ export default class ResetPassword extends Component {
     } = this.props;
     try {
       const response = await axios.put(
-        "http://localhost:5555/updatePassword/updatePasswordViaEmail",
+        `${process.env.REACT_APP_BACKENDURL}updatePassword/updatePasswordViaEmail`,
         {
           email,
           password,
