@@ -78,8 +78,8 @@ class Home extends Component {
         </Why>
         <H2 style={{ textAlign: "center" }}>{homeLocales.how[lang]}</H2>
         <HowGrid>
-          {howCards.map(({ title, image, text }, index) => (
-            <Card2 key={index} title={title} text={text} image={image} />
+          {howCards.map(({ title, text }, index) => (
+            <Card2 key={index} title={title} text={text} />
           ))}
         </HowGrid>
         <SecPanel>
