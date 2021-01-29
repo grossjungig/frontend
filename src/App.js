@@ -15,6 +15,7 @@ import UploadPhotos from "./components/UploadPhotos";
 import Details from "./components/Details";
 import MapView from "./components/MapView";
 import ForgotPassword from "./components/forgotpassword/ForgotPassword";
+import ResetPassword from "./components/resetpassword/ResetPassword";
 
 const theme = {
   main: "#ed8707",
@@ -88,6 +89,7 @@ class App extends React.Component {
           <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
           <Route exact path="/maps" component={MapView} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />
+          <Route exact path="/reset/:token" component={ResetPassword} />
         </ThemeProvider>
         <Footer className="footer-stick" />
       </div>
