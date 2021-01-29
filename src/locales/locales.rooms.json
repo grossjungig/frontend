@@ -1,23 +1,23 @@
 {
   "title": {
-    "en": "Rooms",
-    "de": "Zimmer"
+    "en": "Flatshare in",
+    "de": "WG-Zimmer in"
   },
   "neighborhood": {
     "en": "District",
     "de": "Bezirk"
   },
   "add": {
-    "en": "Add New Room",
-    "de": "Neue Zimmer hinzufügen"
+    "en": "Add new room",
+    "de": "Neues Zimmer hinzufügen"
   },
   "search": {
-    "en": "Search Room by Postcode",
-    "de": "Zimmer sortieren beim Postleitzahl"
+    "en": "Search by postcode",
+    "de": "Suchen nach Postleitzahl"
   },
   "placeholder": {
-    "en": "Search by Postcode",
-    "de": "Zimmer beim Postleitzahl"
+    "en": "Postcode",
+    "de": "Postleitzahl"
   },
 
   "suburb": {
@@ -28,5 +28,13 @@
   "name": {
     "en": "Room",
     "de": "Zimmer"
+  },
+  "offers": {
+    "en":"offers",
+    "de": "Angebote"
+  },
+  "max-price": {
+    "en":"max. Price",
+    "de": "max. Preis"
   }
 }

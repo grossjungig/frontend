@@ -91,7 +91,7 @@ class App extends React.Component {
           <Route exact path="/forgotPassword" component={ForgotPassword} />
           <Route exact path="/reset/:token" component={ResetPassword} />
         </ThemeProvider>
-        <Footer />
+        <Footer className="footer-stick" />
       </div>
     );
   }
