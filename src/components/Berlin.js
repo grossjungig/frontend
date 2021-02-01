@@ -73,7 +73,7 @@ class Berlin extends Component {
       return (
         <div className="room-preview" key={el._id}>
           <Link className="room-preview" to={`/berlin/${el._id}`}>
-            <img src={"../../image/icon-home-8.jpg"}></img>
+            <img src={"../../image/icon-home-8.jpg" alt="room image"}></img>
             <div className="room-preview-info-container">
               <h3>{el.name}</h3>
               <p>
