@@ -71,19 +71,34 @@ class Home extends Component {
         <Why>
           <H2 style={{ textAlign: "center" }}>{homeLocales.why[lang]}</H2>
           <div className="why-use">
-            {cards.map(({ title, text, image }, index) => (
-              <Card key={index} title={title} text={text} image={image} />
-            ))}
+            <Card
+              title={homeLocales.card_1_titel[lang]}
+              text={homeLocales.card_1[lang]}
+              image="/image/community.png"
+            />
+            <Card
+              title={homeLocales.card_2_titel[lang]}
+              text={homeLocales.card_2[lang]}
+              image="/image/savings.png"
+            />
+            <Card
+              title={homeLocales.card_3_titel[lang]}
+              text={homeLocales.card_3[lang]}
+              image="/image/clarity.png"
+            />
           </div>
         </Why>
         <H2 style={{ textAlign: "center" }}>{homeLocales.how[lang]}</H2>
         <HowGrid>
-          {howCards.map(({ title, text }, index) => (
-            <Card2 key={index} title={title} text={text} />
-          ))}
+          <Card2 title="#1" text={homeLocales.step_1[lang]} />
+          <Card2 title="#2" text={homeLocales.step_2[lang]} />
+          <Card2 title="#3" text={homeLocales.step_3[lang]} />
+          <Card2 title="#4" text={homeLocales.step_4[lang]} />
+          <Card2 title="#5" text={homeLocales.step_5[lang]} />
+          <Card2 title="#6" text={homeLocales.step_6[lang]} />
         </HowGrid>
         <SecPanel>
-          <Card3 text={card3[0].text} source={card3[0].source} />
+          <Card3 text={homeLocales.opinion[lang]} source={card3[0].source} />
         </SecPanel>
         <CommunityPanel id="community">
           <H2 style={{ textAlign: "center" }}>{homeLocales.community[lang]}</H2>
