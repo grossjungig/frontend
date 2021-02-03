@@ -28,7 +28,7 @@ import {
   ContactInfo,
 } from "./styled";
 
-import { cards, card3, howCards } from "./cards";
+import { card3 } from "./cards";
 
 class Home extends Component {
   render() {
