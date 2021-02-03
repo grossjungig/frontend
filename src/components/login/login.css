@@ -1,6 +1,6 @@
 /* Login */
 
-.full-block {
+/* .full-block {
   display: flex;
   max-width: 35vw;
   margin-left: auto;
@@ -8,8 +8,28 @@
   border: 0.1rem solid lightgray;
   width: 40rem;
   height: 45rem;
-}
+} */
+
 .login {
+  margin: auto;
+  max-width: 90vw;
+}
+.login-styles {
+  display: block;
+}
+.login-styles label,
+input {
+  display: block;
+  margin-top: 1rem;
+  width: 90%;
+}
+.login-styles input {
+  padding: 0.6rem 0.6rem 0.6rem 0.3rem;
+  background-color: #f9f8f8;
+}
+
+.login {
+  display: block;
   height: 60vh;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -17,39 +37,35 @@
   margin-bottom: auto;
 }
 
-.login-form {
+/* .login-form {
   display: table-caption;
-}
+} */
 
-.login-form label {
+/* .login-form label {
   font-style: normal;
   font-weight: normal;
   font-size: 1rem;
   line-height: 1.1875rem;
-  /* identical to box height */
 
-  /* Gray 1 */
 
   color: #333333;
-  /* @media (max-width: 768px) {
-    font-size: 14px;
-  } */
-}
 
-.login-form input {
-  width: 15vw;
-  padding: 1vh;
+} */
+
+/* .login-form input {
+  padding: 1.5rem;
   margin: 1rem;
   background: #ffffff;
-  /* Gray 5 */
-
+  width: 80%;
   border: 1px solid #e0e0e0;
-  box-sizing: border-box;
-  border-radius: 8px;
-}
+  border-radius: 1px;
+} */
 
-.login-form button {
-  margin-top: 3vh;
+.login-styles button {
+  margin: auto;
+  /* margin-top: 3vh; */
+  margin: auto;
+  width: 50%;
   border: none;
   padding: 0.625rem;
   font-style: normal;

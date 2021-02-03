@@ -29,7 +29,7 @@
   },
   "requests": {
     "en": "People",
-    "de": "Leute"
+    "de": "Gesuche"
   },
   "choose": {
     "en": "Choose One",
@@ -41,7 +41,7 @@
   },
   "why": {
     "en": "Why should You use Großjungig?",
-    "de": "Warum müssen Sie Grossjungig Benutzen?"
+    "de": "Warum sollten Sie Großjungig nutzen?"
   },
   "how": {
     "en": "How does it work?",
@@ -53,11 +53,11 @@
   },
   "second": {
     "en": "second",
-    "de": "zweite"
+    "de": "neue"
   },
   "grand": {
     "en": "grand family",
-    "de": "große Familie"
+    "de": "Familie"
   },
   "about": {
     "en": "About",
@@ -75,9 +75,77 @@
     "en": "We make the world more connected and promote social cohesion.",
     "de": "Indem wir Senioren und junge Menschen zusammenbringen, machen wir die Welt verbundener und fördern den sozialen Zusammenhalt."
   },
+"card_1_titel":{
+"en":"#1:COMMUNITY",
+"de":"#1:GEMEINSCHAFT"
+},
+"card_2_titel":{
+  "en":"#2:SAVINGS",
+  "de":"#2:ERSPARNISSE"
+},
+"card_3_titel":{
+  "en":"#3:CLARITY",
+  "de":"#3:TRANSPARENZ"
+},
+"card_1":{
+  "en":"We provide a solution for two social problems: loneliness and lack of affordable housing in big cities.",
+  "de":"Wir bieten eine Lösung für zwei soziale Probleme: Einsamkeit und Mangel an bezahlbaren Unterkünften in Großstädten."
+},
+"card_2":{
+  "en":      "Seniors support youth with advice and get rent. Youth save, up to 20% vs. market price, on rent and support seniors by helping with chores and keeping them company.",
+  
+  "de":"Ältere Menschen unterstützen junge Leute mit Rat und bekommen Geld für die Miete. Junge Menschen sparen bis zu 20% gegenüber dem Marktpreis bei der Miete und unterstützen Senioren, indem sie bei der Hausarbeit helfen und ihnen Gesellschaft leisten."
+},
+"card_3":{
+  "en":      "Flexible and bespoke terms - the best solution for everyone. No more huge shared apartments, no more living alone in big family apartments!",
+  
+  "de":"Flexible und maßgeschneiderte Bedingungen - die beste Lösung für alle. Keine riesigen Wohngemeinschaften mehr, kein Alleinleben mehr in großen Familienwohnungen!"
+},
   "contact": {
     "en": "Contact",
     "de": "Kontakt"
+  },
+  "step_1":{
+    "en":      "Seniors — create a profile with 5 clicks, select your roommate preferences, tell us about your room and post pictures.",
+    
+    "de":"Senioren – Erstellen Sie ein Profil in 5 Klicks, wählen Sie Ihre Mitbewohnerpräferenzen aus, Erzählen Sie uns von Ihrem Zimmer und veröffentlichen Sie passende Fotos. "
+  },
+  "step_2":{
+    "en":      "Youth —  create a profile with 5 clicks, select your roommate preferences, look for a room on the map.",
+    
+    "de":"Junge Menschen: Erstellen Sie ein Profil mit 5 Klicks, wählen Sie ihre Zimmer- und Mitbewohnerpräferenzen aus und starten Sie mit der Suche."
+  },
+  "step_3":{
+    "en":      "If you are interested in a certain room / roommate, please contact us at info@grossjungig.de. We will process your request and get back to you with more information.",
+    
+    "de":"Wenn Sie an einem bestimmten Zimmer/Mitbewohner interessiert sind, kontaktieren Sie uns bitte unter info@grossjungig.de. Wir werden Ihre Anfrage bearbeiten und melden uns mit Details bei Ihnen."
+  },
+  "step_4":{
+    "en":      "After we introduce you to each other and you decide on the test period, we will help you to sign the rental agreement and to extend it after the test period.",
+    
+    "de":"Nach dem wir Sie einander vorstellen und Sie sich für die Testperiode entscheiden, helfen wir Ihnen, den Mietvertrag zu unterschreiben sowie ihn nach der Testperiode zu verlängern. "
+  },
+  "step_5":{
+    "en":      "Seniors: Receive secure payment for your room. The money goes straight to your account.",
+
+    "de":"Senioren: Erhalten Sie eine sichere Bezahlung für Ihr Zimmer. Das Geld geht direkt auf Ihr Konto. "
+  },
+  "step_6":{
+    "en":      "Young people: If you would like to contact a particular senior person, please send us a message to info@grossjungig.de.",
+
+    "de":"Junge Menschen: Wenn Sie diese Person [Welche Person?] kontakieren möchten, senden Sie uns bitte eine Nachricht an info@grossjungig.de"
+  },
+  "opinion":{
+    "en":      "We’ve learnt so much from each other.It’s nice to have someone to talk to.",
+    "de":"Wir haben so viel von einander gelernt! Es ist schön, mit jemanden Zuhause reden zu dürfen."
+  },
+  "contact_us":{
+    "en":"If you have questions we are happy to answer them!",
+    "de":"Bei Fragen stehen wir Ihnen gerne zur Verfügung! "
+  },
+  "care":{
+    "en":"cares about our community",
+    "de":"kümmert sich um unsere Gesellschaft"
   }
 
 }
