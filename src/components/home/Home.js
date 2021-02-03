@@ -113,10 +113,10 @@ class Home extends Component {
           <ContactInfo>
             <H2 style={{ textAlign: "center" }}>
               Großjungig AI <br />
-              cares about our community
+              {homeLocales.care[lang]}
             </H2>
             <H4 style={{ textAlign: "center" }}>
-              If you have questions we are happy to answer them!
+              {homeLocales.contact_us[lang]}{" "}
             </H4>
           </ContactInfo>
           <ContactRow>

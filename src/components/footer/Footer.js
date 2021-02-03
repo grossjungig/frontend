@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import footerLocales from "../../locales/locales.footer.json";
 
 const Footer = () => {
+  const lang = localStorage.getItem("lang");
+  console.log(lang);
+  console.log(footerLocales);
   return (
     <Root>
       {/* <ContactPanel>
@@ -17,10 +21,10 @@ const Footer = () => {
           <FooterLink>Community</FooterLink>
         </Row> */}
         <Row>
-          <FooterLinkSmall>Company</FooterLinkSmall>
-          <FooterLinkSmall>Contact</FooterLinkSmall>
+          <FooterLinkSmall>{footerLocales.company[lang]}</FooterLinkSmall>
+          <FooterLinkSmall>{footerLocales.contact[lang]}</FooterLinkSmall>
           <FooterLinkSmall>FAQ</FooterLinkSmall>
-          <FooterLinkSmall>Privacy Policy</FooterLinkSmall>
+          <FooterLinkSmall>{footerLocales.privacy[lang]}</FooterLinkSmall>
         </Row>
         {/* <Row>
           <SocialPanel>
