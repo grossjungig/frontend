@@ -43,7 +43,7 @@ class Login extends Component {
     }
     return (
       <div className="full-block">
-        <div className="side-view">
+        <div className="x">
           {/* <img src="../image/signup.png" alt="login-side-view" /> */}
         </div>
         <div className="login">
@@ -68,9 +68,9 @@ class Login extends Component {
               onChange={this.setFormState}
             />
             <h5>
-              Don’t remember your password?{" "}
+              {loginLocales.forgot[lang]}{" "}
               <Link to="/forgotPassword" style={{ textDecoration: "none" }}>
-                Click here
+                {loginLocales.click[lang]}
               </Link>
             </h5>
             <button id="login-submit-button" type="submit">

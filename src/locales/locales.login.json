@@ -26,5 +26,13 @@
   "login": {
     "en": "Login",
     "de": "Weiter"
+  },
+  "forgot":{
+    "en":"Don’t remember your password?",
+    "de":"Passwort vergessen?"
+  },
+  "click":{
+    "en":"Click here",
+    "de":"Hier klicken"
   }
 }
