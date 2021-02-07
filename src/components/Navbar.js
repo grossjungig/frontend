@@ -43,6 +43,7 @@ const Navbar = (props) => {
         position: "sticky",
         top: "0px",
         background: "white",
+        zIndex: 2,
       }}
     >
       <nav>

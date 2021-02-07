@@ -26,11 +26,15 @@ input {
   padding: 0.6rem 0.6rem 0.6rem 0.3rem;
   margin: 0.6rem;
 }
+#role-select {
+  margin: 0.8rem 0 0 0;
+}
 
 .login-styles button {
   width: 50%;
   margin-left: 25%;
   margin-right: 25%;
+  margin-top: 0.8rem;
 }
 .warning {
   color: red;

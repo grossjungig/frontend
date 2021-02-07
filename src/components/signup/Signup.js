@@ -107,7 +107,9 @@ class Signup extends Component {
               value={this.state.password}
               onChange={this.setFormState}
             />
-            <InputLabel htmlFor="role">{signupLocales.role[lang]}</InputLabel>
+            <InputLabel id="role-select" htmlFor="role">
+              {signupLocales.role[lang]}
+            </InputLabel>
 
             <Select
               name="role"
@@ -133,7 +135,6 @@ class Signup extends Component {
             {this.state.message && <p>{this.state.message}</p>}
           </p>
         </div>
-        <div></div>
       </div>
     );
   }
