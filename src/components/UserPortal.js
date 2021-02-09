@@ -5,17 +5,30 @@ import portalLocales from "../locales/locales.portal.json";
 
 class UserPortal extends Component {
   state = {
-    name: "",
+    user: [],
   };
+  componentDidMount() {
+    this._isMounted = true;
+    if (this._isMounted) {
+      this.setState({
+        user: this.props.user,
+      });
+      console.log("user in portal", this.state.user);
+    }
+  }
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
   render() {
     const lang = localStorage.getItem("lang");
-    console.log("USER", this.props.user);
+    console.log("USER profile", this.state.user.profile);
+    console.log("name", this.state.user.name);
 
     return (
       <div className="portal-container">
         <h1>
-          {portalLocales.greeting[lang]} {this.props.user.name}!
+          {portalLocales.greeting[lang]} {this.state.user.name}!
         </h1>
         <article>{portalLocales.article[lang]}</article>
         <p></p>
@@ -26,12 +39,26 @@ class UserPortal extends Component {
           <button>{portalLocales.map[lang]}</button>
         </Link>
         <Link to="/addroom">
-          {this.props.user.role === "senior" ? (
+          {this.state.user.role === "senior" ? (
             <button id="create-room-button" type="submit">
               {portalLocales.add[lang]}
             </button>
           ) : null}
         </Link>
+        {this.state.user.profile === undefined ? (
+          <Link to="/addprofile">
+            <button id="create-room-button" type="submit">
+              Add Profile
+            </button>
+          </Link>
+        ) : (
+          <Link to="/profile">
+            <button id="create-room-button" type="submit">
+              View/Edit Profile
+            </button>
+          </Link>
+        )}
+        <button>Check Requests</button>
       </div>
     );
   }

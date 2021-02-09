@@ -18,5 +18,9 @@
   "map": {
     "en": "View City Map",
     "de": "Stadtkarte anschauen"
+  },
+  "profile": {
+    "en": "Add Profile",
+    "de": "Profil hinzufügen"
   }
 }

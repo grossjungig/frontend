@@ -15,6 +15,10 @@ import UploadPhotos from "./components/UploadPhotos";
 import Details from "./components/Details";
 import MapView from "./components/MapView";
 import ForgotPassword from "./components/forgotpassword/ForgotPassword";
+import Profile from "./components/Profile";
+import AddProfile from "./components/AddProfile";
+import People from "./components/People";
+import EditProfile from "./components/EditProfile";
 
 const theme = {
   main: "#ed8707",
@@ -36,17 +40,28 @@ class App extends React.Component {
   };
 
   render() {
-    //console.log("APP", this.state.user);
+    console.log("APP", this.state.user);
     return (
       <div className="App">
         <ThemeProvider theme={theme}>
           <Navbar
             setUser={this.setUser}
             user={this.state.user}
+            history={this.props.history}
             updatePage={this.updatePage}
             //This means exporting "updatePage" to Navbar
           />
-          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <Home
+                history={props.history}
+                user={this.state.user}
+                setUser={this.setUser}
+              />
+            )}
+          />
           <Route
             exact
             path="/signup"
@@ -65,6 +80,7 @@ class App extends React.Component {
               <Login history={props.history} setUser={this.setUser} />
             )}
           />
+
           <Route
             exact
             path="/userportal"
@@ -77,6 +93,11 @@ class App extends React.Component {
           />
           <Route
             exact
+            path="/people"
+            render={(props) => <People {...props} user={this.state.user} />}
+          />
+          <Route
+            exact
             path="/berlin/:id"
             render={(props) => <Details {...props} user={this.state.user} />}
           />
@@ -85,9 +106,40 @@ class App extends React.Component {
             path="/addRoom"
             render={(props) => <AddRoom {...props} user={this.state.user} />}
           />
+
+          {/* Editing profile is in Progress */}
+          {/* <Route
+            exact
+            path="/edit/:id"
+            render={(props) => (
+              <EditProfile history={props.history} user={this.state.user} />
+            )}
+          /> */}
+
           <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
           <Route exact path="/maps" component={MapView} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />
+          {/* <Route
+            exact
+            path="/profiles"
+            render={(props) => <Profile {...props} user={this.state.user} />}
+          /> */}
+          <Route
+            exact
+            path="/addProfile"
+            render={(props) => <AddProfile {...props} user={this.state.user} />}
+          />
+          <Route
+            exact
+            path="/profile"
+            render={(props) => (
+              <Profile
+                history={props.history}
+                {...props}
+                user={this.state.user}
+              />
+            )}
+          />
         </ThemeProvider>
         <Footer />
       </div>
