@@ -19,6 +19,7 @@ import Profile from "./components/Profile";
 import AddProfile from "./components/AddProfile";
 import People from "./components/People";
 import EditProfile from "./components/EditProfile";
+import ResetPassword from "./components/resetpassword/ResetPassword";
 
 const theme = {
   main: "#ed8707",
@@ -140,8 +141,9 @@ class App extends React.Component {
               />
             )}
           />
+          <Route exact path="/reset/:token" component={ResetPassword} />
         </ThemeProvider>
-        <Footer />
+        <Footer className="footer-stick" />
       </div>
     );
   }

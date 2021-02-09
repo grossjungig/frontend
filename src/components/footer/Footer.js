@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import footerLocales from "../../locales/locales.footer.json";
 
 const Footer = () => {
+  const lang = localStorage.getItem("lang");
+  console.log(lang);
+  console.log(footerLocales);
   return (
     <Root>
       {/* <ContactPanel>
@@ -10,20 +14,33 @@ const Footer = () => {
         <p>12247 Berlin</p>
       </ContactPanel> */}
       <MainPanel>
-        <Row>
+        {/* <Row>
           <FooterLink> About </FooterLink>
           <FooterLink>How does it work </FooterLink>
           <FooterLink>Newsletter </FooterLink>
           <FooterLink>Community</FooterLink>
-        </Row>
+        </Row> */}
         <Row>
-          <FooterLinkSmall>Privacy Policy</FooterLinkSmall>
-          <FooterLinkSmall>Cookies</FooterLinkSmall>
-          <FooterLinkSmall>Policy </FooterLinkSmall>
+          <FooterLinkSmall>{footerLocales.company[lang]}</FooterLinkSmall>
+          <FooterLinkSmall>{footerLocales.contact[lang]}</FooterLinkSmall>
           <FooterLinkSmall>FAQ</FooterLinkSmall>
+          <FooterLinkSmall>{footerLocales.privacy[lang]}</FooterLinkSmall>
         </Row>
+        {/* <Row>
+          <SocialPanel>
+            <img src="../image/facebook.png" alt="facebook" />
+            <img src="../image/instagram.png" alt="instagram" />
+            <img src="../image/Twitter.png" alt="twitter" />
+          </SocialPanel>
+        </Row> */}
         <Row>
-          <FooterBig>Großjungig AI</FooterBig>
+          <FooterBig>
+            <img
+              style={{ height: "34px" }}
+              src="/image/Frame.png"
+              alt="logo_image"
+            />
+          </FooterBig>
         </Row>
         <Row>
           <FooterSmall>COPYRIGHT</FooterSmall>
@@ -31,13 +48,6 @@ const Footer = () => {
           <FooterSmall>2020 Grossjungig AI</FooterSmall>
         </Row>
       </MainPanel>
-      <SocialPanel>
-        <Row>
-          <img src="../image/facebook.png" alt="facebook" />
-          <img src="../image/instagram.png" alt="instagram" />
-          <img src="../image/Twitter.png" alt="twitter" />
-        </Row>
-      </SocialPanel>
     </Root>
   );
 };
@@ -49,33 +59,25 @@ const Root = styled.div`
   flex-basis: 100%;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 0.5rem;
-  background-color: black;
+  /* width: 375px;
+  height: 200px; */
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: #365da7;
   color: white;
-  /*Media quries Destop*/
+  /*Media queries Desktop*/
   @media (min-width: 1060px) {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding: 3rem;
-    background-color: black;
+    padding: 2rem 0.5rem;
     color: white;
     margin-left: auto;
     margin-right: auto;
   }
 `;
-
-// const ContactPanel = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   padding-right: 3rem;
-//   padding-left: 3rem;
-//   p {
-//     text-align: left;
-//     margin: 0;
-//   }
-// `;
 
 const MainPanel = styled.div`
   display: flex;
@@ -84,7 +86,7 @@ const MainPanel = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
-  /*Media quries Destop*/
+  /*Media quries Desktop*/
   @media (min-width: 1060px) {
     display: flex;
     flex-direction: column;
@@ -102,30 +104,36 @@ const Row = styled.div`
   align-items: center;
 `;
 
-const SocialPanel = styled.div`
-  display: flex;
-  justify-content: center;
-  padding-right: 3rem;
-  padding-left: 3rem;
-`;
+// const SocialPanel = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   padding-right: 3rem;
+//   padding-left: 3rem;
+//   padding-top: 1rem;
+// `;
 
-const FooterLink = styled.a`
-  text-decoration: none;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  color: #f9f8f8;
-  padding: 0.25rem 0.2rem;
-`;
+// const FooterLink = styled.a`
+//   text-decoration: none;
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 16px;
+//   color: #f9f8f8;
+//   padding: 0.25rem 0.25rem;
+// `;
 
 const FooterLinkSmall = styled.a`
+  display: flex;
+  justify-content: space-around;
+  font-family: "Montserrat";
   text-decoration: none;
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 16px;
+  line-height: 23.7px;
   color: #f9f8f8;
   padding: 0.25rem 0.2rem;
-  text-transform: uppercase;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 `;
 
 const FooterBig = styled.p`

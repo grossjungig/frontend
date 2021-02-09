@@ -1,0 +1,14 @@
+{
+    "company":{
+        "en":"Company",
+        "de":"Unternehmen"
+    },
+    "contact":{
+        "en":"Contact",
+        "de":"Kontakt"
+    },
+    "privacy":{
+        "en":"Privacy Policy",
+        "de":"Datenschutz"
+    }
+}

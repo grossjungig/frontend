@@ -38,7 +38,7 @@ function MyComponent() {
   return (
     <div style={{ minHeight: "60vh" }}>
       {coordinates.length ? (
-        <LoadScript googleMapsApiKey={process.env.REACT_APP_MY_MAP_API_KEY}>
+        <LoadScript googleMapsApiKey={process.env.REACT_APP_MY_MAP_API_KEY_NEW}>
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}

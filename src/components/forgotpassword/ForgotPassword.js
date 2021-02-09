@@ -16,7 +16,7 @@ class ForgotPassword extends Component {
     this.state = {
       email: "",
       showError: false,
-      messageFromServer: "",
+      isEmailSent: false,
     };
   }
 
@@ -26,44 +26,42 @@ class ForgotPassword extends Component {
     });
   };
 
-  sendEmail = (e) => {
+  sendEmail = async (e) => {
     e.preventDefault();
     if (this.state.email === "") {
       this.setState({
-        showError: false,
-        messageFromServer: "",
+        showError: true,
+        errorMessage: "Email cannot be empty.",
       });
     } else {
       console.log(this.state.email);
-      axios
-        .post(`${process.env.REACT_APP_BACKENDURL}api/auth/forgotPassword`, {
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKENDURL}api/auth/forgotPassword`,
+        {
           email: this.state.email,
-        })
-        .then((response) => {
-          console.log(response.data);
-          if (
-            response.data === "Error while authorizing" ||
-            response.data === "Error while logging in"
-          ) {
-            this.setState({
-              showError: true,
-              messageFromServer: "",
-            });
-          } else if (response.data === "email sent") {
-            this.setState({
-              showError: false,
-              messageFromServer: "email sent",
-            });
-          }
-        })
-        .catch((error) => {
-          console.log(error);
+        }
+      );
+
+      console.log(response.data, "data");
+
+      if (!response.data.success) {
+        // an error has occured
+        this.setState({
+          showError: true,
+          isEmailSent: false,
+          errorMessage: "An error has ocurred.",
         });
+      } else if (response.data.success) {
+        this.setState({
+          showError: false,
+          isEmailSent: true,
+        });
+      }
     }
   };
 
   render() {
-    const { email, messageFromServer, showNullError } = this.state;
+    const { email, isEmailSent, showError, errorMessage } = this.state;
     const lang = localStorage.getItem("lang");
     return (
       <div className="full-block">
@@ -75,33 +73,32 @@ class ForgotPassword extends Component {
           <h1>{forgotLocales.grossjungig[lang]}</h1>
           <h3>{forgotLocales.prompt[lang]}</h3>
           <div className="profile-form">
-            <form onSubmit={this.sendEmail}>
-              <label htmlFor="email">{loginLocales.email[lang]}</label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                value={email}
-                onChange={this.handleChange("email")}
-              />
-              <button type="submit">{forgotLocales.submit[lang]}</button>
-            </form>
-            {showNullError && (
+            {isEmailSent ? (
               <div>
-                <p>The email address cannot be null.</p>
+                <h3>
+                  {" "}
+                  If the email is in our system the password reset email was
+                  Successfully Sent!
+                </h3>
               </div>
-            )}
-            {/* {showError && (
+            ) : (
               <div>
-                <p>
-                  The email address isn't recognized. Please try again or
-                  signup for a new account
-                </p>
-              </div>
-            )} */}
-            {messageFromServer === "email sent" && (
-              <div>
-                <h3>Password Reset Email Successfully Sent!</h3>
+                <form onSubmit={this.sendEmail}>
+                  <label htmlFor="email">{loginLocales.email[lang]}</label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={this.handleChange("email")}
+                  />
+                  {showError && (
+                    <div>
+                      <p>{errorMessage}</p>
+                    </div>
+                  )}
+                  <button type="submit">{forgotLocales.submit[lang]}</button>
+                </form>
               </div>
             )}
             <Link to="/">

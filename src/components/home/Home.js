@@ -2,29 +2,33 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import homeLocales from "../../locales/locales.home.json";
 import "./home.css";
-import { H1 } from "../typography";
+import { H1, H2, H3, H4 } from "../typography";
 import {
   Button,
   SecButton,
-  SearchField,
-  PrimaryButton,
+  SearchFieldLong,
+  PrimaryButtonLong,
   Card,
   Card2,
   Card3,
 } from "../styled";
 import {
   MainPanel,
+  MainRow,
   SecPanel,
   RowChoose,
   RowSelect,
+  RowSearch,
   Mission,
   Why,
   HowGrid,
   CommunityPanel,
   ContactPanel,
+  ContactRow,
+  ContactInfo,
 } from "./styled";
 
-import { cards, card3, howCards } from "./cards";
+import { card3 } from "./cards";
 
 class Home extends Component {
   render() {
@@ -34,78 +38,103 @@ class Home extends Component {
         <div className="home-component">
           <MainPanel>
             <H1 style={{ textAlign: "center" }}>
-              Find your second grand family
+              {homeLocales.find[lang]}
+              <br /> {homeLocales.second[lang]}
+              <br /> {homeLocales.grand[lang]}
             </H1>
-            <RowChoose>
-              {homeLocales.choose[lang]}:
-              <Link to="/berlin">
-                <Button label={homeLocales.offers[lang]}></Button>
-              </Link>
-              <Link to="/people">
-                <SecButton>{homeLocales.requests[lang]}</SecButton>
-              </Link>
-            </RowChoose>
-            <RowSelect>
-              <SearchField
-                placeholder={homeLocales.city[lang]}
-                input=""
-              ></SearchField>
-              <PrimaryButton>{homeLocales.search[lang]}</PrimaryButton>
-            </RowSelect>
+            <MainRow>
+              <RowChoose>
+                <Link to="/berlin">
+                  <Button label={homeLocales.offers[lang]}></Button>
+                </Link>
+                <Link to="/people">
+                  <SecButton>{homeLocales.requests[lang]}</SecButton>
+                </Link>
+              </RowChoose>
+              <RowSelect>
+                <SearchFieldLong
+                  placeholder={homeLocales.city[lang]}
+                  input=""
+                ></SearchFieldLong>
+              </RowSelect>
+              <RowSearch>
+                <PrimaryButtonLong>
+                  {homeLocales.search[lang]}
+                </PrimaryButtonLong>
+              </RowSearch>
+            </MainRow>
           </MainPanel>
         </div>
         <Mission id="about">
-          <h2 style={{ color: "#202020", fontWeight: "500" }}>
-            Grossjungig is reinventing intergenerational co-living in big cities
-            by bringing seniors and youth together. <br /> We make the world
-            more connected and promote social cohesion.
-          </h2>
+          <H3 style={{ textAlign: "center" }}>
+            {homeLocales.mission_1[lang]} <br /> {homeLocales.mission_2[lang]}
+          </H3>
         </Mission>
         <Why>
-          <h3 style={{ fontSize: "25px", color: "black", textAlign: "center" }}>
-            Why should You use Großjungig?
-          </h3>
+          <H2 style={{ textAlign: "center" }}>{homeLocales.why[lang]}</H2>
           <div className="why-use">
-            {cards.map(({ title, text, image }, index) => (
-              <Card key={index} title={title} text={text} image={image} />
-            ))}
+            <Card
+              title={homeLocales.card_1_titel[lang]}
+              text={homeLocales.card_1[lang]}
+              image="/image/community.png"
+            />
+            <Card
+              title={homeLocales.card_2_titel[lang]}
+              text={homeLocales.card_2[lang]}
+              image="/image/savings.png"
+            />
+            <Card
+              title={homeLocales.card_3_titel[lang]}
+              text={homeLocales.card_3[lang]}
+              image="/image/clarity.png"
+            />
           </div>
         </Why>
-        <h3
-          id="how-it-works"
-          style={{
-            margin: "1.5rem",
-
-            fontSize: "25px",
-            color: "black",
-            textAlign: "center",
-          }}
-        >
-          How does it work?
-        </h3>
+        <H2 style={{ textAlign: "center" }}>{homeLocales.how[lang]}</H2>
         <HowGrid>
-          {howCards.map(({ title, image, text }, index) => (
-            <Card2 key={index} title={title} text={text} image={image} />
-          ))}
+          <Card2 title="#1" text={homeLocales.step_1[lang]} />
+          <Card2 title="#2" text={homeLocales.step_2[lang]} />
+          <Card2 title="#3" text={homeLocales.step_3[lang]} />
+          <Card2 title="#4" text={homeLocales.step_4[lang]} />
+          <Card2 title="#5" text={homeLocales.step_5[lang]} />
+          <Card2 title="#6" text={homeLocales.step_6[lang]} />
         </HowGrid>
         <SecPanel>
-          <Card3 text={card3[0].text} source={card3[0].source} />
+          <Card3 text={homeLocales.opinion[lang]} source={card3[0].source} />
         </SecPanel>
         <CommunityPanel id="community">
-          <p>Community</p>
+          <H2 style={{ textAlign: "center" }}>{homeLocales.community[lang]}</H2>
           <img
             src="/image/community-group.png"
             alt="community"
             style={{ width: "100%", height: "auto" }}
           />
         </CommunityPanel>
+        <H2 style={{ textAlign: "center" }}>{homeLocales.contact[lang]}</H2>
         <ContactPanel>
-          <p>Contact</p>
-          <img
-            src="/image/contact.png"
-            alt="contact"
-            style={{ width: "100%", height: "auto" }}
-          />
+          <ContactInfo>
+            <H2 style={{ textAlign: "center" }}>
+              Großjungig AI <br />
+              {homeLocales.care[lang]}
+            </H2>
+            <H4 style={{ textAlign: "center" }}>
+              {homeLocales.contact_us[lang]}{" "}
+            </H4>
+          </ContactInfo>
+          <ContactRow>
+            <img
+              style={{ height: "59px", width: "59px", itemsAlign: "center" }}
+              src="../image/Email.png"
+              alt="email"
+            />
+            <H4>info@grossjungig.de</H4>
+            <img
+              style={{ height: "59px", width: "59px", itemsAlign: "center" }}
+              src="../image/phone.png"
+              alt="phone"
+            />
+            <H4>+49 30 55231271</H4>
+          </ContactRow>
         </ContactPanel>
       </>
     );
