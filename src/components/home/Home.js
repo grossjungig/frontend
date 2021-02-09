@@ -17,7 +17,7 @@ import {
   MainRow,
   SecPanel,
   RowChoose,
-  RowSelect,
+  // RowSelect,
   RowSearch,
   Mission,
   Why,
@@ -49,9 +49,9 @@ class Home extends Component {
                 </Link>
                 <SecButton>{homeLocales.requests[lang]}</SecButton>
               </RowChoose>
-              <RowSelect>
+              {/* <RowSelect>
                 <input placeholder={homeLocales.city[lang]} input=""></input>
-              </RowSelect>
+              </RowSelect> */}
               <RowSearch>
                 <PrimaryButtonLong>
                   {homeLocales.search[lang]}

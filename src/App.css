@@ -253,3 +253,8 @@ select {
   padding-right: 50px;
   width: 30vw;
 }
+
+.navbuttons {
+  margin: 5px;
+  color: blue;
+}

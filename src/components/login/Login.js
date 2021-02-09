@@ -3,6 +3,13 @@ import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "./login.css";
 import loginLocales from "../../locales/locales.login.json";
+//stlyes
+//import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
 
 class Login extends Component {
   state = {
@@ -51,16 +58,24 @@ class Login extends Component {
           <h3>{loginLocales.prompt[lang]}</h3>
 
           <form className="login-styles" onSubmit={this.handleSubmit}>
-            <label htmlFor="email">{loginLocales.email[lang]}</label>
-            <input
+            {/* <label htmlFor="email">{loginLocales.email[lang]}</label> */}
+            <TextField
+              margin="normal"
+              label={loginLocales.email[lang]}
+              fullWidth
+              variant="outlined"
               type="text"
               name="email"
               id="email"
               value={this.state.email}
               onChange={this.setFormState}
             />
-            <label htmlFor="password">{loginLocales.password[lang]}</label>
-            <input
+            {/* <label htmlFor="password">{loginLocales.password[lang]}</label> */}
+            <TextField
+              margin="normal"
+              fullWidth
+              label={loginLocales.password[lang]}
+              variant="outlined"
               type="password"
               name="password"
               id="password"
@@ -73,9 +88,9 @@ class Login extends Component {
                 {loginLocales.click[lang]}
               </Link>
             </h5>
-            <button id="login-submit-button" type="submit">
+            <Button variant="contained" id="login-submit-button" type="submit">
               {loginLocales.login[lang]}
-            </button>
+            </Button>
           </form>
 
           {this.state.message && <p>{this.state.message}</p>}

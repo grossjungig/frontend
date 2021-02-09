@@ -4,7 +4,9 @@ import axios from "axios";
 import navbarLocales from "../locales/locales.navbar.json";
 import homeLocales from "../locales/locales.home.json";
 //import Logo from "./Logo";
-import { PrimaryButton, Button, NavbarLink } from "./styled";
+import { PrimaryButton, NavbarLink } from "./styled";
+import Button from "@material-ui/core/Button";
+import Fab from "@material-ui/core/Fab";
 
 const imageChange = (updatePage, setImage) => {
   //console.log("imagechange", localStorage.getItem("lang"));
@@ -80,11 +82,18 @@ const Navbar = (props) => {
           </div>
         ) : (
           <div className="login-nav">
-            <Link to="/login">
-              <Button label={navbarLocales.login[lang]}></Button>
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <Fab className="navbuttons" variant="extended">
+                {navbarLocales.login[lang]}
+              </Fab>
             </Link>
-            <Link to="/signup">
-              <PrimaryButton>{navbarLocales.signup[lang]}</PrimaryButton>
+            <Link to="/signup" style={{ textDecoration: "none" }}>
+              <Fab
+                style={{ margin: "5px", backgroundColor: "#365da7" }}
+                variant="extended"
+              >
+                {navbarLocales.signup[lang]}
+              </Fab>
             </Link>
             <img
               onClick={(e) => imageChange(props.updatePage, setImage)}
