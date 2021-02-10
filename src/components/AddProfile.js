@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
-//import profilesLocales from "../locales/locales.profiles.json";
-//import addroomLocales from "../locales/locales.addrooms.json";
 
 class AddProfile extends Component {
   state = {
@@ -46,7 +44,8 @@ class AddProfile extends Component {
         help: this.state.help,
       })
       .then((response) => {
-        this.props.history.push("/userportal", { id: response.data._id });
+        console.log("response adter adding the profile", response);
+        this.props.history.push("/userportal", { user: this.props.user });
       })
       .catch((err) => {
         console.log(err);
@@ -54,7 +53,6 @@ class AddProfile extends Component {
   };
 
   render() {
-    console.log(this.props.user);
     const lang = localStorage.getItem("lang");
     if (this.state.redirect) {
       return <Redirect to="/profiles" />;
@@ -62,7 +60,7 @@ class AddProfile extends Component {
 
     return (
       <div style={{ height: "60vh" }}>
-        <label htmlFor="name">name:</label>
+        <label htmlFor="name">Name:</label>
         <input
           type="text"
           name="name"
@@ -90,7 +88,24 @@ class AddProfile extends Component {
           value={this.state.age}
           onChange={this.setFormState}
         />
-        <label htmlFor="district">district:</label>
+
+        <label htmlFor="phoneNumber">Phone Number:</label>
+        <input
+          type="text"
+          name="phoneNumber"
+          id="phoneNumber"
+          value={this.state.phoneNumber}
+          onChange={this.setFormState}
+        />
+        <label htmlFor="email">Email:</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          value={this.state.email}
+          onChange={this.setFormState}
+        />
+        <label htmlFor="district">Desired District:</label>
         <select
           name="district"
           type="select"
@@ -115,53 +130,21 @@ class AddProfile extends Component {
           <option value="Tempelhof-Schoeneberg">Tempelhof-Schoeneberg</option>
           <option value="Treptow-Koepenick">Treptow-Koepenick</option>
         </select>
-        <label htmlFor="address">address:</label>
-        <input
-          type="text"
-          name="address"
-          id="address"
-          value={this.state.address}
-          onChange={this.setFormState}
-        />
-        <label htmlFor="postcode">postcode</label>
-        <input
-          type="text"
-          name="postcode"
-          id="postcode"
-          value={this.state.postcode}
-          onChange={this.setFormState}
-        />
-        <label htmlFor="phoneNumber">phone number:</label>
-        <input
-          type="text"
-          name="phoneNumber"
-          id="phoneNumber"
-          value={this.state.phoneNumber}
-          onChange={this.setFormState}
-        />
-        <label htmlFor="email">email:</label>
-        <input
-          type="text"
-          name="email"
-          id="email"
-          value={this.state.email}
-          onChange={this.setFormState}
-        />
-        <label htmlFor="description">description:</label>
-        <input
-          type="text"
-          name="description"
-          id="description"
-          value={this.state.description}
-          onChange={this.setFormState}
-        />
 
-        <label htmlFor="price">price in euros:</label>
+        <label htmlFor="price">Desired Price</label>
         <input
           type="number"
           name="price"
           id="price"
           value={this.state.price}
+          onChange={this.setFormState}
+        />
+        <label htmlFor="description">Description:</label>
+        <input
+          type="text"
+          name="description"
+          id="description"
+          value={this.state.description}
           onChange={this.setFormState}
         />
         <label htmlFor="help">Offered Help:</label>

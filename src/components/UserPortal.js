@@ -13,7 +13,6 @@ class UserPortal extends Component {
       this.setState({
         user: this.props.user,
       });
-      console.log("user in portal", this.state.user);
     }
   }
   componentWillUnmount() {
@@ -22,8 +21,6 @@ class UserPortal extends Component {
 
   render() {
     const lang = localStorage.getItem("lang");
-    console.log("USER profile", this.state.user.profile);
-    console.log("name", this.state.user.name);
 
     return (
       <div className="portal-container">

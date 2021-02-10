@@ -41,7 +41,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("APP", this.state.user);
     return (
       <div className="App">
         <ThemeProvider theme={theme}>
@@ -107,24 +106,17 @@ class App extends React.Component {
             path="/addRoom"
             render={(props) => <AddRoom {...props} user={this.state.user} />}
           />
-
-          {/* Editing profile is in Progress */}
-          {/* <Route
+          <Route
             exact
             path="/edit/:id"
             render={(props) => (
               <EditProfile history={props.history} user={this.state.user} />
             )}
-          /> */}
+          />
 
           <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
           <Route exact path="/maps" component={MapView} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />
-          {/* <Route
-            exact
-            path="/profiles"
-            render={(props) => <Profile {...props} user={this.state.user} />}
-          /> */}
           <Route
             exact
             path="/addProfile"

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { Component, Profiler } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 export default class Profile extends Component {
@@ -13,11 +13,9 @@ export default class Profile extends Component {
         `${process.env.REACT_APP_BACKENDURL}api/profiles/${this.state.user.profile}`
       )
       .then((profile) => {
-        console.log("user in the then", profile);
         this.setState({
           profile: profile.data,
         });
-        console.log("after set state", this.state.profile);
       })
       .catch((error) => {
         console.log(error);
@@ -26,7 +24,6 @@ export default class Profile extends Component {
 
   render() {
     let profile = this.state.profile;
-    console.log("history", this.props.history);
     if (this.state.profile.length !== 0) {
       return (
         <div>
