@@ -19,6 +19,7 @@ import Profile from "./components/Profile";
 import AddProfile from "./components/AddProfile";
 import People from "./components/People";
 import ResetPassword from "./components/resetpassword/ResetPassword";
+import EditProfile from "./components/EditProfile";
 
 const theme = {
   main: "#ed8707",

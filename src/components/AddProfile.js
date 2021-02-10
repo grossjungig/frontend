@@ -44,7 +44,6 @@ class AddProfile extends Component {
         help: this.state.help,
       })
       .then((response) => {
-        console.log("response adter adding the profile", response);
         this.props.history.push("/userportal", { user: this.props.user });
       })
       .catch((err) => {

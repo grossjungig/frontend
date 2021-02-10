@@ -17,7 +17,6 @@ const uploadImage = async (event, setImage, setLoading, props) => {
   const file = await res.json();
 
   setImage(file.secure_url);
-  console.log(file.secure_url);
   const { roomId } = props.match.params;
   // const roomId  = props.match.params.roomId;
   // object inline destructuring
@@ -28,7 +27,6 @@ const uploadImage = async (event, setImage, setLoading, props) => {
       secureUrl: file.secure_url,
     }) // passing roomId to the axios call
     .then(({ data }) => {
-      console.log(data);
       setLoading(false);
     });
 };

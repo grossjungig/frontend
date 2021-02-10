@@ -10,7 +10,6 @@ class Details extends Component {
 
   async componentDidMount() {
     const roomId = this.props.match.params.id;
-
     const { data } = await axios.get(
       `${process.env.REACT_APP_BACKENDURL}api/rooms/${roomId}`
     ); // passing roomId to the axios call
@@ -18,15 +17,12 @@ class Details extends Component {
     this.setState({
       data, //same as data:data,shorthand notation for objects
     });
-
-    console.log("This is the user", this.props.user);
   }
 
   //delete room
   deleteRoom = async (event) => {
     event.preventDefault();
     const deleteRoomId = this.props.match.params.id;
-    //console.log("deleteRoom?", deleteRoomId);
     await axios.delete(
       `${process.env.REACT_APP_BACKENDURL}api/rooms/${deleteRoomId}/delete`
     );
@@ -80,7 +76,6 @@ class Details extends Component {
           </div>
           <div className="photo-container">
             {this.state.data.images.map((image) => {
-              console.log(image.secureUrl);
               return (
                 <img
                   alt="room"
@@ -148,7 +143,6 @@ class Details extends Component {
           {/* TODO: refactor markup */}
           {this.state.data.images &&
             this.state.data.images.map((image) => {
-              console.log(image.secureUrl);
               return (
                 <img
                   alt="room"
