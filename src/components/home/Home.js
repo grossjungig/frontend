@@ -47,7 +47,9 @@ class Home extends Component {
                 <Link to="/berlin">
                   <Button label={homeLocales.offers[lang]}></Button>
                 </Link>
-                <SecButton>{homeLocales.requests[lang]}</SecButton>
+                <Link to="/people">
+                  <SecButton>{homeLocales.requests[lang]}</SecButton>
+                </Link>
               </RowChoose>
               {/* <RowSelect>
                 <input placeholder={homeLocales.city[lang]} input=""></input>

@@ -33,7 +33,6 @@ class Signup extends Component {
         role: this.state.role,
       })
       .then((response) => {
-        console.log("RSPONSE", response);
         this.props.setUser(response.data);
         this.props.history.push("/userportal");
       })

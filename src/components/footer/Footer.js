@@ -4,8 +4,6 @@ import footerLocales from "../../locales/locales.footer.json";
 
 const Footer = () => {
   const lang = localStorage.getItem("lang");
-  console.log(lang);
-  console.log(footerLocales);
   return (
     <Root>
       {/* <ContactPanel>
