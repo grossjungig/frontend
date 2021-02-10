@@ -18,7 +18,6 @@ import ForgotPassword from "./components/forgotpassword/ForgotPassword";
 import Profile from "./components/Profile";
 import AddProfile from "./components/AddProfile";
 import People from "./components/People";
-import EditProfile from "./components/EditProfile";
 import ResetPassword from "./components/resetpassword/ResetPassword";
 
 const theme = {
