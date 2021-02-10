@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import detailsLocales from "../locales/locales.details.json";
+import Fab from "@material-ui/core/Fab";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 
 class Details extends Component {
   state = {
@@ -107,25 +111,46 @@ class Details extends Component {
     }
     return (
       <div className="detail-container">
-        <h2>{this.state.data.name}</h2>
+        <div>
+          <Card>
+            <CardContent>
+              <Typography variant="h3" gutterBottom>
+                {this.state.data.name}{" "}
+              </Typography>
+              <Typography variant="h5" component="h4">
+                <h4>{detailsLocales.describe[lang]}:</h4>
+              </Typography>
+              <Typography variant="body2" component="p">
+                {this.state.data.description}
+                <br />
+              </Typography>
+              <Typography variant="h5" component="h2">
+                <h4>{detailsLocales.address[lang]}:</h4>
+              </Typography>
+              <Typography variant="body2" component="p">
+                <p>{this.state.data.address}</p>
+                <p>
+                  {this.state.data.postcode} {this.state.data.district}
+                </p>
+                {/* <p>{this.state.data.district}</p> */}
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
+        </div>
         <div className="markus-container">
           <div className="detail-container-text">
-            <div className="paragraphs">
-              <h3>{detailsLocales.address[lang]}:</h3>
-              <p>{this.state.data.address}</p>
-            </div>
-            <div className="paragraphs">
-              <h3>{detailsLocales.postcode[lang]}:</h3>
-              <p>{this.state.data.postcode}</p>
-            </div>
-            <div className="paragraphs">
-              <h3>{detailsLocales.district[lang]}:</h3>
-              <p>{this.state.data.district}</p>
-            </div>
-            <div className="paragraphs">
-              <h3>{detailsLocales.describe[lang]}:</h3>
-              <p>{this.state.data.description}</p>
-            </div>
+            <div className="paragraphs"></div>
+            <Link to="/berlin">
+              <Fab
+                style={{
+                  backgroundColor: "#365da7",
+                  color: "white",
+                }}
+              >
+                {detailsLocales.return[lang]}
+              </Fab>
+            </Link>
             {/* <div className="paragraphs">
               <h3>{detailsLocales.phone[lang]}:</h3>
               <p>
@@ -159,9 +184,6 @@ class Details extends Component {
               );
             })}
         </div>
-        <Link to="/berlin">
-          <button>{detailsLocales.return[lang]}</button>
-        </Link>
       </div>
     );
   }

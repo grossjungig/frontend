@@ -171,10 +171,11 @@ theader {
 
 /* Detail */
 .detail-container {
-  height: 70vh;
+  /* height: 70vh; */
   padding-right: 19vw;
   padding-left: 19vw;
   padding-bottom: 5vh;
+  margin-top: 10px;
 }
 
 .detail-container-text {

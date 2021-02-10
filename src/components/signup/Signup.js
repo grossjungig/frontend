@@ -122,6 +122,10 @@ class Signup extends Component {
             </Select>
             <br />
             <Button
+              style={{
+                backgroundColor: "#365da7",
+                color: "white",
+              }}
               variant="contained"
               onClick={this.handleSubmit}
               type="submit"

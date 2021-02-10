@@ -4,9 +4,11 @@ import axios from "axios";
 import navbarLocales from "../locales/locales.navbar.json";
 import homeLocales from "../locales/locales.home.json";
 //import Logo from "./Logo";
-import { PrimaryButton, NavbarLink } from "./styled";
-import Button from "@material-ui/core/Button";
+import { NavbarLink } from "./styled";
+
 import Fab from "@material-ui/core/Fab";
+//styles for new navbar-don'te delete
+//import "./Navbar.css";
 
 const imageChange = (updatePage, setImage) => {
   //console.log("imagechange", localStorage.getItem("lang"));
@@ -83,13 +85,21 @@ const Navbar = (props) => {
         ) : (
           <div className="login-nav">
             <Link to="/login" style={{ textDecoration: "none" }}>
-              <Fab className="navbuttons" variant="extended">
+              <Fab
+                style={{ backgroundColor: "white", color: "#365da7" }}
+                className="navbuttons"
+                variant="extended"
+              >
                 {navbarLocales.login[lang]}
               </Fab>
             </Link>
             <Link to="/signup" style={{ textDecoration: "none" }}>
               <Fab
-                style={{ margin: "5px", backgroundColor: "#365da7" }}
+                style={{
+                  margin: "5px",
+                  color: "white",
+                  backgroundColor: "#365da7",
+                }}
                 variant="extended"
               >
                 {navbarLocales.signup[lang]}
@@ -109,3 +119,35 @@ const Navbar = (props) => {
 };
 
 export default Navbar;
+
+//new navbar
+/* <nav>
+<header className="header">
+  <Link to="/">
+    <img
+      style={{ height: "34px", margin: "5px" }}
+      src="/image/Logo.png"
+      alt="logo_image"
+    />
+  </Link>
+
+  <input className="menu-btn" type="checkbox" id="menu-btn" />
+  <label className="menu-icon" for="menu-btn">
+    <span className="navicon"></span>
+  </label>
+  <ul className="menu">
+    <li>
+      <Link href="/#about">{homeLocales.about[lang]}</Link>
+    </li>
+    <li>
+      <Link href="/#how-it-works">{homeLocales.how[lang]}</Link>
+    </li>
+    <li>
+      <Link href="/#community">{homeLocales.community[lang]}</Link>
+    </li>
+    <li>
+      <Link href="/#contact">{homeLocales.contact[lang]}</Link>
+    </li>
+  </ul>
+</header>
+</nav> */

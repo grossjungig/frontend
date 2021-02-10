@@ -7,9 +7,6 @@ import loginLocales from "../../locales/locales.login.json";
 //import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
 
 class Login extends Component {
   state = {
@@ -88,7 +85,15 @@ class Login extends Component {
                 {loginLocales.click[lang]}
               </Link>
             </h5>
-            <Button variant="contained" id="login-submit-button" type="submit">
+            <Button
+              style={{
+                backgroundColor: "#365da7",
+                color: "white",
+              }}
+              variant="contained"
+              id="login-submit-button"
+              type="submit"
+            >
               {loginLocales.login[lang]}
             </Button>
           </form>
