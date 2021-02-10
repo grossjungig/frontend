@@ -52,7 +52,6 @@ class AddProfile extends Component {
   };
 
   render() {
-    const lang = localStorage.getItem("lang");
     if (this.state.redirect) {
       return <Redirect to="/profiles" />;
     }
