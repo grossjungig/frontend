@@ -28,7 +28,7 @@ export default class People extends Component {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div className="card_people">
               <div className="card_img">
-                <img src={img} style={{ width: "100%" }} />
+                <img src={img} style={{ width: "100%" }} alt="people" />
               </div>
               <div class="container_people">
                 <h4><b>{el.name}, {el.age}</b></h4>
