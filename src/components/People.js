@@ -5,44 +5,46 @@ import img from './home/header_image.png';
 
 
 export default class People extends Component {
-  state = {
-    people: [],
-  };
+    state = {
+        people: [],
+    };
 
-  async componentDidMount() {
-    const response = await axios.get(
-      `${process.env.REACT_APP_BACKENDURL}api/profiles`
-    );
-
-    // Set state
-    this.setState({
-      people: response.data.profiles,
-    });
-  }
-  render() {
-
-    return (<div> {
-      this.state.people.map((el) => {
-        return (
-
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <div className="card_people">
-              <div className="card_img">
-                <img src={img} style={{ width: "100%" }} alt="people" />
-              </div>
-              <div class="container_people">
-                <h4><b>{el.name}, {el.age}</b></h4>
-                <p>{el.district}</p>
-                <p>{el.price}</p>
-              </div>
-            </div>
-          </div>
-
-
-
+    async componentDidMount() {
+        const response = await axios.get(
+            `${process.env.REACT_APP_BACKENDURL}api/profiles`
         );
-      })
-    } </div>);
-  }
+      
+        // Set state
+        this.setState({
+            people: response.data.profiles,
+        });
+    }
+    render() {
+        console.log(this.state.people);
+        return (<div> {
+            this.state.people.map((el) => {
+                return (
+                   
+                    <div style={{display:"flex", justifyContent:"center"}}>
+                        <div className="card_people">
+                            <div className="card_img">
+                            <img src={img}  style={{width:"100%"}}/> 
+                            </div>
+                                <div class="container_people">
+                                    <h4><b>{el.name}, {el.age}</b></h4>
+                                    <p>{el.district}</p>
+                                    <p>{el.price}</p>
+                                </div>
+                        </div>
+                    </div>        
+                            
+                          
+                    
+                );
+            })
+        } </div>);
+            }
 }
 
+
+   

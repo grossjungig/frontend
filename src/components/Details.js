@@ -8,9 +8,9 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
 class Details extends Component {
-  state = {
-    data: {},
-  };
+    state = {
+        data: {},
+    };
 
   async componentDidMount() {
     const roomId = this.props.match.params.id;
@@ -31,8 +31,8 @@ class Details extends Component {
       `${process.env.REACT_APP_BACKENDURL}api/rooms/${deleteRoomId}/delete`
     );
 
-    this.props.history.push("/berlin");
-  };
+        this.props.history.push("/berlin");
+    };
 
   render() {
     const lang = localStorage.getItem("lang");
