@@ -22,5 +22,21 @@
   "profile": {
     "en": "Add Profile",
     "de": "Profil hinzufügen"
+  },
+
+
+
+
+  "info": {
+    "en": "Add my information",
+    "de": "Fügen Sie meine Informationen hinzu"
+  },
+  "profile2": {
+    "en": "View/edit my request",
+    "de": "Meine Anfrage anzeigen / bearbeiten"
+  },
+  "settings": {
+    "en": "Settings",
+    "de": "Einstellungen"
   }
 }

@@ -30,6 +30,7 @@ export default class Profile extends Component {
     if (this.state.profile.length !== 0) {
       return (
         <div>
+        
           <p>Name: {profile.name}</p>
           <p>Age:{profile.age}</p>
           <p>Gender:{profile.gender}</p>
