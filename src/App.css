@@ -337,10 +337,18 @@ theader {
 /* Detail */
 
 .detail-container {
+<<<<<<< HEAD
     height: 70vh;
     padding-right: 19vw;
     padding-left: 19vw;
     padding-bottom: 5vh;
+=======
+  /* height: 70vh; */
+  padding-right: 19vw;
+  padding-left: 19vw;
+  padding-bottom: 5vh;
+  margin-top: 10px;
+>>>>>>> a2254ada786140c034f2625171c6991118755313
 }
 
 .detail-container-text {
@@ -423,6 +431,17 @@ select {
 }
 
 .room-preview img {
+<<<<<<< HEAD
     padding-right: 50px;
     width: 30vw;
 }
+=======
+  padding-right: 50px;
+  width: 30vw;
+}
+
+.navbuttons {
+  margin: 5px;
+  color: blue;
+}
+>>>>>>> a2254ada786140c034f2625171c6991118755313

@@ -3,6 +3,10 @@ import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "./login.css";
 import loginLocales from "../../locales/locales.login.json";
+//stlyes
+//import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 class Login extends Component {
   state = {
@@ -43,7 +47,7 @@ class Login extends Component {
     }
     return (
       <div className="full-block">
-        <div className="side-view">
+        <div className="x">
           {/* <img src="../image/signup.png" alt="login-side-view" /> */}
         </div>
         <div className="login">
@@ -51,16 +55,24 @@ class Login extends Component {
           <h3>{loginLocales.prompt[lang]}</h3>
 
           <form className="login-styles" onSubmit={this.handleSubmit}>
-            <label htmlFor="email">{loginLocales.email[lang]}</label>
-            <input
+            {/* <label htmlFor="email">{loginLocales.email[lang]}</label> */}
+            <TextField
+              margin="normal"
+              label={loginLocales.email[lang]}
+              fullWidth
+              variant="outlined"
               type="text"
               name="email"
               id="email"
               value={this.state.email}
               onChange={this.setFormState}
             />
-            <label htmlFor="password">{loginLocales.password[lang]}</label>
-            <input
+            {/* <label htmlFor="password">{loginLocales.password[lang]}</label> */}
+            <TextField
+              margin="normal"
+              fullWidth
+              label={loginLocales.password[lang]}
+              variant="outlined"
               type="password"
               name="password"
               id="password"
@@ -68,14 +80,22 @@ class Login extends Component {
               onChange={this.setFormState}
             />
             <h5>
-              Don’t remember your password?{" "}
+              {loginLocales.forgot[lang]}{" "}
               <Link to="/forgotPassword" style={{ textDecoration: "none" }}>
-                Click here
+                {loginLocales.click[lang]}
               </Link>
             </h5>
-            <button id="login-submit-button" type="submit">
+            <Button
+              style={{
+                backgroundColor: "#365da7",
+                color: "white",
+              }}
+              variant="contained"
+              id="login-submit-button"
+              type="submit"
+            >
               {loginLocales.login[lang]}
-            </button>
+            </Button>
           </form>
 
           {this.state.message && <p>{this.state.message}</p>}

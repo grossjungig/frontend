@@ -13,7 +13,7 @@ class UserPortal extends Component {
       this.setState({
         user: this.props.user,
       });
-      console.log("user in portal", this.state.user);
+      
     }
   }
   componentWillUnmount() {
@@ -22,18 +22,17 @@ class UserPortal extends Component {
 
   render() {
     const lang = localStorage.getItem("lang");
-    console.log("USER profile", this.state.user.profile);
-    console.log("name", this.state.user.name);
+   
 
     return (
-      <div className="portal-container" style={{textAlign:"center"}}>
+      <div className="portal-container" style={{ textAlign: "center" }}>
         <h1 style={{
           color: "#365FA7",
           fontFamily: "Montserrat", fontWeight: "600"
         }}>
           {portalLocales.greeting[lang]} {this.state.user.name}!
         </h1>
-        {/* <article>{portalLocales.article[lang]}</article> */}
+        
         <div className="portal-container">
           <Link to="/berlin">
             <button>{portalLocales.rooms[lang]}</button>
@@ -48,31 +47,13 @@ class UserPortal extends Component {
               </button>
             ) : null}
           </Link>
-          {/* <Link to="/berlin" style={{
-                alignItems: "center"}}>
-          <button>{portalLocales.info[lang]}</button>
-        </Link> */}
 
           {this.state.user.profile === undefined ? (
             <Link to="/addprofile">
               <div style={{
                 alignItems: "center"
               }}>
-                <button id="create-room-button" type="submit"
-                // style={{
-                //   background: "#CFE7F0",
-                //   /* Shadow under buttons */
-
-                //   boxShadow: "1px 2px 2px rgba(0, 0, 0, 0.15)",
-                //   borderRadius: "16px",
-                //   color: "#365FA7",
-                //   fontFamily: "Montserrat",
-                //   fontStyle: "normal",
-                //   fontWeight: "600",
-                //   fontSize: "16px",
-                //   lineHeight: "20px",
-                // }}
-                >
+                <button id="create-room-button" type="submit">
                   {portalLocales.profile[lang]}
                 </button>
 
@@ -86,11 +67,9 @@ class UserPortal extends Component {
               </Link>
             )
           }
-          {/* <Link to="/berlin" style={{
-                alignItems: "center"}}>
-          <button>{portalLocales.settings[lang]}</button>
-        </Link> */}
-        </div > </div >
+
+        </div>
+      </div >
     );
   }
 }

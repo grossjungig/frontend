@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 //import profilesLocales from "../locales/locales.profiles.json";
 //import addroomLocales from "../locales/locales.addrooms.json";
@@ -74,7 +74,7 @@ class AddProfile extends Component {
         help: helps,
       })
       .then((response) => {
-        this.props.history.push("/userportal", { id: response.data._id });
+        this.props.history.push("/userportal", { user: this.props.user });
       })
       .catch((err) => {
         console.log(err);
@@ -82,8 +82,6 @@ class AddProfile extends Component {
   };
 
   render() {
-    console.log(this.props.user);
-    const lang = localStorage.getItem("lang");
     if (this.state.redirect) {
       return <Redirect to="/profiles" />;
     }

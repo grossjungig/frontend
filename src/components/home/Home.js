@@ -6,7 +6,7 @@ import { H1, H2, H3, H4 } from "../typography";
 import {
   Button,
   SecButton,
-  SearchFieldLong,
+  // SearchFieldLong,
   PrimaryButtonLong,
   Card,
   Card2,
@@ -17,7 +17,7 @@ import {
   MainRow,
   SecPanel,
   RowChoose,
-  RowSelect,
+  // RowSelect,
   RowSearch,
   Mission,
   Why,
@@ -51,12 +51,9 @@ class Home extends Component {
                   <SecButton>{homeLocales.requests[lang]}</SecButton>
                 </Link>
               </RowChoose>
-              <RowSelect>
-                <SearchFieldLong
-                  placeholder={homeLocales.city[lang]}
-                  input=""
-                ></SearchFieldLong>
-              </RowSelect>
+              {/* <RowSelect>
+                <input placeholder={homeLocales.city[lang]} input=""></input>
+              </RowSelect> */}
               <RowSearch>
                 <PrimaryButtonLong>
                   {homeLocales.search[lang]}

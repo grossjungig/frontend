@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import roomsLocales from "../locales/locales.rooms.json";
-import { PrimaryButton } from "./styled";
-
+import Button from "@material-ui/core/Button";
+//future styles work in progress, do not delete
+// import Select from "@material-ui/core/Select";
+// import InputLabel from "@material-ui/core/InputLabel";
+// import MenuItem from "@material-ui/core/MenuItem";
 class Berlin extends Component {
   state = {
     rooms: [],
@@ -73,7 +76,10 @@ class Berlin extends Component {
       return (
         <div className="room-preview" key={el._id}>
           <Link className="room-preview" to={`/berlin/${el._id}`}>
-            <img src={"../../image/icon-home-8.jpg"} alt="room placeholder"></img>
+            <img
+              src={"../../image/icon-home-8.jpg"}
+              alt="room placeholder"
+            ></img>
             <div className="room-preview-info-container">
               <h3>{el.name}</h3>
               <p>
@@ -135,7 +141,41 @@ class Berlin extends Component {
           <option value="Tempelhof-Schoeneberg">Tempelhof-Schoeneberg</option>
           <option value="Treptow-Koepenick">Treptow-Koepenick</option>
         </select>
-        <PrimaryButton onClick={this.searchRequest}>Search</PrimaryButton>
+        <Button
+          style={{
+            color: "white",
+            backgroundColor: "#365da7",
+          }}
+          variant="contained"
+          onClick={this.searchRequest}
+        >
+          Search
+        </Button>
+        {/* <InputLabel id="role-select" htmlFor="role">
+          {roomsLocales.suburb[lang]}
+        </InputLabel>
+
+        <Select
+          name="select"
+          type="select"
+          value={this.state.select}
+          onChange={this.searchedName}
+        >
+          <MenuItem value={"Lichtenberg"}>Lichtenberg</MenuItem>
+          <MenuItem value={"Marzahn-Hellersdorf"}>Marzahn-Hellersdorf</MenuItem>
+        </Select>
+        <br />
+        <Button
+          style={{
+            color: "white",
+            backgroundColor: "#365da7",
+          }}
+          variant="contained"
+          onClick={this.handleSubmit}
+          type="submit"
+        >
+          Search
+        </Button> */}
         <div className="table-container">{room}</div>
       </div>
     );

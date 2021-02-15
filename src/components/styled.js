@@ -67,17 +67,17 @@ export const SecButtonLong = styled.button`
   color: white;
 `;
 
-export const SearchField = styled.input`
-  ${basicButtonCSS};
-  border: 1px solid grey;
-  background-color: #f2f0f0;
-`;
+// export const SearchField = styled.input`
+//   ${basicButtonCSS};
+//   border: 1px solid grey;
+//   background-color: #f2f0f0;
+// `;
 
-export const SearchFieldLong = styled.input`
-  ${basicButtonSearchCSS};
-  border: 1px solid grey;
-  background-color: white;
-`;
+// export const SearchFieldLong = styled.input`
+//   ${basicButtonSearchCSS};
+//   border: 1px solid grey;
+//   background-color: white;
+// `;
 
 export const Card = ({ title, image, text, alt }) => (
   <CardRoot>

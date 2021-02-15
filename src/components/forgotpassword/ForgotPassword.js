@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import loginLocales from "../../locales/locales.login.json";
-import "./forgotpassword.css";
+import "../login/login.css";
 import forgotLocales from "../../locales/locales.forgotpassword.json";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 /*const title = {
   pageTitle: "Forgot Password Screen",
@@ -31,7 +33,7 @@ class ForgotPassword extends Component {
     if (this.state.email === "") {
       this.setState({
         showError: true,
-        errorMessage: "Email cannot be empty.",
+        errorMessage: "Email can not be empty",
       });
     } else {
       console.log(this.state.email);
@@ -65,11 +67,11 @@ class ForgotPassword extends Component {
     const lang = localStorage.getItem("lang");
     return (
       <div className="full-block">
-        <div className="side-view">
+        {/* <div className="side-view">
           <img src="../image/signup.png" alt="login-side-view" />
-        </div>
+        </div> */}
         <div className="login">
-          <h2>{forgotLocales.welcome[lang]}</h2>
+          {/* <h2>{forgotLocales.welcome[lang]}</h2> */}
           <h1>{forgotLocales.grossjungig[lang]}</h1>
           <h3>{forgotLocales.prompt[lang]}</h3>
           <div className="profile-form">
@@ -84,8 +86,12 @@ class ForgotPassword extends Component {
             ) : (
               <div>
                 <form onSubmit={this.sendEmail}>
-                  <label htmlFor="email">{loginLocales.email[lang]}</label>
-                  <input
+                  {/* <label htmlFor="email">{loginLocales.email[lang]}</label> */}
+                  <TextField
+                    margin="normal"
+                    label={loginLocales.email[lang]}
+                    fullWidth
+                    variant="outlined"
                     type="text"
                     id="email"
                     name="email"
@@ -97,13 +103,25 @@ class ForgotPassword extends Component {
                       <p>{errorMessage}</p>
                     </div>
                   )}
-                  <button type="submit">{forgotLocales.submit[lang]}</button>
+                  <Button
+                    style={{
+                      marginRight: "5px",
+                      color: "white",
+                      backgroundColor: "#365da7",
+                    }}
+                    variant="contained"
+                    type="submit"
+                  >
+                    {forgotLocales.submit[lang]}
+                  </Button>
+                  <Link style={{ textDecoration: "none" }} to="/">
+                    <Button variant="contained" type="">
+                      {forgotLocales.return[lang]}
+                    </Button>
+                  </Link>
                 </form>
               </div>
             )}
-            <Link to="/">
-              <button type="">{forgotLocales.return[lang]}</button>
-            </Link>
           </div>
         </div>
       </div>
