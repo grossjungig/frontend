@@ -20,7 +20,6 @@ const options = [
 ]
 
 
-
 class AddProfile extends Component {
   state = {
     name: "",
@@ -156,10 +155,6 @@ class AddProfile extends Component {
               className="textarea_profile"
             />
 
-
-
-
-
             <label className="label_profile" htmlFor="help">Offered Help</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help"
               name="help" />
@@ -193,6 +188,7 @@ class AddProfile extends Component {
             <label className="label_profile" >Picture</label>
             <button type="submit" className="button_profile">
               Upload the picture
+
         </button>
 
             <div className="warning" style={{ marginTop: "2vh" }}>
