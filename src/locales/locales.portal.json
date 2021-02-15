@@ -1,26 +1,31 @@
 {
-  "greeting": {
-    "en": "Welcome Back",
-    "de": "Willkommen"
-  },
-  "article": {
-    "en": "Check out what's new!",
-    "de": "Was gibt's Neues?"
-  },
-  "rooms": {
-    "en": "Find a room in Berlin",
-    "de": "Zimmer in Berlin finden"
-  },
-  "add": {
-    "en": "Add Room",
-    "de": "Zimmer hinzufügen"
-  },
-  "map": {
-    "en": "View City Map",
-    "de": "Stadtkarte anschauen"
-  },
-  "profile": {
-    "en": "Add Profile",
-    "de": "Profil hinzufügen"
-  }
+    "greeting": {
+        "en": "Welcome Back",
+        "de": "Willkommen"
+    },
+    "article": {
+        "en": "Check out what's new!",
+        "de": "Was gibt's Neues?"
+    },
+    "rooms": {
+        "en": "Find a room in Berlin",
+        "de": "Zimmer in Berlin finden"
+    },
+    "add": {
+        "en": "Add Room",
+        "de": "Zimmer hinzufügen"
+    },
+    "map": {
+        "en": "View City Map",
+        "de": "Stadtkarte anschauen"
+    },
+    "profile": {
+        "en": "Add Profile",
+        "de": "Profil hinzufügen"
+    },
+    "profile2": {
+        "en": "View/edit my request",
+        "de": "Meine Anfrage anzeigen / bearbeiten"
+    }
+
 }

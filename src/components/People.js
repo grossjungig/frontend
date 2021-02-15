@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import img from './home/header_image.png';
+
+
 export default class People extends Component {
   state = {
     people: [],
@@ -17,20 +20,29 @@ export default class People extends Component {
     });
   }
   render() {
-    return (
-      <div>
-        {this.state.people.map((el) => {
-          return (
-            <div>
-              <p>
-                {el.name}, {el.age}
-              </p>
-              <p>{el.district}</p>
-              <p>{el.price}</p>
+
+    return (<div> {
+      this.state.people.map((el) => {
+        return (
+
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div className="card_people">
+              <div className="card_img">
+                <img src={img} style={{ width: "100%" }} />
+              </div>
+              <div class="container_people">
+                <h4><b>{el.name}, {el.age}</b></h4>
+                <p>{el.district}</p>
+                <p>{el.price}</p>
+              </div>
             </div>
-          );
-        })}
-      </div>
-    );
+          </div>
+
+
+
+        );
+      })
+    } </div>);
   }
 }
+

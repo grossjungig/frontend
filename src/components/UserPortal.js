@@ -13,6 +13,7 @@ class UserPortal extends Component {
       this.setState({
         user: this.props.user,
       });
+      
     }
   }
   componentWillUnmount() {
@@ -21,42 +22,54 @@ class UserPortal extends Component {
 
   render() {
     const lang = localStorage.getItem("lang");
+   
 
     return (
-      <div className="portal-container">
-        <h1>
+      <div className="portal-container" style={{ textAlign: "center" }}>
+        <h1 style={{
+          color: "#365FA7",
+          fontFamily: "Montserrat", fontWeight: "600"
+        }}>
           {portalLocales.greeting[lang]} {this.state.user.name}!
         </h1>
-        <article>{portalLocales.article[lang]}</article>
-        <p></p>
-        <Link to="/berlin">
-          <button>{portalLocales.rooms[lang]}</button>
-        </Link>
-        <Link to="/maps">
-          <button>{portalLocales.map[lang]}</button>
-        </Link>
-        <Link to="/addroom">
-          {this.state.user.role === "senior" ? (
-            <button id="create-room-button" type="submit">
-              {portalLocales.add[lang]}
-            </button>
-          ) : null}
-        </Link>
-        {this.state.user.profile === undefined ? (
-          <Link to="/addprofile">
-            <button id="create-room-button" type="submit">
-              Add Profile
-            </button>
+        
+        <div className="portal-container">
+          <Link to="/berlin">
+            <button>{portalLocales.rooms[lang]}</button>
           </Link>
-        ) : (
-          <Link to="/profile">
-            <button id="create-room-button" type="submit">
-              View/Edit Profile
-            </button>
+          <Link to="/maps">
+            <button>{portalLocales.map[lang]}</button>
           </Link>
-        )}
-        <button>Check Requests</button>
-      </div>
+          <Link to="/addroom">
+            {this.state.user.role === "senior" ? (
+              <button id="create-room-button" type="submit">
+                {portalLocales.add[lang]}
+              </button>
+            ) : null}
+          </Link>
+
+          {this.state.user.profile === undefined ? (
+            <Link to="/addprofile">
+              <div style={{
+                alignItems: "center"
+              }}>
+                <button id="create-room-button" type="submit">
+                  {portalLocales.profile[lang]}
+                </button>
+
+              </div>
+            </Link>
+
+          ) : (
+              <Link to="/profile">
+                <button id="create-room-button" type="submit">
+                  {portalLocales.profile2[lang]}  </button>
+              </Link>
+            )
+          }
+
+        </div>
+      </div >
     );
   }
 }
