@@ -21,6 +21,7 @@ import {
   RowSearch,
   Mission,
   Why,
+  How,
   HowGrid,
   CommunityPanel,
   ContactPanel,
@@ -87,15 +88,17 @@ class Home extends Component {
             />
           </div>
         </Why>
-        <H2 style={{ textAlign: "center" }}>{homeLocales.how[lang]}</H2>
-        <HowGrid>
-          <Card2 title="#1" text={homeLocales.step_1[lang]} />
-          <Card2 title="#2" text={homeLocales.step_2[lang]} />
-          <Card2 title="#3" text={homeLocales.step_3[lang]} />
-          <Card2 title="#4" text={homeLocales.step_4[lang]} />
-          <Card2 title="#5" text={homeLocales.step_5[lang]} />
-          <Card2 title="#6" text={homeLocales.step_6[lang]} />
-        </HowGrid>
+        <How id="how-it-works">
+          <H2  style={{ textAlign: "center" }}>{homeLocales.how[lang]}</H2>
+          <HowGrid>
+            <Card2 title="#1" text={homeLocales.step_1[lang]} />
+            <Card2 title="#2" text={homeLocales.step_2[lang]} />
+            <Card2 title="#3" text={homeLocales.step_3[lang]} />
+            <Card2 title="#4" text={homeLocales.step_4[lang]} />
+            <Card2 title="#5" text={homeLocales.step_5[lang]} />
+            <Card2 title="#6" text={homeLocales.step_6[lang]} />
+          </HowGrid>
+        </How>
         <SecPanel>
           <Card3 text={homeLocales.opinion[lang]} source={card3[0].source} />
         </SecPanel>
@@ -107,8 +110,8 @@ class Home extends Component {
             style={{ width: "100%", height: "auto" }}
           />
         </CommunityPanel>
-        <H2 style={{ textAlign: "center" }}>{homeLocales.contact[lang]}</H2>
-        <ContactPanel>
+        <H2 id="contact" style={{ textAlign: "center" }}>{homeLocales.contact[lang]}</H2>
+        <ContactPanel >
           <ContactInfo>
             <H2 style={{ textAlign: "center" }}>
               Großjungig AI <br />

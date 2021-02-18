@@ -40,6 +40,12 @@ const Navbar = (props) => {
 
   const lang = localStorage.getItem("lang");
 
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -80; 
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+}
+
   return (
     <div
       style={{
@@ -60,14 +66,16 @@ const Navbar = (props) => {
         </Link>
         <div className="main-nav">
           <div className="navbarlink">
-            <NavbarLink href="/#about">{homeLocales.about[lang]}</NavbarLink>
-            <NavbarLink href="/#how-it-works">
+            <NavbarLink scroll={scrollWithOffset} smooth to="/#about">
+              {homeLocales.about[lang]}
+            </NavbarLink>
+            <NavbarLink scroll={scrollWithOffset} smooth to="/#how-it-works">
               {homeLocales.how[lang]}
             </NavbarLink>
-            <NavbarLink href="/#community">
+            <NavbarLink scroll={scrollWithOffset} smooth to="/#community">
               {homeLocales.community[lang]}
             </NavbarLink>
-            <NavbarLink href="/#contact">
+            <NavbarLink scroll={scrollWithOffset} smooth to="/#contact">
               {homeLocales.contact[lang]}
             </NavbarLink>
           </div>
