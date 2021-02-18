@@ -4,7 +4,7 @@ import axios from "axios";
 import navbarLocales from "../locales/locales.navbar.json";
 import homeLocales from "../locales/locales.home.json";
 //import Logo from "./Logo";
-import { NavbarLink } from "./styled";
+import { HashLink, PageLink } from "./styled";
 
 import Fab from "@material-ui/core/Fab";
 //styles for new navbar-don'te delete
@@ -42,7 +42,7 @@ const Navbar = (props) => {
 
   const scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -80; 
+    const yOffset = -60; 
     window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
 }
 
@@ -57,27 +57,30 @@ const Navbar = (props) => {
       }}
     >
       <nav>
-        <NavbarLink smooth class="logo-box" to="/#">
+        <HashLink smooth class="logo-box" to="/#">
           <img
             style={{ height: "34px" }}
             src="/image/Logo.png"
             alt="logo_image"
           />
-        </NavbarLink>
+        </HashLink>
         <div className="main-nav">
           <div className="navbarlink">
-            <NavbarLink scroll={scrollWithOffset} smooth to="/#about">
+            <PageLink to="/aboutus">
               {homeLocales.about[lang]}
-            </NavbarLink>
-            <NavbarLink scroll={scrollWithOffset} smooth to="/#how-it-works">
+            </PageLink>
+            <PageLink to="/how">
               {homeLocales.how[lang]}
-            </NavbarLink>
-            <NavbarLink scroll={scrollWithOffset} smooth to="/#community">
+            </PageLink>
+            <HashLink scroll={scrollWithOffset} smooth to="/#community">
               {homeLocales.community[lang]}
-            </NavbarLink>
-            <NavbarLink scroll={scrollWithOffset} smooth to="/#contact">
+            </HashLink>
+            <HashLink scroll={scrollWithOffset} smooth to="/#contact">
               {homeLocales.contact[lang]}
-            </NavbarLink>
+            </HashLink>
+            <PageLink to="/impressum">
+              Impressum
+            </PageLink>
           </div>
         </div>
         {props.user ? (

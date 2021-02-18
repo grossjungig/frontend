@@ -20,6 +20,9 @@ import AddProfile from "./components/AddProfile";
 import People from "./components/People";
 import ResetPassword from "./components/resetpassword/ResetPassword";
 import EditProfile from "./components/EditProfile";
+import HowItWorks from "./components/howitworks/HowItWorks";
+import AboutUs from "./components/aboutus/AboutUs";
+import Impressum from "./components/impressum/Impressum";
 
 const theme = {
   main: "#ed8707",
@@ -105,6 +108,21 @@ class App extends React.Component {
             exact
             path="/addRoom"
             render={(props) => <AddRoom {...props} user={this.state.user} />}
+          />
+          <Route
+            exact
+            path="/aboutus"
+            render={(props) => <AboutUs {...props} user={this.state.user} />}
+          />
+          <Route
+            exact
+            path="/how"
+            render={(props) => <HowItWorks {...props} user={this.state.user} />}
+          />
+          <Route
+            exact
+            path="/impressum"
+            render={(props) => <Impressum {...props} user={this.state.user} />}
           />
           <Route
             exact
