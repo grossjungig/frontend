@@ -57,13 +57,13 @@ const Navbar = (props) => {
       }}
     >
       <nav>
-        <Link class="logo-box" to="/">
+        <NavbarLink smooth class="logo-box" to="/#">
           <img
             style={{ height: "34px" }}
             src="/image/Logo.png"
             alt="logo_image"
           />
-        </Link>
+        </NavbarLink>
         <div className="main-nav">
           <div className="navbarlink">
             <NavbarLink scroll={scrollWithOffset} smooth to="/#about">
