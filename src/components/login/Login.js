@@ -28,6 +28,7 @@ class Login extends Component {
     );
 
     this.props.setUser(response.data);
+
     this.setState({
       redirect: true,
     });

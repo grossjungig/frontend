@@ -108,7 +108,7 @@ class App extends React.Component {
           />
           <Route
             exact
-            path="/edit/:id"
+            path="/edit"
             render={(props) => (
               <EditProfile history={props.history} user={this.state.user} />
             )}

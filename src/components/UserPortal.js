@@ -9,6 +9,9 @@ class UserPortal extends Component {
   };
   componentDidMount() {
     this._isMounted = true;
+
+    console.log(this.props)
+
     if (this._isMounted) {
       this.setState({
         user: this.props.user,
@@ -61,7 +64,7 @@ class UserPortal extends Component {
             </Link>
 
           ) : (
-              <Link to="/profile">
+              <Link to="/edit">
                 <button id="create-room-button" type="submit">
                   {portalLocales.profile2[lang]}  </button>
               </Link>
