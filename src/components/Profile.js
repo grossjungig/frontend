@@ -50,15 +50,15 @@ export default class Profile extends Component {
     console.log("stateee", this.state.profile)
   }
   handleHelp = () => {
-    
-      return (<div>
-        {this.state.help.map((help) => {
+
+    return (<div>
+      {this.state.help.map((help) => {
         return (
           <p className="tdcol">-{help}</p>
         )
 
       })}</div>)
-      
+
   }
   render() {
     let profile = this.state.profile;
@@ -67,7 +67,7 @@ export default class Profile extends Component {
       <div style={{ height: "auto", width: "auto" }}>
         <div style={{ display: "flex", justifyContent: "center", marginTop: "3vh" }}>
           <div className="warning" style={{ margin: "1vh" }}>
-            <p >Leo bibendum maecenas dis ullamcorper. Quis consectetur neque a. Contact: hshada@mail.com</p>
+            <p >If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271</p>
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
@@ -93,12 +93,14 @@ export default class Profile extends Component {
                 <td className="tableProfile tdcol">{this.state.district}</td>
               </tr>
               <tr>
-                <td className="tableProfile"><p className="label_profile" >{this.props.user.role=="senior"? "Help I‘d like to get": "Offered Help"}:</p></td>
+                <td className="tableProfile"><p className="label_profile" >{this.props.user.role == "senior" ? "Help I‘d like to get" : "Offered Help"}:</p></td>
                 <td className="tableProfile tdcol">{this.handleHelp()}</td>
               </tr>
             </table>
 
-
+            <Link to={`/edit`}>
+              <button className="button_profile" style={{width:"100%"}}>Edit Profile</button>
+            </Link>
 
 
           </div>

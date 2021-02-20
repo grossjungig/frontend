@@ -64,7 +64,7 @@ class UserPortal extends Component {
             </Link>
 
           ) : (
-              <Link to="/edit">
+              <Link to="/profile">
                 <button id="create-room-button" type="submit">
                   {portalLocales.profile2[lang]}  </button>
               </Link>
