@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {Link } from "react-router-dom";
 import Select from 'react-select'
 
 const options = [
@@ -69,7 +70,7 @@ class EditProfile extends Component {
       
   }
   setHelp = (event) => {
-    console.log("event", event)
+    
     this.setState({ help: event })
   }
 
@@ -101,7 +102,7 @@ class EditProfile extends Component {
       owner: this.state.owner,
       help: helps,
     };
-    console.log("obj", obj)
+   
     axios
       .post(
         `${process.env.REACT_APP_BACKENDURL}api/edit/${this.state.user.profile}`,
@@ -185,7 +186,7 @@ class EditProfile extends Component {
               style={{ marginTop: "2vh" }}
               className="textarea_profile"
             />
-            <label className="label_profile" htmlFor="help" style={{ marginBottom: "2vh" }}>{this.props.user.role == "senior" ? "Help I‘d like to get" : "Offered Help"}</label>
+            <label className="label_profile" htmlFor="help" style={{ marginBottom: "2vh" }}>{this.props.user.role === "senior" ? "Help I‘d like to get" : "Offered Help"}</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help" value={this.state.help}
               name="help" />
 
@@ -224,7 +225,9 @@ class EditProfile extends Component {
             </div>
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Link to={`/profile`}>
               <button type="submit" className="button_profile" style={{ width: "150px" }}>Cancel</button>
+              </Link>
               <button type="submit" className="button_profile" style={{ width: "150px", background: "#365FA7", color: "#F9F8F8" }} onClick={this.editProfile} >Submit</button>
             </div>
             {this.state.message && <p>{this.state.message}</p>}

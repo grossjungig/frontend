@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col } from 'reactstrap';
 import img from './home/header_image.png';
 
 export default class Profile extends Component {
@@ -21,13 +20,13 @@ export default class Profile extends Component {
     user: this.props.user,
   };
   componentDidMount() {
-    console.log("userr", this.state.user)
+    
     axios
       .get(
         `${process.env.REACT_APP_BACKENDURL}api/profiles/${this.state.user.profile}`
       )
       .then((data) => {
-        console.log("profileee", data.data)
+        
         this.setState({
           profile: data.data,
           name: data.data.user.name,
@@ -47,7 +46,7 @@ export default class Profile extends Component {
         console.log(error);
       });
 
-    console.log("stateee", this.state.profile)
+   
   }
   handleHelp = () => {
 
@@ -61,7 +60,7 @@ export default class Profile extends Component {
 
   }
   render() {
-    let profile = this.state.profile;
+    // let profile = this.state.profile;
     // if (this.state.profile.length !== 0) {
     return (
       <div style={{ height: "auto", width: "auto" }}>
@@ -74,7 +73,7 @@ export default class Profile extends Component {
 
           <div style={{ width: "328px" }}>
             <label className="label_profile" htmlFor="name" style={{ marginBottom: "2vh" }}>Picture</label>
-            <img src={img} style={{ width: "100%" }} />
+            <img src={img} style={{ width: "100%" }} alt="profile" />
             <table >
               <tr>
                 <td className="tableProfile"><p className="label_profile" >Name:</p></td>
@@ -93,7 +92,7 @@ export default class Profile extends Component {
                 <td className="tableProfile tdcol">{this.state.district}</td>
               </tr>
               <tr>
-                <td className="tableProfile"><p className="label_profile" >{this.props.user.role == "senior" ? "Help I‘d like to get" : "Offered Help"}:</p></td>
+                <td className="tableProfile"><p className="label_profile" >{this.props.user.role === "senior" ? "Help I‘d like to get" : "Offered Help"}:</p></td>
                 <td className="tableProfile tdcol">{this.handleHelp()}</td>
               </tr>
             </table>

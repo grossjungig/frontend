@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect,Link } from "react-router-dom";
 import axios from "axios";
+
+
 //import profilesLocales from "../locales/locales.profiles.json";
 //import addroomLocales from "../locales/locales.addrooms.json";
 import Select from 'react-select'
@@ -153,7 +155,7 @@ class AddProfile extends Component {
               className="textarea_profile"
             />
 
-            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>{this.props.user.role=="senior"? "Help I‘d like to get": "Offered Help"}</label>
+            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>{this.props.user.role ==="senior"? "Help I‘d like to get": "Offered Help"}</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help"
               name="help" />
 
@@ -186,6 +188,7 @@ class AddProfile extends Component {
             <label className="label_profile" >Picture</label>
             <button type="submit" className="button_profile">
               Upload the picture
+
         </button>
 
             <div className="warning" style={{ marginTop: "2vh" }}>
@@ -194,7 +197,9 @@ class AddProfile extends Component {
             </div>
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Link to={`/userportal`}>
               <button type="submit" className="button_profile" style={{ width: "150px" }}>Cancel</button>
+              </Link>
               <button type="submit" className="button_profile" style={{ width: "150px", background: "#365FA7", color: "#F9F8F8" }} onClick={this.addNewProfile} >Submit</button>
             </div>
             {this.state.message && <p>{this.state.message}</p>}
