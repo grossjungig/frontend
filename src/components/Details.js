@@ -6,11 +6,12 @@ import Fab from "@material-ui/core/Fab";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 class Details extends Component {
-    state = {
-        data: {},
-    };
+  state = {
+    data: {},
+  };
 
   async componentDidMount() {
     const roomId = this.props.match.params.id;
@@ -31,10 +32,11 @@ class Details extends Component {
       `${process.env.REACT_APP_BACKENDURL}api/rooms/${deleteRoomId}/delete`
     );
 
-        this.props.history.push("/berlin");
-    };
+    this.props.history.push("/berlin");
+  };
 
   render() {
+    console.log(this.state.data);
     const lang = localStorage.getItem("lang");
     const roomId = this.props.match.params.id;
     // this allows to verify if there is a user or not so ifyou are not logged in you can still browse the various rooms
@@ -109,27 +111,64 @@ class Details extends Component {
         <div>
           <Card>
             <CardContent>
-              <Typography variant="h3" gutterBottom>
-                {this.state.data.name}{" "}
-              </Typography>
-              <Typography variant="h5" component="h4">
-                <h4>{detailsLocales.describe[lang]}:</h4>
-              </Typography>
-              <Typography variant="body2" component="p">
-                {this.state.data.description}
-                <br />
-              </Typography>
-              <Typography variant="h5" component="h2">
-                <h4>{detailsLocales.address[lang]}:</h4>
-              </Typography>
-              <Typography variant="body2" component="p">
-                <p>{this.state.data.address}</p>
-                <p>
-                  {this.state.data.postcode} {this.state.data.district}
+              <Link to="/berlin">
+                <div className="detail-row">
+                  <ArrowBackIcon
+                    style={{ padding: "10px", fontSize: 30 }}
+                  ></ArrowBackIcon>
+                  <p>{detailsLocales.return[lang]}</p>
+                </div>
+              </Link>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.describe[lang]}:
                 </p>
-                {/* <p>{this.state.data.district}</p> */}
-                <br />
-              </Typography>
+                <p className="detail-description-info">
+                  {this.state.data.description}
+                </p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.address[lang]}:
+                </p>
+                <p className="detail-description-info">
+                  {this.state.data.address}
+                  <br></br> {this.state.data.postcode}{" "}
+                  {this.state.data.district}
+                </p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.price[lang]}:
+                </p>
+                <p className="detail-description-info">
+                  {this.state.data.price} €
+                </p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.additional_costs[lang]}:
+                </p>
+                <p className="detail-description-info"></p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.owner[lang]}:
+                </p>
+                <p className="detail-description-info"></p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.about_owner[lang]}:
+                </p>
+                <p className="detail-description-info"></p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.expected_help[lang]}:
+                </p>
+                <p className="detail-description-info"></p>
+              </div>
             </CardContent>
           </Card>
         </div>

@@ -51,7 +51,7 @@ const Navbar = (props) => {
       }}
     >
       <nav>
-        <Link class="logo-box" to="/">
+        <Link className="logo-box" to="/">
           <img
             style={{ height: "34px" }}
             src="/image/Logo.png"

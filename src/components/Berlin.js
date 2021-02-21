@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import roomsLocales from "../locales/locales.rooms.json";
 import Button from "@material-ui/core/Button";
-//future styles work in progress, do not delete
-// import Select from "@material-ui/core/Select";
-// import InputLabel from "@material-ui/core/InputLabel";
-// import MenuItem from "@material-ui/core/MenuItem";
+import TextField from "@material-ui/core/TextField";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+
 class Berlin extends Component {
   state = {
     rooms: [],
     search: "",
     select: "--",
-    maxPrice: 10000,
+    maxPrice: "",
     searchedRoom: [],
     photos: [], //[urls pointing to the images]
     filter: false,
@@ -57,7 +59,7 @@ class Berlin extends Component {
     });
 
     const filteredByPrice = filteredRooms.filter((room) => {
-      if (this.state.maxPrice === 10000) {
+      if (this.state.maxPrice === "") {
         return true;
       }
       return parseInt(room.price) <= this.state.maxPrice;
@@ -70,112 +72,133 @@ class Berlin extends Component {
   };
   render() {
     const lang = localStorage.getItem("lang");
-
     let display = this.state.filter ? "searchedRoom" : "rooms";
     const room = this.state[display].map((el) => {
+      console.log(el);
       return (
-        <div className="room-preview" key={el._id}>
-          <Link className="room-preview" to={`/berlin/${el._id}`}>
-            <img
-              src={"../../image/icon-home-8.jpg"}
-              alt="room placeholder"
-            ></img>
-            <div className="room-preview-info-container">
-              <h3>{el.name}</h3>
-              <p>
-                {el.adress} {el.postcode} {el.district}
-              </p>
-              <p>{el.price} €</p>
+        <Link to={`/berlin/${el._id}`} key={el._id}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div className="card_people">
+              <div className="card_img">
+                <img
+                  style={{
+                    float: "right",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                  src={
+                    el.images.length >= 1
+                      ? el.images[0]["secureUrl"]
+                      : "../../image/icon-home-9.jpg"
+                  }
+                  alt="room placeholder"
+                ></img>{" "}
+              </div>
+
+              <div className="container_people">
+                <h3>{el.name}</h3>
+                <p>
+                  {el.adress} {el.postcode} {el.district}
+                </p>
+                <p>{el.price} €</p>
+              </div>
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
       );
     });
     return (
       <div className="rooms-container" data-testid="berlin-root">
-        <h1>
-          {roomsLocales.title[lang]} Berlin {this.state.rooms.length}{" "}
-          {roomsLocales.offers[lang]}
-        </h1>
-        <label htmlFor="searchbypostcode">{roomsLocales.search[lang]}: </label>
-        <input
-          type="search"
-          name="search"
-          value={this.state.search}
-          onChange={this.searchedName}
-          placeholder={roomsLocales.placeholder[lang]}
-        />
-        {/* <label htmlFor="searchbyprice">
-          {roomsLocales["max-price"][lang]}:{" "}
-        </label>
-        <input
-          type="search"
-          name="search"
-          value={this.state.MaxPrice}
-          onChange={this.searchPrice}
-          placeholder={roomsLocales["max-price"][lang]}
-        /> */}
-        <label htmlFor="filterbydistrict">{roomsLocales.suburb[lang]}: </label>
-        <select
-          name="select"
-          type="select"
-          value={this.state.select}
-          onChange={this.searchedName}
-          // selected={this.state.select}
-        >
-          <option value="--">select</option>
-          <option value="Charlottenburg-Wilmersdorf">
-            Charlottenburg-Wilmersdorf
-          </option>
-          <option value="Friedrichshain-Kreuzberg">
-            Friedrichshain-Kreuzberg
-          </option>
-          <option value="Lichtenberg">Lichtenberg</option>
-          <option value="Marzahn-Hellersdorf">Marzahn-Hellersdorf</option>
-          <option value="Mitte">Mitte</option>
-          <option value="Neukoelln">Neukoelln</option>
-          <option value="Pankow">Pankow</option>
-          <option value="Reinickendorf">Reinickendorf</option>
-          <option value="Spandau">Spandau</option>
-          <option value="Steglitz-Zehlendorf">Steglitz-Zehlendorf</option>
-          <option value="Tempelhof-Schoeneberg">Tempelhof-Schoeneberg</option>
-          <option value="Treptow-Koepenick">Treptow-Koepenick</option>
-        </select>
-        <Button
-          style={{
-            color: "white",
-            backgroundColor: "#365da7",
-          }}
-          variant="contained"
-          onClick={this.searchRequest}
-        >
-          Search
-        </Button>
-        {/* <InputLabel id="role-select" htmlFor="role">
-          {roomsLocales.suburb[lang]}
-        </InputLabel>
+        <div style={{ justifyContent: "center" }}>
+          <h1>
+            {roomsLocales.title[lang]} Berlin {this.state.rooms.length}{" "}
+            {roomsLocales.offers[lang]}
+          </h1>
+          <div>
+            <label htmlFor="filterbydistrict">
+              {roomsLocales.suburb[lang]}:{" "}
+            </label>
+          </div>
+          <FormControl variant="outlined">
+            <InputLabel id="demo-simple-select-outlined-label">
+              Stadteil
+            </InputLabel>
+            <Select
+              name="select"
+              type="select"
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={this.state.select}
+              onChange={this.searchedName}
+              label="Stadteil"
+            >
+              <MenuItem value="--">
+                <em>Bezirk auswählen</em>
+              </MenuItem>
+              <MenuItem value="Charlottenburg-Wilmersdorf">
+                Charlottenburg-Wilmersdorf
+              </MenuItem>
+              <MenuItem value="Friedrichshain-Kreuzberg">
+                Friedrichshain-Kreuzberg
+              </MenuItem>
+              <MenuItem value="Lichtenberg">Lichtenberg</MenuItem>
+              <MenuItem value="Marzahn-Hellersdorf">
+                Marzahn-Hellersdorf
+              </MenuItem>
+              <MenuItem value="Mitte">Mitte</MenuItem>
+              <MenuItem value="Neukoelln">Neukoelln</MenuItem>
+              <MenuItem value="Pankow">Pankow</MenuItem>
+              <MenuItem value="Reinickendorf">Reinickendorf</MenuItem>
+              <MenuItem value="Spandau">Spandau</MenuItem>
+              <MenuItem value="Steglitz-Zehlendorf">
+                Steglitz-Zehlendorf
+              </MenuItem>
+              <MenuItem value="Tempelhof-Schoeneberg">
+                Tempelhof-Schoeneberg
+              </MenuItem>
+              <MenuItem value="Treptow-Koepenick">Treptow-Koepenick</MenuItem>
+            </Select>
+          </FormControl>
+          <TextField
+            id="outlined-search"
+            name="search"
+            value={this.state.search}
+            onChange={this.searchedName}
+            label={roomsLocales.search[lang]}
+            type="search"
+            variant="outlined"
+          />
+          <div>
+            <label htmlFor="searchbyprice">
+              {roomsLocales["max-price"][lang]}:{" "}
+            </label>
+          </div>
+          <div>
+            {" "}
+            <TextField
+              id="outlined-search"
+              name="search"
+              label={roomsLocales["max-price"][lang]}
+              type="search"
+              variant="outlined"
+              type="search"
+              value={this.state.MaxPrice}
+              onChange={this.searchPrice}
+            />
+          </div>{" "}
+          <Button
+            style={{
+              color: "white",
+              backgroundColor: "#365da7",
+            }}
+            variant="contained"
+            onClick={this.searchRequest}
+          >
+            Search
+          </Button>{" "}
+        </div>
 
-        <Select
-          name="select"
-          type="select"
-          value={this.state.select}
-          onChange={this.searchedName}
-        >
-          <MenuItem value={"Lichtenberg"}>Lichtenberg</MenuItem>
-          <MenuItem value={"Marzahn-Hellersdorf"}>Marzahn-Hellersdorf</MenuItem>
-        </Select>
-        <br />
-        <Button
-          style={{
-            color: "white",
-            backgroundColor: "#365da7",
-          }}
-          variant="contained"
-          onClick={this.handleSubmit}
-          type="submit"
-        >
-          Search
-        </Button> */}
         <div className="table-container">{room}</div>
       </div>
     );
