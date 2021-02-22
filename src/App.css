@@ -416,10 +416,30 @@ theader {
 
 /* footer */
 
-/*styles for City component**+++++++++++++++*/
+/*styles for City Component*/
+.offers-title {
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+.search-block {
+  display: flex;
+  max-width: 60vw;
+  margin: 0 auto;
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: 50rem;
+  min-width: 375px;
+}
 
-.rooms-container {
-  margin: auto;
-  display: "flex";
-  justify-content: center;
+.search-form {
+  width: 85%;
+  margin: 10% auto;
+}
+.offers-input-labels {
+}
+.sliderimg {
+  width: 50%;
+  /* height: 500px; */
+  object-fit: cover;
 }

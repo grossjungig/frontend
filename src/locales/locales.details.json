@@ -31,6 +31,7 @@
     "en":"About the owner",
     "de":"Über die Person"
   },
+  
   "expected_help":{
     "en":"Expected help",
     "de":"Erwartete Hilfe"
@@ -62,5 +63,9 @@
   "suburb": {
     "en": "Suburb",
     "de": "Stadteil"
+  },
+  "pictures": {
+    "en": "Photos",
+    "de": "Wohnungsfotos"
   }
 }

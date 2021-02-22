@@ -15,6 +15,10 @@
     "en": "Search by postcode",
     "de": "Suchen nach Postleitzahl"
   },
+  "search_district": {
+    "en": "Choose district",
+    "de": "Bezirk auswählen"
+  },
   "placeholder": {
     "en": "Postcode",
     "de": "Postleitzahl"

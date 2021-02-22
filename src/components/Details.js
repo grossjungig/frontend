@@ -5,8 +5,9 @@ import detailsLocales from "../locales/locales.details.json";
 import Fab from "@material-ui/core/Fab";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 class Details extends Component {
   state = {
@@ -37,6 +38,12 @@ class Details extends Component {
 
   render() {
     console.log(this.state.data);
+    let pics =
+      this.state.data.images &&
+      this.state.data.images.map((image) => {
+        return <img src={image.secureUrl} className="sliderimg" />;
+      });
+    console.log(pics);
     const lang = localStorage.getItem("lang");
     const roomId = this.props.match.params.id;
     // this allows to verify if there is a user or not so ifyou are not logged in you can still browse the various rooms
@@ -169,6 +176,21 @@ class Details extends Component {
                 </p>
                 <p className="detail-description-info"></p>
               </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.pictures[lang]}:
+                </p>
+                {/* <p className="detail-description-info"></p> */}
+                <div className="detail-description-info photo-container">
+                  {pics ? (
+                    <AliceCarousel autoPlay autoPlayInterval="3000">
+                      {pics}
+                    </AliceCarousel>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -203,8 +225,8 @@ class Details extends Component {
             </div> */}
           </div>
         </div>
-        <div className="photo-container">
-          {/* TODO: refactor markup */}
+        {/* <div className="photo-container">
+         
           {this.state.data.images &&
             this.state.data.images.map((image) => {
               return (
@@ -216,7 +238,7 @@ class Details extends Component {
                 ></img>
               );
             })}
-        </div>
+        </div> */}
       </div>
     );
   }
