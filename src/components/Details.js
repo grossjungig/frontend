@@ -12,6 +12,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 class Details extends Component {
   state = {
     data: {},
+    images: [],
   };
 
   async componentDidMount() {
@@ -22,6 +23,9 @@ class Details extends Component {
 
     this.setState({
       data, //same as data:data,shorthand notation for objects
+    });
+    this.setState({
+      images: data.images,
     });
   }
 
@@ -41,9 +45,15 @@ class Details extends Component {
     let pics =
       this.state.data.images &&
       this.state.data.images.map((image) => {
-        return <img src={image.secureUrl} className="sliderimg" />;
+        return (
+          <img
+            key={image._id}
+            src={image.secureUrl}
+            className="sliderimg"
+            alt="the room"
+          />
+        );
       });
-    console.log(pics);
     const lang = localStorage.getItem("lang");
     const roomId = this.props.match.params.id;
     // this allows to verify if there is a user or not so ifyou are not logged in you can still browse the various rooms
@@ -69,22 +79,6 @@ class Details extends Component {
                 <h3>{detailsLocales.describe[lang]}:</h3>
                 <p>{this.state.data.description}</p>
               </div>
-              {/* <div className="paragraphs">
-                <h3>{detailsLocales.phone[lang]}:</h3>
-                <p>
-                  <a href={"tel:" + this.state.data.phoneNumber}>
-                    {this.state.data.phoneNumber}
-                  </a>
-                </p>
-              </div>
-              <div className="paragraphs">
-                <h3>{detailsLocales.email[lang]}:</h3>
-                <p>
-                  <a href={"mailto:" + this.state.data.email}>
-                    {this.state.data.email}
-                  </a>
-                </p>
-              </div> */}
             </div>
           </div>
           <div className="photo-container">
@@ -117,6 +111,23 @@ class Details extends Component {
       <div className="detail-container">
         <div>
           <Card>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "3vh",
+              }}
+            >
+              <div
+                className="warning"
+                style={{ margin: "3vw", minWidth: "95%" }}
+              >
+                <p sytle={{ padding: "5px" }}>
+                  If you want to rent this room or connect with this senior,
+                  please contact us at +49-30-55231271 or info@grossjungig.de{" "}
+                </p>
+              </div>
+            </div>
             <CardContent>
               <Link to="/berlin">
                 <div className="detail-row">
@@ -180,10 +191,13 @@ class Details extends Component {
                 <p className="detail-description-title">
                   {detailsLocales.pictures[lang]}:
                 </p>
-                {/* <p className="detail-description-info"></p> */}
                 <div className="detail-description-info photo-container">
-                  {pics ? (
-                    <AliceCarousel autoPlay autoPlayInterval="3000">
+                  {this.state.images.length > 0 ? (
+                    <AliceCarousel
+                      infinite="true"
+                      autoPlay="true"
+                      autoPlayInterval="2000"
+                    >
                       {pics}
                     </AliceCarousel>
                   ) : (
@@ -207,38 +221,8 @@ class Details extends Component {
                 {detailsLocales.return[lang]}
               </Fab>
             </Link>
-            {/* <div className="paragraphs">
-              <h3>{detailsLocales.phone[lang]}:</h3>
-              <p>
-                <a href={"tel:" + this.state.data.phoneNumber}>
-                  {this.state.data.phoneNumber}
-                </a>
-              </p>
-            </div>
-            <div className="paragraphs">
-              <h3>{detailsLocales.email[lang]}:</h3>
-              <p>
-                <a href={"mailto:" + this.state.data.email}>
-                  {this.state.data.email}
-                </a>
-              </p>
-            </div> */}
           </div>
         </div>
-        {/* <div className="photo-container">
-         
-          {this.state.data.images &&
-            this.state.data.images.map((image) => {
-              return (
-                <img
-                  alt="room"
-                  width="300px"
-                  height="auto"
-                  src={image.secureUrl}
-                ></img>
-              );
-            })}
-        </div> */}
       </div>
     );
   }
