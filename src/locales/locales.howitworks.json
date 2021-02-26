@@ -1,0 +1,72 @@
+{   
+    "title": {
+        "en": "How does it work?",
+        "de": "Wie funktioniert es?"
+    }, 
+    "subtitle": {
+      "en": "A couple of easy steps to find your new family",
+      "de": "Ein paar einfache Schritte, um Ihre neue Familie zu finden"
+    },
+    "seniors": {
+        "en": "Seniors",
+        "de": "Senioren"
+    },
+    "junior": {
+        "en": "Young people",
+        "de": "Junge Menschen"
+    },
+    "seniorList": {
+        "first": {
+            "en": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jede junge Person und deren Anfrage lesen.",
+            "de": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jede junge Person und deren Anfrage lesen."
+        },
+        "second": {
+            "en": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit.",
+            "de": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit."
+        },
+        "third": {
+            "en": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen, Ihre Telefonnummer und die vollständige Adresse ihrer Wohnung anderen NutzerInnen nicht.",
+            "de": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen, Ihre Telefonnummer und die vollständige Adresse ihrer Wohnung anderen NutzerInnen nicht."
+        },
+        "fourth": {
+            "en": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen.",
+            "de": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen."
+        },
+        "fifth": {
+            "en": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab.",
+            "de": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab."
+        }
+    },
+    "juniorList": {
+        "first": {
+            "en": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jedes Zimmer und jede ältere Person lesen.",
+            "de": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jedes Zimmer und jede ältere Person lesen."
+        },
+        "second": {
+            "en": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit.",
+            "de": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit."
+        },
+        "third": {
+            "en": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen und Ihre Telefonnummer anderen NutzerInnen nicht.",
+            "de": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen und Ihre Telefonnummer anderen NutzerInnen nicht."
+        },
+        "fourth": {
+            "en": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen.",
+            "de": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen."
+        },
+        "fifth": {
+            "en": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab.",
+            "de": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab."
+        }
+    },
+    "descriptionTitle": {
+        "en": "More information",
+        "de": "Mehr Informationen"
+    },
+    "description": {
+        "en": "Auf der endgültigen Version der Plattform grossjungig.de (im Moment ist es noch ein Prototyp und auch sind zurzeit die Kapazitäten beschränkt) kann man Präferenzen für ein Zimmer, einen Stadtbezirk und einen Mitbewohner angeben. Unsere NutzerInnen bekommen dann personalisierte Ergebnisse und können bei Interesse die AnbieterInnen kontaktieren. Andere Features der Plattform wären: ID-Verifizierung, Erstellung von Mietverträgen und elektronischen Unterschriften, sowie sichere Unterhaltung, Ranking und Reviews.",
+        "de": "Auf der endgültigen Version der Plattform grossjungig.de (im Moment ist es noch ein Prototyp und auch sind zurzeit die Kapazitäten beschränkt) kann man Präferenzen für ein Zimmer, einen Stadtbezirk und einen Mitbewohner angeben. Unsere NutzerInnen bekommen dann personalisierte Ergebnisse und können bei Interesse die AnbieterInnen kontaktieren. Andere Features der Plattform wären: ID-Verifizierung, Erstellung von Mietverträgen und elektronischen Unterschriften, sowie sichere Unterhaltung, Ranking und Reviews."
+    }
+
+
+}

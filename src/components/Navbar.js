@@ -4,7 +4,7 @@ import axios from "axios";
 import navbarLocales from "../locales/locales.navbar.json";
 import homeLocales from "../locales/locales.home.json";
 //import Logo from "./Logo";
-import { NavbarLink } from "./styled";
+import { HashLink, PageLink } from "./styled";
 
 import Fab from "@material-ui/core/Fab";
 //styles for new navbar-don'te delete
@@ -40,6 +40,12 @@ const Navbar = (props) => {
 
   const lang = localStorage.getItem("lang");
 
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -60; 
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+}
+
   return (
     <div
       style={{
@@ -51,25 +57,31 @@ const Navbar = (props) => {
       }}
     >
       <nav>
-        <Link className="logo-box" to="/">
+
+        <HashLink smooth class="logo-box" to="/#">
           <img
             style={{ height: "34px" }}
             src="/image/Logo.png"
             alt="logo_image"
           />
-        </Link>
+        </HashLink>
         <div className="main-nav">
           <div className="navbarlink">
-            <NavbarLink href="/#about">{homeLocales.about[lang]}</NavbarLink>
-            <NavbarLink href="/#how-it-works">
+            <PageLink to="/aboutus">
+              {homeLocales.about[lang]}
+            </PageLink>
+            <PageLink to="/how">
               {homeLocales.how[lang]}
-            </NavbarLink>
-            <NavbarLink href="/#community">
+            </PageLink>
+            <HashLink scroll={scrollWithOffset} smooth to="/#community">
               {homeLocales.community[lang]}
-            </NavbarLink>
-            <NavbarLink href="/#contact">
+            </HashLink>
+            <HashLink scroll={scrollWithOffset} smooth to="/#contact">
               {homeLocales.contact[lang]}
-            </NavbarLink>
+            </HashLink>
+            <PageLink to="/impressum">
+              Impressum
+            </PageLink>
           </div>
         </div>
         {props.user ? (

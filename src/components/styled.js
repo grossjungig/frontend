@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 import React from "react";
+import { NavHashLink } from 'react-router-hash-link';
+import { Link } from "react-router-dom";
 
 export const basicButtonCSS = css`
   padding: 0.6rem 2rem;
@@ -101,7 +103,14 @@ export const Card3 = ({ text, source }) => (
   </Card3Root>
 );
 
-export const NavbarLink = styled.a`
+export const HashLink = styled(NavHashLink)`
+  text-decoration: none;
+  font-size: 15px;
+  color: black;
+  margin: auto;
+  padding: 0rem 1rem;
+`;
+export const PageLink = styled(Link)`
   text-decoration: none;
   font-size: 15px;
   color: black;
