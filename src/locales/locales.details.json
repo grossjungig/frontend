@@ -15,6 +15,27 @@
     "en": "District",
     "de": "Bezirk"
   },
+  "price":{
+    "en":"Price",
+    "de":"Preis"
+  },
+  "additional_costs":{
+    "en":"Additional costs",
+    "de":"Nebenkosten"
+  },
+  "owner":{
+    "en":"Owner",
+    "de":"Vermieter*in"
+  },
+  "about_owner":{
+    "en":"About the owner",
+    "de":"Über die Person"
+  },
+  
+  "expected_help":{
+    "en":"Expected help",
+    "de":"Erwartete Hilfe"
+  },
   "describe": {
     "en": "Description",
     "de": "Beschreibung"
@@ -42,5 +63,9 @@
   "suburb": {
     "en": "Suburb",
     "de": "Stadteil"
+  },
+  "pictures": {
+    "en": "Photos",
+    "de": "Wohnungsfotos"
   }
 }

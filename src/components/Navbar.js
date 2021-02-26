@@ -57,6 +57,7 @@ const Navbar = (props) => {
       }}
     >
       <nav>
+
         <HashLink smooth class="logo-box" to="/#">
           <img
             style={{ height: "34px" }}

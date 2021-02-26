@@ -48,9 +48,6 @@ class Login extends Component {
     }
     return (
       <div className="full-block">
-        <div className="x">
-          {/* <img src="../image/signup.png" alt="login-side-view" /> */}
-        </div>
         <div className="login">
           <h2>{loginLocales.welcome[lang]}</h2>
           <h3>{loginLocales.prompt[lang]}</h3>

@@ -5,12 +5,15 @@ import detailsLocales from "../locales/locales.details.json";
 import Fab from "@material-ui/core/Fab";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 class Details extends Component {
-    state = {
-        data: {},
-    };
+  state = {
+    data: {},
+    images: [],
+  };
 
   async componentDidMount() {
     const roomId = this.props.match.params.id;
@@ -20,6 +23,9 @@ class Details extends Component {
 
     this.setState({
       data, //same as data:data,shorthand notation for objects
+    });
+    this.setState({
+      images: data.images,
     });
   }
 
@@ -31,10 +37,23 @@ class Details extends Component {
       `${process.env.REACT_APP_BACKENDURL}api/rooms/${deleteRoomId}/delete`
     );
 
-        this.props.history.push("/berlin");
-    };
+    this.props.history.push("/berlin");
+  };
 
   render() {
+    console.log(this.state.data);
+    let pics =
+      this.state.data.images &&
+      this.state.data.images.map((image) => {
+        return (
+          <img
+            key={image._id}
+            src={image.secureUrl}
+            className="sliderimg"
+            alt="the room"
+          />
+        );
+      });
     const lang = localStorage.getItem("lang");
     const roomId = this.props.match.params.id;
     // this allows to verify if there is a user or not so ifyou are not logged in you can still browse the various rooms
@@ -60,22 +79,6 @@ class Details extends Component {
                 <h3>{detailsLocales.describe[lang]}:</h3>
                 <p>{this.state.data.description}</p>
               </div>
-              {/* <div className="paragraphs">
-                <h3>{detailsLocales.phone[lang]}:</h3>
-                <p>
-                  <a href={"tel:" + this.state.data.phoneNumber}>
-                    {this.state.data.phoneNumber}
-                  </a>
-                </p>
-              </div>
-              <div className="paragraphs">
-                <h3>{detailsLocales.email[lang]}:</h3>
-                <p>
-                  <a href={"mailto:" + this.state.data.email}>
-                    {this.state.data.email}
-                  </a>
-                </p>
-              </div> */}
             </div>
           </div>
           <div className="photo-container">
@@ -108,28 +111,100 @@ class Details extends Component {
       <div className="detail-container">
         <div>
           <Card>
-            <CardContent>
-              <Typography variant="h3" gutterBottom>
-                {this.state.data.name}{" "}
-              </Typography>
-              <Typography variant="h5" component="h4">
-                <h4>{detailsLocales.describe[lang]}:</h4>
-              </Typography>
-              <Typography variant="body2" component="p">
-                {this.state.data.description}
-                <br />
-              </Typography>
-              <Typography variant="h5" component="h2">
-                <h4>{detailsLocales.address[lang]}:</h4>
-              </Typography>
-              <Typography variant="body2" component="p">
-                <p>{this.state.data.address}</p>
-                <p>
-                  {this.state.data.postcode} {this.state.data.district}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "3vh",
+              }}
+            >
+              <div
+                className="warning"
+                style={{ margin: "3vw", minWidth: "95%" }}
+              >
+                <p sytle={{ padding: "5px" }}>
+                  If you want to rent this room or connect with this senior,
+                  please contact us at +49-30-55231271 or info@grossjungig.de{" "}
                 </p>
-                {/* <p>{this.state.data.district}</p> */}
-                <br />
-              </Typography>
+              </div>
+            </div>
+            <CardContent>
+              <Link to="/berlin">
+                <div className="detail-row">
+                  <ArrowBackIcon
+                    style={{ padding: "10px", fontSize: 30 }}
+                  ></ArrowBackIcon>
+                  <p>{detailsLocales.return[lang]}</p>
+                </div>
+              </Link>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.describe[lang]}:
+                </p>
+                <p className="detail-description-info">
+                  {this.state.data.description}
+                </p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.address[lang]}:
+                </p>
+                <p className="detail-description-info">
+                  {this.state.data.address}
+                  <br></br> {this.state.data.postcode}{" "}
+                  {this.state.data.district}
+                </p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.price[lang]}:
+                </p>
+                <p className="detail-description-info">
+                  {this.state.data.price} €
+                </p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.additional_costs[lang]}:
+                </p>
+                <p className="detail-description-info"></p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.owner[lang]}:
+                </p>
+                <p className="detail-description-info"></p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.about_owner[lang]}:
+                </p>
+                <p className="detail-description-info"></p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.expected_help[lang]}:
+                </p>
+                <p className="detail-description-info"></p>
+              </div>
+              <div className="detail-row">
+                <p className="detail-description-title">
+                  {detailsLocales.pictures[lang]}:
+                </p>
+                <div className="detail-description-info photo-container">
+                  {this.state.images.length > 0 ? (
+                    <AliceCarousel
+                      infinite="true"
+                      autoPlay="true"
+                      autoPlayInterval="2000"
+                    >
+                      {pics}
+                    </AliceCarousel>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -146,37 +221,7 @@ class Details extends Component {
                 {detailsLocales.return[lang]}
               </Fab>
             </Link>
-            {/* <div className="paragraphs">
-              <h3>{detailsLocales.phone[lang]}:</h3>
-              <p>
-                <a href={"tel:" + this.state.data.phoneNumber}>
-                  {this.state.data.phoneNumber}
-                </a>
-              </p>
-            </div>
-            <div className="paragraphs">
-              <h3>{detailsLocales.email[lang]}:</h3>
-              <p>
-                <a href={"mailto:" + this.state.data.email}>
-                  {this.state.data.email}
-                </a>
-              </p>
-            </div> */}
           </div>
-        </div>
-        <div className="photo-container">
-          {/* TODO: refactor markup */}
-          {this.state.data.images &&
-            this.state.data.images.map((image) => {
-              return (
-                <img
-                  alt="room"
-                  width="300px"
-                  height="auto"
-                  src={image.secureUrl}
-                ></img>
-              );
-            })}
         </div>
       </div>
     );

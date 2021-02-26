@@ -12,8 +12,12 @@
     "de": "Neues Zimmer hinzufügen"
   },
   "search": {
-    "en": "Search by postcode",
+    "en": "Search by Postcode",
     "de": "Suchen nach Postleitzahl"
+  },
+  "search_district": {
+    "en": "Choose district",
+    "de": "Bezirk auswählen"
   },
   "placeholder": {
     "en": "Postcode",
@@ -34,7 +38,7 @@
     "de": "Angebote"
   },
   "max-price": {
-    "en":"max. Price",
-    "de": "max. Preis"
+    "en":"Max. Price",
+    "de": "Max. Preis"
   }
 }
