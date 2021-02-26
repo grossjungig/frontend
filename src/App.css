@@ -424,10 +424,9 @@ theader {
 }
 .search-block {
   display: flex;
-  max-width: 60vw;
+  max-width: 30vw;
   margin: 0 auto;
-  /* margin-left: auto;
-  margin-right: auto; */
+
   width: 50rem;
   min-width: 375px;
 }
@@ -437,9 +436,10 @@ theader {
   margin: 0 auto;
 }
 .offers-input-labels {
+  padding-bottom: 0.6rem;
+  padding-top: 0.6rem;
 }
 .sliderimg {
   width: 50%;
-  /* height: 500px; */
   object-fit: cover;
 }

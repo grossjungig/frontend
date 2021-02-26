@@ -7,7 +7,6 @@ import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
 
 class Berlin extends Component {
   state = {
@@ -74,7 +73,6 @@ class Berlin extends Component {
     const lang = localStorage.getItem("lang");
     let display = this.state.filter ? "searchedRoom" : "rooms";
     const room = this.state[display].map((el) => {
-      console.log(el);
       return (
         <Link to={`/berlin/${el._id}`} key={el._id}>
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -122,7 +120,7 @@ class Berlin extends Component {
             {" "}
             <div>
               <div>
-                <div>
+                <div className="offers-input-labels">
                   {" "}
                   <label
                     className="offers-input-labels"
@@ -132,7 +130,7 @@ class Berlin extends Component {
                   </label>
                 </div>
                 <div>
-                  <FormControl variant="outlined">
+                  <FormControl variant="outlined" style={{ width: "100%" }}>
                     {/* <InputLabel id="demo-simple-select-outlined-label">
               Stadteil
             </InputLabel> */}
@@ -175,7 +173,7 @@ class Berlin extends Component {
                     </Select>
                   </FormControl>
                 </div>
-                <div>
+                <div className="offers-input-labels">
                   {" "}
                   <label
                     className="offers-input-labels"
@@ -197,7 +195,7 @@ class Berlin extends Component {
               </div>
 
               <div>
-                <div>
+                <div className="offers-input-labels">
                   <label htmlFor="searchbyprice">
                     {roomsLocales["max-price"][lang]}:{" "}
                   </label>
@@ -222,6 +220,7 @@ class Berlin extends Component {
               style={{
                 color: "white",
                 backgroundColor: "#365da7",
+                marginTop: "10px",
               }}
               variant="contained"
               onClick={this.searchRequest}
