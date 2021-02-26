@@ -209,7 +209,6 @@ class Berlin extends Component {
                     // label={roomsLocales["max-price"][lang]}
                     type="search"
                     variant="outlined"
-                    type="search"
                     value={this.state.MaxPrice}
                     onChange={this.searchPrice}
                   />
