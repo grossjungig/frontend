@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect,Link } from "react-router-dom";
 import axios from "axios";
+
+
 //import profilesLocales from "../locales/locales.profiles.json";
 //import addroomLocales from "../locales/locales.addrooms.json";
 import Select from 'react-select'
@@ -18,7 +20,6 @@ const options = [
   { value: 'Taking care of pets', label: 'Taking care of pets' },
   { value: 'Pflage/ Taking care of Seniors', label: 'Pflage/ Taking care of Seniors' }
 ]
-
 
 class AddProfile extends Component {
   state = {
@@ -90,15 +91,14 @@ class AddProfile extends Component {
       <div style={{ height: "auto", width: "auto" }}>
         <div style={{ display: "flex", justifyContent: "center", marginTop: "3vh" }}>
           <div className="warning" style={{ margin: "1vh" }}>
-            <p >Please do not leave your personal identifying information here, you can only select several districts you are interested in, and in the text box, please write your first name, age and gender, as well as a brief description of personality, brief help offer description, and room price request.</p>
-
+            <p >Please do not leave your personal identifying information here.</p>
           </div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div style={{ width: "328px" }}>
 
-            <label className="label_profile" htmlFor="name">First Name</label>
+            <label className="label_profile" htmlFor="name" style={{marginBottom:"2vh"}}>First Name</label>
             <input
               type="text"
               name="name"
@@ -123,7 +123,7 @@ class AddProfile extends Component {
               <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="divers">Divers</option>
             </select>
 
-            <label htmlFor="age" className="label_profile" >Age</label>
+            <label htmlFor="age" className="label_profile" style={{marginBottom:"2vh"}} >Age</label>
             <input
               type="text"
               name="age"
@@ -133,7 +133,7 @@ class AddProfile extends Component {
               className="input_profile"
             />
 
-            <label className="label_profile" htmlFor="price">Requested room price</label>
+            <label className="label_profile" htmlFor="price" style={{marginBottom:"2vh"}}>Requested room price</label>
             <input
               type="number"
               name="price"
@@ -155,7 +155,7 @@ class AddProfile extends Component {
               className="textarea_profile"
             />
 
-            <label className="label_profile" htmlFor="help">Offered Help</label>
+            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>{this.props.user.role ==="senior"? "Help I‘d like to get": "Offered Help"}</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help"
               name="help" />
 
@@ -197,7 +197,9 @@ class AddProfile extends Component {
             </div>
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Link to={`/userportal`}>
               <button type="submit" className="button_profile" style={{ width: "150px" }}>Cancel</button>
+              </Link>
               <button type="submit" className="button_profile" style={{ width: "150px", background: "#365FA7", color: "#F9F8F8" }} onClick={this.addNewProfile} >Submit</button>
             </div>
             {this.state.message && <p>{this.state.message}</p>}

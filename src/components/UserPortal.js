@@ -9,6 +9,9 @@ class UserPortal extends Component {
   };
   componentDidMount() {
     this._isMounted = true;
+
+    console.log(this.props)
+
     if (this._isMounted) {
       this.setState({
         user: this.props.user,

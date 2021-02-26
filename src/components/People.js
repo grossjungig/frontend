@@ -20,7 +20,7 @@ export default class People extends Component {
         });
     }
     render() {
-        console.log(this.state.people);
+       
         return (<div> {
             this.state.people.map((el) => {
                 return (
@@ -46,5 +46,4 @@ export default class People extends Component {
             }
 }
 
-
-   
+ 
