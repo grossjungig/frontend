@@ -15,6 +15,8 @@ if (!localStorage.getItem("lang")) {
 axios
   .get(`${process.env.REACT_APP_BACKENDURL}api/auth/loggedin`)
   .then((response) => {
+    console.log("response after checking on logged in route",response.data);
+    console.log("backend url", process.env.REACT_APP_BACKENDURL )
     if (response.data) {
       ReactDOM.render(
         <BrowserRouter>
