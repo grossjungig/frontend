@@ -93,6 +93,25 @@ export const Why = styled.div`
   }
 `;
 
+export const How = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+
+  /* Media Queries: Tablet Portrait */
+  @media screen and (min-width: 768px) {
+  }
+  /* Media Queries: Desktop */
+  @media screen and (min-width: 1060px) {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+
 export const HowGrid = styled.div`
   display: grid;
   grid-gap: 0.3rem;
@@ -101,7 +120,7 @@ export const HowGrid = styled.div`
   padding: 0rem;
   margin-left: 0.3rem;
   margin-right: 0.3rem;
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
   /* Media Queries: Tablet Portrait */
   @media screen and (min-width: 768px) {
     margin-left: 0.3rem;
