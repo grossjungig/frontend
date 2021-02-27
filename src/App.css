@@ -423,17 +423,17 @@ theader {
   margin-right: auto;
 }
 .search-block {
-  display: flex;
-  max-width: 30vw;
+  /* display: flex; */
+  /* max-width: 30vw; */
   margin: 0 auto;
-
-  width: 50rem;
+  width: 50%;
   min-width: 375px;
 }
 
 .search-form {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 20px;
 }
 .offers-input-labels {
   padding-bottom: 0.6rem;
@@ -442,4 +442,20 @@ theader {
 .sliderimg {
   width: 50%;
   object-fit: cover;
+}
+.form-grid {
+  display: grid;
+}
+@media (min-width: 786px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+  }
+  .search-block {
+    /* display: flex; */
+    /* max-width: 30vw; */
+
+    width: 90%;
+  }
 }

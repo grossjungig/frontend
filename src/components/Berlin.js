@@ -118,8 +118,8 @@ class Berlin extends Component {
         <div className="search-block">
           <div className="search-form">
             {" "}
-            <div>
-              <div>
+            <div className="form-grid">
+              <div className="suburb">
                 <div className="offers-input-labels">
                   {" "}
                   <label
@@ -130,10 +130,11 @@ class Berlin extends Component {
                   </label>
                 </div>
                 <div>
-                  <FormControl variant="outlined" style={{ width: "100%" }}>
-                    {/* <InputLabel id="demo-simple-select-outlined-label">
-              Stadteil
-            </InputLabel> */}
+                  <FormControl
+                    size="small"
+                    variant="outlined"
+                    style={{ width: "100%" }}
+                  >
                     <Select
                       fullWidth
                       name="select"
@@ -172,7 +173,9 @@ class Berlin extends Component {
                       </MenuItem>
                     </Select>
                   </FormControl>
-                </div>
+                </div>{" "}
+              </div>
+              <div className="postcode">
                 <div className="offers-input-labels">
                   {" "}
                   <label
@@ -183,6 +186,7 @@ class Berlin extends Component {
                   </label>
                 </div>
                 <TextField
+                  size="small"
                   fullWidth
                   id="outlined-search"
                   name="search"
@@ -194,7 +198,7 @@ class Berlin extends Component {
                 />
               </div>
 
-              <div>
+              <div className="price">
                 <div className="offers-input-labels">
                   <label htmlFor="searchbyprice">
                     {roomsLocales["max-price"][lang]}:{" "}
@@ -203,6 +207,7 @@ class Berlin extends Component {
                 <div>
                   {" "}
                   <TextField
+                    size="small"
                     fullWidth
                     id="outlined-search"
                     name="search"
