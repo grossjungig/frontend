@@ -1,26 +1,136 @@
-import React from 'react';
+import React from "react";
 import aboutLocales from "../../locales/locales.aboutus.json";
-import { H1, H2, H3 } from '../typography';
+import { Icon, MainPanel, Paragraph, TeamItem } from "./styled";
+import { H1, H2, H4 } from "../typography";
+import "./aboutUs.css";
 
-const { title, subtitle, description, question, answer, teamTitle, team  } = aboutLocales;
+const {
+  title,
+  subtitle,
+  description,
+  question,
+  answer,
+  teamTitle,
+  team,
+} = aboutLocales;
 
-export default function AboutUs() {
-    const lang = localStorage.getItem("lang");
-    return (
-        <div style={{ textAlign: "center" }}>
-            <H1>{title[lang]}</H1>
-            <H2>{subtitle[lang]}</H2>
-            <p>{description.first[lang]}</p>
-            <p>{description.second[lang]}</p>
-            <H3>{question[lang]}</H3>
-            <p>{answer[lang]}</p>
-            <H3>{teamTitle[lang]}</H3>
-            <p>{team.intro[lang]}</p>
-            <ul>
-                <li>{team.anastasia[lang]}</li>
-                <li>{team.olga[lang]}</li>
-                <li>{team.menna[lang]}</li>
-            </ul>
+const AboutUs = () => {
+  const lang = localStorage.getItem("lang");
+
+  return (
+    <>
+      <section className="hero-component">
+        <MainPanel>
+          <H4>{title[lang]}</H4>
+          <H1 style={{ textAlign: "center" }}>{subtitle[lang]}</H1>
+        </MainPanel>
+      </section>
+      <section className="aboutus-content">
+        <Paragraph>{description.first[lang]}</Paragraph>
+        <Icon image={"image/hands_heart_icon.png"}></Icon>
+        <Paragraph>{description.second[lang]}</Paragraph>
+        <Icon image={"image/home_heart_icon.png"}></Icon>
+        <H2 style={{ marginBottom: "0" }}>{question[lang]}</H2>
+        <Paragraph style={{ marginTop: "0" }}>{answer[lang]}</Paragraph>
+      </section>
+      <section className="team-big">
+        <H2 style={{ color: "#fff", marginBottom: "0" }}>{teamTitle[lang]}</H2>
+        <Paragraph style={{ color: "#fff", marginTop: "0" }}>
+          {team.intro[lang]}
+        </Paragraph>
+        <div className="team-flex">
+          <TeamItem
+            image="image/TeamProfilePics/Anastasia.png"
+            name="Anastasia Krasnoperova"
+            role={team.Anastasia[lang]}
+            color="#fff"
+            height="240"
+          ></TeamItem>
+          <TeamItem
+            image="image/TeamProfilePics/Olga.png"
+            name="Olga Miakotnikova"
+            role={team.Olga[lang]}
+            color="#fff"
+            height="240"
+          ></TeamItem>
+          <TeamItem
+            image="image/TeamProfilePics/Menna.png"
+            name="Menna Hisham"
+            role={team.Menna[lang]}
+            color="#fff"
+            height="240"
+          ></TeamItem>
         </div>
-    )
-}
+      </section>
+      <section className="team-small">
+        <div className="team-grid">
+          <TeamItem
+            image="image/TeamProfilePics/Luca.png"
+            name="Luca"
+            role={team.Luca[lang]}
+            color="#365FA7"
+            height="160"
+          ></TeamItem>
+          <TeamItem
+            image="image/TeamProfilePics/Tammy.png"
+            name="Tammy"
+            role={team.Tammy[lang]}
+            color="#365FA7"
+            height="160"
+          ></TeamItem>
+          <TeamItem
+            image="image/TeamProfilePics/Rosina.png"
+            name="Rosina"
+            role={team.Rosina[lang]}
+            color="#365FA7"
+            height="160"
+          ></TeamItem>
+          <TeamItem
+            image="image/TeamProfilePics/Vicky.png"
+            name="Vicky"
+            role={team.Vicky[lang]}
+            color="#365FA7"
+            height="160"
+          ></TeamItem>
+          <TeamItem
+            image="image/TeamProfilePics/Magdalena.png"
+            name="Magdalena"
+            role={team.Magda[lang]}
+            color="#365FA7"
+            height="160"
+          ></TeamItem>
+          <TeamItem
+            image="image/TeamProfilePics/Nida.png"
+            name="Nida"
+            role={team.Nida[lang]}
+            color="#365FA7"
+            height="160"
+          ></TeamItem>
+          <TeamItem
+            image="image/TeamProfilePics/Maria.png"
+            name="Maria"
+            role={team.Maria[lang]}
+            color="#365FA7"
+            height="160"
+          ></TeamItem>
+          <TeamItem
+            image="image/TeamProfilePics/Skander.png"
+            name="Skander"
+            role={team.Skander[lang]}
+            color="#365FA7"
+            height="160"
+          ></TeamItem>
+          <TeamItem
+            image="image/TeamProfilePics/Vlad.png"
+            name="Vlad"
+            role={team.Vlad[lang]}
+            color="#365FA7"
+            height="160"
+          ></TeamItem>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default AboutUs;
