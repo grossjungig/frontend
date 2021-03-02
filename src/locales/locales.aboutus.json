@@ -1,52 +1,87 @@
-{   
-    "title": {
-        "en": "About us",
-        "de": "Über uns"
-    }, 
-    "subtitle": {
-      "en": "Großjungig AI ist die erste und einzige Wohnplattform für ältere und junge Menschen.",
-      "de": "Großjungig AI ist die erste und einzige Wohnplattform für ältere und junge Menschen."
-    },
-    
-    "description": {
-        "first": {
-            "en": "Großjungig AI ist eine Online-Plattform, auf der Senioren Anzeigen erstellen können, wenn sie bei sich zuhause ein Zimmer frei haben und nach MitbewohnerInnen suchen. Junge Menschen können diese Anzeigen sehen und die Senioren kontaktieren. Unsere Mission ist es, Menschen zu vernetzen und den sozialen Zusammenhalt generationenübergreifend zu fördern. Wir möchten es Senioren möglich machen, nicht nur MitbewohnerInnen zu finden und Geld zu verdienen, sondern auch eine Unterstützung im Alltag von jungen Menschen zu bekommen mit denen sie außerdem ihre Lebenserfahrung teilen können.",
-            "de": "Großjungig AI ist eine Online-Plattform, auf der Senioren Anzeigen erstellen können, wenn sie bei sich zuhause ein Zimmer frei haben und nach MitbewohnerInnen suchen. Junge Menschen können diese Anzeigen sehen und die Senioren kontaktieren. Unsere Mission ist es, Menschen zu vernetzen und den sozialen Zusammenhalt generationenübergreifend zu fördern. Wir möchten es Senioren möglich machen, nicht nur MitbewohnerInnen zu finden und Geld zu verdienen, sondern auch eine Unterstützung im Alltag von jungen Menschen zu bekommen mit denen sie außerdem ihre Lebenserfahrung teilen können."
-        },
-        "second": {
-            "en": "Die Unterstützung setzt sich oft aus kleinen Aufgaben zusammen, wie Einkäufe machen, schwere Dinge tragen, im Garten helfen, aber auch die gemeinsame Freizeitgestaltung: Kaffee/Tee trinken, Schach spielen etc. Wie genau und mit welchem Zeitaufwand junge Menschen den Senioren helfen, kann individuell abgesprochen werden. Großjungig AI wird eine passende Lösung für beide Seiten finden! Für junge Menschen stellt dies eine Möglichkeit dar, eine bezahlbare Unterkunft in Großstädten zu finden. Ihnen wird ein niedrigerer Mietpreis für die Bereitstellung ihrer Unterstützung angeboten. Unsere Angebote liegen circa 20% unter dem Marktpreis.",
-            "de": "Die Unterstützung setzt sich oft aus kleinen Aufgaben zusammen, wie Einkäufe machen, schwere Dinge tragen, im Garten helfen, aber auch die gemeinsame Freizeitgestaltung: Kaffee/Tee trinken, Schach spielen etc. Wie genau und mit welchem Zeitaufwand junge Menschen den Senioren helfen, kann individuell abgesprochen werden. Großjungig AI wird eine passende Lösung für beide Seiten finden! Für junge Menschen stellt dies eine Möglichkeit dar, eine bezahlbare Unterkunft in Großstädten zu finden. Ihnen wird ein niedrigerer Mietpreis für die Bereitstellung ihrer Unterstützung angeboten. Unsere Angebote liegen circa 20% unter dem Marktpreis."
-        }
-    },
-    "question": {
-        "en": "Warum gerade Großjungig AI?",
-        "de": "Warum gerade Großjungig AI?"
-    },
-    "answer": {
-        "en": "Wir sind von der WG-Suche bis zum Einzug für Sie da. Wir helfen unserer Kundschaft, die perfekten MitbewohnerInnen zu finden und sind auch während des Zusammenlebens bei Problemen ansprechbar. Wir setzen auf klare Regeln und Transparenz, um ein positives Erlebnis für alle zu ermöglichen. Die Sicherheit unserer Klientel ist unsere höchste Priorität, weswegen wir vor dem Vertragsabschluss alle Unterlagen (z.B. Personalausweis, Bestätigung des Einkommens, Bonitätsauskunft und etc.) prüfen und die Identität der MieterInnen verifizieren.",
-        "de": "Wir sind von der WG-Suche bis zum Einzug für Sie da. Wir helfen unserer Kundschaft, die perfekten MitbewohnerInnen zu finden und sind auch während des Zusammenlebens bei Problemen ansprechbar. Wir setzen auf klare Regeln und Transparenz, um ein positives Erlebnis für alle zu ermöglichen. Die Sicherheit unserer Klientel ist unsere höchste Priorität, weswegen wir vor dem Vertragsabschluss alle Unterlagen (z.B. Personalausweis, Bestätigung des Einkommens, Bonitätsauskunft und etc.) prüfen und die Identität der MieterInnen verifizieren."
-    },
-    "teamTitle": {
-        "en": "Unser Team",
-        "de": "Unser Team"
-    },
-    "team": {
-        "intro": {
-            "en": "Wir sind ein von Frauen geführtes Unternehmen mit Sitz in Berlin.",
-            "de": "Wir sind ein von Frauen geführtes Unternehmen mit Sitz in Berlin."
-        },
-        "anastasia": {
-            "en": "Anastasia Krasnoperova, Geschäftsentwicklung & Finanzen", 
-            "de": "Anastasia Krasnoperova, Geschäftsentwicklung & Finanzen"
-        },
-        "olga": {
-            "en": "Olga Miakotnikova, Marketing & Operations", 
-            "de": "Olga Miakotnikova, Marketing & Operations"
-        },
-        "menna": {
-            "en": "Menna Hisham, Webentwicklung & KI", 
-            "de": "Menna Hisham, Webentwicklung & KI"
-        }
-    }
-}
+{
+  "title": {
+    "en": "About us",
+    "de": "Über uns"
+  },
+  "subtitle": {
+    "en": "Großjungig AI is the first and only rental platform for seniors and young people.",
+    "de": "Großjungig AI ist die erste und einzige Wohnplattform für ältere und junge Menschen."
+  },
 
+  "description": {
+    "first": {
+      "en": "Großjungig AI is the first and only rental platform for seniors and young people. Großjungig AI is an online platform where seniors can post an ad if they have a spare room at their home and are looking for roommates. At the same time, young people can see these ads and contact the seniors. Our mission is to connect people and promote cross-generational cohesion. We want to make it possible for seniors not only to find a roommate and to earn money, but also to receive support in everyday life from young people. These are often small things like shopping, carrying heavy items, helping in the garden, drinking coffee / tea, playing chess, etc. Senior citizens can also teach the younger roommate and help with challenges they encounter. How exactly and how much time young people help seniors and how do they spend their time together can be discussed individually and a suitable solution can be found for both sides.",
+      "de": "Großjungig AI ist eine Online-Plattform, auf der Senioren Anzeigen erstellen können, wenn sie bei sich zuhause ein Zimmer frei haben und nach MitbewohnerInnen suchen. Junge Menschen können diese Anzeigen sehen und die Senioren kontaktieren. Unsere Mission ist es, Menschen zu vernetzen und den sozialen Zusammenhalt generationenübergreifend zu fördern. Wir möchten es Senioren möglich machen, nicht nur MitbewohnerInnen zu finden und Geld zu verdienen, sondern auch eine Unterstützung im Alltag von jungen Menschen zu bekommen mit denen sie außerdem ihre Lebenserfahrung teilen können."
+    },
+    "second": {
+      "en": "For young people, it is a way of finding affordable accommodation in big cities and find a friendly person who could be there for them while they are away from families. It is perfect for those who moved into the new city or country or isn’t ready to live completely alone. We offer a lower rental price for providing volunteer assistance to the senior, which a young person would normally do for a member of their extended family. Our offers are around 20% below the market price.",
+      "de": "Die Unterstützung setzt sich oft aus kleinen Aufgaben zusammen, wie Einkäufe machen, schwere Dinge tragen, im Garten helfen, aber auch die gemeinsame Freizeitgestaltung: Kaffee/Tee trinken, Schach spielen etc. Wie genau und mit welchem Zeitaufwand junge Menschen den Senioren helfen, kann individuell abgesprochen werden. Großjungig AI wird eine passende Lösung für beide Seiten finden! Für junge Menschen stellt dies eine Möglichkeit dar, eine bezahlbare Unterkunft in Großstädten zu finden. Ihnen wird ein niedrigerer Mietpreis für die Bereitstellung ihrer Unterstützung angeboten. Unsere Angebote liegen circa 20% unter dem Marktpreis."
+    }
+  },
+  "question": {
+    "en": "What makes Großjungig AI different?",
+    "de": "Warum gerade Großjungig AI?"
+  },
+  "answer": {
+    "en": "We are always here to support our customers. We help them to find their perfect roommate and are available in case of any issues. We offer clear rules and transparency to enable a positive experience for everyone. The safety of our customers is our top priority, which is why we also check all documents (e.g. identity card, confirmation of income, credit report and etc.) and verify the identity of the tenants and of the landlords before signing a rental agreement.",
+    "de": "Wir sind von der WG-Suche bis zum Einzug für Sie da. Wir helfen unserer Kundschaft, die perfekten MitbewohnerInnen zu finden und sind auch während des Zusammenlebens bei Problemen ansprechbar. Wir setzen auf klare Regeln und Transparenz, um ein positives Erlebnis für alle zu ermöglichen. Die Sicherheit unserer Klientel ist unsere höchste Priorität, weswegen wir vor dem Vertragsabschluss alle Unterlagen (z.B. Personalausweis, Bestätigung des Einkommens, Bonitätsauskunft und etc.) prüfen und die Identität der MieterInnen verifizieren."
+  },
+  "teamTitle": {
+    "en": "Our Team",
+    "de": "Unser Team"
+  },
+  "team": {
+    "intro": {
+      "en": "We are a female-led company based in Berlin.",
+      "de": "Wir sind ein von Frauen geführtes Unternehmen mit Sitz in Berlin."
+    },
+    "Anastasia": {
+      "en": "Business Development & Finance",
+      "de": "Geschäftsentwicklung & Finanzen"
+    },
+    "Olga": {
+      "en": "Marketing & Operations",
+      "de": "Marketing & Operations"
+    },
+    "Menna": {
+      "en": "Webdevelopment & AI",
+      "de": "Webentwicklung & KI"
+    },
+    "Luca": {
+      "en": "Webdevelopment",
+      "de": "Webentwicklung"
+    },
+    "Magda": {
+      "en": "UX/UI Design",
+      "de": "UX/UI-Design"
+    },
+    "Vicky": {
+      "en": "Webdevelopment",
+      "de": "Webentwicklung"
+    },
+    "Rosina": {
+      "en": "QA",
+      "de": "QA"
+    },
+    "Tammy": {
+      "en": "Business Development",
+      "de": "Geschäftsentwicklung"
+    },
+    "Nida": {
+      "en": "Webdevelopment",
+      "de": "Webentwicklung"
+    },
+    "Vlad": {
+      "en": "Business Development",
+      "de": "Geschäftsentwicklung"
+    },
+    "Skander": {
+      "en": "Marketing",
+      "de": "Marketing"
+    },
+    "Maria": {
+      "en": "Marketing",
+      "de": "Marketing"
+    }
+  }
+}
