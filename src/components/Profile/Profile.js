@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import img from '../assets/images/header_image.png';
+import img from '../../assets/images/header_image.png';
 
 export default class Profile extends Component {
   state = {

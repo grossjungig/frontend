@@ -12,21 +12,21 @@ import Impressum from './pages/impressum/Impressum';
 import Login from './pages/login/Login.js';
 import Signup from './pages/signup/Signup.js';
 
-import Navbar from "./components/Navbar.js";
-import Footer from "./components/footer/Footer.js";
+import Navbar from "./components/Navbar/Navbar.js";
+import Footer from "./components/Footer/Footer.js";
 
-import UserPortal from "./components/UserPortal.js";
-import Berlin from "./components/Berlin.js";
-import AddRoom from "./components/AddRoom.js";
+import UserPortal from "./components/UserPortal/UserPortal.js";
+import Berlin from "./components/Berlin/Berlin.js";
+import AddRoom from "./components/AddRoom/AddRoom.js";
 import UploadPhotos from "./components/UploadPhotos";
-import Details from "./components/Details";
-import MapView from "./components/MapView";
-import ForgotPassword from "./components/forgotpassword/ForgotPassword";
-import Profile from "./components/Profile";
-import AddProfile from "./components/AddProfile";
-import People from "./components/People";
-import ResetPassword from "./components/resetpassword/ResetPassword";
-import EditProfile from "./components/EditProfile";
+import Details from "./components/Details/Details";
+import MapView from "./components/MapView/MapView";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import Profile from "./components/Profile/Profile";
+import AddProfile from "./components/AddProfile/AddProfile";
+import People from "./components/People/People";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
+import EditProfile from "./components/EditProfile/EditProfile";
 
 
 const theme = {

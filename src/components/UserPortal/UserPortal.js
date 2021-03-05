@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Component } from "react";
-import portalLocales from "../locales/locales.portal.json";
+import portalLocales from "../../locales/locales.portal.json";
 
 class UserPortal extends Component {
   state = {
