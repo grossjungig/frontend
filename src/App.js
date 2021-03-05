@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import "./App.css";
@@ -59,104 +59,63 @@ class App extends React.Component {
             updatePage={this.updatePage}
             //This means exporting "updatePage" to Navbar
           />
-          <Route
-            exact
-            path="/"
-            render={(props) => (
+          <Switch>
+            <Route exact path="/" render={(props) => (
               <Home
                 history={props.history}
                 user={this.state.user}
                 setUser={this.setUser}
               />
-            )}
-          />
-          <Route
-            exact
-            path="/signup"
-            render={(props) => (
+            )}/>
+            
+            <Route exact path="/signup" render={(props) => (
               <Signup
                 history={props.history}
                 user={this.state.user}
                 setUser={this.setUser}
               />
-            )}
-          />
-          <Route
-            exact
-            path="/login"
-            render={(props) => (
+            )}/>
+
+            <Route exact path="/login" render={(props) => (
               <Login history={props.history} setUser={this.setUser} />
-            )}
-          />
+            )}/>
 
-          <Route
-            exact
-            path="/userportal"
-            render={(props) => <UserPortal {...props} user={this.state.user} />}
-          />
-          <Route
-            exact
-            path="/berlin"
-            render={(props) => <Berlin {...props} user={this.state.user} />}
-          />
-          <Route
-            exact
-            path="/people"
-            render={(props) => <People {...props} user={this.state.user} />}
-          />
-          <Route
-            exact
-            path="/berlin/:id"
-            render={(props) => <Details {...props} user={this.state.user} />}
-          />
-          <Route
-            exact
-            path="/addRoom"
-            render={(props) => <AddRoom {...props} user={this.state.user} />}
-          />
-          <Route
-            exact
-            path="/aboutus"
-            render={(props) => <AboutUs {...props} user={this.state.user} />}
-          />
-          <Route
-            exact
-            path="/how"
-            render={(props) => <HowItWorks {...props} user={this.state.user} />}
-          />
-          <Route
-            exact
-            path="/impressum"
-            render={(props) => <Impressum {...props} user={this.state.user} />}
-          />
-          <Route
-            exact
-            path="/edit"
-            render={(props) => (
+            <Route exact path="/userportal" render={(props) => 
+              <UserPortal {...props} user={this.state.user} />}
+            />
+
+            <Route exact path="/berlin" render={(props) => 
+              <Berlin {...props} user={this.state.user} />
+            }/>
+
+            <Route exact path="/people" render={(props) => <People {...props} user={this.state.user} />} />
+            <Route exact path="/berlin/:id" render={(props) => <Details {...props} user={this.state.user} />} />
+            <Route exact path="/addRoom" render={(props) => <AddRoom {...props} user={this.state.user} />} />
+            <Route exact path="/aboutus" render={(props) => <AboutUs {...props} user={this.state.user} />} />
+            <Route exact path="/how" render={(props) => <HowItWorks {...props} user={this.state.user} />} />
+            <Route exact path="/impressum" render={(props) => <Impressum {...props} user={this.state.user} />} />
+            <Route exact path="/edit" render={(props) => (
               <EditProfile history={props.history} user={this.state.user} />
-            )}
-          />
+            )}/>
 
-          <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
-          <Route exact path="/maps" component={MapView} />
-          <Route exact path="/forgotPassword" component={ForgotPassword} />
-          <Route
-            exact
-            path="/addProfile"
-            render={(props) => <AddProfile {...props} user={this.state.user} />}
-          />
-          <Route
-            exact
-            path="/profile"
-            render={(props) => (
+            <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
+            <Route exact path="/maps" component={MapView} />
+            <Route exact path="/forgotPassword" component={ForgotPassword} />
+            <Route
+              exact
+              path="/addProfile"
+              render={(props) => <AddProfile {...props} user={this.state.user} />}
+            />
+            <Route exact path="/profile" render={(props) => (
               <Profile
                 history={props.history}
                 {...props}
                 user={this.state.user}
               />
-            )}
-          />
-          <Route exact path="/reset/:token" component={ResetPassword} />
+            )}/>
+
+            <Route exact path="/reset/:token" component={ResetPassword} />
+          </Switch>
         </ThemeProvider>
         <Footer className="footer-stick" />
       </div>
