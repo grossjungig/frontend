@@ -1,34 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import homeLocales from "../../locales/locales.home.json";
 import "./home.css";
-import { H1, H2, H3, H4 } from '../../components/typography';
-import {
-  Button,
-  SecButton,
-  // SearchFieldLong,
-  PrimaryButtonLong,
-  Card,
-  Card2,
-  Card3,
-} from "../../components/styled";
 
-import {
-  MainPanel,
-  MainRow,
-  SecPanel,
-  RowChoose,
-  // RowSelect,
-  RowSearch,
-  Mission,
-  Why,
-  How,
-  HowGrid,
-  CommunityPanel,
-  ContactPanel,
-  ContactRow,
-  ContactInfo,
-} from "./styled";
+import homeLocales from "../../locales/locales.home.json";
+
+import { H1, H2, H3, H4 } from '../../components/typography';
+import { Button, SecButton, PrimaryButtonLong, Card, Card2, Card3 } from "../../components/styled";
+import { MainPanel, MainRow, SecPanel, RowChoose, RowSearch,
+  Mission, Why, How, HowGrid, CommunityPanel, ContactPanel,
+  ContactRow, ContactInfo } from "./styled";
 
 import { card3 } from "./cards";
 
@@ -53,9 +33,7 @@ class Home extends Component {
                   <SecButton>{homeLocales.requests[lang]}</SecButton>
                 </Link>
               </RowChoose>
-              {/* <RowSelect>
-                <input placeholder={homeLocales.city[lang]} input=""></input>
-              </RowSelect> */}
+              
               <RowSearch>
                 <PrimaryButtonLong>
                   {homeLocales.search[lang]}
