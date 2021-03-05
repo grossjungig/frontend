@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import navbarLocales from "../locales/locales.navbar.json";
-import homeLocales from "../locales/locales.home.json";
+import navbarLocales from "../../locales/locales.navbar.json";
+import homeLocales from "../../locales/locales.home.json";
 //import Logo from "./Logo";
-import { HashLink, PageLink } from "./styled";
+import { HashLink, PageLink } from "../styled";
 
 import Fab from "@material-ui/core/Fab";
 //styles for new navbar-don'te delete
@@ -58,7 +58,7 @@ const Navbar = (props) => {
     >
       <nav>
 
-        <HashLink smooth class="logo-box" to="/#">
+        <HashLink smooth className="logo-box" to="/#">
           <img
             style={{ height: "34px" }}
             src="/image/Logo.png"

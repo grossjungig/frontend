@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import { Marker } from "@react-google-maps/api";
 
-import getGeocodes from "../api/getGeocodes";
-import getAddresses from "../api/getAddresses";
+import getGeocodes from "../../api/getGeocodes";
+import getAddresses from "../../api/getAddresses";
 
 const containerStyle = {
   width: "80vw",

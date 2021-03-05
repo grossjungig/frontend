@@ -1,8 +1,7 @@
 import React from 'react'
-import { H1 } from '../typography'
+import { H1 } from '../../components/typography';
 
 export default function Impressum() {
-    console.log("impressum page");
     return (
         <div>
             <H1>Impressum</H1>

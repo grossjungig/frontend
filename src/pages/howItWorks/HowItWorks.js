@@ -1,6 +1,6 @@
 import React from 'react'
-import howitworksLocales from "../../locales/locales.howitworks.json";
-import { H1, H2, H3 } from '../typography';
+import howitworksLocales from '../../locales/locales.howitworks.json';
+import { H1, H2, H3 } from '../../components/typography';
 
 const { title, subtitle, seniors, junior, seniorList, juniorList, descriptionTitle, description } = howitworksLocales;
 

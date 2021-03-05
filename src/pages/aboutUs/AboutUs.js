@@ -1,7 +1,7 @@
 import React from "react";
 import aboutLocales from "../../locales/locales.aboutus.json";
 import { Icon, MainPanel, Paragraph, TeamItem } from "./styled";
-import { H1, H2, H4 } from "../typography";
+import { H1, H2, H4 } from '../../components/typography';
 import "./aboutUs.css";
 
 const {
