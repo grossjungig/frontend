@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import './Partners.css';
 
 import audalis from '../../assets/images/partners/audalis.jpeg';
