@@ -11,6 +11,7 @@ import { MainPanel, MainRow, SecPanel, RowChoose, RowSearch,
   ContactRow, ContactInfo } from "./styled";
 
 import { card3 } from "./cards";
+import Partners from "../../components/Partners/Partners";
 
 class Home extends Component {
   render() {
@@ -115,6 +116,7 @@ class Home extends Component {
             <H4>+49 30 55231271</H4>
           </ContactRow>
         </ContactPanel>
+        <Partners />
       </>
     );
   }

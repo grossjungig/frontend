@@ -1,0 +1,44 @@
+.partner-panel__title {
+    text-align: center;
+    padding: 30px;
+}
+
+.partner-panel__items {
+    display: grid;
+    grid-template-areas:
+     ". p0 p1 ."
+     "p2 p3 p4 p5";
+    align-items: center;
+}
+
+.partner {
+    padding: 20px;
+}
+
+.partner img {
+    max-width: 150px;
+}
+
+#p0 {
+    grid-area: p0;
+}
+
+#p1 {
+    grid-area: p1;
+}
+
+#p2 {
+    grid-area: p2;
+}
+
+#p3 {
+    grid-area: p3;
+}
+
+#p4 {
+    grid-area: p4;
+}
+
+#p5 {
+    grid-area: p5;
+}
