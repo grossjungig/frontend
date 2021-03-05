@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import homeLocales from "../../locales/locales.home.json";
 import "./home.css";
-import { H1, H2, H3, H4 } from "../typography";
+import { H1, H2, H3, H4 } from '../../components/typography';
 import {
   Button,
   SecButton,
@@ -11,7 +11,8 @@ import {
   Card,
   Card2,
   Card3,
-} from "../styled";
+} from "../../components/styled";
+
 import {
   MainPanel,
   MainRow,

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
-import img from './home/header_image.png';
+import img from '../assets/images/header_image.png';
 
 
 export default class People extends Component {

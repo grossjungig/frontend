@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import loginLocales from "../../locales/locales.login.json";
-import "../login/login.css";
+import "../../pages/login/login.css";
 import forgotLocales from "../../locales/locales.forgotpassword.json";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";

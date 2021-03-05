@@ -1,7 +1,7 @@
 /* home */
 
 .home-component {
-  background-image: url("./header_image.png");
+  background-image: url("../../assets/images/header_image.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

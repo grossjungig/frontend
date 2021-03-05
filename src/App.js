@@ -3,11 +3,18 @@ import { Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import "./App.css";
-import Home from "./components/home/Home";
+
+// Pages
+import Home from './pages/home/Home';
+import HowItWorks from './pages/howItWorks/HowItWorks';
+import AboutUs from './pages/aboutUs/AboutUs';
+import Impressum from './pages/impressum/Impressum';
+import Login from './pages/login/Login.js';
+import Signup from './pages/signup/Signup.js';
+
 import Navbar from "./components/Navbar.js";
 import Footer from "./components/footer/Footer.js";
-import Signup from "./components/signup/Signup.js";
-import Login from "./components/login/Login.js";
+
 import UserPortal from "./components/UserPortal.js";
 import Berlin from "./components/Berlin.js";
 import AddRoom from "./components/AddRoom.js";
@@ -20,9 +27,7 @@ import AddProfile from "./components/AddProfile";
 import People from "./components/People";
 import ResetPassword from "./components/resetpassword/ResetPassword";
 import EditProfile from "./components/EditProfile";
-import HowItWorks from "./components/howitworks/HowItWorks";
-import AboutUs from "./components/aboutus/AboutUs";
-import Impressum from "./components/impressum/Impressum";
+
 
 const theme = {
   main: "#ed8707",
