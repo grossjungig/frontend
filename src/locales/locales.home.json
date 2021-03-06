@@ -146,5 +146,11 @@
   "care":{
     "en":"cares about our community",
     "de":"kümmert sich um unsere Gesellschaft"
+  },
+  "partners": {
+    "title": {
+      "en":"Partners",
+      "de":"Partner"
+    }
   }
 }
