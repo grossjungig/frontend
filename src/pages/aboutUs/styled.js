@@ -58,5 +58,8 @@ const ItemContainer = styled.div`
   align-items: center;
   text-align: center;
   min-width: 160px;
-  /* max-width: 200px; */
+
+  img {
+    border-radius: 50%;
+  }
 `;

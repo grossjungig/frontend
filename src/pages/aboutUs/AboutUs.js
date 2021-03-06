@@ -4,6 +4,8 @@ import { Icon, MainPanel, Paragraph, TeamItem } from "./styled";
 import { H1, H2, H4 } from '../../components/typography';
 import "./aboutUs.css";
 
+import anastasia from '../../assets/images/team/Anastasia.jpg'
+
 const {
   title,
   subtitle,
@@ -40,7 +42,7 @@ const AboutUs = () => {
         </Paragraph>
         <div className="team-flex">
           <TeamItem
-            image="image/TeamProfilePics/Anastasia.png"
+            image={anastasia}
             name="Anastasia Krasnoperova"
             role={team.Anastasia[lang]}
             color="#fff"
