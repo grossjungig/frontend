@@ -1,10 +1,10 @@
-import audalis from '../../assets/images/partners/audalis.jpeg';
-import esf from '../../assets/images/partners/esf.jpeg';
-import eu from '../../assets/images/partners/eu.jpeg';
-import fub from '../../assets/images/partners/fub.jpeg';
-import gzentrale from '../../assets/images/partners/gzentrale.png';
-import profund from '../../assets/images/partners/profund.png';
-import senioren from '../../assets/images/partners/senioren.jpg';
+import audalis from '../../../../assets/images/partners/audalis.jpeg';
+import esf from '../../../../assets/images/partners/esf.jpeg';
+import eu from '../../../../assets/images/partners/eu.jpeg';
+import fub from '../../../../assets/images/partners/fub.jpeg';
+import gzentrale from '../../../../assets/images/partners/gzentrale.png';
+import profund from '../../../../assets/images/partners/profund.png';
+import senioren from '../../../../assets/images/partners/senioren.jpg';
 
 export const partners = [
     { name: 'Europäischer Sozialfonds', link: 'https://ec.europa.eu/esf/home.jsp?langId=de', logo: eu },
