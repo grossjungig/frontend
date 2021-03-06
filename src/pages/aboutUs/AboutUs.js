@@ -1,10 +1,10 @@
 import React from "react";
+import "./aboutUs.css";
+import { coreStaff } from './data';
+
 import aboutLocales from "../../locales/locales.aboutus.json";
 import { Icon, MainPanel, Paragraph, TeamItem } from "./styled";
 import { H1, H2, H4 } from '../../components/typography';
-import "./aboutUs.css";
-
-import anastasia from '../../assets/images/team/Anastasia.jpg'
 
 const {
   title,
@@ -35,34 +35,21 @@ const AboutUs = () => {
         <H2 style={{ marginBottom: "0" }}>{question[lang]}</H2>
         <Paragraph style={{ marginTop: "0" }}>{answer[lang]}</Paragraph>
       </section>
+      
       <section className="team-big">
+        
         <H2 style={{ color: "#fff", marginBottom: "0" }}>{teamTitle[lang]}</H2>
         <Paragraph style={{ color: "#fff", marginTop: "0" }}>
           {team.intro[lang]}
         </Paragraph>
-        <div className="team-flex">
-          <TeamItem
-            image={anastasia}
-            name="Anastasia Krasnoperova"
-            role={team.Anastasia[lang]}
-            color="#fff"
-            height="240"
-          ></TeamItem>
-          <TeamItem
-            image="image/TeamProfilePics/Olga.png"
-            name="Olga Miakotnikova"
-            role={team.Olga[lang]}
-            color="#fff"
-            height="240"
-          ></TeamItem>
-          <TeamItem
-            image="image/TeamProfilePics/Menna.png"
-            name="Menna Hisham"
-            role={team.Menna[lang]}
-            color="#fff"
-            height="240"
-          ></TeamItem>
-        </div>
+
+        <div className="team-flex">{ coreStaff.map(cs => (
+          <TeamItem 
+            image={cs.img} name={cs.name}
+            role={cs.role[lang]} color="#fff" height="240"
+          />
+        ))}</div>
+
       </section>
       <section className="team-small">
         <div className="team-grid">
