@@ -32,6 +32,11 @@ We can follow some of Airbnb [rules](https://github.com/airbnb/javascript/tree/m
 ``src/MyComponent/MyComponent.js``
 ``src/MyComponent/myComponent.css``
 
+* __IMAGES - Performance__
+    * Please use src/assets/images instead of public/ and then use import ... from ... to add images to the components. It helps the performance.
+    
+    * Please take a look at the size of images when you add/import them. Anastasia's pic on the website (March 6 2021)is 12mb big! It's almost 100 times too big and costs the performance enormously.
+
 ___
 
 ## 1.3. Useful Links
