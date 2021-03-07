@@ -11,7 +11,7 @@ import { MainPanel, MainRow, SecPanel, RowChoose, RowSearch,
   ContactRow, ContactInfo } from "./styled";
 
 import { card3 } from "./cards";
-import Partners from "../../components/Partners/Partners";
+import Partners from "./components/Partners/Partners";
 
 class Home extends Component {
   render() {

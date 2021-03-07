@@ -32,8 +32,32 @@
   },
   "team": {
     "intro": {
-      "en": "We are a female-led company based in Berlin.",
-      "de": "Wir sind ein von Frauen geführtes Unternehmen mit Sitz in Berlin."
+      "p1": {
+        "en": "We are a female-led company based in Berlin. We celebrate diversity and believe inclusion is the only way to create a healthy work environment. Everyone brings their whole self to work - there is no face you need to put on when you work with us. We accept you as you are and let you do the work you can be proud of.",
+        "de": "Wir sind ein von Frauen geführtes Unternehmen mit Sitz in Berlin. Wir feiern Vielfalt und glauben, dass Inklusion der einzige Weg ist, eine gesunde Arbeitsumgebung zu schaffen. Jeder bringt sein ganzes Selbst zur Arbeit - es gibt kein Gesicht, das Sie aufsetzen müssen, wenn Sie mit uns arbeiten. Wir akzeptieren Sie so wie Sie sind und lassen Sie die Arbeit machen, auf die Sie stolz sein können."
+      },
+      "p2": {
+        "en": "We always welcome initiative applications - just shoot an email to info@grossjungig.de if you would like to join us.",
+        "de": "Wir freuen uns immer über Initiativbewerbungen - schreiben Sie einfach eine E-Mail an info@grossjungig.de, wenn Sie sich uns anschließen möchten."
+      },
+      "facts": {
+        "title": {
+          "en": "Facts",
+          "de": "Fakten"
+        },
+        "en": [ 
+          "Female CEO",
+          "75% of leadership is female",
+          "71% of the team is female",
+          "Over 10 nationalities"
+        ],
+        "de": [ 
+          "Geschäftsführerin",
+          "75% der Führungskräfte sind weiblich",
+          "71% des Teams sind weiblich",
+          "Über 10 Nationalitäten"
+        ]
+      }
     },
     "Anastasia": {
       "en": "Business Development & Finance",
@@ -82,6 +106,18 @@
     "Maria": {
       "en": "Marketing",
       "de": "Marketing"
+    },
+    "Morteza": {
+      "en": "Webdevelopment & AI",
+      "de": "Webentwicklung & KI"
+    },
+    "Sree": {
+      "en": "Business Development",
+      "de": "Geschäftsentwicklung"
+    },
+    "Pablo": {
+      "en": "Tech Mentor",
+      "de": "Tech Mentor"
     }
   }
 }

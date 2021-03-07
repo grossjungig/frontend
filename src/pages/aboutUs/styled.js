@@ -42,13 +42,13 @@ const IconContainer = styled.div`
   padding: 30px 0;
 `;
 
-export const TeamItem = ({ image, name, role, height, color }) => (
+export const TeamItem = ({ image, name, role, height, color, cmpWidth }) => (
   <ItemContainer>
     <img src={image} alt={`${name} - ${role}`} height={height} width="auto" />
-    <p style={{ fontWeight: 600, color: color, margin: "24px 0 10px" }}>
+    <span style={{ fontWeight: 600, color: color, margin: "24px 0 10px" }}>
       {name}
-    </p>
-    <p style={{ fontWeight: 400, color: "#E9615B", marginTop: 0 }}>{role}</p>
+    </span>
+    <span style={{ fontWeight: 400, color: "#E9615B", marginTop: 0 }}>{role}</span>
   </ItemContainer>
 );
 
@@ -58,5 +58,8 @@ const ItemContainer = styled.div`
   align-items: center;
   text-align: center;
   min-width: 160px;
-  /* max-width: 200px; */
+
+  img {
+    border-radius: 50%;
+  }
 `;
