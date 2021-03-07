@@ -39,12 +39,18 @@ const AboutUs = () => {
       
       <section className="team-big">
 
-        <h2>{teamTitle[lang]}</h2>
-        {/* TODO: ADD Contents from Trello and add separation signs in text! */}
-        {/* TODO: Make Team REsponsible and slide show them as in Figma! */}
-
+        <div className="team-big__intro">
+          <h2>{teamTitle[lang]}</h2>
+          <p>{team.intro.p1[lang]}</p>
+          <p>{team.intro.p2[lang]}</p>
+          <h3>{team.intro.facts.title[lang]}</h3>
+          <ul>
+            { team.intro.facts[lang].map(item => <li>{item}</li>)}
+          </ul>
+        </div>
+        
         <StaffBoard
-          styleClass="core-staff" team={coreStaff} lang={lang}
+          className="core-staff" team={coreStaff} lang={lang}
           color="#fff" height="240"
         />
 
@@ -52,7 +58,7 @@ const AboutUs = () => {
       <section className="team-small">
 
         <StaffBoard
-            styleClass="staff" team={staff} lang={lang}
+            className="staff" team={staff} lang={lang}
             color="#365fa7" height="160"
         />
 

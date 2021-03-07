@@ -28,10 +28,17 @@
   justify-content: center;
 }
 
-.team-big h2,
-.team-big p {
+.team-big__intro {
   color: white;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 80%;
 }
+
+.team-big__intro ul {
+  padding-left: 0;
+}
+
 
 .core-staff {
   display: flex;

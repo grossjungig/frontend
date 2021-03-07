@@ -2,11 +2,11 @@ import React from 'react';
 import { TeamItem } from '../styled';
 
 const StaffBoard = (props) => {
-    const { styleClass, team, color, height, lang } = props;
+    const { className, team, color, height, lang } = props;
     return (
-        <div className={styleClass}>{ team.map(member => (
+        <div className={className}>{ team.map(member => (
             <TeamItem 
-              image={member.img} name={member.name}
+              image={member.img} name={member.name} key={member.name}
               role={member.role[lang]} color={color} height={height}
             />
         ))}</div>
