@@ -43,7 +43,6 @@
 .core-staff {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .core-staff > * {
@@ -63,4 +62,34 @@
 
 .staff > * {
   margin: 40px;
+}
+
+@media (max-width: 905px) {
+
+  .core-staff {
+    overflow-x: scroll;
+    width: 90%;
+  } 
+
+  .core-staff > * {
+    margin: 0 100px;
+  }
+
+  .staff {
+    width: 90%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    justify-content: initial;
+  }
+}
+
+@media (max-height: 524px) {
+  .core-staff img {
+    height: 30vh;
+  }
+
+  .staff img {
+    height: 20vh;
+  }
 }

@@ -36,7 +36,7 @@ const AboutUs = () => {
         <H2 style={{ marginBottom: "0" }}>{question[lang]}</H2>
         <Paragraph style={{ marginTop: "0" }}>{answer[lang]}</Paragraph>
       </section>
-      
+
       <section className="team-big">
 
         <div className="team-big__intro">
