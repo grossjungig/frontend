@@ -42,9 +42,9 @@ const Navbar = (props) => {
 
   const scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -60; 
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
-}
+    const yOffset = -60;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+  };
 
   return (
     <div
@@ -57,7 +57,6 @@ const Navbar = (props) => {
       }}
     >
       <nav>
-
         <HashLink smooth className="logo-box" to="/#">
           <img
             style={{ height: "34px" }}
@@ -67,21 +66,14 @@ const Navbar = (props) => {
         </HashLink>
         <div className="main-nav">
           <div className="navbarlink">
-            <PageLink to="/aboutus">
-              {homeLocales.about[lang]}
-            </PageLink>
-            <PageLink to="/how">
-              {homeLocales.how[lang]}
-            </PageLink>
+            <PageLink to="/aboutus">{homeLocales.about[lang]}</PageLink>
+            <PageLink to="/how">{homeLocales.how[lang]}</PageLink>
             <HashLink scroll={scrollWithOffset} smooth to="/#community">
               {homeLocales.community[lang]}
             </HashLink>
             <HashLink scroll={scrollWithOffset} smooth to="/#contact">
               {homeLocales.contact[lang]}
             </HashLink>
-            <PageLink to="/impressum">
-              Impressum
-            </PageLink>
           </div>
         </div>
         {props.user ? (
