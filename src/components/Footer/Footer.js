@@ -24,7 +24,7 @@ const Footer = () => {
           <FooterLinkSmall>{footerLocales.contact[lang]}</FooterLinkSmall>
           <FooterLinkSmall>FAQ</FooterLinkSmall>
           <FooterLinkSmall>{footerLocales.privacy[lang]}</FooterLinkSmall>
-          <Link to="/impressum" style={{ textDecoration: "none" }}>
+          <Link to="/impressum" >
             <FooterLinkSmall>{footerLocales.impressum[lang]}</FooterLinkSmall>
           </Link>
         </Row>
