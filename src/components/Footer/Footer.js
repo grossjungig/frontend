@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import footerLocales from "../../locales/locales.footer.json";
 
 const Footer = () => {
@@ -23,6 +24,9 @@ const Footer = () => {
           <FooterLinkSmall>{footerLocales.contact[lang]}</FooterLinkSmall>
           <FooterLinkSmall>FAQ</FooterLinkSmall>
           <FooterLinkSmall>{footerLocales.privacy[lang]}</FooterLinkSmall>
+          <Link to="/impressum" >
+            <FooterLinkSmall>{footerLocales.impressum[lang]}</FooterLinkSmall>
+          </Link>
         </Row>
         {/* <Row>
           <SocialPanel>
@@ -143,8 +147,7 @@ const FooterBig = styled.p`
   padding: 0.25rem 0.2rem;
 `;
 
-const FooterSmall = styled.p`
-  text-decoration: none;
+const FooterSmall = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
