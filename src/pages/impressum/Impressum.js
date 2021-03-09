@@ -10,7 +10,7 @@ export default function Impressum() {
         Grossjungig UG<br></br>
         (haftungsbeschränkt)<br></br>
         Altensteinstraße 40<br></br>
-        14195 Berlin<br></br>
+        14195 Berlin-Dahlem<br></br>
       </p>
       <p>
         vertreten durch Ihren Geschäftsführer<br></br>
