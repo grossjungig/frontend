@@ -43,7 +43,7 @@ const Footer = () => {
         <Row>
           <FooterSmall>COPYRIGHT</FooterSmall>
           <img src="../image/copyright.png" alt="copyright" />
-          <FooterSmall>2020 Grossjungig AI</FooterSmall>
+          <FooterSmall>{new Date().getFullYear()} Grossjungig AI</FooterSmall>
         </Row>
       </MainPanel>
     </Root>
