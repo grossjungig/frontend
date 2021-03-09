@@ -21,10 +21,23 @@ From now on we want to follow some of Git-Flow principles.
 ___
 
 ## 1.2. React Practices
+
+We can follow some of Airbnb [rules](https://github.com/airbnb/javascript/tree/master/react) in general.
+
 * Please use only ``<componentName>.css`` for the styling of each component both for desktop and mobile devices. If in some cases you think there's a necessary to use Styled Components, Radium or other React styling methods we can discuss about it.
-On the directory ``src/components/`` please do not create DIRECTLY any ``.js`` or ``.css`` files anymore. Instead please use the following pattern:
+
+* The __Styled Components__ have some benefits but in our project we rarely need them one of them is dynamic styling. It's great to create reusable UI components with them. But there are some real __performance issues__ with Styled Components. Learn more [here](https://getstream.io/blog/styled-components-vs-css-stylesheets/#styled-components)
+
+* On the directory ``src/components/`` please do not create DIRECTLY any ``.js`` or ``.css`` files anymore. Instead please use the following pattern:
 ``src/MyComponent/MyComponent.js``
 ``src/MyComponent/myComponent.css``
+
+* __IMAGES - Performance__
+    * Please use src/assets/images instead of public/ and then use import ... from ... to add images to the components. It helps the performance.
+    
+    * Please take a look at the size of images when you add/import them. Anastasia's pic on the website (March 6 2021)is 12mb big! It's almost 100 times too big and costs the performance enormously.
+
+    * This is a nice web app to optimize the images: https://squoosh.app/
 
 ___
 

@@ -1,0 +1,27 @@
+.partner-panel__title {
+    text-align: center;
+    padding: 30px;
+}
+
+.partner-panel__items {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    align-items: center;
+    justify-content: space-around;
+}
+
+.partner {
+    padding: 20px;
+}
+
+.partner img {
+    display: block;
+    width: 150px;
+    margin: auto;
+}
+
+@media (max-width: 405px) {
+    .partner-panel__items {
+        justify-content: center;
+    }
+}

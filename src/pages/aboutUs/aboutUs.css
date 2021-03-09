@@ -1,0 +1,98 @@
+/* home */
+
+.hero-component {
+  background-image: url("./header_illustration_aboutus.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid grey;
+}
+
+.aboutus-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 60px 0;
+}
+
+.team-big {
+  width: 100%;
+  background-color: #365fa7;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-big__intro {
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 80%;
+}
+
+.team-big__intro ul {
+  padding-left: 0;
+}
+
+
+.core-staff {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.core-staff > * {
+  width: 250px;
+}
+
+.team-small {
+  background-color: #cfe7f0;
+  padding: 30px 0;
+}
+
+.staff {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.staff > * {
+  margin: 40px;
+}
+
+@media (max-width: 1040px) {
+
+  .core-staff {
+    overflow-x: scroll;
+    justify-content: initial;
+    width: 90%;
+  } 
+
+  .core-staff > * {
+    margin: 0 100px;
+  }
+
+  .staff {
+    width: 90%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    justify-content: initial;
+  }
+}
+
+@media (max-height: 524px) {
+  .core-staff img {
+    height: 30vh;
+  }
+
+  .staff img {
+    height: 20vh;
+  }
+}
