@@ -10,5 +10,9 @@
     "privacy":{
         "en":"Privacy Policy",
         "de":"Datenschutz"
+    },
+    "impressum":{
+        "en":"Impressum",
+        "de":"Impressum"
     }
 }
