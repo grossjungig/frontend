@@ -41,12 +41,14 @@
 
 
 .core-staff {
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .core-staff > * {
-  width: 300px;
+  width: 250px;
 }
 
 .team-small {
@@ -64,10 +66,11 @@
   margin: 40px;
 }
 
-@media (max-width: 905px) {
+@media (max-width: 1040px) {
 
   .core-staff {
     overflow-x: scroll;
+    justify-content: initial;
     width: 90%;
   } 
 

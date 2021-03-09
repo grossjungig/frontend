@@ -42,15 +42,19 @@ const IconContainer = styled.div`
   padding: 30px 0;
 `;
 
-export const TeamItem = ({ image, name, role, height, color, cmpWidth }) => (
-  <ItemContainer>
-    <img src={image} alt={`${name} - ${role}`} height={height} width="auto" />
-    <span style={{ fontWeight: 600, color: color, margin: "24px 0 10px" }}>
-      {name}
-    </span>
-    <span style={{ fontWeight: 400, color: "#E9615B", marginTop: 0 }}>{role}</span>
-  </ItemContainer>
-);
+export const TeamItem = ({ image, name, role, height, color, link }) => {
+  let imgEl = <img src={image} alt={`${name} - ${role}`} height={height} width="auto" />;
+  if (link) imgEl = <a href={link} target="_blank" rel="noopener noreferrer" >{imgEl}</a>
+  return (
+    <ItemContainer>
+      {imgEl}    
+      <span style={{ fontWeight: 600, color: color, margin: "24px 0 10px" }}>
+        {name}
+      </span>
+      <span style={{ fontWeight: 400, color: "#E9615B", marginTop: 0 }}>{role}</span>
+    </ItemContainer>
+  );
+}
 
 const ItemContainer = styled.div`
   display: flex;
