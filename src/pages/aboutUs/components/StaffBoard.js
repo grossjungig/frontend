@@ -7,7 +7,7 @@ const StaffBoard = (props) => {
         <div className={className}>{ team.map(member => (
             <TeamItem 
               image={member.img} name={member.name} key={member.name}
-              role={member.role[lang]} color={color} height={height}
+              role={member.role[lang]} color={color} height={height} link={member.link}
             />
         ))}</div>
     );

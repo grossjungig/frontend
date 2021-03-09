@@ -45,7 +45,7 @@ const AboutUs = () => {
           <p>{team.intro.p2[lang]}</p>
           <h3>{team.intro.facts.title[lang]}</h3>
           <ul>
-            { team.intro.facts[lang].map(item => <li>{item}</li>)}
+            { team.intro.facts[lang].map((item, i) => <li key={i}>{item}</li>)}
           </ul>
         </div>
         
