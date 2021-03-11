@@ -44,6 +44,10 @@ class App extends React.Component {
     });
   };
 
+  componentDidMount() {
+    
+  }
+
   updatePage = () => {
     this.forceUpdate();
   };
