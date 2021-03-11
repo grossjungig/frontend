@@ -10,13 +10,12 @@ class UserPortal extends Component {
   componentDidMount() {
     this._isMounted = true;
 
-    console.log(this.props)
+    console.log(this.props);
 
     if (this._isMounted) {
       this.setState({
         user: this.props.user,
       });
-      
     }
   }
   componentWillUnmount() {
@@ -25,17 +24,19 @@ class UserPortal extends Component {
 
   render() {
     const lang = localStorage.getItem("lang");
-   
 
     return (
       <div className="portal-container" style={{ textAlign: "center" }}>
-        <h1 style={{
-          color: "#365FA7",
-          fontFamily: "Montserrat", fontWeight: "600"
-        }}>
+        <h1
+          style={{
+            color: "#365FA7",
+            fontFamily: "Montserrat",
+            fontWeight: "600",
+          }}
+        >
           {portalLocales.greeting[lang]} {this.state.user.name}!
         </h1>
-        
+
         <div className="portal-container">
           <Link to="/berlin">
             <button>{portalLocales.rooms[lang]}</button>
@@ -53,26 +54,25 @@ class UserPortal extends Component {
 
           {this.state.user.profile === undefined ? (
             <Link to="/addprofile">
-              <div style={{
-                alignItems: "center"
-              }}>
+              <div
+                style={{
+                  alignItems: "center",
+                }}
+              >
                 <button id="create-room-button" type="submit">
                   {portalLocales.profile[lang]}
                 </button>
-
               </div>
             </Link>
-
           ) : (
-              <Link to="/profile">
-                <button id="create-room-button" type="submit">
-                  {portalLocales.profile2[lang]}  </button>
-              </Link>
-            )
-          }
-
+            <Link to={`/profile/${this.state.user.profile}`}>
+              <button id="create-room-button" type="submit">
+                {portalLocales.profile2[lang]}{" "}
+              </button>
+            </Link>
+          )}
         </div>
-      </div >
+      </div>
     );
   }
 }
