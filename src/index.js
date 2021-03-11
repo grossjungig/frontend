@@ -4,33 +4,19 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-import axios from "axios";
 
-// Language Switcher Setup
+
+// TODO: Move it to Redux.
 if (!localStorage.getItem("lang")) {
   localStorage.setItem("lang", "de");
 }
 
-// Check for existing session
-axios
-  .get(`${process.env.REACT_APP_BACKENDURL}api/auth/loggedin`)
-  .then((response) => {
-    if (response.data) {
-      ReactDOM.render(
-        <BrowserRouter>
-          <App user={response.data} />
-        </BrowserRouter>,
-        document.getElementById("root")
-      );
-    } else {
-      ReactDOM.render(
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>,
-        document.getElementById("root")
-      );
-    }
-  });
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
