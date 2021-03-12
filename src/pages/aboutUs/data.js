@@ -32,10 +32,6 @@ export const coreStaff = [
     {
         img: menna, role: team.Menna, name: 'Menna Hisham',
         link: 'https://www.linkedin.com/in/minatallah-hisham/'
-    },
-    {
-        img: morteza, role: team.Morteza, name: 'Morteza Jalilifar',
-        link: 'https://www.linkedin.com/in/nancologist/'
     }
 ]
 
