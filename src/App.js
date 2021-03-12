@@ -28,6 +28,9 @@ import People from "./components/People/People";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import EditProfile from "./components/EditProfile/EditProfile";
 
+import { connect } from 'react-redux';
+import { dispatchTryAutoSignIn } from './store/auth/actions';
+
 
 const theme = {
   main: "#ed8707",
@@ -45,7 +48,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    
+    this.props.tryAutoSignIn();
   }
 
   updatePage = () => {
@@ -127,4 +130,14 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (reduxState) => {
+  return {
+    // x: reduxState.x
+  };
+};
+
+const mapDispatchToProps = {
+  tryAutoSignIn: () => dispatchTryAutoSignIn()
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
