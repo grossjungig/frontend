@@ -123,7 +123,7 @@ const Row = styled.div`
 //   padding: 0.25rem 0.25rem;
 // `;
 
-const FooterLinkSmall = styled.a`
+const FooterLinkSmall = styled.div`
   display: flex;
   justify-content: space-around;
   font-family: "Montserrat";
@@ -147,7 +147,7 @@ const FooterBig = styled.p`
   padding: 0.25rem 0.2rem;
 `;
 
-const FooterSmall = styled.a`
+const FooterSmall = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
