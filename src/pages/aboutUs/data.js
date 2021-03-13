@@ -7,7 +7,6 @@ import menna from '../../assets/images/team/menna.jpg';
 import luca from '../../assets/images/team/luca.png';
 import magda from '../../assets/images/team/magdalena.jpg';
 import maria from '../../assets/images/team/maria.png';
-import morteza from '../../assets/images/team/morteza.jpg';
 import nida from '../../assets/images/team/nida.jpg';
 import pablo from '../../assets/images/team/pablo.jpg';
 import rosina from '../../assets/images/team/rosina.png';
