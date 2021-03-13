@@ -37,15 +37,6 @@ const theme = {
 };
 
 class App extends React.Component {
-  state = {
-    user: this.props.user,
-  };
-
-  setUser = (userObj) => {
-    this.setState({
-      user: userObj,
-    });
-  };
 
   componentDidMount() {
     this.props.tryAutoLogin();
@@ -60,49 +51,39 @@ class App extends React.Component {
       <div className="App">
         <ThemeProvider theme={theme}>
           <Navbar
-            setUser={this.setUser}
-            user={this.state.user}
             history={this.props.history}
             updatePage={this.updatePage}
             //This means exporting "updatePage" to Navbar
           />
           <Switch>
             <Route exact path="/" render={(props) => (
-              <Home
-                history={props.history}
-                user={this.state.user}
-                setUser={this.setUser}
-              />
+              <Home history={props.history} />
             )}/>
             
             <Route exact path="/signup" render={(props) => (
-              <Signup
-                history={props.history}
-                user={this.state.user}
-                setUser={this.setUser}
-              />
+              <Signup history={props.history} />
             )}/>
 
             <Route exact path="/login" render={(props) => (
-              <Login history={props.history} setUser={this.setUser} />
+              <Login history={props.history} />
             )}/>
 
             <Route exact path="/userportal" render={(props) => 
-              <UserPortal {...props} user={this.state.user} />}
+              <UserPortal {...props} />}
             />
 
             <Route exact path="/berlin" render={(props) => 
-              <Berlin {...props} user={this.state.user} />
+              <Berlin {...props} />
             }/>
 
-            <Route exact path="/people" render={(props) => <People {...props} user={this.state.user} />} />
-            <Route exact path="/berlin/:id" render={(props) => <Details {...props} user={this.state.user} />} />
-            <Route exact path="/addRoom" render={(props) => <AddRoom {...props} user={this.state.user} />} />
-            <Route exact path="/aboutus" render={(props) => <AboutUs {...props} user={this.state.user} />} />
-            <Route exact path="/how" render={(props) => <HowItWorks {...props} user={this.state.user} />} />
-            <Route exact path="/impressum" render={(props) => <Impressum {...props} user={this.state.user} />} />
+            <Route exact path="/people" render={(props) => <People {...props} />} />
+            <Route exact path="/berlin/:id" render={(props) => <Details {...props} />} />
+            <Route exact path="/addRoom" render={(props) => <AddRoom {...props} />} />
+            <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
+            <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
+            <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
             <Route exact path="/edit" render={(props) => (
-              <EditProfile history={props.history} user={this.state.user} />
+              <EditProfile history={props.history} />
             )}/>
 
             <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
@@ -111,13 +92,13 @@ class App extends React.Component {
             <Route
               exact
               path="/addProfile"
-              render={(props) => <AddProfile {...props} user={this.state.user} />}
+              render={(props) => <AddProfile {...props} />}
             />
             <Route exact path="/profile" render={(props) => (
               <Profile
                 history={props.history}
                 {...props}
-                user={this.state.user}
+              
               />
             )}/>
 

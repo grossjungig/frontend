@@ -4,7 +4,6 @@ import portalLocales from "../../locales/locales.portal.json";
 import { connect } from 'react-redux'
 
 const UserPortal = (props) => {
-  const { user: fetchedUser } = props;
   const lang = localStorage.getItem("lang");
   const [user, setUser] = useState({ name: '' })
 
@@ -13,7 +12,7 @@ const UserPortal = (props) => {
       if (props.user) return props.user;
       return prev;
     });
-  }, [fetchedUser]);
+  }, [props.user]);
 
   return (
     <div className="portal-container" style={{ textAlign: "center" }}>
