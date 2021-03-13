@@ -29,7 +29,7 @@ import ResetPassword from "./components/ResetPassword/ResetPassword";
 import EditProfile from "./components/EditProfile/EditProfile";
 
 import { connect } from 'react-redux';
-import { dispatchTryAutoSignIn } from './store/auth/actions';
+import { dispatchAutoLogin } from './store/auth/actions';
 
 
 const theme = {
@@ -137,7 +137,7 @@ const mapStateToProps = (reduxState) => {
 };
 
 const mapDispatchToProps = {
-  tryAutoSignIn: () => dispatchTryAutoSignIn()
+  tryAutoSignIn: () => dispatchAutoLogin()
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

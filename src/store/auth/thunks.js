@@ -1,18 +1,16 @@
 import axios from '../../axios';
-import {} from './actions';
+import * as actions from './actions';
 
 export const dispatchLogin = (email, pwd) => {
     return async (dispatch) => {
-        // dispatch(authStart());
-
-        // const authData = { email, pwd };
-
         try {
-            const response = await axios.post(`api/auth/login`, {
+            const res = await axios.post(`api/auth/login`, {
                 email: email,
                 password: pwd,
             });
-            console.log(response);
+            const { token, userId, expiresInSec } = res.data
+            dispatch(actions.authSuccess(token, userId));
+            dispatch(actions.setTokenExpiration(expiresInSec));
         } catch (error) {
             console.log(error);
         }
