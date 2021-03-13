@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "./login.css";
 import loginLocales from "../../locales/locales.login.json";
-//stlyes
-//import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+
+import { connect } from 'react-redux';
+import { dispatchLogin } from '../../store/auth/thunks';
 
 class Login extends Component {
   state = {
@@ -18,20 +19,8 @@ class Login extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-
-    const response = await axios.post(
-      `${process.env.REACT_APP_BACKENDURL}api/auth/login`,
-      {
-        email: this.state.email,
-        password: this.state.password,
-      }
-    );
-
-    this.props.setUser(response.data);
-
-    this.setState({
-      redirect: true,
-    });
+    const { email, password } = this.state;
+    this.props.login(email, password);
   };
 
   setFormState = (event) => {
@@ -102,4 +91,15 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+
+const mapStateToProps = (reduxState) => {
+  return {
+    // x: reduxState.x
+  };
+};
+
+const mapDispatchToProps = {
+  login: (email, pwd) => dispatchLogin(email, pwd)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

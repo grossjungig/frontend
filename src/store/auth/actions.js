@@ -1,3 +1,5 @@
+import { AUTH_LOGOUT, AUTH_SUCCESS } from './types';
+
 export const dispatchTryAutoSignIn = () => {
     return (dispatch) => {
         const token = localStorage.getItem('token');
@@ -12,10 +14,32 @@ export const dispatchTryAutoSignIn = () => {
                 dispatch(authSuccess(token, userId));
 
                 const expiresIn = (expirationDate.getTime() - new Date().getTime()) / 1000;
-                dispatch(checkAuthTimeout(expiresIn));
+                dispatch(setAuthTimeout(expiresIn));
             }
         }
     }
+};
+
+// const authStart = () => {
+//     return {
+//         type: AUTH_START
+//     };
+// };
+
+const authSuccess = (token, userId) => {
+    return {
+        type: AUTH_SUCCESS,
+        idToken: token,
+        userId: userId,
+    };
+};
+
+const setAuthTimeout = (expirationTime) => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(logout());
+        }, expirationTime * 1000);
+    };
 };
 
 const logout = () => {

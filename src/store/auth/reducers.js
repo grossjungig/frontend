@@ -1,3 +1,4 @@
+import { updateObject } from '../utils';
 import { AUTH_LOGOUT } from './types';
 
 const initialState = {
