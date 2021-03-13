@@ -31,10 +31,7 @@ import EditProfile from "./components/EditProfile/EditProfile";
 import { connect } from 'react-redux';
 import { dispatchCheckAuth } from './store/auth/thunks';
 
-
-const theme = {
-  main: "#ed8707",
-};
+const theme = { main: "#ed8707" };
 
 class App extends React.Component {
 
@@ -50,19 +47,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <ThemeProvider theme={theme}>
-          <Navbar
-            history={this.props.history}
-            updatePage={this.updatePage}
-            //This means exporting "updatePage" to Navbar
-          />
+          <Navbar />
           <Switch>
-            <Route exact path="/" render={(props) => (
-              <Home history={props.history} />
-            )}/>
-            
-            <Route exact path="/signup" render={(props) => (
-              <Signup history={props.history} />
-            )}/>
+            <Route exact path="/"><Home/></Route>
+            <Route exact path="/signup"><Signup/></Route>
 
             <Route exact path="/login" render={(props) => (
               <Login history={props.history} />
