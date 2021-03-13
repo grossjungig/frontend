@@ -17,10 +17,11 @@ class Login extends Component {
     message: "",
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = this.state;
     this.props.login(email, password);
+    this.props.history.push('/userportal');
   };
 
   setFormState = (event) => {

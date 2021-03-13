@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
 const authLogin = (state, action) => {
     return updateObject(state, {
         token: action.token,
-        userId: action.userId
+        user: action.user
     })
 };
 

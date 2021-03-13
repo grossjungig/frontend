@@ -6,6 +6,7 @@ import { HashLink, PageLink } from "../styled";
 import Fab from "@material-ui/core/Fab";
 import { connect } from 'react-redux';
 import { logout } from '../../store/auth/actions'
+import { useHistory } from 'react-router-dom';
 
 const imageChange = (updatePage, setImage) => {
   const lang = localStorage.getItem("lang");
@@ -20,10 +21,13 @@ const imageChange = (updatePage, setImage) => {
 };
 
 const Navbar = (props) => {
+  const history = useHistory();
   const [img, setImage] = useState("/image/german.png");
 
   const logout = (event) => {
     event.preventDefault();
+    props.logout();
+    history.push('/');
   };
 
   const lang = localStorage.getItem("lang");
@@ -117,7 +121,7 @@ const mapStateToProps = (reduxState) => {
 };
 
 const mapDispatchToProps = {
-  logout: (email, pwd) => logout(email, pwd)
+  logout: () => logout()
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
