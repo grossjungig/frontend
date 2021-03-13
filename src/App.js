@@ -29,7 +29,7 @@ import ResetPassword from "./components/ResetPassword/ResetPassword";
 import EditProfile from "./components/EditProfile/EditProfile";
 
 import { connect } from 'react-redux';
-import { dispatchAutoLogin } from './store/auth/actions';
+import { dispatchCheckAuth } from './store/auth/thunks';
 
 
 const theme = {
@@ -48,7 +48,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.props.tryAutoSignIn();
+    this.props.tryAutoLogin();
   }
 
   updatePage = () => {
@@ -137,7 +137,7 @@ const mapStateToProps = (reduxState) => {
 };
 
 const mapDispatchToProps = {
-  tryAutoSignIn: () => dispatchAutoLogin()
+  tryAutoLogin: () => dispatchCheckAuth()
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

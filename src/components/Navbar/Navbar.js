@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import navbarLocales from "../../locales/locales.navbar.json";
 import homeLocales from "../../locales/locales.home.json";
 import { HashLink, PageLink } from "../styled";
-
 import Fab from "@material-ui/core/Fab";
+import { connect } from 'react-redux';
+import { logout } from '../../store/auth/actions'
 
 const imageChange = (updatePage, setImage) => {
   const lang = localStorage.getItem("lang");
@@ -22,13 +22,8 @@ const imageChange = (updatePage, setImage) => {
 const Navbar = (props) => {
   const [img, setImage] = useState("/image/german.png");
 
-  const logout = (e) => {
-    console.log(e);
-    axios
-      .delete(`${process.env.REACT_APP_BACKENDURL}api/auth/logout`)
-      .then(() => {
-        props.setUser(null);
-      });
+  const logout = (event) => {
+    event.preventDefault();
   };
 
   const lang = localStorage.getItem("lang");
@@ -69,7 +64,7 @@ const Navbar = (props) => {
             </HashLink>
           </div>
         </div>
-        {props.user ? (
+        {props.isAuth ? (
           <div className="login-nav">
             <Link onClick={logout} to="/">
               {navbarLocales.logout[lang]}
@@ -115,4 +110,14 @@ const Navbar = (props) => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = (reduxState) => {
+  return {
+    isAuth: !!reduxState.token
+  };
+};
+
+const mapDispatchToProps = {
+  logout: (email, pwd) => logout(email, pwd)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -2,7 +2,6 @@ import { updateObject } from '../utils';
 import { AUTH_LOGOUT, AUTH_SUCCESS } from './types';
 
 const initialState = {
-    userId: null,
     token: null, // isAuth = !!token
     user: null,
 }
@@ -28,7 +27,7 @@ const authLogin = (state, action) => {
 const authLogout = (state) => {
     return updateObject(state, {
         token: null,
-        userId: null,
+        user: null,
     });
 };
 

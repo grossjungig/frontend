@@ -31,7 +31,6 @@ class Login extends Component {
 
   render() {
     const lang = localStorage.getItem("lang");
-    // TODO: local should be injected using the context api, reading localStorage is expensive
     if (this.state.redirect) {
       return <Redirect to="/userportal" />;
     }
@@ -42,7 +41,6 @@ class Login extends Component {
           <h3>{loginLocales.prompt[lang]}</h3>
 
           <form className="login-styles" onSubmit={this.handleSubmit}>
-            {/* <label htmlFor="email">{loginLocales.email[lang]}</label> */}
             <TextField
               margin="normal"
               label={loginLocales.email[lang]}
@@ -54,7 +52,6 @@ class Login extends Component {
               value={this.state.email}
               onChange={this.setFormState}
             />
-            {/* <label htmlFor="password">{loginLocales.password[lang]}</label> */}
             <TextField
               margin="normal"
               fullWidth
