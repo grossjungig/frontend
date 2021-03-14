@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import navbarLocales from "../../locales/locales.navbar.json";
 import homeLocales from "../../locales/locales.home.json";
-//import Logo from "./Logo";
 import { HashLink, PageLink } from "../styled";
-
 import Fab from "@material-ui/core/Fab";
-//styles for new navbar-don'te delete
-//import "./Navbar.css";
+import { connect } from 'react-redux';
+import { logout } from '../../store/auth/actions'
+import { useHistory } from 'react-router-dom';
 
 const imageChange = (updatePage, setImage) => {
-  //console.log("imagechange", localStorage.getItem("lang"));
   const lang = localStorage.getItem("lang");
-  //console.log("LANG", lang);
   if (lang === "en") {
     setImage("/image/english.png");
     localStorage.setItem("lang", "de");
@@ -22,20 +18,16 @@ const imageChange = (updatePage, setImage) => {
     localStorage.setItem("lang", "en");
   }
   updatePage();
-  //This is coming from App.js
 };
 
 const Navbar = (props) => {
+  const history = useHistory();
   const [img, setImage] = useState("/image/german.png");
 
-  // TODO:refactor this and get rid of update page (we will refactor to global state)
-  const logout = (e) => {
-    console.log(e);
-    axios
-      .delete(`${process.env.REACT_APP_BACKENDURL}api/auth/logout`)
-      .then(() => {
-        props.setUser(null);
-      });
+  const logout = (event) => {
+    event.preventDefault();
+    props.logout();
+    history.push('/');
   };
 
   const lang = localStorage.getItem("lang");
@@ -76,7 +68,7 @@ const Navbar = (props) => {
             </HashLink>
           </div>
         </div>
-        {props.user ? (
+        {props.isAuth ? (
           <div className="login-nav">
             <Link onClick={logout} to="/">
               {navbarLocales.logout[lang]}
@@ -122,36 +114,14 @@ const Navbar = (props) => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = (reduxState) => {
+  return {
+    isAuth: !!reduxState.token
+  };
+};
 
-//new navbar
-/* <nav>
-<header className="header">
-  <Link to="/">
-    <img
-      style={{ height: "34px", margin: "5px" }}
-      src="/image/Logo.png"
-      alt="logo_image"
-    />
-  </Link>
+const mapDispatchToProps = {
+  logout: () => logout()
+}
 
-  <input className="menu-btn" type="checkbox" id="menu-btn" />
-  <label className="menu-icon" for="menu-btn">
-    <span className="navicon"></span>
-  </label>
-  <ul className="menu">
-    <li>
-      <Link href="/#about">{homeLocales.about[lang]}</Link>
-    </li>
-    <li>
-      <Link href="/#how-it-works">{homeLocales.how[lang]}</Link>
-    </li>
-    <li>
-      <Link href="/#community">{homeLocales.community[lang]}</Link>
-    </li>
-    <li>
-      <Link href="/#contact">{homeLocales.contact[lang]}</Link>
-    </li>
-  </ul>
-</header>
-</nav> */
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

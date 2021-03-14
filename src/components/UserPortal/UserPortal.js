@@ -1,80 +1,72 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Component } from "react";
 import portalLocales from "../../locales/locales.portal.json";
+import { connect } from 'react-redux'
 
-class UserPortal extends Component {
-  state = {
-    user: [],
-  };
-  componentDidMount() {
-    this._isMounted = true;
+const UserPortal = (props) => {
+  const lang = localStorage.getItem("lang");
+  const [user, setUser] = useState({ name: '' })
 
-    console.log(this.props)
+  useEffect(() => {
+    setUser(prev => {
+      if (props.user) return props.user;
+      return prev;
+    });
+  }, [props.user]);
 
-    if (this._isMounted) {
-      this.setState({
-        user: this.props.user,
-      });
+  return (
+    <div className="portal-container" style={{ textAlign: "center" }}>
+      <h1 style={{
+        color: "#365FA7",
+        fontFamily: "Montserrat", fontWeight: "600"
+      }}>
+        {portalLocales.greeting[lang]} {user.name}!
+      </h1>
       
-    }
-  }
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
+      <div className="portal-container">
+        <Link to="/berlin">
+          <button>{portalLocales.rooms[lang]}</button>
+        </Link>
+        <Link to="/maps">
+          <button>{portalLocales.map[lang]}</button>
+        </Link>
+        <Link to="/addroom">
+          {user.role === "senior" ? (
+            <button id="create-room-button" type="submit">
+              {portalLocales.add[lang]}
+            </button>
+          ) : null}
+        </Link>
 
-  render() {
-    const lang = localStorage.getItem("lang");
-   
-
-    return (
-      <div className="portal-container" style={{ textAlign: "center" }}>
-        <h1 style={{
-          color: "#365FA7",
-          fontFamily: "Montserrat", fontWeight: "600"
-        }}>
-          {portalLocales.greeting[lang]} {this.state.user.name}!
-        </h1>
-        
-        <div className="portal-container">
-          <Link to="/berlin">
-            <button>{portalLocales.rooms[lang]}</button>
-          </Link>
-          <Link to="/maps">
-            <button>{portalLocales.map[lang]}</button>
-          </Link>
-          <Link to="/addroom">
-            {this.state.user.role === "senior" ? (
+        {user.profile === undefined ? (
+          <Link to="/addprofile">
+            <div style={{
+              alignItems: "center"
+            }}>
               <button id="create-room-button" type="submit">
-                {portalLocales.add[lang]}
+                {portalLocales.profile[lang]}
               </button>
-            ) : null}
+
+            </div>
           </Link>
 
-          {this.state.user.profile === undefined ? (
-            <Link to="/addprofile">
-              <div style={{
-                alignItems: "center"
-              }}>
-                <button id="create-room-button" type="submit">
-                  {portalLocales.profile[lang]}
-                </button>
-
-              </div>
+        ) : (
+            <Link to="/profile">
+              <button id="create-room-button" type="submit">
+                {portalLocales.profile2[lang]}  </button>
             </Link>
+          )
+        }
 
-          ) : (
-              <Link to="/profile">
-                <button id="create-room-button" type="submit">
-                  {portalLocales.profile2[lang]}  </button>
-              </Link>
-            )
-          }
-
-        </div>
-      </div >
-    );
-  }
+      </div>
+    </div >
+  );
 }
 
-export default UserPortal;
+const mapStateToProps = (reduxState) => {
+  return {
+    user: reduxState.user
+  };
+};
+
+export default connect(mapStateToProps)(UserPortal);
