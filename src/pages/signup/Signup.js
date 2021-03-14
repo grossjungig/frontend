@@ -35,9 +35,7 @@ class Signup extends Component {
         }
       })
       .catch((err) => {
-        this.setState({
-          message: err.response.data.message,
-        });
+        this.setState({ message: err.response.data.message });
       });
   };
 
@@ -56,16 +54,11 @@ class Signup extends Component {
 
     return (
       <div className="full-block">
-        <div className="x">
-          {/* <img src="../image/signup.png" alt="singup-side-view" /> */}
-        </div>
+        <div className="x"></div>
         <div className="login">
           <h2>{signupLocales.welcome[lang]}</h2>{" "}
-          {/* <h1>{signupLocales.grossjungig[lang]}</h1> */}
           <h3>{signupLocales.title[lang]}</h3>
-          {/* <div className="signup-container"> */}
           <form className="login-styles" noValidate autoComplete="off">
-            {/* <label htmlFor="name">Name</label> */}
             <TextField
               margin="normal"
               label="Name"
