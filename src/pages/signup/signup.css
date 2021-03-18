@@ -20,6 +20,9 @@
 .signup-container {
   display: table-caption;
 }
+.rest-z-index {
+  z-index: -1;
+}
 
 .signup-container input {
   width: 15vw;

@@ -6,8 +6,8 @@ import loginLocales from "../../locales/locales.login.json";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-import { connect } from 'react-redux';
-import { dispatchLogin } from '../../store/auth/thunks';
+import { connect } from "react-redux";
+import { dispatchLogin } from "../../store/auth/thunks";
 
 class Login extends Component {
   state = {
@@ -21,7 +21,7 @@ class Login extends Component {
     event.preventDefault();
     const { email, password } = this.state;
     this.props.login(email, password);
-    this.props.history.push('/userportal');
+    this.props.history.push("/userportal");
   };
 
   setFormState = (event) => {
@@ -43,6 +43,7 @@ class Login extends Component {
 
           <form className="login-styles" onSubmit={this.handleSubmit}>
             <TextField
+              className="rest-z-index"
               margin="normal"
               label={loginLocales.email[lang]}
               fullWidth
@@ -54,6 +55,7 @@ class Login extends Component {
               onChange={this.setFormState}
             />
             <TextField
+              className="rest-z-index"
               margin="normal"
               fullWidth
               label={loginLocales.password[lang]}
@@ -71,6 +73,7 @@ class Login extends Component {
               </Link>
             </h5>
             <Button
+              className="rest-z-index"
               style={{
                 backgroundColor: "#365da7",
                 color: "white",
@@ -97,7 +100,7 @@ const mapStateToProps = (reduxState) => {
 };
 
 const mapDispatchToProps = {
-  login: (email, pwd) => dispatchLogin(email, pwd)
-}
+  login: (email, pwd) => dispatchLogin(email, pwd),
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

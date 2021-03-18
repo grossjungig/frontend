@@ -88,6 +88,7 @@ class ForgotPassword extends Component {
                 <form onSubmit={this.sendEmail}>
                   {/* <label htmlFor="email">{loginLocales.email[lang]}</label> */}
                   <TextField
+                    className="rest-z-index"
                     margin="normal"
                     label={loginLocales.email[lang]}
                     fullWidth
@@ -104,6 +105,7 @@ class ForgotPassword extends Component {
                     </div>
                   )}
                   <Button
+                    className="rest-z-index"
                     style={{
                       marginRight: "5px",
                       color: "white",
@@ -115,7 +117,11 @@ class ForgotPassword extends Component {
                     {forgotLocales.submit[lang]}
                   </Button>
                   <Link style={{ textDecoration: "none" }} to="/">
-                    <Button variant="contained" type="">
+                    <Button
+                      className="rest-z-index"
+                      variant="contained"
+                      type=""
+                    >
                       {forgotLocales.return[lang]}
                     </Button>
                   </Link>

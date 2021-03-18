@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "../../pages/login/login.css";
-import axios from '../../axios';
+import axios from "../../axios";
 import signupLocales from "../../locales/locales.signup.json";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -22,16 +22,16 @@ class Signup extends Component {
     event.preventDefault();
 
     axios
-      .post('api/auth/signup', {
+      .post("api/auth/signup", {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,
         role: this.state.role,
       })
       .then((response) => {
-        if (response.data.message === 'User created') {
-          this.props.history.push('/login');
-          alert('Your account has been created. You can now log in!');
+        if (response.data.message === "User created") {
+          this.props.history.push("/login");
+          alert("Your account has been created. You can now log in!");
         }
       })
       .catch((err) => {
@@ -60,6 +60,7 @@ class Signup extends Component {
           <h3>{signupLocales.title[lang]}</h3>
           <form className="login-styles" noValidate autoComplete="off">
             <TextField
+              className="rest-z-index"
               margin="normal"
               label="Name"
               fullWidth
@@ -71,6 +72,7 @@ class Signup extends Component {
               type="text"
             />
             <TextField
+              className="rest-z-index"
               margin="normal"
               fullWidth
               label={signupLocales.email[lang]}
@@ -82,6 +84,7 @@ class Signup extends Component {
               onChange={this.setFormState}
             />
             <TextField
+              className="rest-z-index"
               margin="normal"
               fullWidth
               label={signupLocales.password[lang]}
@@ -93,10 +96,13 @@ class Signup extends Component {
               onChange={this.setFormState}
             />
             <InputLabel id="role-select" htmlFor="role">
+              {" "}
+              className="rest-z-index"
               {signupLocales.role[lang]}
             </InputLabel>
 
             <Select
+              className="rest-z-index"
               name="role"
               id="role"
               value={this.state.role}
@@ -107,6 +113,7 @@ class Signup extends Component {
             </Select>
             <br />
             <Button
+              className="rest-z-index"
               style={{
                 backgroundColor: "#365da7",
                 color: "white",
@@ -118,7 +125,9 @@ class Signup extends Component {
               {signupLocales.submit[lang]}
             </Button>
           </form>
-          {this.state.message && <p className="warning">{this.state.message}</p>}
+          {this.state.message && (
+            <p className="warning">{this.state.message}</p>
+          )}
         </div>
       </div>
     );

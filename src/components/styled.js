@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import React from "react";
-import { NavHashLink } from 'react-router-hash-link';
+import { NavHashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 
 export const basicButtonCSS = css`
@@ -107,15 +107,15 @@ export const HashLink = styled(NavHashLink)`
   text-decoration: none;
   font-size: 15px;
   color: black;
-  margin: auto;
-  padding: 0rem 1rem;
+  // margin: auto;
+  // padding: 0rem 1rem;
 `;
 export const PageLink = styled(Link)`
   text-decoration: none;
   font-size: 15px;
   color: black;
-  margin: auto;
-  padding: 0rem 1rem;
+  // margin: auto;
+  // padding: 0rem 1rem;
 `;
 
 const CardRoot = styled.div`
