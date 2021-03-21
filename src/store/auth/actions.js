@@ -1,4 +1,4 @@
-import { AUTH_LOGOUT, AUTH_SUCCESS } from './types';
+import { AUTH_FAIL, AUTH_LOGOUT, AUTH_SUCCESS } from './types';
 
 // ---------- Shared with thunks.js: ----------
 
@@ -23,7 +23,7 @@ export const setTokenExpiration = (sec) => {
     }
 }
 
-export const authSuccess = (token, user) => {
+export const onAuthSuccess = (token, user) => {
     localStorage.setItem('token', token);
 
     return {
@@ -32,3 +32,11 @@ export const authSuccess = (token, user) => {
         user: user,
     };
 };
+
+export const onAuthFail = (err) => {
+    const errMsg = err.response.data.message;
+    return {
+        type: AUTH_FAIL,
+        errMsg: errMsg
+    };
+}

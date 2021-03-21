@@ -15,6 +15,7 @@ import sree from '../../assets/images/team/sree.jpg';
 import tammy from '../../assets/images/team/tammy.jpg';
 import vicky from '../../assets/images/team/vicky.jpg';
 import vlad from '../../assets/images/team/vlad.jpg';
+import morteza from '../../assets/images/team/morteza.jpg';
 
 
 const { team } = aboutLocales;
@@ -31,6 +32,10 @@ export const coreStaff = [
     {
         img: menna, role: team.Menna, name: 'Menna Hisham',
         link: 'https://www.linkedin.com/in/minatallah-hisham/'
+    },
+    {
+        img: morteza, role: team.Morteza, name: 'Morteza Jalilifar',
+        link: 'https://www.linkedin.com/in/nancologist/'
     }
 ]
 

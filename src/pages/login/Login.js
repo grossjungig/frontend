@@ -11,17 +11,14 @@ import { dispatchLogin } from '../../store/auth/thunks';
 
 class Login extends Component {
   state = {
-    email: "",
-    password: "",
-    redirect: false,
-    message: "",
+    email: '',
+    password: ''
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = this.state;
     this.props.login(email, password);
-    this.props.history.push('/userportal');
   };
 
   setFormState = (event) => {
@@ -32,7 +29,7 @@ class Login extends Component {
 
   render() {
     const lang = localStorage.getItem("lang");
-    if (this.state.redirect) {
+    if (this.props.isAuthenticated) {
       return <Redirect to="/userportal" />;
     }
     return (
@@ -47,7 +44,7 @@ class Login extends Component {
               label={loginLocales.email[lang]}
               fullWidth
               variant="outlined"
-              type="text"
+              type="email"
               name="email"
               id="email"
               value={this.state.email}
@@ -83,7 +80,7 @@ class Login extends Component {
             </Button>
           </form>
 
-          {this.state.message && <p>{this.state.message}</p>}
+          {this.props.errMsg && <p className="warning">{this.props.errMsg}</p>}
         </div>
       </div>
     );
@@ -92,7 +89,8 @@ class Login extends Component {
 
 const mapStateToProps = (reduxState) => {
   return {
-    // x: reduxState.x
+    isAuthenticated: !!reduxState.token,
+    errMsg: reduxState.errMsg,
   };
 };
 
