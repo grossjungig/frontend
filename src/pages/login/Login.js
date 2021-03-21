@@ -80,7 +80,7 @@ class Login extends Component {
             </Button>
           </form>
 
-          {this.props.errMsg && <p class="warning">{this.props.errMsg}</p>}
+          {this.props.errMsg && <p className="warning">{this.props.errMsg}</p>}
         </div>
       </div>
     );
