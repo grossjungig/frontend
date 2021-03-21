@@ -9,10 +9,10 @@ export const dispatchLogin = (email, pwd) => {
                 password: pwd,
             });
             const { token, user, expiresInSec } = res.data
-            dispatch(actions.authSuccess(token, user));
+            dispatch(actions.onAuthSuccess(token, user));
             dispatch(actions.setTokenExpiration(expiresInSec));
         } catch (error) {
-            console.log(error);
+            dispatch(actions.onAuthFail(error))
         }
     }
 };
@@ -34,7 +34,7 @@ export const dispatchCheckAuth = () => {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 const user = res.data.user
-                dispatch(actions.authSuccess(token, user));
+                dispatch(actions.onAuthSuccess(token, user));
                 dispatch(actions.setTokenExpiration(expiresIn));
             }
         }

@@ -1,5 +1,74 @@
 # grossjungig-frontend
 
+# 0. Announcements
+
+## Preview Mode and Backend Changes - 03/21/2021
+Hi everyone, the followings has been changed:
+
+* Backend - package "cors" has been removed - (please remove ``node_modules/`` from the backend and reinstall the packages ``npm install`` again on Backend) - You will finde the ``Env Vars`` on Slack Dev Channel.
+
+* Please don't use the Grossjungig.de for your testing purposes any more (for example don't create any Dummy Room or Dummy User there anymore for that we are going to use a Dummy DB which is going to work on Local Grossjungig and Online Preview Mode https://grossjungig-de.vercel.app/
+For a better understanding I have alternated the title of HTML so you never gonna confuse them on your browser:
+    * Production Tab Name: __Grossjungig__
+    * Preview Online Tab Name: __Preview Grossjungig__
+    * Local Tab Name: __Develop Grossjungig__
+
+Thx Morteza
+___
+
+## Avoid Bad Merge Request - 03/17/2021
+Dear Team please take a look at these changes in the picture.
+
+![Bad Merge Request](https://i.ibb.co/N1qMTRp/bad-git-changes.png)
+
+What we see is caused by an IDE automatically and staged using Git in Terminal. Because the person did not see what he/she is staging, so I appeal to you to use a Git GUI if you don't master Git on Terminal and Console. To check your changes before staging and finally committing.
+This picture is an example of a whole over 500 lines unnecessary changes which I'm reviewing in ONLY ONE feature branch in ONLY one COMMIT. These changes have nothing to do with the main purpose of the ticket and this makes the Review very very hard and exhausting and I will every time reject the review. So please use one of the following free Git GUIs on your machine:
+
+__Fork__  
+(I suggest for the Mac Users , I had a good experience with it as I worked on MacOS)
+https://git-fork.com/
+
+__GitKraken__  
+(This is also great but works if the repo on github is public - our project is public on github FOR NOW so you can use it)
+https://www.gitkraken.com/
+There are a lot more options as a Git GUI which you can use and connect with your Github account or just use it for commits and then at end you can use git push on Terminal again. If you don't want / can't to connect them with your GitHub account.
+
+Thx  
+Morteza
+___
+
+## Oversized Pictures and Importing Pictures - 03/06/2021
+1. Please use ``src/assets/images`` instead of ``public/`` and then use ``import ... from ...`` to add images to the components. It helps the performance.
+
+2. Please be careful of the size of images when you import them into the code. Anastasia's pic was __12MB__ BIG!!! , it's almost 100 times too big and costs the performance enormously!!!  
+To optimize the images please use: https://squoosh.app/ 
+
+Thx  
+Morteza
+
+___
+
+## Learning Redux - 03/05/2021
+Dear team,  
+please be noticed I'm going to add the following packages to the project:  
+
+``redux`` , ``react-redux`` and ``redux-thunk`` to the frontend project. You can search these package names in npmjs.com and find the docs, BUT maybe that's too broad, so if you already know these packages that is perfect but if you want to try them and understand the concepts I have found a very good and short tutorial but first it explains the concepts:
+
+ https://medium.com/@jsmuster/using-redux-standalone-497aa85981c1
+
+And if your learning type is just like me VIDEO he is a very great author:
+https://youtu.be/poQXNp9ItL4
+
+__For any question please open the thread under this post.__
+
+Thx  
+Morteza
+
+___
+___
+___
+
+
 # 1. Guidelines
 
 ## 1.1. Git
