@@ -44,7 +44,7 @@ class Login extends Component {
               label={loginLocales.email[lang]}
               fullWidth
               variant="outlined"
-              type="text"
+              type="email"
               name="email"
               id="email"
               value={this.state.email}
