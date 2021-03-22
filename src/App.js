@@ -5,12 +5,12 @@ import { ThemeProvider } from "styled-components";
 import "./App.css";
 
 // Pages
-import Home from "./pages/home/Home";
-import HowItWorks from "./pages/howItWorks/HowItWorks";
-import AboutUs from "./pages/aboutUs/AboutUs";
-import Impressum from "./pages/impressum/Impressum";
-import Login from "./pages/login/Login.js";
-import Signup from "./pages/signup/Signup.js";
+import Home from './pages/home/Home';
+import HowItWorks from './pages/howItWorks/HowItWorks';
+import AboutUs from './pages/aboutUs/AboutUs';
+import Impressum from './pages/impressum/Impressum';
+import Login from './pages/login/Login.js';
+import Signup from './pages/signup/Signup.js';
 
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
@@ -28,12 +28,13 @@ import People from "./components/People/People";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import EditProfile from "./components/EditProfile/EditProfile";
 
-import { connect } from "react-redux";
-import { dispatchCheckAuth } from "./store/auth/thunks";
+import { connect } from 'react-redux';
+import { dispatchCheckAuth } from './store/auth/thunks';
 
 const theme = { main: "#ed8707" };
 
 class App extends React.Component {
+
   componentDidMount() {
     this.props.tryAutoLogin();
   }
@@ -48,72 +49,32 @@ class App extends React.Component {
         <ThemeProvider theme={theme}>
           <Navbar />
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/signup">
-              <Signup />
-            </Route>
+            <Route exact path="/"><Home/></Route>
+            <Route exact path="/signup"><Signup/></Route>
 
-            <Route
-              exact
-              path="/login"
-              render={(props) => <Login history={props.history} />}
+            <Route exact path="/login" render={(props) => (
+              <Login history={props.history} />
+            )}/>
+
+            <Route exact path="/userportal" render={(props) => 
+              <UserPortal {...props} />}
             />
 
-            <Route
-              exact
-              path="/userportal"
-              render={(props) => <UserPortal {...props} />}
-            />
+            <Route exact path="/berlin" render={(props) => 
+              <Berlin {...props} />
+            }/>
 
-            <Route
-              exact
-              path="/berlin"
-              render={(props) => <Berlin {...props} />}
-            />
+            <Route exact path="/people" render={(props) => <People {...props} />} />
+            <Route exact path="/berlin/:id" render={(props) => <Details {...props} />} />
+            <Route exact path="/addRoom" render={(props) => <AddRoom {...props} />} />
+            <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
+            <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
+            <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
+            <Route exact path="/edit" render={(props) => (
+              <EditProfile history={props.history} />
+            )}/>
 
-            <Route
-              exact
-              path="/people"
-              render={(props) => <People {...props} />}
-            />
-            <Route
-              exact
-              path="/berlin/:id"
-              render={(props) => <Details {...props} />}
-            />
-            <Route
-              exact
-              path="/addRoom"
-              render={(props) => <AddRoom {...props} />}
-            />
-            <Route
-              exact
-              path="/aboutus"
-              render={(props) => <AboutUs {...props} />}
-            />
-            <Route
-              exact
-              path="/how"
-              render={(props) => <HowItWorks {...props} />}
-            />
-            <Route
-              exact
-              path="/impressum"
-              render={(props) => <Impressum {...props} />}
-            />
-            <Route
-              exact
-              path="/edit"
-              render={(props) => <EditProfile history={props.history} />}
-            />
-
-            <Route
-              exact
-              path="/uploadphotos/:roomId"
-              component={UploadPhotos}
-            />
+            <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
             <Route exact path="/maps" component={MapView} />
             <Route exact path="/forgotPassword" component={ForgotPassword} />
             <Route
@@ -121,11 +82,13 @@ class App extends React.Component {
               path="/addProfile"
               render={(props) => <AddProfile {...props} />}
             />
-            <Route
-              exact
-              path="/profile/:id"
-              render={(props) => <Profile history={props.history} {...props} />}
-            />
+            <Route exact path="/profile" render={(props) => (
+              <Profile
+                history={props.history}
+                {...props}
+              
+              />
+            )}/>
 
             <Route exact path="/reset/:token" component={ResetPassword} />
           </Switch>
@@ -143,7 +106,7 @@ const mapStateToProps = (reduxState) => {
 };
 
 const mapDispatchToProps = {
-  tryAutoLogin: () => dispatchCheckAuth(),
-};
+  tryAutoLogin: () => dispatchCheckAuth()
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
