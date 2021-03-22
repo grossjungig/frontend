@@ -8,20 +8,7 @@ export default class Profile extends Component {
     profile: [],
     help: [],
   };
-  // componentDidMount() {
-  //   const profileId = this.props.match.params.id;
-  //   axios
-  //     .get(`${process.env.REACT_APP_BACKENDURL}api/profiles/${profileId}`)
-  //     .then((data) => {
-  //       this.setState({
-  //         profile: data.data,
-  //       });
-  //       console.log("profile", this.state.profile.help);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
+
   async componentDidMount() {
     const profileId = this.props.match.params.id;
     let data = await axios
@@ -50,7 +37,6 @@ export default class Profile extends Component {
   };
   render() {
     let profile = this.state.profile;
-    console.log(profile)
     return (
       <div style={{ height: "auto", width: "auto" }}>
         <div
