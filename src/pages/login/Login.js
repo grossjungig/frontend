@@ -1,37 +1,24 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "./login.css";
 import loginLocales from "../../locales/locales.login.json";
-//stlyes
-//import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
+import { connect } from 'react-redux';
+import { dispatchLogin } from '../../store/auth/thunks';
+
 class Login extends Component {
   state = {
-    email: "",
-    password: "",
-    redirect: false,
-    message: "",
+    email: '',
+    password: ''
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
-
-    const response = await axios.post(
-      `${process.env.REACT_APP_BACKENDURL}api/auth/login`,
-      {
-        email: this.state.email,
-        password: this.state.password,
-      }
-    );
-
-    this.props.setUser(response.data);
-
-    this.setState({
-      redirect: true,
-    });
+    const { email, password } = this.state;
+    this.props.login(email, password);
   };
 
   setFormState = (event) => {
@@ -42,8 +29,7 @@ class Login extends Component {
 
   render() {
     const lang = localStorage.getItem("lang");
-    // TODO: local should be injected using the context api, reading localStorage is expensive
-    if (this.state.redirect) {
+    if (this.props.isAuthenticated) {
       return <Redirect to="/userportal" />;
     }
     return (
@@ -53,19 +39,17 @@ class Login extends Component {
           <h3>{loginLocales.prompt[lang]}</h3>
 
           <form className="login-styles" onSubmit={this.handleSubmit}>
-            {/* <label htmlFor="email">{loginLocales.email[lang]}</label> */}
             <TextField
               margin="normal"
               label={loginLocales.email[lang]}
               fullWidth
               variant="outlined"
-              type="text"
+              type="email"
               name="email"
               id="email"
               value={this.state.email}
               onChange={this.setFormState}
             />
-            {/* <label htmlFor="password">{loginLocales.password[lang]}</label> */}
             <TextField
               margin="normal"
               fullWidth
@@ -96,10 +80,22 @@ class Login extends Component {
             </Button>
           </form>
 
-          {this.state.message && <p>{this.state.message}</p>}
+          {this.props.errMsg && <p className="warning">{this.props.errMsg}</p>}
         </div>
       </div>
     );
   }
 }
-export default Login;
+
+const mapStateToProps = (reduxState) => {
+  return {
+    isAuthenticated: !!reduxState.token,
+    errMsg: reduxState.errMsg,
+  };
+};
+
+const mapDispatchToProps = {
+  login: (email, pwd) => dispatchLogin(email, pwd)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

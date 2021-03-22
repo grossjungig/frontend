@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-// import "./signup.css";
+import { withRouter } from "react-router-dom";
 import "../../pages/login/login.css";
-import axios from "axios";
+import axios from '../../axios';
 import signupLocales from "../../locales/locales.signup.json";
-//stlyes
-//import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
@@ -18,7 +15,6 @@ class Signup extends Component {
     email: "",
     password: "",
     role: "senior",
-    redirect: false,
     message: "",
   };
 
@@ -26,20 +22,20 @@ class Signup extends Component {
     event.preventDefault();
 
     axios
-      .post(`${process.env.REACT_APP_BACKENDURL}api/auth/signup`, {
+      .post('api/auth/signup', {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,
         role: this.state.role,
       })
       .then((response) => {
-        this.props.setUser(response.data);
-        this.props.history.push("/userportal");
+        if (response.data.message === 'User created') {
+          this.props.history.push('/login');
+          alert('Your account has been created. You can now log in!');
+        }
       })
       .catch((err) => {
-        this.setState({
-          message: err.response.data.message,
-        });
+        this.setState({ message: err.response.data.message });
       });
   };
 
@@ -56,21 +52,13 @@ class Signup extends Component {
   render() {
     const lang = localStorage.getItem("lang");
 
-    if (this.state.redirect) {
-      return <Redirect to="/userportal" />;
-    }
     return (
       <div className="full-block">
-        <div className="x">
-          {/* <img src="../image/signup.png" alt="singup-side-view" /> */}
-        </div>
+        <div className="x"></div>
         <div className="login">
           <h2>{signupLocales.welcome[lang]}</h2>{" "}
-          {/* <h1>{signupLocales.grossjungig[lang]}</h1> */}
           <h3>{signupLocales.title[lang]}</h3>
-          {/* <div className="signup-container"> */}
           <form className="login-styles" noValidate autoComplete="off">
-            {/* <label htmlFor="name">Name</label> */}
             <TextField
               margin="normal"
               label="Name"
@@ -82,7 +70,6 @@ class Signup extends Component {
               onChange={this.setFormState}
               type="text"
             />
-            {/* <label htmlFor="email">{signupLocales.email[lang]}</label> */}
             <TextField
               margin="normal"
               fullWidth
@@ -94,7 +81,6 @@ class Signup extends Component {
               value={this.state.email}
               onChange={this.setFormState}
             />
-            {/* <label htmlFor="password">{signupLocales.password[lang]}</label> */}
             <TextField
               margin="normal"
               fullWidth
@@ -132,15 +118,11 @@ class Signup extends Component {
               {signupLocales.submit[lang]}
             </Button>
           </form>
-          {/* </div> */}
-          <p className="warning">
-            {" "}
-            {this.state.message && <p>{this.state.message}</p>}
-          </p>
+          {this.state.message && <p className="warning">{this.state.message}</p>}
         </div>
       </div>
     );
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

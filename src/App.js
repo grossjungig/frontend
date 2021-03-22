@@ -28,20 +28,16 @@ import People from "./components/People/People";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import EditProfile from "./components/EditProfile/EditProfile";
 
-const theme = {
-  main: "#ed8707",
-};
+import { connect } from 'react-redux';
+import { dispatchCheckAuth } from './store/auth/thunks';
+
+const theme = { main: "#ed8707" };
 
 class App extends React.Component {
-  state = {
-    user: this.props.user,
-  };
 
-  setUser = (userObj) => {
-    this.setState({
-      user: userObj,
-    });
-  };
+  componentDidMount() {
+    this.props.tryAutoLogin();
+  }
 
   updatePage = () => {
     this.forceUpdate();
@@ -51,127 +47,48 @@ class App extends React.Component {
     return (
       <div className="App">
         <ThemeProvider theme={theme}>
-          <Navbar
-            setUser={this.setUser}
-            user={this.state.user}
-            history={this.props.history}
-            updatePage={this.updatePage}
-            //This means exporting "updatePage" to Navbar
-          />
+          <Navbar />
           <Switch>
-            <Route
-              exact
-              path="/"
-              render={(props) => (
-                <Home
-                  history={props.history}
-                  user={this.state.user}
-                  setUser={this.setUser}
-                />
-              )}
+            <Route exact path="/"><Home/></Route>
+            <Route exact path="/signup"><Signup/></Route>
+
+            <Route exact path="/login" render={(props) => (
+              <Login history={props.history} />
+            )}/>
+
+            <Route exact path="/userportal" render={(props) => 
+              <UserPortal {...props} />}
             />
 
-            <Route
-              exact
-              path="/signup"
-              render={(props) => (
-                <Signup
-                  history={props.history}
-                  user={this.state.user}
-                  setUser={this.setUser}
-                />
-              )}
-            />
+            <Route exact path="/berlin" render={(props) => 
+              <Berlin {...props} />
+            }/>
 
-            <Route
-              exact
-              path="/login"
-              render={(props) => (
-                <Login history={props.history} setUser={this.setUser} />
-              )}
-            />
+            <Route exact path="/people" render={(props) => <People {...props} />} />
+            <Route exact path="/berlin/:id" render={(props) => <Details {...props} />} />
+            <Route exact path="/addRoom" render={(props) => <AddRoom {...props} />} />
+            <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
+            <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
+            <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
+            <Route exact path="/edit" render={(props) => (
+              <EditProfile history={props.history} />
+            )}/>
 
-            <Route
-              exact
-              path="/userportal"
-              render={(props) => (
-                <UserPortal {...props} user={this.state.user} />
-              )}
-            />
-
-            <Route
-              exact
-              path="/berlin"
-              render={(props) => <Berlin {...props} user={this.state.user} />}
-            />
-
-            <Route
-              exact
-              path="/people"
-              render={(props) => <People {...props} user={this.state.user} />}
-            />
-            <Route
-              exact
-              path="/berlin/:id"
-              render={(props) => <Details {...props} user={this.state.user} />}
-            />
-            <Route
-              exact
-              path="/addRoom"
-              render={(props) => <AddRoom {...props} user={this.state.user} />}
-            />
-            <Route
-              exact
-              path="/aboutus"
-              render={(props) => <AboutUs {...props} user={this.state.user} />}
-            />
-            <Route
-              exact
-              path="/how"
-              render={(props) => (
-                <HowItWorks {...props} user={this.state.user} />
-              )}
-            />
-            <Route
-              exact
-              path="/impressum"
-              render={(props) => (
-                <Impressum {...props} user={this.state.user} />
-              )}
-            />
-            <Route
-              exact
-              path="/edit"
-              render={(props) => (
-                <EditProfile history={props.history} user={this.state.user} />
-              )}
-            />
-
-            <Route
-              exact
-              path="/uploadphotos/:roomId"
-              component={UploadPhotos}
-            />
+            <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
             <Route exact path="/maps" component={MapView} />
             <Route exact path="/forgotPassword" component={ForgotPassword} />
             <Route
               exact
               path="/addProfile"
-              render={(props) => (
-                <AddProfile {...props} user={this.state.user} />
-              )}
+              render={(props) => <AddProfile {...props} />}
             />
-            <Route
-              exact
-              path="/profile/:id"
-              render={(props) => (
-                <Profile
-                  history={props.history}
-                  {...props}
-                  user={this.state.user}
-                />
-              )}
-            />
+            <Route exact path="/profile" render={(props) => (
+              <Profile
+                history={props.history}
+                {...props}
+              
+              />
+            )}/>
 
             <Route exact path="/reset/:token" component={ResetPassword} />
           </Switch>
@@ -182,4 +99,14 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (reduxState) => {
+  return {
+    // x: reduxState.x
+  };
+};
+
+const mapDispatchToProps = {
+  tryAutoLogin: () => dispatchCheckAuth()
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

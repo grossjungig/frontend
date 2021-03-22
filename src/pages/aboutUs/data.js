@@ -7,7 +7,6 @@ import menna from '../../assets/images/team/menna.jpg';
 import luca from '../../assets/images/team/luca.png';
 import magda from '../../assets/images/team/magdalena.jpg';
 import maria from '../../assets/images/team/maria.png';
-import morteza from '../../assets/images/team/morteza.jpg';
 import nida from '../../assets/images/team/nida.jpg';
 import pablo from '../../assets/images/team/pablo.jpg';
 import rosina from '../../assets/images/team/rosina.png';
@@ -16,6 +15,7 @@ import sree from '../../assets/images/team/sree.jpg';
 import tammy from '../../assets/images/team/tammy.jpg';
 import vicky from '../../assets/images/team/vicky.jpg';
 import vlad from '../../assets/images/team/vlad.jpg';
+import morteza from '../../assets/images/team/morteza.jpg';
 
 
 const { team } = aboutLocales;
