@@ -11,7 +11,7 @@
 .why-cards-scroll-container {
     display: flex;
     flex-flow: column;
-    align-items: start;
+    align-items: flex-start;
     overflow-x: scroll;
     -ms-overflow-style: none;  /* remove scrollbar in IE and Edge */
     scrollbar-width: none;  /* remove scrollbar in Firefox */

@@ -49,7 +49,7 @@ class Home extends Component {
             {homeLocales.mission_1[lang]} <br /> {homeLocales.mission_2[lang]}
           </H3>
         </Mission>
-        <Why></Why>
+        <Why/>
         <How id="how-it-works">
           <H2  style={{ textAlign: "center" }}>{homeLocales.how[lang]}</H2>
           <HowGrid>
