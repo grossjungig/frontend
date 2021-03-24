@@ -82,7 +82,7 @@ class App extends React.Component {
               path="/addProfile"
               render={(props) => <AddProfile {...props} />}
             />
-            <Route exact path="/profile" render={(props) => (
+            <Route exact path="/profile/:id" render={(props) => (
               <Profile
                 history={props.history}
                 {...props}

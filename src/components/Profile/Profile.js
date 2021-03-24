@@ -36,6 +36,7 @@ export default class Profile extends Component {
     );
   };
   render() {
+    console.log("props in profile",this.state.profile)
     let profile = this.state.profile;
     return (
       <div style={{ height: "auto", width: "auto" }}>
@@ -95,8 +96,7 @@ export default class Profile extends Component {
                 <td className="tableProfile tdcol">{this.handleHelp()}</td>
               </tr>
             </table>
-            {this.props.user !== undefined &&
-            this.props.user.profile === this.props.match.params.id ? (
+            {this.state.profile.user === undefined && this.state.user.profile === this.props.match.params.id ? (
               <Link to={`/edit`}>
                 <button className="button_profile" style={{ width: "100%" }}>
                   Edit Profile
@@ -106,22 +106,7 @@ export default class Profile extends Component {
           </div>
         </div>
       </div>
-      // <div>
-
-      //   <p>Name: {profile.name}</p>
-      //   <p>Age:{profile.age}</p>
-      //   <p>Gender:{profile.gender}</p>
-      //   <p>Requested Price:€{profile.price}</p>
-      //   <p>Preferred District:{profile.district}</p>
-      //   <p>About Me:{profile.description}</p>
-      //   <p>Offered Help:{profile.help}</p>
-      //   <Link to={`/edit/${this.state.profile._id}`}>
-      //     <button>Edit Profile</button>
-      //   </Link>
-      // </div>
+      
     );
-    // } else {
-    //   return "wait";
-    //}
   }
 }
