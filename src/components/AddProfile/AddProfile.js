@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect,Link } from "react-router-dom";
 import axios from "axios";
+import { connect } from 'react-redux';
 
 
 //import profilesLocales from "../locales/locales.profiles.json";
@@ -36,7 +37,7 @@ class AddProfile extends Component {
     help: [],
     images: [],
     redirect: false,
-    user: this.props.user._id,
+    user: '',
   };
 
   setFormState = (event) => {
@@ -84,6 +85,11 @@ class AddProfile extends Component {
   render() {
     if (this.state.redirect) {
       return <Redirect to="/profiles" />;
+    }
+
+    const { fetchedUser } = this.props;
+    if (fetchedUser) {
+      this.setState({ user: fetchedUser });
     }
 
     return (
@@ -155,7 +161,7 @@ class AddProfile extends Component {
               className="textarea_profile"
             />
 
-            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>{this.props.user.role ==="senior"? "Help I‘d like to get": "Offered Help"}</label>
+            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>{fetchedUser.role ==="senior"? "Help I‘d like to get": "Offered Help"}</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help"
               name="help" />
 
@@ -214,4 +220,8 @@ class AddProfile extends Component {
   }
 }
 
-export default AddProfile;
+const mapStateToProps = (reduxState) => ({
+  fetchedUser: reduxState.user
+});
+
+export default connect(mapStateToProps)(AddProfile);

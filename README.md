@@ -2,6 +2,20 @@
 
 # 0. Announcements
 
+## Tickets - 03/22/2021
+
+Dear Developers,
+
+* Please don't add any new tickets
+* Please take only one ticket (until it's done and live you should stay with that ticket)
+Read the description of the Ticket Cards
+* Take tickets only if you are going to start so after taking them you should move them to the __Doing__
+
+Thx  
+Morteza
+
+___
+
 ## Preview Mode and Backend Changes - 03/21/2021
 Hi everyone, the followings has been changed:
 
@@ -13,7 +27,8 @@ For a better understanding I have alternated the title of HTML so you never gonn
     * Preview Online Tab Name: __Preview Grossjungig__
     * Local Tab Name: __Develop Grossjungig__
 
-Thx Morteza
+Thx  
+Morteza
 ___
 
 ## Avoid Bad Merge Request - 03/17/2021

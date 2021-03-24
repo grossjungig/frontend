@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "../../pages/login/login.css";
+import './signup.css';
 import axios from '../../axios';
 import signupLocales from "../../locales/locales.signup.json";
 import TextField from "@material-ui/core/TextField";
@@ -14,8 +15,9 @@ class Signup extends Component {
     name: "",
     email: "",
     password: "",
+    pwdConfirm: "",
     role: "senior",
-    message: "",
+    messages: [],
   };
 
   handleSubmit = (event) => {
@@ -26,6 +28,7 @@ class Signup extends Component {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,
+        pwdConfirm: this.state.pwdConfirm,
         role: this.state.role,
       })
       .then((response) => {
@@ -35,7 +38,7 @@ class Signup extends Component {
         }
       })
       .catch((err) => {
-        this.setState({ message: err.response.data.message });
+        this.setState({ messages: err.response.data.data });
       });
   };
 
@@ -51,6 +54,13 @@ class Signup extends Component {
 
   render() {
     const lang = localStorage.getItem("lang");
+
+    let errorMessages = <p>Hello World</p>;
+    if (this.state.messages) {
+      errorMessages = <ul className="signup-errs">{
+        this.state.messages.map((msg, i) => <li key={i}>{signupLocales.errors[msg][lang]}</li>)
+      }</ul>
+    }
 
     return (
       <div className="full-block">
@@ -69,6 +79,7 @@ class Signup extends Component {
               value={this.state.name}
               onChange={this.setFormState}
               type="text"
+              error={this.state.messages.includes('INVALID_NAME')}
             />
             <TextField
               margin="normal"
@@ -80,6 +91,10 @@ class Signup extends Component {
               type="text"
               value={this.state.email}
               onChange={this.setFormState}
+              error={
+                this.state.messages.includes('INVALID_EMAIL') ||
+                this.state.messages.includes('EMAIL_ALREADY_EXISTS')
+              }
             />
             <TextField
               margin="normal"
@@ -91,6 +106,22 @@ class Signup extends Component {
               id="password"
               value={this.state.password}
               onChange={this.setFormState}
+              error={
+                this.state.messages.includes('PWD_TOO_SHORT') ||
+                this.state.messages.includes('PWD_NOT_MATCH')
+              }
+            />
+            <TextField
+              margin="normal"
+              fullWidth
+              label={signupLocales.pwdConfirm[lang]}
+              variant="outlined"
+              type="password"
+              name="pwdConfirm"
+              id="pwdConfirm"
+              value={this.state.pwdConfirm}
+              onChange={this.setFormState}
+              error={this.state.messages.includes('PWD_NOT_CONFIRMED')}
             />
             <InputLabel id="role-select" htmlFor="role">
               {signupLocales.role[lang]}
@@ -118,7 +149,7 @@ class Signup extends Component {
               {signupLocales.submit[lang]}
             </Button>
           </form>
-          {this.state.message && <p className="warning">{this.state.message}</p>}
+          {errorMessages}
         </div>
       </div>
     );
