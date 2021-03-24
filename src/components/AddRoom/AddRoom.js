@@ -5,6 +5,7 @@ import roomsLocales from "../../locales/locales.rooms.json";
 import Select from 'react-select'
 import './addRoom.css'
 import {Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 //import addroomLocales from "../locales/locales.addrooms.json";
 const options = [
@@ -56,6 +57,8 @@ class AddRoom extends Component {
   addNewRoom = (event) => {
     //console.log("WORKING?");
     event.preventDefault();
+    const { fetchedUser } = this.props;
+console.log("fetchedUser addnroom ", fetchedUser)
     //1. post the data to backend -> routes rooms.js
     axios
       .post(`${process.env.REACT_APP_BACKENDURL}api/addRoom`, {
@@ -67,7 +70,7 @@ class AddRoom extends Component {
         email: this.state.email,
         description: this.state.description,
         price: this.state.price,
-        owner: this.props.user._id,
+        owner: fetchedUser._id,
       })
       .then((response) => {
         this.props.history.push("/rooms");
@@ -86,6 +89,10 @@ class AddRoom extends Component {
     const lang = localStorage.getItem("lang");
     if (this.state.redirect) {
       return <Redirect to="/berlin" />;
+    }
+    const { fetchedUser } = this.props;
+    if (fetchedUser) {
+      this.state.user = fetchedUser;
     }
 
     return (
@@ -110,7 +117,7 @@ class AddRoom extends Component {
             />
 
             {/* ******* * GENDER * ******** */}
-            <label className="label_profile" htmlFor="gender">Gender</label>
+            {/* <label className="label_profile" htmlFor="gender">Gender</label>
             <select
               name="gender"
               type="select"
@@ -122,10 +129,10 @@ class AddRoom extends Component {
               <option className="option_room" value="male">Male</option>
               <option className="option_room" value="female">Female</option>
               <option className="option_room" value="divers">Divers</option>
-            </select>
+            </select> */}
 
             {/* ******* * AGE * ******** */}
-            <label className="label_room" htmlFor="age">Age</label>
+            {/* <label className="label_room" htmlFor="age">Age</label>
             <input
               type="number"
               name="age"
@@ -133,12 +140,12 @@ class AddRoom extends Component {
               value={this.state.age}
               onChange={this.setFormState}
               className="input_room"
-            />
+            /> */}
 
             {/* ******* * HELP* ******** */}
-            <label className="label_room" htmlFor="help" >Expected Helps</label>
+            {/* <label className="label_room" htmlFor="help" >Expected Helps</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help" value={this.state.help}
-              name="help" />
+              name="help" /> */}
 
             {/* ******* * ABOUT ME / DISCRIPTION* ******** */}
             <label htmlFor="description" className="label_room" >About me (max 120 signs)</label>
@@ -252,103 +259,24 @@ class AddRoom extends Component {
             <Link to={`/profile`}>
               <button type="submit" className="button_room button_room_cancel" >Cancel</button>
               </Link>
-              <button type="submit" className="button_room button_room_submit" onClick={this.editRoom} >Submit</button>
+              <button type="submit" className="button_room button_room_submit" onClick={this.addNewRoom} >Submit</button>
             </div>
-
+            <div>
+                    {
+                        JSON.stringify(this.state)
+                    }
+                </div>
           </div>
         </div>
       </div>
-
-      // <div style={{ height: "60vh" }}>
-      //   <h1>{roomsLocales.add[lang]}</h1>
-      //   <label htmlFor="name">name:</label>
-      //   <input
-      //     type="text"
-      //     name="name"
-      //     id="name"
-      //     value={this.state.name}
-      //     onChange={this.setFormState}
-      //   />
-      //   <label htmlFor="district">district:</label>
-      //   <select
-      //     name="district"
-      //     type="select"
-      //     value={this.state.district}
-      //     onChange={this.setFormState}
-      //   >
-      //     <option value="--">select</option>
-      //     <option value="Charlottenburg-Wilmersdorf">
-      //       Charlottenburg-Wilmersdorf
-      //     </option>
-      //     <option value="Friedrichshain-Kreuzberg">
-      //       Friedrichshain-Kreuzberg
-      //     </option>
-      //     <option value="Lichtenberg">Lichtenberg</option>
-      //     <option value="Marzahn-Hellersdorf">Marzahn-Hellersdorf</option>
-      //     <option value="Mitte">Mitte</option>
-      //     <option value="Neukoelln">Neukoelln</option>
-      //     <option value="Pankow">Pankow</option>
-      //     <option value="Reinickendorf">Reinickendorf</option>
-      //     <option value="Spandau">Spandau</option>
-      //     <option value="Steglitz-Zehlendorf">Steglitz-Zehlendorf</option>
-      //     <option value="Tempelhof-Schoeneberg">Tempelhof-Schoeneberg</option>
-      //     <option value="Treptow-Koepenick">Treptow-Koepenick</option>
-      //   </select>
-      //   <label htmlFor="address">address:</label>
-      //   <input
-      //     type="text"
-      //     name="address"
-      //     id="address"
-      //     value={this.state.address}
-      //     onChange={this.setFormState}
-      //   />
-      //   <label htmlFor="postcode">postcode</label>
-      //   <input
-      //     type="text"
-      //     name="postcode"
-      //     id="postcode"
-      //     value={this.state.postcode}
-      //     onChange={this.setFormState}
-      //   />
-      //   <label htmlFor="phoneNumber">phone number:</label>
-      //   <input
-      //     type="text"
-      //     name="phoneNumber"
-      //     id="phoneNumber"
-      //     value={this.state.phoneNumber}
-      //     onChange={this.setFormState}
-      //   />
-      //   <label htmlFor="email">email:</label>
-      //   <input
-      //     type="text"
-      //     name="email"
-      //     id="email"
-      //     value={this.state.email}
-      //     onChange={this.setFormState}
-      //   />
-      //   <label htmlFor="description">description:</label>
-      //   <input
-      //     type="text"
-      //     name="description"
-      //     id="description"
-      //     value={this.state.description}
-      //     onChange={this.setFormState}
-      //   />
-      //   <label htmlFor="price">price in euros:</label>
-      //   <input
-      //     type="number"
-      //     name="price"
-      //     id="price"
-      //     value={this.state.price}
-      //     onChange={this.setFormState}
-      //   />
-      //   <button type="submit" onClick={this.addNewRoom}>
-      //     submit
-      //   </button>
-      //   {this.state.message && <p>{this.state.message}</p>}
+     
       // </div>
     );
   }
 }
 
-export default AddRoom;
+const mapStateToProps = (reduxState) => ({
+  fetchedUser: reduxState.user
+});
+
+export default connect(mapStateToProps)(AddRoom);
