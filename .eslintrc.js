@@ -9,9 +9,7 @@ module.exports = {
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
         'arrow-parens': ['error', 'always'],
-        'no-var': 'error',
         'no-multi-spaces': 'error',
     },
     parser: 'babel-eslint',
-    extends: ['plugin:react/recommended'],
 };
