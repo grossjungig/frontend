@@ -1,4 +1,4 @@
-import aboutLocales from "../../locales/locales.aboutus.json";
+import aboutLocales from '../../locales/locales.aboutus.json';
 
 import anastasia from '../../assets/images/team/anastasia.jpg';
 import olga from '../../assets/images/team/olga.jpg';
@@ -37,7 +37,7 @@ export const coreStaff = [
         img: morteza, role: team.Morteza, name: 'Morteza Jalilifar',
         link: 'https://www.linkedin.com/in/nancologist/'
     }
-]
+];
 
 export const staff = [
     { img: luca, role: team.Luca, name: 'Luca' },

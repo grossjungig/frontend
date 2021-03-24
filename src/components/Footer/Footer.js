@@ -1,57 +1,57 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import footerLocales from "../../locales/locales.footer.json";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import footerLocales from '../../locales/locales.footer.json';
 
 const Footer = () => {
-  const lang = localStorage.getItem("lang");
-  return (
-    <Root>
-      {/* <ContactPanel>
+    const lang = localStorage.getItem('lang');
+    return (
+        <Root>
+            {/* <ContactPanel>
         <p>Großjungig AI</p>
         <p>Bruchwitzstraße 13</p>
         <p>12247 Berlin</p>
       </ContactPanel> */}
-      <MainPanel>
-        {/* <Row>
+            <MainPanel>
+                {/* <Row>
           <FooterLink> About </FooterLink>
           <FooterLink>How does it work </FooterLink>
           <FooterLink>Newsletter </FooterLink>
           <FooterLink>Community</FooterLink>
         </Row> */}
-        <Row>
-          <FooterLinkSmall>{footerLocales.company[lang]}</FooterLinkSmall>
-          <FooterLinkSmall>{footerLocales.contact[lang]}</FooterLinkSmall>
-          <FooterLinkSmall>FAQ</FooterLinkSmall>
-          <FooterLinkSmall>{footerLocales.privacy[lang]}</FooterLinkSmall>
-          <Link to="/impressum" >
-            <FooterLinkSmall>{footerLocales.impressum[lang]}</FooterLinkSmall>
-          </Link>
-        </Row>
-        {/* <Row>
+                <Row>
+                    <FooterLinkSmall>{footerLocales.company[lang]}</FooterLinkSmall>
+                    <FooterLinkSmall>{footerLocales.contact[lang]}</FooterLinkSmall>
+                    <FooterLinkSmall>FAQ</FooterLinkSmall>
+                    <FooterLinkSmall>{footerLocales.privacy[lang]}</FooterLinkSmall>
+                    <Link to="/impressum" >
+                        <FooterLinkSmall>{footerLocales.impressum[lang]}</FooterLinkSmall>
+                    </Link>
+                </Row>
+                {/* <Row>
           <SocialPanel>
             <img src="../image/facebook.png" alt="facebook" />
             <img src="../image/instagram.png" alt="instagram" />
             <img src="../image/Twitter.png" alt="twitter" />
           </SocialPanel>
         </Row> */}
-        <Row>
-          <FooterBig>
-            <img
-              style={{ height: "34px" }}
-              src="/image/Frame.png"
-              alt="logo_image"
-            />
-          </FooterBig>
-        </Row>
-        <Row>
-          <FooterSmall>COPYRIGHT</FooterSmall>
-          <img src="../image/copyright.png" alt="copyright" />
-          <FooterSmall>{new Date().getFullYear()} Grossjungig AI</FooterSmall>
-        </Row>
-      </MainPanel>
-    </Root>
-  );
+                <Row>
+                    <FooterBig>
+                        <img
+                            style={{ height: '34px' }}
+                            src="/image/Frame.png"
+                            alt="logo_image"
+                        />
+                    </FooterBig>
+                </Row>
+                <Row>
+                    <FooterSmall>COPYRIGHT</FooterSmall>
+                    <img src="../image/copyright.png" alt="copyright" />
+                    <FooterSmall>{new Date().getFullYear()} Grossjungig AI</FooterSmall>
+                </Row>
+            </MainPanel>
+        </Root>
+    );
 };
 
 export default Footer;

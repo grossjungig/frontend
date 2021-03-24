@@ -1,13 +1,22 @@
-import React from 'react'
+import React from 'react';
 import howitworksLocales from '../../locales/locales.howitworks.json';
 import { H1, H2, H3 } from '../../components/typography';
 
-const { title, subtitle, seniors, junior, seniorList, juniorList, descriptionTitle, description } = howitworksLocales;
+const {
+    title,
+    subtitle,
+    seniors,
+    junior,
+    seniorList,
+    juniorList,
+    descriptionTitle,
+    description,
+} = howitworksLocales;
 
 export default function HowItWorks() {
-    const lang = localStorage.getItem("lang");
+    const lang = localStorage.getItem('lang');
     return (
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: 'center' }}>
             <H1>{title[lang]}</H1>
             <H2>{subtitle[lang]}</H2>
             <H3>{seniors[lang]}</H3>
@@ -27,9 +36,7 @@ export default function HowItWorks() {
                 <li>{juniorList.fifth[lang]}</li>
             </ul>
             <H3>{descriptionTitle[lang]}</H3>
-            <p>
-                {description[lang]}
-            </p>
+            <p>{description[lang]}</p>
         </div>
-    )
+    );
 }

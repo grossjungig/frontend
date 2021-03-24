@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 export const MainPanel = styled.div`
   display: flex;
@@ -33,9 +33,9 @@ export const Paragraph = styled.p`
 `;
 
 export const Icon = ({ image, alt }) => (
-  <IconContainer>
-    <img src={image} alt={alt} width="120px" height="auto" />
-  </IconContainer>
+    <IconContainer>
+        <img src={image} alt={alt} width="120px" height="auto" />
+    </IconContainer>
 );
 
 const IconContainer = styled.div`
@@ -43,18 +43,18 @@ const IconContainer = styled.div`
 `;
 
 export const TeamItem = ({ image, name, role, height, color, link }) => {
-  let imgEl = <img src={image} alt={`${name} - ${role}`} height={height} width="auto" />;
-  if (link) imgEl = <a href={link} target="_blank" rel="noopener noreferrer" >{imgEl}</a>
-  return (
-    <ItemContainer>
-      {imgEl}    
-      <span style={{ fontWeight: 600, color: color, margin: "24px 0 10px" }}>
-        {name}
-      </span>
-      <span style={{ fontWeight: 400, color: "#E9615B", marginTop: 0 }}>{role}</span>
-    </ItemContainer>
-  );
-}
+    let imgEl = <img src={image} alt={`${name} - ${role}`} height={height} width="auto" />;
+    if (link) imgEl = <a href={link} target="_blank" rel="noopener noreferrer" >{imgEl}</a>;
+    return (
+        <ItemContainer>
+            {imgEl}    
+            <span style={{ fontWeight: 600, color: color, margin: '24px 0 10px' }}>
+                {name}
+            </span>
+            <span style={{ fontWeight: 400, color: '#E9615B', marginTop: 0 }}>{role}</span>
+        </ItemContainer>
+    );
+};
 
 const ItemContainer = styled.div`
   display: flex;

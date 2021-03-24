@@ -5,13 +5,13 @@ const initialState = {
     token: null, // isAuth = !!token
     user: null,
     errMsg: ''
-}
+};
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case AUTH_LOGOUT: return authLogout(state)
-        case AUTH_SUCCESS: return authSuccess(state, action)
-        case AUTH_FAIL: return authFail(state, action)
+        case AUTH_LOGOUT: return authLogout(state);
+        case AUTH_SUCCESS: return authSuccess(state, action);
+        case AUTH_FAIL: return authFail(state, action);
         default:
             break;
     }
@@ -23,7 +23,7 @@ const authSuccess = (state, action) => {
     return updateObject(state, {
         token: action.token,
         user: action.user
-    })
+    });
 };
 
 const authLogout = (state) => {
@@ -37,7 +37,7 @@ const authFail = (state, action) => {
     return updateObject(state, {
         errMsg: action.errMsg
     });
-}
+};
 
 
 export default reducer;

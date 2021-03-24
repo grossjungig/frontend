@@ -20,8 +20,8 @@ export const setTokenExpiration = (sec) => {
             () => { dispatch(logout()); },
             milliSec
         );
-    }
-}
+    };
+};
 
 export const onAuthSuccess = (token, user) => {
     localStorage.setItem('token', token);
@@ -39,4 +39,4 @@ export const onAuthFail = (err) => {
         type: AUTH_FAIL,
         errMsg: errMsg
     };
-}
+};

@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import React from "react";
+import styled, { css } from 'styled-components';
+import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export const basicButtonCSS = css`
   padding: 0.6rem 2rem;
@@ -40,7 +40,7 @@ export const SimpleButton = styled.button`
 `;
 
 export const Button = ({ onClick, label }) => (
-  <SimpleButton onClick={onClick}>{label}</SimpleButton>
+    <SimpleButton onClick={onClick}>{label}</SimpleButton>
 );
 
 export const PrimaryButton = styled.button`
@@ -82,25 +82,25 @@ export const SecButtonLong = styled.button`
 // `;
 
 export const Card = ({ title, image, text, alt }) => (
-  <CardRoot>
-    <CardTitle>{title}</CardTitle>
-    <img src={image} alt={alt} />
-    <CardText>{text}</CardText>
-  </CardRoot>
+    <CardRoot>
+        <CardTitle>{title}</CardTitle>
+        <img src={image} alt={alt} />
+        <CardText>{text}</CardText>
+    </CardRoot>
 );
 export const Card2 = ({ title, image, text, alt }) => (
-  <Card2Root>
-    <Card2Title>{title}</Card2Title>
-    <img src={image} alt={alt} width="150px" />
-    <Card2Text>{text}</Card2Text>
-  </Card2Root>
+    <Card2Root>
+        <Card2Title>{title}</Card2Title>
+        <img src={image} alt={alt} width="150px" />
+        <Card2Text>{text}</Card2Text>
+    </Card2Root>
 );
 
 export const Card3 = ({ text, source }) => (
-  <Card3Root>
-    <Card3Text>{text}</Card3Text>
-    <Card3Source>{source}</Card3Source>
-  </Card3Root>
+    <Card3Root>
+        <Card3Text>{text}</Card3Text>
+        <Card3Source>{source}</Card3Source>
+    </Card3Root>
 );
 
 export const HashLink = styled(NavHashLink)`
