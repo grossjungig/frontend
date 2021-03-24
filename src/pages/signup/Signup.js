@@ -79,6 +79,7 @@ class Signup extends Component {
               value={this.state.name}
               onChange={this.setFormState}
               type="text"
+              error={this.state.messages.includes('INVALID_NAME')}
             />
             <TextField
               margin="normal"
@@ -90,7 +91,10 @@ class Signup extends Component {
               type="text"
               value={this.state.email}
               onChange={this.setFormState}
-              error={this.state.messages.includes('INVALID_EMAIL')}
+              error={
+                this.state.messages.includes('INVALID_EMAIL') ||
+                this.state.messages.includes('EMAIL_ALREADY_EXISTS')
+              }
             />
             <TextField
               margin="normal"
@@ -112,7 +116,7 @@ class Signup extends Component {
               fullWidth
               label={signupLocales.pwdConfirm[lang]}
               variant="outlined"
-              type="pwdConfirm"
+              type="password"
               name="pwdConfirm"
               id="pwdConfirm"
               value={this.state.pwdConfirm}

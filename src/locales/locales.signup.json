@@ -40,9 +40,17 @@
     "de": "Weiter"
   },
   "errors": {
+    "INVALID_NAME": {
+      "en": "Name is not valid.",
+      "de": "Name ist ungültig."
+    },
     "INVALID_EMAIL": {
       "en": "Please enter a valid email address.",
       "de": "Tragen Sie bitte eine gültige E-Mail-Adresse"
+    },
+    "EMAIL_ALREADY_EXISTS": {
+      "en": "Email already exists.",
+      "de": "E-Mail ist schon vergeben."
     },
     "PWD_TOO_SHORT": {
       "en": "Password should have at least 8 characters",
