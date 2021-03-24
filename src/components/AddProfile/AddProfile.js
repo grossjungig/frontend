@@ -89,7 +89,7 @@ class AddProfile extends Component {
 
     const { fetchedUser } = this.props;
     if (fetchedUser) {
-      this.state.user = fetchedUser;
+      this.setState({ user: fetchedUser });
     }
 
     return (
