@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import navbarLocales from "../../locales/locales.navbar.json";
 import homeLocales from "../../locales/locales.home.json";
@@ -7,6 +7,7 @@ import Fab from "@material-ui/core/Fab";
 import { connect } from 'react-redux';
 import { logout } from '../../store/auth/actions'
 import { useHistory } from 'react-router-dom';
+import CookieConsent from '../CookieConsent';
 
 const imageChange = (updatePage, setImage) => {
   const lang = localStorage.getItem("lang");
@@ -23,6 +24,17 @@ const imageChange = (updatePage, setImage) => {
 const Navbar = (props) => {
   const history = useHistory();
   const [img, setImage] = useState("/image/german.png");
+  
+  // cc = Cookie Consent
+  const [ ccDisplayed, setCcDisplayed ] = useState(false) 
+  useEffect(() => {
+    const ccConfirmed = localStorage.getItem('ccConfirmed')
+    if (!ccConfirmed) setCcDisplayed(true);
+  }, [])
+  const confirmCc = () => {
+    setCcDisplayed(false)
+    localStorage.setItem('ccConfirmed', 'true');
+  };
 
   const logout = (event) => {
     event.preventDefault();
@@ -48,6 +60,7 @@ const Navbar = (props) => {
         zIndex: 2,
       }}
     >
+      {ccDisplayed ? <CookieConsent clicked={confirmCc} />: null}
       <nav>
         <HashLink smooth className="logo-box" to="/#">
           <img
