@@ -1,112 +1,91 @@
-import axios from "axios";
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import img from "../../assets/images/header_image.png";
+import axios from 'axios';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import img from '../../assets/images/header_image.png';
+import "./profile.css";
 
-export default class Profile extends Component {
+class Profile extends Component {
   state = {
     profile: [],
-    help: [],
+    user: ''
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const profileId = this.props.match.params.id;
-    let data = await axios
-      .get(`${process.env.REACT_APP_BACKENDURL}api/profiles/${profileId}`)
+    
+    axios.get(`${process.env.REACT_APP_BACKENDURL}api/profiles/${profileId}`)
       .then((response) => {
-        return response;
+        this.setState({ profile: response.data});
       })
       .catch(function (error) {
         console.log(error);
       });
-    this.setState({ profile: data.data, help: data.data.help });
-  }
 
-  handleHelp = () => {
+      const { fetchedUser } = this.props;
+      if (fetchedUser) {
+        this.setState({ user: fetchedUser });
+      }
+  }
+    render() {
+    const profile = this.state.profile;
+    
     return (
-      <div>
-        {this.state.help.map((help) => {
-          return (
-            <p key={help} className="tdcol">
-              -{help}
-            </p>
-          );
-        })}
-      </div>
-    );
-  };
-  render() {
-    console.log("props in profile",this.state.profile)
-    let profile = this.state.profile;
-    return (
-      <div style={{ height: "auto", width: "auto" }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "3vh",
-          }}
-        >
-          <div className="warning" style={{ margin: "1vh" }}>
+      <div className = 'profile-container' >
+        <div className = 'message-container'>
+          <div className = 'warning' style={{ margin: '1vh' }}>
             <p>
               If you are interested in this request, please contact
               info@grossjungig.de or +49 30 55231271
             </p>
           </div>
         </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div style={{ width: "328px" }}>
-            <label
-              className="label_profile"
-              htmlFor="name"
-              style={{ marginBottom: "2vh" }}
-            >
-              Picture
-            </label>
-            <img src={img} style={{ width: "100%" }} alt="profile" />
-            <table>
-              <tr>
-                <td className="tableProfile">
-                  <p className="label_profile">Name:</p>
-                </td>
-                <td className="tableProfile tdcol">{profile.name}</td>
-              </tr>
-              <tr>
-                <td className="tableProfile">
-                  <p className="label_profile">Age:</p>
-                </td>
-                <td className="tableProfile tdcol">{profile.age}</td>
-              </tr>
-              <tr>
-                <td className="tableProfile">
-                  <p className="label_profile">Requested price:</p>
-                </td>
-                <td className="tableProfile tdcol">{profile.price}</td>
-              </tr>
-              <tr>
-                <td className="tableProfile">
-                  <p className="label_profile">Preferred district:</p>
-                </td>
-                <td className="tableProfile tdcol">{profile.district}</td>
-              </tr>
-              <tr>
-                <td className="tableProfile">
-                  <p className="label_profile">Offered Help:</p>
-                </td>
-                <td className="tableProfile tdcol">{this.handleHelp()}</td>
-              </tr>
-            </table>
-            {this.state.profile.user === undefined && this.state.user.profile === this.props.match.params.id ? (
-              <Link to={`/edit`}>
-                <button className="button_profile" style={{ width: "100%" }}>
+
+        <div className = 'profile-picture-container'>
+          <div style={{ width: '328px' }}>
+          <div className = 'label-profile'> Picture </div>
+            <img src={img} style={{ width: '100%' }} alt='profile' />
+          </div>
+          </div>
+
+        <div className = 'details-container'>
+          <div className = 'label-container'>
+
+          <div className = 'label-profile '> Name </div>
+          <div className = 'label-profile'> Age </div>
+          <div className = 'label-profile'> Requested Price </div>
+          <div className = 'label-profile'> Preferred district </div>
+          <div className = 'label-profile'> Offered Help </div>
+
+          </div>
+         
+          <div className = 'info-container'>
+
+          <div className = 'info-item'> {profile.name} </div>
+          <div className = 'info-item'> {profile.age} </div>
+          <div className = 'info-item'> €{profile.price} </div>
+          <div className = 'info-item'> {profile.district} </div>
+
+           {profile.length !== 0 ? profile.help.map(help => { return ( <div key = {help} className = 'info-item'> --{help} </div> );}) : null }
+          
+           </div>
+        </div>
+
+        <div>
+        {profile.length !== 0 && this.state.user.profile === this.props.match.params.id ? (
+              <Link to={`/edit/${profile._id}`}>
+                <button className = 'button_profile' style={{ width: '100%' }}>
                   Edit Profile
                 </button>
               </Link>
-            ) : null}
-          </div>
-        </div>
-      </div>
-      
+            ) : null} 
+            </div>
+    </div>    
     );
   }
 }
+const mapStateToProps = (reduxState) => ({
+  fetchedUser: reduxState.user
+});
+
+export default connect(mapStateToProps)( Profile );

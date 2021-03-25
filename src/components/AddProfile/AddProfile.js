@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { Redirect,Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from 'react-redux';
-
-
-//import profilesLocales from "../locales/locales.profiles.json";
-//import addroomLocales from "../locales/locales.addrooms.json";
 import Select from 'react-select'
 
 const options = [
@@ -48,12 +44,10 @@ class AddProfile extends Component {
   };
 
   setHelp = (event) => {
-    console.log("event", event)
     this.setState({ help: event })
   }
   addNewProfile = (event) => {
     event.preventDefault();
-    //1. post the data to backend -> routes rooms.js
     const arr=this.state.help;
     var helps=[];
     for (var i = 0 ;i < arr.length; i++ )
@@ -86,7 +80,6 @@ class AddProfile extends Component {
     if (this.state.redirect) {
       return <Redirect to="/profiles" />;
     }
-
     const { fetchedUser } = this.props;
     if (fetchedUser) {
       this.setState({ user: fetchedUser });
