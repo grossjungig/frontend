@@ -10,6 +10,7 @@ module.exports = {
         semi: ['error', 'always'],
         'arrow-parens': ['error', 'always'],
         'no-multi-spaces': 'error',
+        'no-console': 'error',
     },
     parser: 'babel-eslint',
 };
