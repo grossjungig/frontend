@@ -76,8 +76,8 @@ const Navbar = (props) => {
               {homeLocales.contact[lang]}
             </HashLink>
           </li>
-          {/* props.isAuth  */}
-          {true ? (
+
+          {props.isAuth ? (
             <>
               <li onClick={toggleNavbar}>
                 <Link onClick={logout} to="/">
