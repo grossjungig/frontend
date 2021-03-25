@@ -1,0 +1,10 @@
+.cookie-consent {
+    background-color: var(--gai-light-blue);
+    display: flex;
+    padding: 10px;
+}
+
+.cookie-consent__btn {
+    background-color: var(--gai-blue);
+    color: var(--gai-black);
+}
