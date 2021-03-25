@@ -84,8 +84,8 @@ const Navbar = (props) => {
                   {navbarLocales.logout[lang]}
                 </Link>
               </li>
-              <li onClick={toggleNavbar}>
-                <Link to="/userportal">
+              <li>
+                <Link onClick={toggleNavbar} to="/userportal">
                   <button className="round-button profile">
                     <img src="/image/profile.png" alt="User Portal" />
                   </button>
@@ -94,15 +94,15 @@ const Navbar = (props) => {
             </>
           ) : (
             <>
-              <li onClick={toggleNavbar}>
-                <Link to="/login">
+              <li>
+                <Link onClick={toggleNavbar} to="/login">
                   <button className="white-button">
                     {navbarLocales.login[lang]}
                   </button>
                 </Link>
               </li>
-              <li onClick={toggleNavbar}>
-                <Link to="/signup">
+              <li>
+                <Link onClick={toggleNavbar} to="/signup">
                   <button className="blue-button">
                     {navbarLocales.signup[lang]}
                   </button>
@@ -110,9 +110,10 @@ const Navbar = (props) => {
               </li>
             </>
           )}
-          <li onClick={toggleNavbar}>
+          <li>
             <a>
               <button
+                onClick={toggleNavbar}
                 className="round-button language-switch"
                 onClick={(e) => imageChange(props.updatePage)}
                 alt="Language Switcher"

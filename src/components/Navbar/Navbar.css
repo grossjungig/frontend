@@ -79,6 +79,9 @@ nav {
   text-decoration: none;
   float: right;
 }
+.header li a button {
+  cursor: pointer;
+}
 .profile {
   margin-top: 10px;
 }
