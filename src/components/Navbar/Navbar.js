@@ -3,19 +3,16 @@ import { Link } from "react-router-dom";
 import navbarLocales from "../../locales/locales.navbar.json";
 import homeLocales from "../../locales/locales.home.json";
 import { HashLink, PageLink } from "../styled";
-import Fab from "@material-ui/core/Fab";
 import { connect } from "react-redux";
 import { logout } from "../../store/auth/actions";
 import { useHistory } from "react-router-dom";
 import "./Navbar.css";
 
-const imageChange = (updatePage, setImage) => {
+const imageChange = (updatePage) => {
   const lang = localStorage.getItem("lang");
   if (lang === "en") {
-    setImage("/image/english.png");
     localStorage.setItem("lang", "de");
   } else if (lang === "de") {
-    setImage("/image/german.png");
     localStorage.setItem("lang", "en");
   }
   updatePage();
@@ -23,7 +20,6 @@ const imageChange = (updatePage, setImage) => {
 
 const Navbar = (props) => {
   const history = useHistory();
-  const [img, setImage] = useState("/image/german.png");
   const [checked, setChecked] = useState(false);
 
   const logout = (event) => {
@@ -54,12 +50,13 @@ const Navbar = (props) => {
           />
         </HashLink>
         <input
+          readOnly
           checked={checked}
           className="menu-btn"
           type="checkbox"
           id="menu-btn"
         />
-        <label onClick={toggleNavbar} className="menu-icon" for="menu-btn">
+        <label onClick={toggleNavbar} className="menu-icon" htmlFor="menu-btn">
           <span className="navicon"></span>
         </label>
         <ul className="menu">
@@ -79,68 +76,54 @@ const Navbar = (props) => {
               {homeLocales.contact[lang]}
             </HashLink>
           </li>
-          {props.isAuth ? (
+          {/* props.isAuth  */}
+          {true ? (
             <>
               <li onClick={toggleNavbar}>
                 <Link onClick={logout} to="/">
                   {navbarLocales.logout[lang]}
                 </Link>
               </li>
-              <img onClick={imageChange} height="30px" src={img} alt="" />
               <li onClick={toggleNavbar}>
                 <Link to="/userportal">
-                  <img height="30px" src="/image/user.png" alt="User Portal" />
+                  <button className="round-button profile">
+                    <img src="/image/profile.png" alt="User Portal" />
+                  </button>
                 </Link>
-              </li>{" "}
+              </li>
             </>
           ) : (
             <>
               <li onClick={toggleNavbar}>
-                <Link to="/login" style={{ textDecoration: "none" }}>
-                  <button
-                    style={{
-                      width: "100px",
-                      backgroundColor: "#F9F8F8",
-                      border: "1.5px solid #365FA7",
-                      borderRadius: "16px",
-                    }}
-                    className="navbuttons"
-                    variant="extended"
-                  >
-                    <p style={{ padding: "2,5px" }}>
-                      {navbarLocales.login[lang]}
-                    </p>
+                <Link to="/login">
+                  <button className="white-button">
+                    {navbarLocales.login[lang]}
                   </button>
                 </Link>
               </li>
               <li onClick={toggleNavbar}>
-                <Link to="/signup" style={{ textDecoration: "none" }}>
-                  <Fab
-                    style={{
-                      margin: "5px",
-                      color: "white",
-                      backgroundColor: "#365da7",
-                    }}
-                    variant="extended"
-                  >
+                <Link to="/signup">
+                  <button className="blue-button">
                     {navbarLocales.signup[lang]}
-                  </Fab>
+                  </button>
                 </Link>
-              </li>
-              <li onClick={toggleNavbar}>
-                <img
-                  onClick={(e) => imageChange(props.updatePage, setImage)}
-                  height="20px"
-                  src={img}
-                  alt="Language Switcher"
-                />
               </li>
             </>
           )}
+          <li onClick={toggleNavbar}>
+            <a>
+              <button
+                className="round-button language-switch"
+                onClick={(e) => imageChange(props.updatePage)}
+                alt="Language Switcher"
+              >
+                {lang == "de" ? "EN" : "DE"}
+              </button>
+            </a>
+          </li>
         </ul>
       </header>
     </nav>
-    // </div>
   );
 };
 

@@ -95,9 +95,12 @@ class Signup extends Component {
               value={this.state.password}
               onChange={this.setFormState}
             />
-            <InputLabel id="role-select" htmlFor="role">
-              {" "}
+            <InputLabel
               className="rest-z-index"
+              id="role-select"
+              htmlFor="role"
+            >
+              {" "}
               {signupLocales.role[lang]}
             </InputLabel>
 

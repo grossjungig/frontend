@@ -8,6 +8,7 @@
   border: 0.1rem solid lightgray;
   width: 40rem;
   height: 45rem;
+  background-color: white;
 }
 .signup-component {
   height: 60vh;

@@ -1,3 +1,8 @@
+:root {
+  --prim1: #365da7;
+  --prim2: #f9f8f8;
+  --prim3: #e9615b;
+}
 body {
   margin: 0;
   background-color: #f4f4f4;
@@ -12,6 +17,41 @@ a {
 nav {
   /* margin-bottom: 50px; */
   height: calc(3em + 20px);
+  z-index: 1000;
+}
+.white-button {
+  background-color: var(--prim2);
+  border: 2px solid var(--prim1);
+  color: #365da7;
+}
+.blue-button {
+  background-color: var(--prim1);
+  border: 2px solid var(--prim1);
+
+  color: var(--prim2);
+}
+.white-button,
+.blue-button {
+  width: 151px;
+  border-radius: 14px;
+  padding: 10px;
+  margin: -5px -10px;
+  font-weight: 500;
+}
+.round-button {
+  border: 2px solid var(--prim1);
+  background-color: var(--prim2);
+  border-radius: 50%;
+  color: var(--prim3);
+  margin-top: -20px;
+  margin-right: 0px;
+  height: 50px;
+  width: 50px;
+  font-weight: 500;
+  font-size: 16px;
+}
+.language-switch {
+  margin-top: 5px;
 }
 
 .header {
@@ -20,7 +60,7 @@ nav {
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
-  z-index: 100;
+  /* z-index: 100000; */
 }
 
 .header ul {
@@ -29,12 +69,22 @@ nav {
   list-style: none;
   overflow: hidden;
   background-color: #fff;
+  float: right;
+  clear: right;
 }
 
 .header li a {
   display: block;
-  padding: 20px 20px;
+  padding: 10px 20px;
   text-decoration: none;
+  float: right;
+}
+.profile {
+  margin-top: 10px;
+}
+.profile img {
+  margin-top: 0px;
+  height: 25px;
 }
 
 .header li a:hover,
@@ -126,19 +176,33 @@ nav {
 
 /* 48em = 768px */
 
-@media (min-width: 51em) {
+@media (min-width: 78em) {
   .header li {
     float: left;
   }
   .header li a {
-    padding: 30px 20px;
+    padding-top: 30px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    padding-left: 15px;
   }
   .header .menu {
     clear: none;
     float: right;
     max-height: none;
   }
+
   .header .menu-icon {
     display: none;
+  }
+  .white-button,
+  .blue-button {
+    margin: -10px -10px;
+  }
+  .language-switch {
+    margin-top: -20px;
+  }
+  .profile {
+    margin-top: -15px;
   }
 }

@@ -43,7 +43,6 @@ class Login extends Component {
 
           <form className="login-styles" onSubmit={this.handleSubmit}>
             <TextField
-              className="rest-z-index"
               margin="normal"
               label={loginLocales.email[lang]}
               fullWidth
@@ -55,7 +54,6 @@ class Login extends Component {
               onChange={this.setFormState}
             />
             <TextField
-              className="rest-z-index"
               margin="normal"
               fullWidth
               label={loginLocales.password[lang]}
@@ -73,7 +71,6 @@ class Login extends Component {
               </Link>
             </h5>
             <Button
-              className="rest-z-index"
               style={{
                 backgroundColor: "#365da7",
                 color: "white",
