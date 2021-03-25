@@ -46,7 +46,7 @@
     },
     "INVALID_EMAIL": {
       "en": "Please enter a valid email address.",
-      "de": "Tragen Sie bitte eine gültige E-Mail-Adresse"
+      "de": "Tragen Sie bitte eine gültige E-Mail-Adresse ein."
     },
     "EMAIL_ALREADY_EXISTS": {
       "en": "Email already exists.",
@@ -57,8 +57,8 @@
       "de": "Passwort sollte mindestens 8 Zeichen haben."
     },
     "PWD_NOT_MATCH": {
-      "en": "Password should contains at least a digit, capital and small letter.",
-      "de": "Passwort sollte zumindest eine Zahl, einen kleinen und großen Buchstaben beinhalten."
+      "en": "Password should contain at least a digit, capital and small letter.",
+      "de": "Das Passwort sollte zumindest eine Zahl, einen kleinen und großen Buchstaben beinhalten."
     },
     "PWD_NOT_CONFIRMED": {
       "en": "Password confirmation does not match.",
