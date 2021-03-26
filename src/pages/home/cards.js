@@ -1,24 +1,3 @@
-export const cards = [
-  {
-    title: "#1:COMMUNITY",
-    image: "/image/community.png",
-    text:
-      "We provide a solution for two social problems: loneliness and lack of affordable housing in big cities.",
-  },
-  {
-    title: "#2:SAVINGS",
-    image: "/image/savings.png",
-    text:
-      "Seniors support youth with advice and get rent. Youth save, up to 20% vs. market price, on rent and support seniors by helping with chores and keeping them company.",
-  },
-  {
-    title: "#3:CLARITY",
-    image: "/image/clarity.png",
-    text:
-      "Flexible and bespoke terms - the best solution for everyone. No more huge shared apartments, no more living alone in big family apartments!",
-  },
-];
-
 export const howCards = [
   {
     title: "#1",
