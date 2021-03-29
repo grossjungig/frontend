@@ -5,7 +5,8 @@ import "./home.css";
 import homeLocales from "../../locales/locales.home.json";
 
 import { H1, H2, H3, H4 } from '../../components/typography';
-import { Button, SecButton, PrimaryButtonLong, Card2, Card3 } from "../../components/styled";
+import { Button, SecButton, PrimaryButtonLong, Card, Card2, Card3 } from "../../components/styled";
+import Contact from "./components/Contact/Contact";
 import Why from "./components/Why/Why.js";
 import { MainPanel, MainRow, SecPanel, RowChoose, RowSearch,
   Mission, How, HowGrid, CommunityPanel, ContactPanel,
@@ -72,32 +73,7 @@ class Home extends Component {
             style={{ width: "100%", height: "auto" }}
           />
         </CommunityPanel>
-        <H2 id="contact" style={{ textAlign: "center" }}>{homeLocales.contact[lang]}</H2>
-        <ContactPanel >
-          <ContactInfo>
-            <H2 style={{ textAlign: "center" }}>
-              Großjungig AI <br />
-              {homeLocales.care[lang]}
-            </H2>
-            <H4 style={{ textAlign: "center" }}>
-              {homeLocales.contact_us[lang]}{" "}
-            </H4>
-          </ContactInfo>
-          <ContactRow>
-            <img
-              style={{ height: "59px", width: "59px", itemsAlign: "center" }}
-              src="../image/Email.png"
-              alt="email"
-            />
-            <H4>info@grossjungig.de</H4>
-            <img
-              style={{ height: "59px", width: "59px", itemsAlign: "center" }}
-              src="../image/phone.png"
-              alt="phone"
-            />
-            <H4>+49 30 55231271</H4>
-          </ContactRow>
-        </ContactPanel>
+        <Contact />
         <Partners />
       </>
     );
