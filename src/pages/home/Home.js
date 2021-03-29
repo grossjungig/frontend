@@ -4,13 +4,12 @@ import "./home.css";
 
 import homeLocales from "../../locales/locales.home.json";
 
-import { H1, H2, H3, H4 } from '../../components/typography';
-import { Button, SecButton, PrimaryButtonLong, Card, Card2, Card3 } from "../../components/styled";
+import { H1, H2, H3 } from '../../components/typography';
+import { Button, SecButton, PrimaryButtonLong, Card2, Card3 } from "../../components/styled";
 import Contact from "./components/Contact/Contact";
 import Why from "./components/Why/Why.js";
 import { MainPanel, MainRow, SecPanel, RowChoose, RowSearch,
-  Mission, How, HowGrid, CommunityPanel, ContactPanel,
-  ContactRow, ContactInfo } from "./styled";
+  Mission, How, HowGrid, CommunityPanel } from "./styled";
 
 import { card3 } from "./cards";
 import Partners from "./components/Partners/Partners";
