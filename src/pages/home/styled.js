@@ -75,24 +75,6 @@ export const Mission = styled.div`
   font-size: 1rem;
 `;
 
-export const Why = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0rem;
-
-  /* Media Queries: Tablet Portrait */
-  @media screen and (min-width: 768px) {
-  }
-  /* Media Queries: Desktop */
-  @media screen and (min-width: 1060px) {
-    display: flex;
-    justify-content: space-between;
-  }
-`;
-
 export const How = styled.div`
   display: flex;
   flex-direction: column;
