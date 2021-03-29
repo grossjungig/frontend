@@ -261,16 +261,12 @@ console.log("fetchedUser addnroom ", fetchedUser)
               </Link>
               <button type="submit" className="button_room button_room_submit" onClick={this.addNewRoom} >Submit</button>
             </div>
-            <div>
-                    {
-                        JSON.stringify(this.state)
-                    }
-                </div>
+         
           </div>
         </div>
       </div>
      
-      // </div>
+   
     );
   }
 }
