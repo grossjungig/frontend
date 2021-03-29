@@ -36,6 +36,13 @@ class AddProfile extends Component {
     user: '',
   };
 
+  componentDidMount(){
+    const { fetchedUser } = this.props;
+    if (fetchedUser) {
+      this.setState({ user: fetchedUser });
+    }
+  }
+  
   setFormState = (event) => {
 
     this.setState({
@@ -79,10 +86,6 @@ class AddProfile extends Component {
   render() {
     if (this.state.redirect) {
       return <Redirect to="/profiles" />;
-    }
-    const { fetchedUser } = this.props;
-    if (fetchedUser) {
-      this.setState({ user: fetchedUser });
     }
 
     return (
@@ -154,7 +157,7 @@ class AddProfile extends Component {
               className="textarea_profile"
             />
 
-            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>{fetchedUser.role ==="senior"? "Help I‘d like to get": "Offered Help"}</label>
+            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>Expected Help</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help"
               name="help" />
 
