@@ -33,7 +33,7 @@ class EditProfile extends Component {
     help: [],
     images: [],
     redirect: false,
-    user: this.props.user,
+    user: "",
   };
 
   componentDidMount() {
@@ -120,6 +120,12 @@ class EditProfile extends Component {
   };
 
   render() {
+
+    const { fetchedUser } = this.props;
+    if (fetchedUser) {
+      this.setState({ user: fetchedUser });
+    }
+
     return (
       <div style={{ height: "auto", width: "auto" }}>
 

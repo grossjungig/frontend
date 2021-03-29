@@ -4,11 +4,12 @@ import "./home.css";
 
 import homeLocales from "../../locales/locales.home.json";
 
-import { H1, H2, H3, H4 } from '../../components/typography';
-import { Button, SecButton, PrimaryButtonLong, Card, Card2, Card3 } from "../../components/styled";
+import { H1, H2, H3 } from '../../components/typography';
+import { Button, SecButton, PrimaryButtonLong, Card2, Card3 } from "../../components/styled";
+import Contact from "./components/Contact/Contact";
+import Why from "./components/Why/Why.js";
 import { MainPanel, MainRow, SecPanel, RowChoose, RowSearch,
-  Mission, Why, How, HowGrid, CommunityPanel, ContactPanel,
-  ContactRow, ContactInfo } from "./styled";
+  Mission, How, HowGrid, CommunityPanel } from "./styled";
 
 import { card3 } from "./cards";
 import Partners from "./components/Partners/Partners";
@@ -48,26 +49,7 @@ class Home extends Component {
             {homeLocales.mission_1[lang]} <br /> {homeLocales.mission_2[lang]}
           </H3>
         </Mission>
-        <Why>
-          <H2 style={{ textAlign: "center" }}>{homeLocales.why[lang]}</H2>
-          <div className="why-use">
-            <Card
-              title={homeLocales.card_1_titel[lang]}
-              text={homeLocales.card_1[lang]}
-              image="/image/community.png"
-            />
-            <Card
-              title={homeLocales.card_2_titel[lang]}
-              text={homeLocales.card_2[lang]}
-              image="/image/savings.png"
-            />
-            <Card
-              title={homeLocales.card_3_titel[lang]}
-              text={homeLocales.card_3[lang]}
-              image="/image/clarity.png"
-            />
-          </div>
-        </Why>
+        <Why/>
         <How id="how-it-works">
           <H2  style={{ textAlign: "center" }}>{homeLocales.how[lang]}</H2>
           <HowGrid>
@@ -90,32 +72,7 @@ class Home extends Component {
             style={{ width: "100%", height: "auto" }}
           />
         </CommunityPanel>
-        <H2 id="contact" style={{ textAlign: "center" }}>{homeLocales.contact[lang]}</H2>
-        <ContactPanel >
-          <ContactInfo>
-            <H2 style={{ textAlign: "center" }}>
-              Großjungig AI <br />
-              {homeLocales.care[lang]}
-            </H2>
-            <H4 style={{ textAlign: "center" }}>
-              {homeLocales.contact_us[lang]}{" "}
-            </H4>
-          </ContactInfo>
-          <ContactRow>
-            <img
-              style={{ height: "59px", width: "59px", itemsAlign: "center" }}
-              src="../image/Email.png"
-              alt="email"
-            />
-            <H4>info@grossjungig.de</H4>
-            <img
-              style={{ height: "59px", width: "59px", itemsAlign: "center" }}
-              src="../image/phone.png"
-              alt="phone"
-            />
-            <H4>+49 30 55231271</H4>
-          </ContactRow>
-        </ContactPanel>
+        <Contact />
         <Partners />
       </>
     );

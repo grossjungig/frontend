@@ -40,7 +40,7 @@
     "de": "Suche"
   },
   "why": {
-    "en": "Why should You use Großjungig?",
+    "en": "Why should you use Großjungig?",
     "de": "Warum sollten Sie Großjungig nutzen?"
   },
   "how": {
@@ -76,24 +76,23 @@
     "de": "Indem wir Senioren und junge Menschen zusammenbringen, machen wir die Welt verbundener und fördern den sozialen Zusammenhalt."
   },
 "card_1_titel":{
-"en":"#1:COMMUNITY",
-"de":"#1:GEMEINSCHAFT"
+"en":"#1:Community",
+"de":"#1:Gemeinschaft"
 },
 "card_2_titel":{
-  "en":"#2:SAVINGS",
-  "de":"#2:ERSPARNISSE"
+  "en":"#2:Savings",
+  "de":"#2:Ersparnisse"
 },
 "card_3_titel":{
-  "en":"#3:CLARITY",
-  "de":"#3:TRANSPARENZ"
+  "en":"#3:Clarity",
+  "de":"#3:Transparenz"
 },
 "card_1":{
   "en":"We provide a solution for two social problems: loneliness and lack of affordable housing in big cities.",
   "de":"Wir bieten eine Lösung für zwei soziale Probleme: Einsamkeit und Mangel an bezahlbaren Unterkünften in Großstädten."
 },
 "card_2":{
-  "en":      "Seniors support youth with advice and get rent. Youth save, up to 20% vs. market price, on rent and support seniors by helping with chores and keeping them company.",
-  
+  "en":"Seniors support youth with advice and get rent. Youth save, up to 20% vs. market price, on rent and support seniors by helping with chores and keeping them company.",
   "de":"Ältere Menschen unterstützen junge Leute mit Rat und bekommen Geld für die Miete. Junge Menschen sparen bis zu 20% gegenüber dem Marktpreis bei der Miete und unterstützen Senioren, indem sie bei der Hausarbeit helfen und ihnen Gesellschaft leisten."
 },
 "card_3":{
