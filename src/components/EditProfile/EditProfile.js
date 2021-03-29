@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import {Link } from "react-router-dom";
 import Select from 'react-select'
+import { connect } from 'react-redux';
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -32,13 +33,13 @@ class EditProfile extends Component {
     help: [],
     images: [],
     redirect: false,
-    user: this.props.user,
+    user: "",
   };
 
   componentDidMount() {
     axios
       .get(
-        `${process.env.REACT_APP_BACKENDURL}api/profiles/${this.props.user.profile}`
+        `${process.env.REACT_APP_BACKENDURL}api/profiles/${this.state.user.profile}`
       )
       .then((data) => {
         this.setState({
@@ -108,7 +109,7 @@ class EditProfile extends Component {
         `${process.env.REACT_APP_BACKENDURL}api/edit/${this.state.user.profile}`,
         obj
       )
-      .then((res) => this.props.history.push("/profile")
+      .then((res) => this.props.history.push(`/profile/${this.state.user.profile}`)
       );
       
   };
@@ -119,6 +120,12 @@ class EditProfile extends Component {
     });
   };
   render() {
+
+    const { fetchedUser } = this.props;
+    if (fetchedUser) {
+      this.setState({ user: fetchedUser });
+    }
+
     return (
       <div style={{ height: "auto", width: "auto" }}>
 
@@ -225,7 +232,7 @@ class EditProfile extends Component {
             </div>
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Link to={`/profile`}>
+            <Link to={`/profile/${this.state.user.profile}`}>
               <button type="submit" className="button_profile" style={{ width: "150px" }}>Cancel</button>
               </Link>
               <button type="submit" className="button_profile" style={{ width: "150px", background: "#365FA7", color: "#F9F8F8" }} onClick={this.editProfile} >Submit</button>
@@ -238,4 +245,8 @@ class EditProfile extends Component {
     );
   }
 }
-export default EditProfile;
+const mapStateToProps = (reduxState) => ({
+  fetchedUser: reduxState.user
+});
+
+export default connect(mapStateToProps)(EditProfile);
