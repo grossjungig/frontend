@@ -35,9 +35,14 @@ export const SecPanel = styled.div`
   background-position: center;
   margin: 7rem 8rem;
 
-  @media (min-width: 768px) {
+  @media (max-width: 834px) {
+    margin: 1rem 1rem;
+  }
+
+  @media (min-width: 834px) {
     /* height: 400px; */
     padding: 6rem;
+
   }
 
   @media (min-width: 1060px) {
