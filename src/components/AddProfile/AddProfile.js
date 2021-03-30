@@ -119,7 +119,7 @@ class AddProfile extends Component {
               style={{ marginTop: "2vh" }}
               className="select_profile"
             >
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="" disabled selected>Select</option>
+              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="" disabled>Select</option>
               <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="male">Male</option>
               <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="female">Female</option>
               <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="divers">Divers</option>
@@ -151,7 +151,7 @@ class AddProfile extends Component {
               id="description"
               value={this.state.description}
               onChange={this.setFormState}
-              maxlength="120"
+              maxLength="120"
               rows="3"
               style={{ marginTop: "2vh" }}
               className="textarea_profile"
@@ -170,7 +170,7 @@ class AddProfile extends Component {
               className="select_profile"
               placeholder="Select"
             >
-              <option value="" disabled selected>Select</option>
+              <option value="" disabled>Select</option>
               <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
               <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
               <option value="Lichtenberg">Lichtenberg</option>
