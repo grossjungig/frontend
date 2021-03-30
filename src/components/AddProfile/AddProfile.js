@@ -3,6 +3,7 @@ import { Redirect,Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from 'react-redux';
 import Select from 'react-select'
+import { dispatchCheckAuth } from "../../store/auth/thunks";
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -75,8 +76,10 @@ class AddProfile extends Component {
         age: this.state.age,
         help: helps,
       })
-      .then((response) => {
-        this.props.history.push(`/profile/${this.state.user.profile}`, { user: this.state.user });
+      .then((res) => {
+        this.props.refreshUser();
+        const user = this.props.fetchedUser;
+        this.props.history.push(`/profile/${res.data._id}`, { user: user });
       })
       .catch((err) => {
         console.log(err);
@@ -220,4 +223,8 @@ const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
 
-export default connect(mapStateToProps)(AddProfile);
+const mapDispatchToProps = {
+  refreshUser: () => dispatchCheckAuth()
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddProfile);

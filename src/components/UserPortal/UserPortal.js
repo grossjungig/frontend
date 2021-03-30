@@ -9,10 +9,10 @@ const UserPortal = (props) => {
 
   useEffect(() => {
     setUser((prev) => {
-      if (props.user) return props.user;
+      if (props.fetchedUser) return props.fetchedUser;
       return prev;
     });
-  }, [props.user]);
+  }, [props.fetchedUser]);
 
   return (
     <div className="portal-container" style={{ textAlign: "center" }}>
@@ -67,7 +67,7 @@ const UserPortal = (props) => {
 
 const mapStateToProps = (reduxState) => {
   return {
-    user: reduxState.user,
+    fetchedUser: reduxState.user,
   };
 };
 
