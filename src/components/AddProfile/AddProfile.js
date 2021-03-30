@@ -70,13 +70,13 @@ class AddProfile extends Component {
         phoneNumber: this.state.phoneNumber,
         description: this.state.description,
         price: this.state.price,
-        user: this.props.user._id,
+        user: this.state.user._id,
         gender: this.state.gender,
         age: this.state.age,
         help: helps,
       })
       .then((response) => {
-        this.props.history.push("/userportal", { user: this.props.user });
+        this.props.history.push(`/profile/${this.state.user.profile}`, { user: this.state.user });
       })
       .catch((err) => {
         console.log(err);
