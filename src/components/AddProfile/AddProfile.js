@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { Redirect,Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from 'react-redux';
-
-
-//import profilesLocales from "../locales/locales.profiles.json";
-//import addroomLocales from "../locales/locales.addrooms.json";
 import Select from 'react-select'
 
 const options = [
@@ -40,6 +36,13 @@ class AddProfile extends Component {
     user: '',
   };
 
+  componentDidMount(){
+    const { fetchedUser } = this.props;
+    if (fetchedUser) {
+      this.setState({ user: fetchedUser });
+    }
+  }
+  
   setFormState = (event) => {
 
     this.setState({
@@ -48,12 +51,10 @@ class AddProfile extends Component {
   };
 
   setHelp = (event) => {
-    console.log("event", event)
     this.setState({ help: event })
   }
   addNewProfile = (event) => {
     event.preventDefault();
-    //1. post the data to backend -> routes rooms.js
     const arr=this.state.help;
     var helps=[];
     for (var i = 0 ;i < arr.length; i++ )
@@ -85,11 +86,6 @@ class AddProfile extends Component {
   render() {
     if (this.state.redirect) {
       return <Redirect to="/profiles" />;
-    }
-
-    const { fetchedUser } = this.props;
-    if (fetchedUser) {
-      this.setState({ user: fetchedUser });
     }
 
     return (
@@ -161,7 +157,7 @@ class AddProfile extends Component {
               className="textarea_profile"
             />
 
-            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>{fetchedUser.role ==="senior"? "Help I‘d like to get": "Offered Help"}</label>
+            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>Expected Help</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help"
               name="help" />
 

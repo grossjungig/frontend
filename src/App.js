@@ -70,7 +70,7 @@ class App extends React.Component {
             <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
             <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
             <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
-            <Route exact path="/edit" render={(props) => (
+            <Route exact path="/edit/:id" render={(props) => (
               <EditProfile history={props.history} />
             )}/>
 
@@ -82,7 +82,7 @@ class App extends React.Component {
               path="/addProfile"
               render={(props) => <AddProfile {...props} />}
             />
-            <Route exact path="/profile" render={(props) => (
+            <Route exact path="/profile/:id" render={(props) => (
               <Profile
                 history={props.history}
                 {...props}

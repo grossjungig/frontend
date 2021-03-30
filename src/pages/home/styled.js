@@ -75,24 +75,6 @@ export const Mission = styled.div`
   font-size: 1rem;
 `;
 
-export const Why = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0rem;
-
-  /* Media Queries: Tablet Portrait */
-  @media screen and (min-width: 768px) {
-  }
-  /* Media Queries: Desktop */
-  @media screen and (min-width: 1060px) {
-    display: flex;
-    justify-content: space-between;
-  }
-`;
-
 export const How = styled.div`
   display: flex;
   flex-direction: column;
@@ -158,47 +140,5 @@ export const CommunityPanel = styled.div`
     margin-bottom: 0.5rem;
     margin-top: 11rem;
     padding-top: 1.5rem;
-  }
-`;
-
-export const ContactPanel = styled.div`
-  display: flex;
-  align-content: center;
-  align-items: center;
-  border-radius: 1rem;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    -4px -4px 8px rgba(255, 255, 255, 0.15);
-  background-color: #aad7ee;
-  margin: 1.5rem;
-  padding: 1.5rem;
-  /* Media Queries: Tablet */
-  @media screen and (min-width: 768px) {
-    padding: 1.5rem;
-  }
-  /* Media Queries: Desktop */
-  @media screen and (min-width: 1060px) {
-    margin: 4rem;
-    padding: 2rem;
-  }
-`;
-
-export const ContactRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-export const ContactInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-right: 2rem;
-  margin-left: 0.2rem;
-  /* Media Queries: Tablet */
-  @media screen and (min-width: 768px) {
-    padding: 1.5rem;
-  }
-  /* Media Queries: Desktop */
-  @media screen and (min-width: 1060px) {
-    margin-right: 10rem;
-    margin-left: 0.2rem;
   }
 `;

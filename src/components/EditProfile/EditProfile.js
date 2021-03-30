@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import {Link } from "react-router-dom";
 import Select from 'react-select'
+import { connect } from 'react-redux';
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -32,13 +33,13 @@ class EditProfile extends Component {
     help: [],
     images: [],
     redirect: false,
-    user: this.props.user,
+    user: "",
   };
 
   componentDidMount() {
     axios
       .get(
-        `${process.env.REACT_APP_BACKENDURL}api/profiles/${this.props.user.profile}`
+        `${process.env.REACT_APP_BACKENDURL}api/profiles/${this.props.fetchedUser.profile}`
       )
       .then((data) => {
         this.setState({
@@ -66,6 +67,11 @@ class EditProfile extends Component {
       .catch((error) => {
         console.log(error);
       });
+
+      const { fetchedUser } = this.props;
+      if (fetchedUser) {
+        this.setState({ user: fetchedUser });
+      }
       
       
   }
@@ -108,17 +114,18 @@ class EditProfile extends Component {
         `${process.env.REACT_APP_BACKENDURL}api/edit/${this.state.user.profile}`,
         obj
       )
-      .then((res) => this.props.history.push("/profile")
+      .then((res) => this.props.history.push(`/profile/${this.state.user.profile}`)
       );
       
   };
 
-  setFormState = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
   render() {
+
+    const { fetchedUser } = this.props;
+    if (fetchedUser) {
+      this.setState({ user: fetchedUser });
+    }
+
     return (
       <div style={{ height: "auto", width: "auto" }}>
 
@@ -148,7 +155,7 @@ class EditProfile extends Component {
               style={{ marginTop: "2vh" }}
               className="select_profile"
             >
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="" disabled selected>Select</option>
+              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="" disabled >Select</option>
               <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="male">Male</option>
               <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="female">Female</option>
               <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="divers">Divers</option>
@@ -181,12 +188,12 @@ class EditProfile extends Component {
               id="description"
               value={this.state.description}
               onChange={this.setFormState}
-              maxlength="120"
+              maxLength="120"
               rows="3"
               style={{ marginTop: "2vh" }}
               className="textarea_profile"
             />
-            <label className="label_profile" htmlFor="help" style={{ marginBottom: "2vh" }}>{this.props.user.role === "senior" ? "Help I‘d like to get" : "Offered Help"}</label>
+            <label className="label_profile" htmlFor="help" style={{ marginBottom: "2vh" }}>Expected Help</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help" value={this.state.help}
               name="help" />
 
@@ -199,7 +206,7 @@ class EditProfile extends Component {
               className="select_profile"
               placeholder="Select"
             >
-              <option value="" disabled selected>Select</option>
+              <option value="" disabled >Select</option>
               <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
               <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
               <option value="Lichtenberg">Lichtenberg</option>
@@ -225,7 +232,7 @@ class EditProfile extends Component {
             </div>
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Link to={`/profile`}>
+            <Link to={'/userportal'}>
               <button type="submit" className="button_profile" style={{ width: "150px" }}>Cancel</button>
               </Link>
               <button type="submit" className="button_profile" style={{ width: "150px", background: "#365FA7", color: "#F9F8F8" }} onClick={this.editProfile} >Submit</button>
@@ -238,4 +245,8 @@ class EditProfile extends Component {
     );
   }
 }
-export default EditProfile;
+const mapStateToProps = (reduxState) => ({
+  fetchedUser: reduxState.user
+});
+
+export default connect(mapStateToProps)(EditProfile);

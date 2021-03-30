@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../store/auth/actions'
 import { useHistory } from 'react-router-dom';
 import CookieConsent from '../CookieConsent';
+import NavBanner from "./NavBanner";
 
 const imageChange = (updatePage, setImage) => {
   const lang = localStorage.getItem("lang");
@@ -123,6 +124,7 @@ const Navbar = (props) => {
           </div>
         )}
       </nav>
+      <NavBanner />
     </div>
   );
 };
