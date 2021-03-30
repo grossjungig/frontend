@@ -14,6 +14,32 @@ const UserPortal = (props) => {
     });
   }, [props.fetchedUser]);
 
+  let renderedLinks;
+  if (user.role === "senior") {
+    renderedLinks = <Link to="/addroom">
+      <button id="create-room-button" type="submit">
+        {portalLocales.add[lang]}
+      </button>
+    </Link>;
+  } else {
+    // role = junior
+    if (!user.profile) {
+      renderedLinks = <Link to="/addprofile">
+        <div style={{alignItems: "center"}}>
+          <button id="create-room-button" type="submit">
+            {portalLocales.profile[lang]}
+          </button>
+        </div>
+      </Link>;
+    } else {
+      renderedLinks = <Link to={`profile/${user.profile}`}>
+        <button id="create-room-button" type="submit">
+          {portalLocales.profile2[lang]}{" "}
+        </button>
+      </Link>;
+    }
+  }
+
   return (
     <div className="portal-container" style={{ textAlign: "center" }}>
       <h1
@@ -33,33 +59,7 @@ const UserPortal = (props) => {
         <Link to="/maps">
           <button>{portalLocales.map[lang]}</button>
         </Link>
-        <Link to="/addroom">
-          {user.role === "senior" ? (
-            <button id="create-room-button" type="submit">
-              {portalLocales.add[lang]}
-            </button>
-          ) : null}
-        </Link>
-
-        {user.profile === undefined ? (
-          <Link to="/addprofile">
-            <div
-              style={{
-                alignItems: "center",
-              }}
-            >
-              <button id="create-room-button" type="submit">
-                {portalLocales.profile[lang]}
-              </button>
-            </div>
-          </Link>
-        ) : (
-          <Link to={`profile/${user.profile}`}>
-            <button id="create-room-button" type="submit">
-              {portalLocales.profile2[lang]}{" "}
-            </button>
-          </Link>
-        )}
+        {renderedLinks}
       </div>
     </div>
   );

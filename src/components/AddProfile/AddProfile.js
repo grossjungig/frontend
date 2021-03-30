@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect,Link } from "react-router-dom";
-import axios from "axios";
+import axios from '../../axios';
 import { connect } from 'react-redux';
 import Select from 'react-select'
 import { dispatchCheckAuth } from "../../store/auth/thunks";
@@ -63,7 +63,7 @@ class AddProfile extends Component {
       helps.push(arr[i].value);
     }
     axios
-      .post(`${process.env.REACT_APP_BACKENDURL}api/addProfile`, {
+      .post('api/addProfile', {
         name: this.state.name,
         district: this.state.district,
         postcode: this.state.postcode,
@@ -154,13 +154,13 @@ class AddProfile extends Component {
               id="description"
               value={this.state.description}
               onChange={this.setFormState}
-              maxlength="120"
+              maxLength="120"
               rows="3"
               style={{ marginTop: "2vh" }}
               className="textarea_profile"
             />
 
-            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>Expected Help</label>
+            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>Offered Help</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help"
               name="help" />
 
