@@ -114,23 +114,3 @@ export const HowFlex = styled.div`
   }
 `;
 
-export const CommunityPanel = styled.div`
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-  padding-top: 3rem;
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-  line-height: 26px;
-  color: black;
-  @media (min-width: 768px) {
-    margin-bottom: 0.5rem;
-    padding-top: 1.5rem;
-  }
-
-  @media (min-width: 1060px) {
-    margin-bottom: 0.5rem;
-    margin-top: 11rem;
-    padding-top: 1.5rem;
-  }
-`;

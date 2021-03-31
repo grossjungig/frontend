@@ -8,7 +8,7 @@ import { Button, SecButton, PrimaryButtonLong, Card2, Card3 } from "../../compon
 import Contact from "./components/Contact/Contact";
 import Why from "./components/Why/Why.js";
 import { MainPanel, MainRow, SecPanel, RowChoose, RowSearch,
-  Mission, How, HowFlex, /* CommunityPanel */ } from "./styled";
+  Mission, How, HowFlex } from "./styled";
 
 import { card3 } from "./cards";
 import Partners from "./components/Partners/Partners";
@@ -51,8 +51,8 @@ class Home extends Component {
         </Mission>
         <Why />
         <How id="how-it-works">
-          <H2 titleColor="white" style={{ textAlign: "center", marginBottom: "1.5rem" }}>{homeLocales.how[lang]}</H2>
-          <div className="button-not-button">Seniors</div>
+          <H2 titleColor="white" className="how-it-works-title">{homeLocales.how[lang]}</H2>
+          <div className="category-title">Seniors</div>
           <HowFlex>
             <Card2 title="#1" text={homeLocales.step_1[lang]} />
             <Card2 title="#2" text={homeLocales.step_2[lang]} />
@@ -61,7 +61,7 @@ class Home extends Component {
           </HowFlex>
         </How>
         <How backgroundColor="#CFE7F0" id="how-it-works">
-          <div className="button-not-button">Young</div>
+          <div className="category-title">Young</div>
           <HowFlex>
             <Card2 title="#1" text={homeLocales.step_1[lang]} />
             <Card2 title="#2" text={homeLocales.step_2[lang]} />
@@ -72,14 +72,6 @@ class Home extends Component {
         <SecPanel>
           <Card3 text={homeLocales.opinion[lang]} source={card3[0].source} />
         </SecPanel>
-        {/* <CommunityPanel id="community">
-          <H2 style={{ textAlign: "center" }}>{homeLocales.community[lang]}</H2>
-          <img
-            src="/image/community-group.png"
-            alt="community"
-            style={{ width: "100%", height: "auto" }}
-          />
-        </CommunityPanel> */}
         <Contact />
         <Partners />
       </>
