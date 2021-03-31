@@ -1,26 +1,28 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-import roomsLocales from "../../locales/locales.rooms.json";
-import Select from 'react-select'
 import './addRoom.css'
 import {Link } from "react-router-dom";
 import { connect } from 'react-redux';
 
+const { fetchedUser } = this.props;
+if (fetchedUser) {
+  this.state.user = fetchedUser;
+}
 //import addroomLocales from "../locales/locales.addrooms.json";
-const options = [
-  { value: 'Shopping', label: 'Shopping' },
-  { value: 'Cooking or baking', label: 'Cooking or baking' },
-  { value: 'Help with digital devices', label: 'Help with digital devices' },
-  { value: 'Moving the lawn', label: 'Moving the lawn' },
-  { value: 'Gardening', label: 'Gardening' },
-  { value: 'Reading out loud', label: 'Reading out loud' },
-  { value: 'Car transportation', label: 'Car transportation' },
-  { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
-  { value: 'Accompanying on walks', label: 'Accompanying on walks' },
-  { value: 'Taking care of pets', label: 'Taking care of pets' },
-  { value: 'Pflage/ Taking care of Seniors', label: 'Pflage/ Taking care of Seniors' }
-]
+// const options = [
+//   { value: 'Shopping', label: 'Shopping' },
+//   { value: 'Cooking or baking', label: 'Cooking or baking' },
+//   { value: 'Help with digital devices', label: 'Help with digital devices' },
+//   { value: 'Moving the lawn', label: 'Moving the lawn' },
+//   { value: 'Gardening', label: 'Gardening' },
+//   { value: 'Reading out loud', label: 'Reading out loud' },
+//   { value: 'Car transportation', label: 'Car transportation' },
+//   { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
+//   { value: 'Accompanying on walks', label: 'Accompanying on walks' },
+//   { value: 'Taking care of pets', label: 'Taking care of pets' },
+//   { value: 'Pflage/ Taking care of Seniors', label: 'Pflage/ Taking care of Seniors' }
+// ]
 
 class AddRoom extends Component {
   state = {
@@ -86,14 +88,11 @@ console.log("fetchedUser addnroom ", fetchedUser)
   render() {
     //console.log(this.state);
     console.log(this.props.user);
-    const lang = localStorage.getItem("lang");
+    // const lang = localStorage.getItem("lang");
     if (this.state.redirect) {
       return <Redirect to="/berlin" />;
     }
-    const { fetchedUser } = this.props;
-    if (fetchedUser) {
-      this.state.user = fetchedUser;
-    }
+   
 
     return (
       <div className="div_warning_1_addRoom" >

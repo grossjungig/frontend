@@ -7,7 +7,10 @@ import { connect } from 'react-redux';
 //import profilesLocales from "../locales/locales.profiles.json";
 //import addroomLocales from "../locales/locales.addrooms.json";
 import Select from 'react-select'
-
+const { fetchedUser } = this.props;
+if (fetchedUser) {
+  this.state.user = fetchedUser;
+}
 const options = [
   { value: 'Shopping', label: 'Shopping' },
   { value: 'Cooking or baking', label: 'Cooking or baking' },
@@ -48,7 +51,6 @@ class AddProfile extends Component {
   };
 
   setHelp = (event) => {
-    console.log("event", event)
     this.setState({ help: event })
   }
   addNewProfile = (event) => {
@@ -87,17 +89,14 @@ class AddProfile extends Component {
       return <Redirect to="/profiles" />;
     }
 
-    const { fetchedUser } = this.props;
-    if (fetchedUser) {
-      this.state.user = fetchedUser;
-    }
+
 
     return (
 
       <div style={{ height: "auto", width: "auto" }}>
         <div style={{ display: "flex", justifyContent: "center", marginTop: "3vh" }}>
           <div className="warning" style={{ margin: "1vh" }}>
-            <p >Please do not leave your personal identifying information here.</p>
+            <p>Please do not leave your personal identifying information here.</p>
           </div>
         </div>
 

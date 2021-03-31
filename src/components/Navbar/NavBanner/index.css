@@ -1,0 +1,22 @@
+.nav-banner {
+    align-items: center;
+    background-color: var(--gai-light-blue);
+    color: var(--gai-black);
+    display: flex;
+    font-weight: bold;
+    justify-content: space-around;
+    padding: 10px 20px;
+}
+
+.nav-banner__phone {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 550px) {
+    .nav-banner {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100px;
+    }
+}
