@@ -49,9 +49,6 @@ const Navbar = (props) => {
     history.push('/');
   };
 
-  // const lang = localStorage.getItem("lang");
-  // console.log(lang)
-
   const scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -60;
@@ -101,8 +98,8 @@ const Navbar = (props) => {
               {homeLocales.contact[lang]}
             </HashLink>
             </li>
-            {/* props.isAuth */}
-{ true? (
+          
+{ props.isAuth (
   <>
     <li onClick={toggleNavbar}>
       <Link onClick={logout} to="/">
