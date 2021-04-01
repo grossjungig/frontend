@@ -47,7 +47,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <ThemeProvider theme={theme}>
-          <Navbar />
+          <Navbar updatePage={this.updatePage} />
           <Switch>
             <Route exact path="/"><Home/></Route>
             <Route exact path="/signup"><Signup/></Route>

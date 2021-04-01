@@ -103,7 +103,9 @@ class ForgotPassword extends Component {
                       <p>{errorMessage}</p>
                     </div>
                   )}
-                  <Button
+                  <Button 
+                                      className="rest-z-index"
+
                     style={{
                       marginRight: "5px",
                       color: "white",
@@ -115,7 +117,8 @@ class ForgotPassword extends Component {
                     {forgotLocales.submit[lang]}
                   </Button>
                   <Link style={{ textDecoration: "none" }} to="/">
-                    <Button variant="contained" type="">
+                    <Button                     className="rest-z-index"
+ variant="contained" type="">
                       {forgotLocales.return[lang]}
                     </Button>
                   </Link>
