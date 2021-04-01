@@ -99,7 +99,7 @@ const Navbar = (props) => {
             </HashLink>
             </li>
           
-{ props.isAuth (
+{ props.isAuth ? (
   <>
     <li onClick={toggleNavbar}>
       <Link onClick={logout} to="/">
