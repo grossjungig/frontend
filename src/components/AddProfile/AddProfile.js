@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Redirect,Link } from "react-router-dom";
-import axios from "axios";
+import axios from '../../axios';
 import { connect } from 'react-redux';
 import Select from 'react-select'
+import { dispatchCheckAuth } from "../../store/auth/thunks";
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -62,7 +63,7 @@ class AddProfile extends Component {
       helps.push(arr[i].value);
     }
     axios
-      .post(`${process.env.REACT_APP_BACKENDURL}api/addProfile`, {
+      .post('api/addProfile', {
         name: this.state.name,
         district: this.state.district,
         postcode: this.state.postcode,
@@ -70,13 +71,15 @@ class AddProfile extends Component {
         phoneNumber: this.state.phoneNumber,
         description: this.state.description,
         price: this.state.price,
-        user: this.props.user._id,
+        user: this.state.user._id,
         gender: this.state.gender,
         age: this.state.age,
         help: helps,
       })
-      .then((response) => {
-        this.props.history.push("/userportal", { user: this.props.user });
+      .then((res) => {
+        this.props.refreshUser();
+        const user = this.props.fetchedUser;
+        this.props.history.push(`/profile/${res.data._id}`, { user: user });
       })
       .catch((err) => {
         console.log(err);
@@ -157,7 +160,7 @@ class AddProfile extends Component {
               className="textarea_profile"
             />
 
-            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>Expected Help</label>
+            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>Offered Help</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help"
               name="help" />
 
@@ -220,4 +223,8 @@ const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
 
-export default connect(mapStateToProps)(AddProfile);
+const mapDispatchToProps = {
+  refreshUser: () => dispatchCheckAuth()
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddProfile);
