@@ -1,6 +1,7 @@
 .partner-panel__title {
     text-align: center;
     padding: 30px;
+    background:white;
 }
 
 .partner-panel__items {
@@ -8,6 +9,7 @@
     grid-template-columns: repeat(4, auto);
     align-items: center;
     justify-content: space-around;
+    background-color: white;
 }
 
 .partner {
