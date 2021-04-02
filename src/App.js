@@ -27,6 +27,7 @@ import AddProfile from "./components/AddProfile/AddProfile";
 import People from "./components/People/People";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import EditProfile from "./components/EditProfile/EditProfile";
+import TestApp from './components/TestApp';
 
 import { connect } from 'react-redux';
 import { dispatchCheckAuth } from './store/auth/thunks';
@@ -50,6 +51,7 @@ class App extends React.Component {
           <Navbar />
           <Switch>
             <Route exact path="/"><Home/></Route>
+            <Route exact path="/test"><TestApp/></Route>
             <Route exact path="/signup"><Signup/></Route>
 
             <Route exact path="/login" render={(props) => (
