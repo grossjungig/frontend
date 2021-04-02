@@ -121,11 +121,6 @@ class EditProfile extends Component {
 
   render() {
 
-    const { fetchedUser } = this.props;
-    if (fetchedUser) {
-      this.setState({ user: fetchedUser });
-    }
-
     return (
       <div style={{ height: "auto", width: "auto" }}>
 
