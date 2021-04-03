@@ -23,15 +23,11 @@ export default () => {
             'preview-avatar',
             formData,
             {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
+                headers: { 'Content-Type': 'multipart/form-data' }
             }
         ).then(({ data }) => {
             newAxios.put(data.signedRequest, avatar).then(res => {
-                setPreview(<img src={data.url} alt="kuft" />)
-                console.log(res);
+                setPreview(<img src={data.url} alt="kuft" style={{ width: '200px' }} />)
             }).catch(err => { console.log(err) });
 
         }).catch(err => {

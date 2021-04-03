@@ -66,6 +66,7 @@ class AddProfile extends Component {
     }
     axios
       .post('api/addProfile', {
+          //   TODO ADD AUTH HEADER...
         name: this.state.name,
         district: this.state.district,
         postcode: this.state.postcode,
