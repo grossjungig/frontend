@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from '../axios';
+import newAxios from 'axios';
 
 export default () => {
     // 1. User chooses a picture
@@ -15,7 +16,6 @@ export default () => {
         // setAvatar(event.target.files[0]);
         const avatar = event.target.files[0];
         const formData = new FormData();
-        console.log(avatar);
         formData.append('avatar', avatar);
         
         let hasError = false;
@@ -24,11 +24,15 @@ export default () => {
             formData,
             { headers: { 'Content-Type': 'multipart/form-data' } }
         ).then(res => {
+            console.log(res);
             if (res.status === 200) {
                 setPreview('YOUR AVATAR');
-            } else {
-                
             }
+
+            newAxios.put(res.data.signedRequest, avatar).then(res => {
+                console.log(res);
+            }).catch(err => { console.log(err) });
+
         }).catch(err => {
             console.log({...err})
             // data: {message: "Wrong File Type."}
