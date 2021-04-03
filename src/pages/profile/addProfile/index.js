@@ -97,15 +97,14 @@ class AddProfile extends Component {
         phoneNumber: this.state.phoneNumber,
         description: this.state.description,
         price: this.state.price,
-        user: this.state.user._id,
         gender: this.state.gender,
         age: this.state.age,
         help: helps,
+        avatarUrl: this.state.avatarPreview
       })
       .then((res) => {
         this.props.refreshUser();
-        const user = this.props.fetchedUser;
-        this.props.history.push(`/profile/${res.data._id}`, { user: user });
+        this.props.history.push(`/profile/${res.data._id}`);
       })
       .catch((err) => {
         console.log(err);

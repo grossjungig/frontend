@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import img from '../../assets/images/header_image.png';
 import "./profile.css";
+import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
 
 class Profile extends Component {
   state = {
@@ -29,6 +29,10 @@ class Profile extends Component {
   }
     render() {
     const profile = this.state.profile;
+
+    let renderedAvatar = dummyAvatar;
+    const { avatarUrl } = this.state.profile;
+    if (avatarUrl) renderedAvatar = avatarUrl;
     
     return (
       <div className = 'profile-container' >
@@ -44,7 +48,7 @@ class Profile extends Component {
         <div className = 'profile-picture-container'>
           <div style={{ width: '328px' }}>
           <div className = 'label-profile'> Picture </div>
-            <img src={img} style={{ width: '100%' }} alt='profile' />
+            <img src={renderedAvatar} style={{ width: '100%' }} alt='avatar' />
           </div>
           </div>
 
