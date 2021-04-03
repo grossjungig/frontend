@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Redirect,Link } from "react-router-dom";
-import axios from '../../axios';
+import './index.css';
+import axios from '../../../axios';
 import { connect } from 'react-redux';
 import Select from 'react-select'
-import { dispatchCheckAuth } from "../../store/auth/thunks";
+import { dispatchCheckAuth } from "../../../store/auth/thunks";
+import dummyAvatar from '../../../assets/images/dummy-avatar.jpg'
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -122,10 +124,10 @@ class AddProfile extends Component {
               style={{ marginTop: "2vh" }}
               className="select_profile"
             >
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="" disabled>Select</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="male">Male</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="female">Female</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="divers">Divers</option>
+              <option  value="" disabled>Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="divers">Divers</option>
             </select>
 
             <label htmlFor="age" className="label_profile" style={{marginBottom:"2vh"}} >Age</label>
@@ -191,13 +193,13 @@ class AddProfile extends Component {
 
             
             <label className="label_profile" >Picture</label>
+            <img src={dummyAvatar} alt="avatar picture"/>
             <button type="submit" className="button_profile">
-              Upload the picture
-
-        </button>
+              Upload picture
+            </button>
 
             <div className="warning" style={{ marginTop: "2vh" }}>
-              <p >By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.</p>
+              <p>By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.</p>
           
             </div>
 
