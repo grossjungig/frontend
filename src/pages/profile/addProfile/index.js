@@ -61,31 +61,22 @@ class AddProfile extends Component {
     this.setState({ help: event })
   }
 
-  handleAvatarChange = (event) => {
+  handleAvatarChange = async (event) => {
     const avatar = event.target.files[0];
     const formData = new FormData();
     formData.append('avatar', avatar);
-    
-    let hasError = false;
-    axios.post(
-        'preview-avatar',
-        formData,
-        {
-            headers: { 'Content-Type': 'multipart/form-data' }
-        }
-    ).then(({ data }) => {
-        newAxios.put(data.signedRequest, avatar).then(res => {
-            this.setState({ avatarPreview: data.url });
-        }).catch(err => { console.log(err) });
 
-    }).catch(err => {
-        console.log({...err});
-        const errMsg = err.response.data.message;
-        this.setState({ avatarPreviewErr: errMsg });
-        hasError = true;
-    });
-
-    if (hasError) event.target.files = [];
+    try {
+      const s3Res = await axios.post('preview-avatar', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      const { signedRequest, imageUrl } = s3Res.data
+      await newAxios.put(signedRequest, avatar);
+      this.setState({ avatarPreview: imageUrl });
+    } catch (err) {
+      console.log(err);
+      this.setState({ avatarPreviewErr: err });
+    }
   }
 
   addNewProfile = (event) => {
