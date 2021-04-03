@@ -3,3 +3,8 @@
     margin: auto;
     width: 60%;
 }
+
+.avatar-preview-err {
+    color: var(--gai-red);
+    font-weight: bold;
+}

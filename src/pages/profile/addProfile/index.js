@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect,Link } from "react-router-dom";
 import './index.css';
 import axios from '../../../axios';
+import newAxios from 'axios';
 import { connect } from 'react-redux';
 import Select from 'react-select'
 import { dispatchCheckAuth } from "../../../store/auth/thunks";
@@ -37,6 +38,9 @@ class AddProfile extends Component {
     images: [],
     redirect: false,
     user: '',
+
+    avatarPreview: dummyAvatar,
+    avatarPreviewErr: ''
   };
 
   componentDidMount(){
@@ -56,6 +60,34 @@ class AddProfile extends Component {
   setHelp = (event) => {
     this.setState({ help: event })
   }
+
+  handleAvatarChange = (event) => {
+    const avatar = event.target.files[0];
+    const formData = new FormData();
+    formData.append('avatar', avatar);
+    
+    let hasError = false;
+    axios.post(
+        'preview-avatar',
+        formData,
+        {
+            headers: { 'Content-Type': 'multipart/form-data' }
+        }
+    ).then(({ data }) => {
+        newAxios.put(data.signedRequest, avatar).then(res => {
+            this.setState({ avatarPreview: data.url });
+        }).catch(err => { console.log(err) });
+
+    }).catch(err => {
+        console.log({...err});
+        const errMsg = err.response.data.message;
+        this.setState({ avatarPreviewErr: errMsg });
+        hasError = true;
+    });
+
+    if (hasError) event.target.files = [];
+  }
+
   addNewProfile = (event) => {
     event.preventDefault();
     const arr=this.state.help;
@@ -191,13 +223,14 @@ class AddProfile extends Component {
               <option value="Treptow-Koepenick">Treptow-Koepenick</option>
             </select>
 
-
-            
             <label className="label_profile" >Profile picture</label>
-            <img src={dummyAvatar} className="avatar-preview" alt="avatar"/>
-            <button type="submit" className="button_profile">
-              Upload picture
-            </button>
+            <img src={this.state.avatarPreview} className="avatar-preview" alt="avatar"/>
+            <input
+                type="file"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={this.handleAvatarChange}
+            />
+            <span className="avatar-preview-err">{this.state.avatarPreviewErr}</span>
 
             <div className="warning" style={{ marginTop: "2vh" }}>
               <p>By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.</p>
