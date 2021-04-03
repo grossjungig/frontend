@@ -193,7 +193,7 @@ class AddProfile extends Component {
 
             
             <label className="label_profile" >Profile picture</label>
-            <img src={dummyAvatar} className="avatar-preview" alt="avatar picture"/>
+            <img src={dummyAvatar} className="avatar-preview" alt="avatar"/>
             <button type="submit" className="button_profile">
               Upload picture
             </button>
