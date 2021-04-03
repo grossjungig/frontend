@@ -23,21 +23,18 @@ export default () => {
             'preview-avatar',
             formData,
             { headers: { 'Content-Type': 'multipart/form-data' } }
-        ).then(res => {
-            console.log(res);
-            if (res.status === 200) {
-                setPreview('YOUR AVATAR');
-            }
-
-            newAxios.put(res.data.signedRequest, avatar).then(res => {
+        ).then(({ data }) => {
+            newAxios.put(data.signedRequest, avatar).then(res => {
+                setPreview(<img src={data.url} />)
                 console.log(res);
             }).catch(err => { console.log(err) });
 
         }).catch(err => {
             console.log({...err})
-            // data: {message: "Wrong File Type."}
-            // data: {message: "File Size Exceeded."}
-            setPreview('Ups, error!');
+            // err.response.data: {message: "Wrong File Type."}
+            // err.response.data: {message: "File Size Exceeded."}
+            const errMsg = err.response.data.message;
+            setPreview(errMsg);
             hasError = true;
         });
 
