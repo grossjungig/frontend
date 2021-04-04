@@ -63,11 +63,12 @@ class AddProfile extends Component {
 
   handleAvatarChange = async (event) => {
     const avatar = event.target.files[0];
+    console.log(avatar);
     const formData = new FormData();
     formData.append('avatar', avatar);
 
     try {
-      const s3Res = await axios.post('preview-avatar', formData, {
+      const s3Res = await axios.post('api/s3upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       const { signedRequest, imageUrl } = s3Res.data
@@ -75,7 +76,7 @@ class AddProfile extends Component {
       this.setState({ avatarPreview: imageUrl });
     } catch (err) {
       console.log(err);
-      this.setState({ avatarPreviewErr: err });
+      this.setState({ avatarPreviewErr: err.message });
     }
   }
 
@@ -89,7 +90,6 @@ class AddProfile extends Component {
     }
     axios
       .post('api/addProfile', {
-          //   TODO ADD AUTH HEADER...
         name: this.state.name,
         district: this.state.district,
         postcode: this.state.postcode,
