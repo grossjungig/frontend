@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { Redirect,Link } from "react-router-dom";
-import axios from '../../axios';
+import './index.css';
+import axios from '../../../axios';
+import newAxios from 'axios';
 import { connect } from 'react-redux';
 import Select from 'react-select'
-import { dispatchCheckAuth } from "../../store/auth/thunks";
+import { dispatchCheckAuth } from "../../../store/auth/thunks";
+import dummyAvatar from '../../../assets/images/dummy-avatar.jpg'
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -35,6 +38,9 @@ class AddProfile extends Component {
     images: [],
     redirect: false,
     user: '',
+
+    avatarPreview: dummyAvatar,
+    avatarPreviewErr: ''
   };
 
   componentDidMount(){
@@ -54,6 +60,26 @@ class AddProfile extends Component {
   setHelp = (event) => {
     this.setState({ help: event })
   }
+
+  handleAvatarChange = async (event) => {
+    const avatar = event.target.files[0];
+    console.log(avatar);
+    const formData = new FormData();
+    formData.append('avatar', avatar);
+
+    try {
+      const s3Res = await axios.post('api/s3upload', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      const { signedRequest, imageUrl } = s3Res.data
+      await newAxios.put(signedRequest, avatar);
+      this.setState({ avatarPreview: imageUrl });
+    } catch (err) {
+      console.log(err);
+      this.setState({ avatarPreviewErr: err.message });
+    }
+  }
+
   addNewProfile = (event) => {
     event.preventDefault();
     const arr=this.state.help;
@@ -71,15 +97,14 @@ class AddProfile extends Component {
         phoneNumber: this.state.phoneNumber,
         description: this.state.description,
         price: this.state.price,
-        user: this.state.user._id,
         gender: this.state.gender,
         age: this.state.age,
         help: helps,
+        avatarUrl: this.state.avatarPreview
       })
       .then((res) => {
         this.props.refreshUser();
-        const user = this.props.fetchedUser;
-        this.props.history.push(`/profile/${res.data._id}`, { user: user });
+        this.props.history.push(`/profile/${res.data._id}`);
       })
       .catch((err) => {
         console.log(err);
@@ -122,10 +147,10 @@ class AddProfile extends Component {
               style={{ marginTop: "2vh" }}
               className="select_profile"
             >
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="" disabled>Select</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="male">Male</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="female">Female</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="divers">Divers</option>
+              <option  value="" disabled>Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="divers">Divers</option>
             </select>
 
             <label htmlFor="age" className="label_profile" style={{marginBottom:"2vh"}} >Age</label>
@@ -188,16 +213,17 @@ class AddProfile extends Component {
               <option value="Treptow-Koepenick">Treptow-Koepenick</option>
             </select>
 
-
-            
-            <label className="label_profile" >Picture</label>
-            <button type="submit" className="button_profile">
-              Upload the picture
-
-        </button>
+            <label className="label_profile" >Profile picture</label>
+            <img src={this.state.avatarPreview} className="avatar-preview" alt="avatar"/>
+            <input
+                type="file"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={this.handleAvatarChange}
+            />
+            <span className="avatar-preview-err">{this.state.avatarPreviewErr}</span>
 
             <div className="warning" style={{ marginTop: "2vh" }}>
-              <p >By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.</p>
+              <p>By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.</p>
           
             </div>
 
