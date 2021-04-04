@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
-import {Link } from "react-router-dom";
+import axios from '../../axios';
+import newAxios from 'axios';
+import { Link } from "react-router-dom";
 import Select from 'react-select'
 import { connect } from 'react-redux';
+import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -33,30 +35,29 @@ class EditProfile extends Component {
     help: [],
     images: [],
     redirect: false,
-    user: "",
+    avatarPreview: dummyAvatar,
+    avatarPreviewErr: ''
   };
 
   componentDidMount() {
-    axios
-      .get(
-        `${process.env.REACT_APP_BACKENDURL}api/profiles/${this.props.fetchedUser.profile}`
-      )
-      .then((data) => {
+    axios.get(`api/profiles/${this.props.fetchedUser.profile}`)
+      .then(({data}) => {
         this.setState({
-          name: data.data.user.name,
-          email: data.data.user.email,
-          age: data.data.age,
-          gender: data.data.gender,
-          district: data.data.district,
-          description: data.data.description,
-          price: data.data.price,
-          phoneNumber: data.data.phoneNumber,
-          owner: data.data.owner,
-          help: data.data.help,
+          name: data.user.name,
+          email: data.user.email,
+          age: data.age,
+          gender: data.gender,
+          district: data.district,
+          description: data.description,
+          price: data.price,
+          phoneNumber: data.phoneNumber,
+          owner: data.owner,
+          help: data.help,
           images: [],
+          avatarPreview: data.avatarUrl
         });
        
-        const helps = data.data.help;
+        const helps = data.help;
         var helpsArr = [];
         for (var i = 0; i < helps.length; i++) {
             var help = { label: helps[i], value: helps[i] }
@@ -67,16 +68,9 @@ class EditProfile extends Component {
       .catch((error) => {
         console.log(error);
       });
-
-      const { fetchedUser } = this.props;
-      if (fetchedUser) {
-        this.setState({ user: fetchedUser });
-      }
-      
-      
   }
+
   setHelp = (event) => {
-    
     this.setState({ help: event })
   }
 
@@ -87,10 +81,28 @@ class EditProfile extends Component {
     });
   };
 
+  handleAvatarChange = async (event) => {
+    const avatar = event.target.files[0];
+    const formData = new FormData();
+    formData.append('avatar', avatar);
+
+    try {
+      const s3Res = await axios.post('api/s3upload', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      const { signedRequest, imageUrl } = s3Res.data
+      await newAxios.put(signedRequest, avatar);
+      this.setState({ avatarPreview: imageUrl });
+    } catch (err) {
+      console.log(err);
+      this.setState({ avatarPreviewErr: err.message });
+    }
+  }
+
   editProfile = (event) => {
     event.preventDefault();
     const arr=this.state.help;
-    var helps=[];
+    const helps=[];
     for (var i = 0 ;i < arr.length; i++ )
     {
       helps.push(arr[i].value);
@@ -106,15 +118,16 @@ class EditProfile extends Component {
       price: this.state.price,
       phoneNumber: this.state.phoneNumber,
       owner: this.state.owner,
+      avatarUrl: this.state.avatarPreview,
       help: helps,
     };
    
     axios
       .post(
-        `${process.env.REACT_APP_BACKENDURL}api/edit/${this.state.user.profile}`,
+        `api/edit/${this.props.fetchedUser.profile}`,
         obj
       )
-      .then((res) => this.props.history.push(`/profile/${this.state.user.profile}`)
+      .then((res) => this.props.history.push(`/profile/${this.props.fetchedUser.profile}`)
       );
       
   };
@@ -216,10 +229,14 @@ class EditProfile extends Component {
               <option value="Treptow-Koepenick">Treptow-Koepenick</option>
             </select>
 
-            <label className="label_profile" >Picture</label>
-            <button type="submit" className="button_profile">
-              Upload the picture
-        </button>
+            <label className="label_profile" >Profile picture</label>
+            <img src={this.state.avatarPreview} className="avatar-preview" alt="avatar"/>
+            <input
+                type="file"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={this.handleAvatarChange}
+            />
+            <span className="avatar-preview-err">{this.state.avatarPreviewErr}</span>
 
             <div className="warning" style={{ marginTop: "2vh" }}>
               <p >By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.</p>
