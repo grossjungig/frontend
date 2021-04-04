@@ -40,10 +40,7 @@ class EditProfile extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get(
-        `api/profiles/${this.props.fetchedUser.profile}`
-      )
+    axios.get(`api/profiles/${this.props.fetchedUser.profile}`)
       .then(({data}) => {
         this.setState({
           name: data.user.name,
