@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from '../../axios';
 import newAxios from 'axios';
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Select from 'react-select'
 import { connect } from 'react-redux';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
@@ -105,7 +105,7 @@ class EditProfile extends Component {
   editProfile = (event) => {
     event.preventDefault();
     const arr=this.state.help;
-    var helps=[];
+    const helps=[];
     for (var i = 0 ;i < arr.length; i++ )
     {
       helps.push(arr[i].value);
