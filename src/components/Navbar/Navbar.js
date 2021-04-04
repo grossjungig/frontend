@@ -28,10 +28,9 @@ const Navbar = (props) => {
       setLanguage("en")
 
     }
-    updatePage();
-
-  
+    updatePage();  
   };
+
   // cc = Cookie Consent
   const [ ccDisplayed, setCcDisplayed ] = useState(false) 
   useEffect(() => {
@@ -59,94 +58,94 @@ const Navbar = (props) => {
   };
 
   return (
-    <div
-    >
+    <div>
       {ccDisplayed ? <CookieConsent clicked={confirmCc} />: null}
-      <nav>
-      <header className="header">
-        <HashLink smooth className="logo" to="/#">
-          <img
-            style={{ height: "34px" }}
-            src="/image/Logo.png"
-            alt="logo_image"
+      <nav >
+        <header className="header">
+          <HashLink smooth className="logo" to="/#">
+            <img
+              style={{ height: "34px" }}
+              src="/image/Logo.png"
+              alt="logo_image"
+            />
+          </HashLink>
+          <input
+            readOnly
+            checked={checked}
+            className="menu-btn"
+            type="checkbox"
+            id="menu-btn"
           />
-        </HashLink>
-        <input
-          readOnly
-          checked={checked}
-          className="menu-btn"
-          type="checkbox"
-          id="menu-btn"
-        />
-        <label onClick={toggleNavbar} className="menu-icon" htmlFor="menu-btn">
-          <span className="navicon"></span>
-        </label>
-        <ul className="menu">
-          <li onClick={toggleNavbar}>
-            <PageLink to="/aboutus">{homeLocales.about[lang]}</PageLink>
-          </li>
-          <li onClick={toggleNavbar}>
-            <PageLink to="/how">{homeLocales.how[lang]}</PageLink>
-          </li>
-          <li onClick={toggleNavbar}>
-            <HashLink scroll={scrollWithOffset} smooth to="/#community">
-              {homeLocales.community[lang]}
-            </HashLink>
-          </li>
-          <li onClick={toggleNavbar}>
-            <HashLink scroll={scrollWithOffset} smooth to="/#contact">
-              {homeLocales.contact[lang]}
-            </HashLink>
+          <label onClick={toggleNavbar} className="menu-icon" htmlFor="menu-btn">
+            <span className="navicon"></span>
+          </label>
+          <ul className="menu">
+            <li onClick={toggleNavbar}>
+              <PageLink to="/aboutus">{homeLocales.about[lang]}</PageLink>
             </li>
-          
-{ props.isAuth ? (
-  <>
-    <li onClick={toggleNavbar}>
-      <Link onClick={logout} to="/">
-        {navbarLocales.logout[lang]}
-      </Link>
-    </li>
-    <li>
-      <Link onClick={toggleNavbar} to="/userportal">
-        <button className="round-button profile">
-          <img src="/image/profile.png" alt="User Portal" />
-        </button>
-      </Link>
-    </li>
-  </>
-) : (
-  <>
-    <li>
-      <Link onClick={toggleNavbar} to="/login">
-        <button className="white-button">
-          {navbarLocales.login[lang]}
-        </button>
-      </Link>
-    </li>
-    <li>
-      <Link onClick={toggleNavbar} to="/signup">
-        <button className="blue-button">
-          {navbarLocales.signup[lang]}
-        </button>
-      </Link>
-    </li>
-  </>
-)}
-<li>
-  <a>
-    <button
-      onClick={toggleNavbar}
-      className="round-button language-switch"
-      onClick={(e) => imageChange(props.updatePage)}
-      alt="Language Switcher"
-    >
-      {lang == "de" ? "EN" : "DE"}
-              </button>
-            </a>
-          </li>
-        </ul>
-      </header>
-    </nav> </div>
+            <li onClick={toggleNavbar}>
+              <PageLink to="/how">{homeLocales.how[lang]}</PageLink>
+            </li>
+            <li onClick={toggleNavbar}>
+              <HashLink scroll={scrollWithOffset} smooth to="/#community">
+                {homeLocales.community[lang]}
+              </HashLink>
+            </li>
+            <li onClick={toggleNavbar}>
+              <HashLink scroll={scrollWithOffset} smooth to="/#contact">
+                {homeLocales.contact[lang]}
+              </HashLink>
+              </li>
+            
+            { props.isAuth ? (
+              <>
+                <li onClick={toggleNavbar}>
+                  <Link onClick={logout} to="/">
+                    {navbarLocales.logout[lang]}
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={toggleNavbar} to="/userportal">
+                    <button className="round-button profile">
+                      <img src="/image/profile.png" alt="User Portal" />
+                    </button>
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link onClick={toggleNavbar} to="/login">
+                    <button className="white-button">
+                      {navbarLocales.login[lang]}
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={toggleNavbar} to="/signup">
+                    <button className="blue-button">
+                      {navbarLocales.signup[lang]}
+                    </button>
+                  </Link>
+                </li>
+              </>
+            )}
+            <li>
+              <a>
+                <button
+                  className="round-button language-switch"
+                  onClick={(e) => imageChange(props.updatePage)}
+                  alt="Language Switcher"
+                >
+                  {lang === "de" ? "EN" : "DE"}
+                </button>
+              </a>
+            </li>
+          </ul>
+        </header>
+      </nav>
+      <NavBanner />
+    </div>
   );
 };
 
