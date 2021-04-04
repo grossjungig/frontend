@@ -28,7 +28,7 @@ export const MainRow = styled.div`
 `;
 
 export const SecPanel = styled.div`
-  background-image: url("./image/learning.png");
+  background-image: url("./image/learning.jpg");
   height: 200px;
   background-repeat: no-repeat;
   background-size: cover;

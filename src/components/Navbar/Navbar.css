@@ -12,6 +12,43 @@ a {
 nav {
   /* margin-bottom: 50px; */
   height: calc(3em + 20px);
+  z-index: 1000;
+
+}
+
+.white-button {
+  background-color: var(--gai-white);
+  border: 2px solid var(--gai-blue);
+  color: #365da7;
+}
+.blue-button {
+  background-color: var(--gai-blue);
+  border: 2px solid var(--gai-blue);
+
+  color: var(--gai-white);
+}
+.white-button,
+.blue-button {
+  width: 151px;
+  border-radius: 14px;
+  padding: 10px;
+  margin: -5px -10px;
+  font-weight: 500;
+}
+.round-button {
+  border: 2px solid var(--gai-blue);
+  background-color: var(--gai-white);
+  border-radius: 50%;
+  color: var(--gai-red);
+  margin-top: -20px;
+  margin-right: 0px;
+  height: 50px;
+  width: 50px;
+  font-weight: 500;
+  font-size: 16px;
+}
+.language-switch {
+  margin-top: 5px;
 }
 
 .header {
@@ -29,14 +66,30 @@ nav {
   list-style: none;
   overflow: hidden;
   background-color: #fff;
+  float: right;
+  clear: right;
 }
 
 .header li a {
   display: block;
-  padding: 20px 20px;
-  border-right: 1px solid #f4f4f4;
+  padding: 10px 20px;
   text-decoration: none;
+  float: right;
+  text-decoration: none;
+  float:right;
 }
+
+.header li a button {
+  cursor: pointer;
+}
+.profile {
+  margin-top: 10px;
+}
+.profile img {
+  margin-top: 0px;
+  height: 25px;
+}
+
 
 .header li a:hover,
 .header .menu-btn:hover {
@@ -47,7 +100,7 @@ nav {
   display: block;
   float: left;
   font-size: 3em;
-  padding: 10px 20px;
+  padding: 10px 20px 10px 40px;
   text-decoration: none;
 }
 
@@ -105,7 +158,7 @@ nav {
 }
 
 .header .menu-btn:checked ~ .menu {
-  max-height: 240px;
+  max-height: 800px;
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {
@@ -127,12 +180,15 @@ nav {
 
 /* 48em = 768px */
 
-@media (min-width: 51em) {
+@media (min-width: 78em) {
   .header li {
     float: left;
   }
   .header li a {
-    padding: 20px 30px;
+    padding-top: 30px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    padding-left: 15px;
   }
   .header .menu {
     clear: none;
@@ -141,5 +197,15 @@ nav {
   }
   .header .menu-icon {
     display: none;
+  }
+  .white-button,
+  .blue-button {
+    margin: -10px -10px;
+  }
+  .language-switch {
+    margin-top: -20px;
+  }
+  .profile {
+    margin-top: -15px;
   }
 }

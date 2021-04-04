@@ -9,11 +9,16 @@
   width: 50rem;
   height: 45rem;
   min-width: 375px;
+  z-index: 1;
+  background-color: white;
 }
 
 .login {
   width: 85%;
   margin: 10% auto;
+}
+.rest-z-index {
+  z-index: 1;
 }
 .login-styles {
   display: block;
