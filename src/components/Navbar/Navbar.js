@@ -58,10 +58,9 @@ const Navbar = (props) => {
   };
 
   return (
-    <div>
+    <header>
       {ccDisplayed ? <CookieConsent clicked={confirmCc} />: null}
       <nav >
-        <header className="header">
           <HashLink smooth className="logo" to="/#">
             <img
               style={{ height: "34px" }}
@@ -131,7 +130,7 @@ const Navbar = (props) => {
               </>
             )}
             <li>
-              <a>
+              
                 <button
                   className="round-button language-switch"
                   onClick={(e) => imageChange(props.updatePage)}
@@ -139,13 +138,12 @@ const Navbar = (props) => {
                 >
                   {lang === "de" ? "EN" : "DE"}
                 </button>
-              </a>
+              
             </li>
           </ul>
-        </header>
+        <NavBanner />
       </nav>
-      <NavBanner />
-    </div>
+    </header>
   );
 };
 
