@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import navbarLocales from "../../locales/locales.navbar.json";
 import homeLocales from "../../locales/locales.home.json";
 import { HashLink, PageLink } from "../styled";
 import { connect } from 'react-redux';
 import { logout } from '../../store/auth/actions'
 import { useHistory } from 'react-router-dom';
-import CookieConsent from '../CookieConsent';
-import "./Navbar.css";
 
+import "./Navbar.css";
+import logo from '../../assets/images/Logo.png';
+import navbarLocales from "../../locales/locales.navbar.json";
+import CookieConsent from '../CookieConsent';
 import NavBanner from "./NavBanner";
 
 
@@ -63,9 +64,9 @@ const Navbar = (props) => {
       <nav >
           <HashLink smooth className="logo" to="/#">
             <img
-              style={{ height: "34px" }}
-              src="/image/Logo.png"
-              alt="logo_image"
+              src={logo}
+              alt="logo"
+              className="logo"
             />
           </HashLink>
           <input

@@ -85,6 +85,10 @@
   clear: right;
 } */
 
+.logo {
+  height: 34px;
+}
+
 .white-button {
   background-color: var(--gai-white);
   border: 2px solid var(--gai-blue);
@@ -139,13 +143,13 @@
   background-color: #f4f4f4;
 }
 
-.header .logo {
+/* .header .logo {
   display: block;
   float: left;
   font-size: 3em;
   padding: 10px 20px 10px 40px;
   text-decoration: none;
-}
+}*/
 
 /* menu icon */
 
