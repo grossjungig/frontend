@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Select from 'react-select'
 import { connect } from 'react-redux';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
+import { generateBase64FromImage } from '../../utils';
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -35,8 +36,12 @@ class EditProfile extends Component {
     help: [],
     images: [],
     redirect: false,
+
+    avatarUrl: '',
     avatarPreview: dummyAvatar,
-    avatarPreviewErr: ''
+    avatarFile: {},
+    avatarPreviewErr: '',
+    signedRequest: ''
   };
 
   componentDidMount() {
@@ -82,17 +87,23 @@ class EditProfile extends Component {
   };
 
   handleAvatarChange = async (event) => {
-    const avatar = event.target.files[0];
+    const avatarFile = event.target.files[0];
     const formData = new FormData();
-    formData.append('avatar', avatar);
+    formData.append('avatar', avatarFile);
 
     try {
       const s3Res = await axios.post('api/s3upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
+
+      const base64img = await generateBase64FromImage(avatarFile);
+      this.setState({ avatarPreview: base64img });
+
       const { signedRequest, imageUrl } = s3Res.data
-      await newAxios.put(signedRequest, avatar);
-      this.setState({ avatarPreview: imageUrl });
+      this.setState({ signedRequest: signedRequest });
+      this.setState({ avatarUrl: imageUrl });
+      this.setState({ avatarFile: avatarFile });
+      
     } catch (err) {
       console.log(err);
       this.setState({ avatarPreviewErr: err.message });
@@ -118,9 +129,14 @@ class EditProfile extends Component {
       price: this.state.price,
       phoneNumber: this.state.phoneNumber,
       owner: this.state.owner,
-      avatarUrl: this.state.avatarPreview,
+      avatarUrl: this.state.avatarUrl,
       help: helps,
     };
+
+    // Direct Upload to AWS S3
+    const { signedRequest, avatarFile } = this.state;
+    newAxios.put(signedRequest, avatarFile )
+      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
    
     axios
       .post(
