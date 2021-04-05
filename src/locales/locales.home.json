@@ -146,6 +146,10 @@
     "en":"cares about our community",
     "de":"kümmert sich um unsere Gesellschaft"
   },
+  "social": {
+    "en" : "Social Media",
+    "de" : "Social Media"
+  },
   "partners": {
     "title": {
       "en":"Partners",

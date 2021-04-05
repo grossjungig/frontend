@@ -17,52 +17,67 @@
 
 .home-contact-container {
     margin-top: 40px;
-}
-
-.home-contact-card {
-    text-align: center;
-    padding: 30px 30px 40px;
-    margin: 0 4px;
-    border-radius: 10px;
-    background-color: #AAD7EE;
-}
-
-.home-contact-card:nth-child(2) {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
     border: 1px solid #365DA7;
     border-radius: 16px;
-    margin: -15px 0 0;
-    height: 310px;
-    justify-content: space-around;
 }
 
-.home-contact-icons-container h4 {
+.home-contact-container h4 {
     margin: 8px 0;
 }
 
+.home-contact-text-card {
+    text-align: center;
+    padding: 60px 20px 80px;
+    border-radius: 16px;
+    background-color: #AAD7EE;
+}
+
+.home-contact-icons-card {
+    background-color: white;
+    border-radius: 16px;
+    text-align: center;
+    padding: 36px 10px 50px;
+    margin: -20px 0 0;
+}
+
+.home-contact-icon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.home-contact-icon {
+    margin-bottom: 36px
+}
+
+.home-contact-icon-social-container {
+    margin-top: 10px;
+}
+
+.home-contact-icon-social-container a {
+    margin: 20px;
+}
+
 @media screen and (min-width: 768px) {
+    .home-contact-icon-container {
+        flex-direction: row;
+    }
+
+    .home-contact-icons-card {
+        padding: 50px 10px;
+    }
+
+    .home-contact-icon-social-container a {
+        margin: 16px;
+    }
+}
+
+@media screen and (min-width: 1060px) {
     .home-contact-container {
         display: flex;
         width: 100%;
         max-width: 1032px;
-        flex-direction: row;
-        border: 1px solid #365DA7;
-        border-radius: 10px;
-        height: 320px;
-    }
-
-    .home-contact-card {
-        width: 50%;
-        border-radius: 10px 0 0 10px;
-        margin: 0;
-    }
-
-    .home-contact-card:nth-child(2) {
-        height: auto;
-        border: none;
-        margin: 0
+        border: 1px solid #365FA7;
     }
 
     .home-contact-text-container {
@@ -70,5 +85,16 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+    }
+
+    .home-contact-text-card {
+        width: 50%;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .home-contact-icons-card {
+        width: 50%;
+        margin: 0
     }
 }
