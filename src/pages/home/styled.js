@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import youngOldPlaying from '../../assets/images/youngOldPlaying.jpg';
 
 export const MainPanel = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ export const MainRow = styled.div`
 `;
 
 export const SecPanel = styled.div`
-  background-image: url("./image/learning.jpg");
+  background-image: url(${youngOldPlaying});
   height: 200px;
   background-repeat: no-repeat;
   background-size: cover;
