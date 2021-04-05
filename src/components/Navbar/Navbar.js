@@ -131,6 +131,7 @@ const Navbar = (props) => {
               </>
             )}
             <li>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a>
                 <button
                   className="round-button language-switch"
