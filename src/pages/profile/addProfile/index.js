@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import Select from 'react-select'
 import { dispatchCheckAuth } from "../../../store/auth/thunks";
 import dummyAvatar from '../../../assets/images/dummy-avatar.jpg'
+import { generateBase64FromImage } from '../../../utils';
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -39,8 +40,11 @@ class AddProfile extends Component {
     redirect: false,
     user: '',
 
+    avatarUrl: '',
     avatarPreview: dummyAvatar,
-    avatarPreviewErr: ''
+    avatarFile: {},
+    avatarPreviewErr: '',
+    signedRequest: ''
   };
 
   componentDidMount(){
@@ -62,18 +66,23 @@ class AddProfile extends Component {
   }
 
   handleAvatarChange = async (event) => {
-    const avatar = event.target.files[0];
-    console.log(avatar);
+    const avatarFile = event.target.files[0];
     const formData = new FormData();
-    formData.append('avatar', avatar);
+    formData.append('avatar', avatarFile);
 
     try {
       const s3Res = await axios.post('api/s3upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
+
+      const base64img = await generateBase64FromImage(avatarFile);
+      this.setState({ avatarPreview: base64img });
+
       const { signedRequest, imageUrl } = s3Res.data
-      await newAxios.put(signedRequest, avatar);
-      this.setState({ avatarPreview: imageUrl });
+      this.setState({ signedRequest: signedRequest });
+      this.setState({ avatarUrl: imageUrl });
+      this.setState({ avatarFile: avatarFile });
+      
     } catch (err) {
       console.log(err);
       this.setState({ avatarPreviewErr: err.message });
@@ -88,20 +97,25 @@ class AddProfile extends Component {
     {
       helps.push(arr[i].value);
     }
-    axios
-      .post('api/addProfile', {
-        name: this.state.name,
-        district: this.state.district,
-        postcode: this.state.postcode,
-        address: this.state.address,
-        phoneNumber: this.state.phoneNumber,
-        description: this.state.description,
-        price: this.state.price,
-        gender: this.state.gender,
-        age: this.state.age,
-        help: helps,
-        avatarUrl: this.state.avatarPreview
-      })
+
+    // Direct Upload to AWS S3
+    const { signedRequest, avatarFile } = this.state;
+    newAxios.put(signedRequest, avatarFile )
+      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
+    
+    axios.post('api/addProfile', {
+      name: this.state.name,
+      district: this.state.district,
+      postcode: this.state.postcode,
+      address: this.state.address,
+      phoneNumber: this.state.phoneNumber,
+      description: this.state.description,
+      price: this.state.price,
+      gender: this.state.gender,
+      age: this.state.age,
+      help: helps,
+      avatarUrl: this.state.avatarUrl
+    })
       .then((res) => {
         this.props.refreshUser();
         this.props.history.push(`/profile/${res.data._id}`);
