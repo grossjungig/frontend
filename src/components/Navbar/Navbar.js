@@ -1,28 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import navbarLocales from "../../locales/locales.navbar.json";
 import homeLocales from "../../locales/locales.home.json";
 import { HashLink, PageLink } from "../styled";
-import Fab from "@material-ui/core/Fab";
 import { connect } from 'react-redux';
 import { logout } from '../../store/auth/actions'
 import { useHistory } from 'react-router-dom';
+import CookieConsent from '../CookieConsent';
+import "./Navbar.css";
 
-const imageChange = (updatePage, setImage) => {
-  const lang = localStorage.getItem("lang");
-  if (lang === "en") {
-    setImage("/image/english.png");
-    localStorage.setItem("lang", "de");
-  } else if (lang === "de") {
-    setImage("/image/german.png");
-    localStorage.setItem("lang", "en");
-  }
-  updatePage();
-};
+import NavBanner from "./NavBanner";
+
+
 
 const Navbar = (props) => {
   const history = useHistory();
-  const [img, setImage] = useState("/image/german.png");
+  const [checked, setChecked] = useState(false);
+  const [lang, setLanguage] = useState("de")
+
+  const imageChange = (updatePage) => {
+    const language = localStorage.getItem("lang");
+    if (language === "en") {
+      localStorage.setItem("lang", "de");
+      setLanguage("de")
+    } else if (language === "de") {
+      localStorage.setItem("lang", "en");
+      setLanguage("en")
+
+    }
+    updatePage();  
+  };
+
+  // cc = Cookie Consent
+  const [ ccDisplayed, setCcDisplayed ] = useState(false) 
+  useEffect(() => {
+    const ccConfirmed = localStorage.getItem('ccConfirmed')
+    if (!ccConfirmed) setCcDisplayed(true);
+  }, [])
+  const confirmCc = () => {
+    setCcDisplayed(false)
+    localStorage.setItem('ccConfirmed', 'true');
+  };
 
   const logout = (event) => {
     event.preventDefault();
@@ -30,89 +48,108 @@ const Navbar = (props) => {
     history.push('/');
   };
 
-  const lang = localStorage.getItem("lang");
-
   const scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -60;
     window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
   };
+  const toggleNavbar = () => {
+    setChecked(!checked);
+  };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        position: "sticky",
-        top: "0px",
-        background: "white",
-        zIndex: 2,
-      }}
-    >
-      <nav>
-        <HashLink smooth className="logo-box" to="/#">
-          <img
-            style={{ height: "34px" }}
-            src="/image/Logo.png"
-            alt="logo_image"
-          />
-        </HashLink>
-        <div className="main-nav">
-          <div className="navbarlink">
-            <PageLink to="/aboutus">{homeLocales.about[lang]}</PageLink>
-            <PageLink to="/how">{homeLocales.how[lang]}</PageLink>
-            <HashLink scroll={scrollWithOffset} smooth to="/#community">
-              {homeLocales.community[lang]}
-            </HashLink>
-            <HashLink scroll={scrollWithOffset} smooth to="/#contact">
-              {homeLocales.contact[lang]}
-            </HashLink>
-          </div>
-        </div>
-        {props.isAuth ? (
-          <div className="login-nav">
-            <Link onClick={logout} to="/">
-              {navbarLocales.logout[lang]}
-            </Link>
-            <img onClick={imageChange} height="30px" src={img} alt="" />
-            <Link to="/userportal">
-              <img height="30px" src="/image/user.png" alt="User Portal" />
-            </Link>
-          </div>
-        ) : (
-          <div className="login-nav">
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <Fab
-                style={{ backgroundColor: "white", color: "#365da7" }}
-                className="navbuttons"
-                variant="extended"
-              >
-                {navbarLocales.login[lang]}
-              </Fab>
-            </Link>
-            <Link to="/signup" style={{ textDecoration: "none" }}>
-              <Fab
-                style={{
-                  margin: "5px",
-                  color: "white",
-                  backgroundColor: "#365da7",
-                }}
-                variant="extended"
-              >
-                {navbarLocales.signup[lang]}
-              </Fab>
-            </Link>
+    <div>
+      {ccDisplayed ? <CookieConsent clicked={confirmCc} />: null}
+      <nav >
+        <header className="header">
+          <HashLink smooth className="logo" to="/#">
             <img
-              onClick={(e) => imageChange(props.updatePage, setImage)}
-              height="20px"
-              src={img}
-              alt="Language Switcher"
+              style={{ height: "34px" }}
+              src="/image/Logo.png"
+              alt="logo_image"
             />
-          </div>
-        )}
+          </HashLink>
+          <input
+            readOnly
+            checked={checked}
+            className="menu-btn"
+            type="checkbox"
+            id="menu-btn"
+          />
+          <label onClick={toggleNavbar} className="menu-icon" htmlFor="menu-btn">
+            <span className="navicon"></span>
+          </label>
+          <ul className="menu">
+            <li onClick={toggleNavbar}>
+              <PageLink to="/aboutus">{homeLocales.about[lang]}</PageLink>
+            </li>
+            <li onClick={toggleNavbar}>
+              <PageLink to="/how">{homeLocales.how[lang]}</PageLink>
+            </li>
+            <li onClick={toggleNavbar}>
+              <HashLink scroll={scrollWithOffset} smooth to="/#community">
+                {homeLocales.community[lang]}
+              </HashLink>
+            </li>
+            <li onClick={toggleNavbar}>
+              <HashLink scroll={scrollWithOffset} smooth to="/#contact">
+                {homeLocales.contact[lang]}
+              </HashLink>
+              </li>
+            
+            { props.isAuth ? (
+              <>
+                <li onClick={toggleNavbar}>
+                  <Link onClick={logout} to="/">
+                    {navbarLocales.logout[lang]}
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={toggleNavbar} to="/userportal">
+                    <button className="round-button profile">
+                      <img src="/image/profile.png" alt="User Portal" />
+                    </button>
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link onClick={toggleNavbar} to="/login">
+                    <button className="white-button">
+                      {navbarLocales.login[lang]}
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={toggleNavbar} to="/signup">
+                    <button className="blue-button">
+                      {navbarLocales.signup[lang]}
+                    </button>
+                  </Link>
+                </li>
+              </>
+            )}
+            <li>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a>
+                <button
+                  className="round-button language-switch"
+                  onClick={(e) => imageChange(props.updatePage)}
+                  alt="Language Switcher"
+                >
+                  {lang === "de" ? "EN" : "DE"}
+                </button>
+              </a>
+            </li>
+          </ul>
+        </header>
       </nav>
+      <NavBanner />
     </div>
   );
 };
+
 
 const mapStateToProps = (reduxState) => {
   return {

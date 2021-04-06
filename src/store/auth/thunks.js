@@ -30,9 +30,7 @@ export const dispatchCheckAuth = () => {
             } else {
 
                 const expiresIn = (expirationDate.getTime() - new Date().getTime()) / 1000;
-                const res = await axios.get('/api/auth/relogin', {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
+                const res = await axios.get('/api/auth/relogin');
                 const user = res.data.user
                 dispatch(actions.onAuthSuccess(token, user));
                 dispatch(actions.setTokenExpiration(expiresIn));

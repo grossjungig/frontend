@@ -15,6 +15,10 @@
     "en": "Password",
     "de": "Passwort"
   },
+  "pwdConfirm": {
+    "en": "Reenter password",
+    "de": "Passwort bestätigen"
+  },
   "email": {
     "en": "Email",
     "de": "E-Mail Adresse"
@@ -34,5 +38,31 @@
   "submit": {
     "en": "Submit",
     "de": "Weiter"
+  },
+  "errors": {
+    "INVALID_NAME": {
+      "en": "Name is not valid.",
+      "de": "Name ist ungültig."
+    },
+    "INVALID_EMAIL": {
+      "en": "Please enter a valid email address.",
+      "de": "Tragen Sie bitte eine gültige E-Mail-Adresse ein."
+    },
+    "EMAIL_ALREADY_EXISTS": {
+      "en": "Email already exists.",
+      "de": "E-Mail ist schon vergeben."
+    },
+    "PWD_TOO_SHORT": {
+      "en": "Password should have at least 8 characters",
+      "de": "Passwort sollte mindestens 8 Zeichen haben."
+    },
+    "PWD_NOT_MATCH": {
+      "en": "Password should contain at least a digit, capital and small letter.",
+      "de": "Das Passwort sollte zumindest eine Zahl, einen kleinen und großen Buchstaben beinhalten."
+    },
+    "PWD_NOT_CONFIRMED": {
+      "en": "Password confirmation does not match.",
+      "de": "Bitte Passwort nochmal bestätigen."
+    }
   }
 }

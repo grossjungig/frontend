@@ -41,7 +41,6 @@ class Details extends Component {
   };
 
   render() {
-    console.log(this.state.data);
     let pics =
       this.state.data.images &&
       this.state.data.images.map((image) => {

@@ -81,13 +81,6 @@ export const SecButtonLong = styled.button`
 //   background-color: white;
 // `;
 
-export const Card = ({ title, image, text, alt }) => (
-  <CardRoot>
-    <CardTitle>{title}</CardTitle>
-    <img src={image} alt={alt} />
-    <CardText>{text}</CardText>
-  </CardRoot>
-);
 export const Card2 = ({ title, image, text, alt }) => (
   <Card2Root>
     <Card2Title>{title}</Card2Title>
@@ -107,59 +100,15 @@ export const HashLink = styled(NavHashLink)`
   text-decoration: none;
   font-size: 15px;
   color: black;
-  margin: auto;
-  padding: 0rem 1rem;
+  // margin: auto;
+  // padding: 0rem 1rem;
 `;
 export const PageLink = styled(Link)`
   text-decoration: none;
   font-size: 15px;
   color: black;
-  margin: auto;
-  padding: 0rem 1rem;
-`;
-
-const CardRoot = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 0.2px solid lightgray;
-  border-radius: 6px;
-  margin: 1.5rem;
-  max-width: 330px;
-  /*Media queries Desktop*/
-  @media screen and (min-width: 1060px) {
-    .why-use {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-    }
-  }
-`;
-
-const CardTitle = styled.div`
-  color: #365da7;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.5rem;
-  line-height: 2.625rem;
-  text-align: center;
-  padding: 0.5rem 0rem;
-  /* Media Queries: Tabled Portrait */
-  /* @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-  @media screen and (max-width: 1060px) {
-    font-size: 1.5rem;
-  } */
-`;
-
-const CardText = styled.div`
-  color: black;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-  text-align: center;
-  margin: 1rem;
+  // margin: auto;
+  // padding: 0rem 1rem;
 `;
 
 const Card2Root = styled.div`
