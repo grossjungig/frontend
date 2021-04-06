@@ -1,28 +1,10 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import axios from "axios";
+import axios from '../../axios';
 import './addRoom.css'
 import {Link } from "react-router-dom";
 import { connect } from 'react-redux';
 
-const { fetchedUser } = this.props;
-if (fetchedUser) {
-  this.state.user = fetchedUser;
-}
-//import addroomLocales from "../locales/locales.addrooms.json";
-// const options = [
-//   { value: 'Shopping', label: 'Shopping' },
-//   { value: 'Cooking or baking', label: 'Cooking or baking' },
-//   { value: 'Help with digital devices', label: 'Help with digital devices' },
-//   { value: 'Moving the lawn', label: 'Moving the lawn' },
-//   { value: 'Gardening', label: 'Gardening' },
-//   { value: 'Reading out loud', label: 'Reading out loud' },
-//   { value: 'Car transportation', label: 'Car transportation' },
-//   { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
-//   { value: 'Accompanying on walks', label: 'Accompanying on walks' },
-//   { value: 'Taking care of pets', label: 'Taking care of pets' },
-//   { value: 'Pflage/ Taking care of Seniors', label: 'Pflage/ Taking care of Seniors' }
-// ]
 
 class AddRoom extends Component {
   state = {
@@ -35,14 +17,9 @@ class AddRoom extends Component {
     phoneNumber: "",
     email: "",
     neighbourhood: "",
-
     gender: "",
     age: "",
     help: [],
-
-
-
-
     owner: "",
     redirect: false,
   };
@@ -52,18 +29,15 @@ class AddRoom extends Component {
       [event.target.name]: event.target.value,
     });
   };
-  setHelp = (event) => {
 
+  setHelp = (event) => {
     this.setState({ help: event })
   }
+
   addNewRoom = (event) => {
-    //console.log("WORKING?");
     event.preventDefault();
-    const { fetchedUser } = this.props;
-console.log("fetchedUser addnroom ", fetchedUser)
-    //1. post the data to backend -> routes rooms.js
     axios
-      .post(`${process.env.REACT_APP_BACKENDURL}api/addRoom`, {
+      .post('api/addRoom' , {
         name: this.state.name,
         district: this.state.district,
         postcode: this.state.postcode,
@@ -72,7 +46,7 @@ console.log("fetchedUser addnroom ", fetchedUser)
         email: this.state.email,
         description: this.state.description,
         price: this.state.price,
-        owner: fetchedUser._id,
+        owner: this.props.fetchedUser._id,
       })
       .then((response) => {
         this.props.history.push("/rooms");
@@ -86,8 +60,6 @@ console.log("fetchedUser addnroom ", fetchedUser)
   };
 
   render() {
-    //console.log(this.state);
-    console.log(this.props.user);
     // const lang = localStorage.getItem("lang");
     if (this.state.redirect) {
       return <Redirect to="/berlin" />;
@@ -104,7 +76,6 @@ console.log("fetchedUser addnroom ", fetchedUser)
         <div className="main_div_addRoom" >
           <div className="main_div_2_addRoom">
 
-            {/* ******* * NAME * ******** */}
             <label className="label_room" htmlFor="name">First Name</label>
             <input
               type="text"
@@ -114,9 +85,7 @@ console.log("fetchedUser addnroom ", fetchedUser)
               onChange={this.setFormState}
               className="input_room"
             />
-
-            {/* ******* * GENDER * ******** */}
-            {/* <label className="label_profile" htmlFor="gender">Gender</label>
+             <label className="label_profile" htmlFor="gender">Gender</label>
             <select
               name="gender"
               type="select"
@@ -128,10 +97,9 @@ console.log("fetchedUser addnroom ", fetchedUser)
               <option className="option_room" value="male">Male</option>
               <option className="option_room" value="female">Female</option>
               <option className="option_room" value="divers">Divers</option>
-            </select> */}
+            </select> 
 
-            {/* ******* * AGE * ******** */}
-            {/* <label className="label_room" htmlFor="age">Age</label>
+            <label className="label_room" htmlFor="age">Age</label>
             <input
               type="number"
               name="age"
@@ -139,14 +107,8 @@ console.log("fetchedUser addnroom ", fetchedUser)
               value={this.state.age}
               onChange={this.setFormState}
               className="input_room"
-            /> */}
+            /> 
 
-            {/* ******* * HELP* ******** */}
-            {/* <label className="label_room" htmlFor="help" >Expected Helps</label>
-            <Select isMulti options={options} onChange={this.setHelp} id="help" value={this.state.help}
-              name="help" /> */}
-
-            {/* ******* * ABOUT ME / DISCRIPTION* ******** */}
             <label htmlFor="description" className="label_room" >About me (max 120 signs)</label>
             <textarea
               type="text"
@@ -159,7 +121,6 @@ console.log("fetchedUser addnroom ", fetchedUser)
               className="textarea_room"
             />
 
-            {/* ******* * PRICE * ******** */}
             <label className="label_room" htmlFor="price">Price</label>
             <input
               type="number"
@@ -170,7 +131,6 @@ console.log("fetchedUser addnroom ", fetchedUser)
               className="input_room"
             />
 
-            {/* ******* * DISTRICT * ******** */}
             <label className="label_profile" htmlFor="district">Prefered District</label>
             <select
               name="district"
@@ -195,7 +155,6 @@ console.log("fetchedUser addnroom ", fetchedUser)
               <option value="Treptow-Koepenick">Treptow-Koepenick</option>
             </select>
 
-            {/* ******* * POSTCODE * ******** */}
             <label className="label_room" htmlFor="postcode">Postcode</label>
             <input
               type="number"
@@ -206,7 +165,6 @@ console.log("fetchedUser addnroom ", fetchedUser)
               className="input_room"
             />
 
-            {/* ******* * ADDRESS * ******** */}
             <label className="label_room" htmlFor="address">Address</label>
             <input
               type="text"
@@ -217,10 +175,9 @@ console.log("fetchedUser addnroom ", fetchedUser)
               className="input_room"
             />
 
-            {/* ******* * PHONE NUMBER * ******** */}
             <label className="label_room" htmlFor="phoneNumber">Phone Number</label>
             <input
-              type="number"
+              type="text"
               name="phoneNumber"
               id="phoneNumber"
               value={this.state.phoneNumber}
@@ -228,7 +185,6 @@ console.log("fetchedUser addnroom ", fetchedUser)
               className="input_room"
             />
 
-            {/* ******* * EMAIL * ******** */}
             <label className="label_room" htmlFor="email">Email</label>
             <input
               type="text"
@@ -239,7 +195,6 @@ console.log("fetchedUser addnroom ", fetchedUser)
               className="input_room"
             />
 
-            {/* ******* * NEIOGHBOURHOOD * ******** */}
             <label className="label_room" htmlFor="neighbourhood">Neighbourhood</label>
             <input
               type="text"
@@ -249,15 +204,14 @@ console.log("fetchedUser addnroom ", fetchedUser)
               onChange={this.setFormState}
               className="input_room"
             />
-            {/* ******* * PICTURE * ******** */}
+
             <label className="label_room" >Picture</label>
             <button type="submit" className="button_room">Upload the picture</button>
 
-            {/* ******* * BUTTON * ******** */}
             <div className="div_button_addRoom">
             <Link to={`/profile`}>
               <button type="submit" className="button_room button_room_cancel" >Cancel</button>
-              </Link>
+            </Link>
               <button type="submit" className="button_room button_room_submit" onClick={this.addNewRoom} >Submit</button>
             </div>
          
