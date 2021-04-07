@@ -1,27 +1,39 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import axios from '../../axios';
 import './addRoom.css'
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import Select from 'react-select'
+
+const options = [
+  { value: 'Shopping', label: 'Shopping' },
+  { value: 'Cooking or baking', label: 'Cooking or baking' },
+  { value: 'Help with digital devices', label: 'Help with digital devices' },
+  { value: 'Moving the lawn', label: 'Moving the lawn' },
+  { value: 'Gardening', label: 'Gardening' },
+  { value: 'Reading out loud', label: 'Reading out loud' },
+  { value: 'Car transportation', label: 'Car transportation' },
+  { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
+  { value: 'Accompanying on walks', label: 'Accompanying on walks' },
+  { value: 'Taking care of pets', label: 'Taking care of pets' },
+  { value: 'Pflage/ Taking care of Seniors', label: 'Pflage/ Taking care of Seniors' }
+]
 
 
 class AddRoom extends Component {
   state = {
-    name: "",
-    description: "",
-    price: "",
-    district: "select",
-    postcode: "",
-    address: "",
-    phoneNumber: "",
-    email: "",
-    neighbourhood: "",
-    gender: "",
-    age: "",
-    help: [],
-    owner: "",
-    redirect: false,
+    name: '',
+    roomTitle: '',
+    gender: '',
+    age: '',
+    phoneNumber: '',
+    district: '',
+    address: '',
+    postcode: '',
+    description: '',
+    expectedHelp: [],
+    price: '',
+    user: '',
   };
 
   setFormState = (event) => {
@@ -31,26 +43,35 @@ class AddRoom extends Component {
   };
 
   setHelp = (event) => {
-    this.setState({ help: event })
+    this.setState({expectedHelp:event})
+
   }
 
   addNewRoom = (event) => {
     event.preventDefault();
+    const arr=this.state.expectedHelp;
+    var helps=[];
+    for (var i = 0 ;i < arr.length; i++ )
+    {
+      helps.push(arr[i].value);
+    }
     axios
       .post('api/addRoom' , {
         name: this.state.name,
-        district: this.state.district,
-        postcode: this.state.postcode,
-        address: this.state.address,
+        roomTitle: this.state.roomTitle,
+        gender: this.state.gender,
+        age: this.state.age,
         phoneNumber: this.state.phoneNumber,
-        email: this.state.email,
+        district: this.state.district,
+        address: this.state.address,
+        postcode: this.state.postcode,
         description: this.state.description,
+        expectedHelp: helps,
         price: this.state.price,
-        owner: this.props.fetchedUser._id,
+        user: this.props.fetchedUser._id,
       })
       .then((response) => {
-        this.props.history.push("/rooms");
-        console.log("this is response", response);
+        this.props.history.push(`/berlin/${response.data._id}`)
       })
       .catch((err) => {
         this.setState({
@@ -60,18 +81,9 @@ class AddRoom extends Component {
   };
 
   render() {
-    // const lang = localStorage.getItem("lang");
-    if (this.state.redirect) {
-      return <Redirect to="/berlin" />;
-    }
-   
-
     return (
       <div className="div_warning_1_addRoom" >
         <div className="div_warning_2_addRoom" >
-          <div className="warning_addRoom" >
-            <p >“Please do not leave your personal identifying information here”</p>
-          </div>
         </div>
         <div className="main_div_addRoom" >
           <div className="main_div_2_addRoom">
@@ -80,12 +92,12 @@ class AddRoom extends Component {
             <input
               type="text"
               name="name"
-              id="name"
               value={this.state.name}
               onChange={this.setFormState}
               className="input_room"
             />
-             <label className="label_profile" htmlFor="gender">Gender</label>
+            
+             <label className="label_room" htmlFor="gender">Gender</label>
             <select
               name="gender"
               type="select"
@@ -93,7 +105,7 @@ class AddRoom extends Component {
               onChange={this.setFormState}
               className="select_room"
             >
-              <option className="option_room" value="" disabled selected>Select</option>
+              <option className="option_room" value="" disabled>Select</option>
               <option className="option_room" value="male">Male</option>
               <option className="option_room" value="female">Female</option>
               <option className="option_room" value="divers">Divers</option>
@@ -103,44 +115,44 @@ class AddRoom extends Component {
             <input
               type="number"
               name="age"
-              id="age"
               value={this.state.age}
               onChange={this.setFormState}
               className="input_room"
             /> 
 
-            <label htmlFor="description" className="label_room" >About me (max 120 signs)</label>
-            <textarea
-              type="text"
-              name="description"
-              id="description"
-              value={this.state.description}
-              onChange={this.setFormState}
-              maxlength="120"
-              rows="3"
-              className="textarea_room"
-            />
-
-            <label className="label_room" htmlFor="price">Price</label>
+            <label className="label_room" htmlFor="name">Room Title</label>
             <input
-              type="number"
-              name="price"
-              id="price"
-              value={this.state.price}
+              type="text"
+              name="roomTitle"
+              value={this.state.roomTitle}
               onChange={this.setFormState}
               className="input_room"
             />
 
-            <label className="label_profile" htmlFor="district">Prefered District</label>
+            <label className="label_room" htmlFor="expectedHelp" style={{marginBottom:"2vh"}}>Expected Help</label>
+            <Select isMulti options={options} onChange={this.setHelp} value={this.state.expectedHelp} />
+
+            <label htmlFor="description" className="label_room" >About me (max 120 signs)</label>
+            <textarea
+              type="text"
+              name="description"
+              value={this.state.description}
+              onChange={this.setFormState}
+              maxLength="120"
+              rows="3"
+              className="textarea_room"
+            />
+
+
+            <label className="label_room" htmlFor="district">District</label>
             <select
               name="district"
               type="select"
               value={this.state.district}
               onChange={this.setFormState}
-              className="select_profile"
-              placeholder="Select"
+              className="select_room"
             >
-              <option value="" disabled selected>Select</option>
+              <option value="" disabled> Select </option>
               <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
               <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
               <option value="Lichtenberg">Lichtenberg</option>
@@ -155,61 +167,48 @@ class AddRoom extends Component {
               <option value="Treptow-Koepenick">Treptow-Koepenick</option>
             </select>
 
+            <label className="label_room" htmlFor="address">Address</label>
+            <input
+              type="text"
+              name="address"
+              value={this.state.address}
+              onChange={this.setFormState}
+              className="input_room"
+            />
+
             <label className="label_room" htmlFor="postcode">Postcode</label>
             <input
               type="number"
               name="postcode"
-              id="postcode"
               value={this.state.postcode}
               onChange={this.setFormState}
               className="input_room"
             />
 
-            <label className="label_room" htmlFor="address">Address</label>
+            <label className="label_room" htmlFor="price">Price</label>
             <input
-              type="text"
-              name="address"
-              id="address"
-              value={this.state.address}
+              type="number"
+              name="price"
+              value={this.state.price}
               onChange={this.setFormState}
               className="input_room"
             />
 
             <label className="label_room" htmlFor="phoneNumber">Phone Number</label>
             <input
-              type="text"
+              type="tel"
               name="phoneNumber"
-              id="phoneNumber"
               value={this.state.phoneNumber}
               onChange={this.setFormState}
               className="input_room"
             />
 
-            <label className="label_room" htmlFor="email">Email</label>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              value={this.state.email}
-              onChange={this.setFormState}
-              className="input_room"
-            />
-
-            <label className="label_room" htmlFor="neighbourhood">Neighbourhood</label>
-            <input
-              type="text"
-              name="neighbourhood"
-              id="neighbourhood"
-              value={this.state.neighbourhood}
-              onChange={this.setFormState}
-              className="input_room"
-            />
 
             <label className="label_room" >Picture</label>
             <button type="submit" className="button_room">Upload the picture</button>
 
             <div className="div_button_addRoom">
-            <Link to={`/profile`}>
+            <Link to={'/userportal'}>
               <button type="submit" className="button_room button_room_cancel" >Cancel</button>
             </Link>
               <button type="submit" className="button_room button_room_submit" onClick={this.addNewRoom} >Submit</button>
