@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import { Redirect,Link } from "react-router-dom";
-import axios from "axios";
+import './index.css';
+import axios from '../../../axios';
+import newAxios from 'axios';
 import { connect } from 'react-redux';
 import Select from 'react-select'
+import { dispatchCheckAuth } from "../../../store/auth/thunks";
+import dummyAvatar from '../../../assets/images/dummy-avatar.jpg'
+import { generateBase64FromImage } from '../../../utils';
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -34,8 +39,21 @@ class AddProfile extends Component {
     images: [],
     redirect: false,
     user: '',
+
+    avatarUrl: '',
+    avatarPreview: dummyAvatar,
+    avatarFile: {},
+    avatarPreviewErr: '',
+    signedRequest: ''
   };
 
+  componentDidMount(){
+    const { fetchedUser } = this.props;
+    if (fetchedUser) {
+      this.setState({ user: fetchedUser });
+    }
+  }
+  
   setFormState = (event) => {
 
     this.setState({
@@ -46,6 +64,31 @@ class AddProfile extends Component {
   setHelp = (event) => {
     this.setState({ help: event })
   }
+
+  handleAvatarChange = async (event) => {
+    const avatarFile = event.target.files[0];
+    const formData = new FormData();
+    formData.append('avatar', avatarFile);
+
+    try {
+      const s3Res = await axios.post('api/s3upload', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+
+      const base64img = await generateBase64FromImage(avatarFile);
+      this.setState({ avatarPreview: base64img });
+
+      const { signedRequest, imageUrl } = s3Res.data
+      this.setState({ signedRequest: signedRequest });
+      this.setState({ avatarUrl: imageUrl });
+      this.setState({ avatarFile: avatarFile });
+      
+    } catch (err) {
+      console.log(err);
+      this.setState({ avatarPreviewErr: err.message });
+    }
+  }
+
   addNewProfile = (event) => {
     event.preventDefault();
     const arr=this.state.help;
@@ -54,22 +97,28 @@ class AddProfile extends Component {
     {
       helps.push(arr[i].value);
     }
-    axios
-      .post(`${process.env.REACT_APP_BACKENDURL}api/addProfile`, {
-        name: this.state.name,
-        district: this.state.district,
-        postcode: this.state.postcode,
-        address: this.state.address,
-        phoneNumber: this.state.phoneNumber,
-        description: this.state.description,
-        price: this.state.price,
-        user: this.props.user._id,
-        gender: this.state.gender,
-        age: this.state.age,
-        help: helps,
-      })
-      .then((response) => {
-        this.props.history.push("/userportal", { user: this.props.user });
+
+    // Direct Upload to AWS S3
+    const { signedRequest, avatarFile } = this.state;
+    newAxios.put(signedRequest, avatarFile )
+      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
+    
+    axios.post('api/addProfile', {
+      name: this.state.name,
+      district: this.state.district,
+      postcode: this.state.postcode,
+      address: this.state.address,
+      phoneNumber: this.state.phoneNumber,
+      description: this.state.description,
+      price: this.state.price,
+      gender: this.state.gender,
+      age: this.state.age,
+      help: helps,
+      avatarUrl: this.state.avatarUrl
+    })
+      .then((res) => {
+        this.props.refreshUser();
+        this.props.history.push(`/profile/${res.data._id}`);
       })
       .catch((err) => {
         console.log(err);
@@ -80,17 +129,15 @@ class AddProfile extends Component {
     if (this.state.redirect) {
       return <Redirect to="/profiles" />;
     }
-    const { fetchedUser } = this.props;
-    if (fetchedUser) {
-      this.setState({ user: fetchedUser });
-    }
+
+
 
     return (
 
       <div style={{ height: "auto", width: "auto" }}>
         <div style={{ display: "flex", justifyContent: "center", marginTop: "3vh" }}>
           <div className="warning" style={{ margin: "1vh" }}>
-            <p >Please do not leave your personal identifying information here.</p>
+            <p>Please do not leave your personal identifying information here.</p>
           </div>
         </div>
 
@@ -116,10 +163,10 @@ class AddProfile extends Component {
               style={{ marginTop: "2vh" }}
               className="select_profile"
             >
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="" disabled selected>Select</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="male">Male</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="female">Female</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="divers">Divers</option>
+              <option  value="" disabled>Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="divers">Divers</option>
             </select>
 
             <label htmlFor="age" className="label_profile" style={{marginBottom:"2vh"}} >Age</label>
@@ -148,13 +195,13 @@ class AddProfile extends Component {
               id="description"
               value={this.state.description}
               onChange={this.setFormState}
-              maxlength="120"
+              maxLength="120"
               rows="3"
               style={{ marginTop: "2vh" }}
               className="textarea_profile"
             />
 
-            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>{fetchedUser.role ==="senior"? "Help I‘d like to get": "Offered Help"}</label>
+            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>Offered Help</label>
             <Select isMulti options={options} onChange={this.setHelp} id="help"
               name="help" />
 
@@ -167,7 +214,7 @@ class AddProfile extends Component {
               className="select_profile"
               placeholder="Select"
             >
-              <option value="" disabled selected>Select</option>
+              <option value="" disabled>Select</option>
               <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
               <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
               <option value="Lichtenberg">Lichtenberg</option>
@@ -182,16 +229,17 @@ class AddProfile extends Component {
               <option value="Treptow-Koepenick">Treptow-Koepenick</option>
             </select>
 
-
-            
-            <label className="label_profile" >Picture</label>
-            <button type="submit" className="button_profile">
-              Upload the picture
-
-        </button>
+            <label className="label_profile" >Profile picture</label>
+            <img src={this.state.avatarPreview} className="avatar-preview" alt="avatar"/>
+            <input
+                type="file"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={this.handleAvatarChange}
+            />
+            <span className="avatar-preview-err">{this.state.avatarPreviewErr}</span>
 
             <div className="warning" style={{ marginTop: "2vh" }}>
-              <p >By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.</p>
+              <p>By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.</p>
           
             </div>
 
@@ -217,4 +265,8 @@ const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
 
-export default connect(mapStateToProps)(AddProfile);
+const mapDispatchToProps = {
+  refreshUser: () => dispatchCheckAuth()
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddProfile);

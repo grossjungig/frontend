@@ -11,6 +11,7 @@ import AboutUs from './pages/aboutUs/AboutUs';
 import Impressum from './pages/impressum/Impressum';
 import Login from './pages/login/Login.js';
 import Signup from './pages/signup/Signup.js';
+import AddProfile from "./pages/profile/addProfile";
 
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
@@ -23,7 +24,7 @@ import Details from "./components/Details/Details";
 import MapView from "./components/MapView/MapView";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import Profile from "./components/Profile/Profile";
-import AddProfile from "./components/AddProfile/AddProfile";
+
 import People from "./components/People/People";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import EditProfile from "./components/EditProfile/EditProfile";
@@ -47,7 +48,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <ThemeProvider theme={theme}>
-          <Navbar />
+          <Navbar updatePage={this.updatePage} />
           <Switch>
             <Route exact path="/"><Home/></Route>
             <Route exact path="/signup"><Signup/></Route>
@@ -70,7 +71,7 @@ class App extends React.Component {
             <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
             <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
             <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
-            <Route exact path="/edit" render={(props) => (
+            <Route exact path="/edit/:id" render={(props) => (
               <EditProfile history={props.history} />
             )}/>
 

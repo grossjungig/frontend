@@ -4,6 +4,7 @@
   max-width: 1150px;
   margin-left: auto;
   margin-right: auto;
+  background:white;
 }
 
 /* Nav bar */
@@ -82,33 +83,6 @@ nav {
 
 /* Media Queries: Desktop */
 
-@media screen and (min-width: 759px) {
-  nav {
-    flex-basis: 100%;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    flex-wrap: nowrap;
-  }
-  .main-nav {
-    display: flex;
-    order: 2;
-    flex-basis: 70%;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-  }
-  .login-nav {
-    display: flex;
-    flex-basis: 20%;
-    order: 3;
-    /* justify-content: ; */
-  }
-  .logo-box {
-    display: flex;
-    flex-basis: 10%;
-    justify-content: center;
-  }
-}
 
 /* User Portal */
 
