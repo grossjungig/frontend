@@ -130,12 +130,14 @@ class AddProfile extends Component {
       return <Redirect to="/profiles" />;
     }
 
+
+
     return (
 
       <div style={{ height: "auto", width: "auto" }}>
         <div style={{ display: "flex", justifyContent: "center", marginTop: "3vh" }}>
           <div className="warning" style={{ margin: "1vh" }}>
-            <p >Please do not leave your personal identifying information here.</p>
+            <p>Please do not leave your personal identifying information here.</p>
           </div>
         </div>
 
