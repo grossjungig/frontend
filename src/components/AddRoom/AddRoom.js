@@ -50,7 +50,6 @@ class AddRoom extends Component {
       })
       .then((response) => {
         this.props.history.push(`/berlin/${response.data._id}`);
-        console.log("this is response", response);
       })
       .catch((err) => {
         this.setState({
@@ -60,7 +59,6 @@ class AddRoom extends Component {
   };
 
   render() {
-    // const lang = localStorage.getItem("lang");
     if (this.state.redirect) {
       return <Redirect to="/berlin" />;
     }
