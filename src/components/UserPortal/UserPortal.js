@@ -56,9 +56,6 @@ const UserPortal = (props) => {
         <Link to="/berlin">
           <button>{portalLocales.rooms[lang]}</button>
         </Link>
-        <Link to="/maps">
-          <button>{portalLocales.map[lang]}</button>
-        </Link>
         {renderedLinks}
       </div>
     </div>
