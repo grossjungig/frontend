@@ -20,8 +20,8 @@
     margin: auto;
 }
 
-@media (max-width: 405px) {
+@media (max-width: 700px) {
     .partner-panel__items {
-        justify-content: center;
+        grid-template-columns: repeat(auto-fit, 180px);
     }
 }

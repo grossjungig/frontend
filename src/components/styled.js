@@ -152,6 +152,7 @@ const Card2Title = styled.div`
   font-size: 24px;
   line-height: 2.7425rem;
   display: flex;
+  justify-content:center;
   align-items: center;
   text-align: center;
   border: 2px solid;
