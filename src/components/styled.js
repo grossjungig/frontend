@@ -119,13 +119,13 @@ const Card2Root = styled.div`
   box-sizing: border-box;
   border-radius: 10px;
   padding: 0.15rem;
-  margin: 1rem; 
+  margin: 16px; 
   align-items: center;
   box-sizing: border-box;
-  height: 20rem;
-  width: 18rem;
-  min-height: 20rem;
-  min-width: 18rem;
+  height: 320px;
+  width: 288px;
+  min-height: 320px;
+  min-width: 288px;
 
 
   /*For tablet*/

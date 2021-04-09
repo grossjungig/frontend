@@ -12,13 +12,14 @@ import { MainPanel, MainRow, SecPanel, RowChoose, RowSearch,
 
 import { card3 } from "./cards";
 import Partners from "./components/Partners/Partners";
+import heroBanner from "../../assets/images/backgrounds/hero-home-background-picture.jpg"
 
 class Home extends Component {
   render() {
     const lang = localStorage.getItem("lang");
     return (
       <>
-        <div className="home-component">
+        <div className="home-component" style={{ backgroundImage: heroBanner}}>
           <MainPanel>
             <H1 style={{ textAlign: "center" }}>
               {homeLocales.find[lang]}
