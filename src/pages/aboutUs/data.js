@@ -22,6 +22,7 @@ import jen from '../../assets/images/team/jen.png';
 import kilian from '../../assets/images/team/kilian.png';
 import ane from '../../assets/images/team/ane.jpg';
 import chiao from '../../assets/images/team/chiao.jpg';
+import roberta from '../../assets/images/team/roberta.jpeg';
 
 
 const { team } = aboutLocales;
@@ -53,6 +54,7 @@ export const staff = [
     { img: christian, role: team.Christian, name: 'Christian' },
     { img: rosina, role: team.Rosina, name: 'Rosina' },
     { img: pablo, role: team.Pablo, name: 'Pablo' },
+    { img: roberta, role: team.Roberta, name: 'Roberta' },
     { img: tammy, role: team.Tammy, name: 'Tammy' },
     { img: kilian, role: team.Kilian, name: 'Kilian' },
     { img: vicky, role: team.Vicky, name: 'Vicky' },
