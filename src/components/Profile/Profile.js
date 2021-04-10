@@ -1,34 +1,33 @@
-import axios from 'axios';
+import axios from '../../axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import img from '../../assets/images/header_image.png';
 import "./profile.css";
+import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
 
 class Profile extends Component {
   state = {
     profile: [],
-    user: ''
   };
 
   componentDidMount() {
     const profileId = this.props.match.params.id;
     
-    axios.get(`${process.env.REACT_APP_BACKENDURL}api/profiles/${profileId}`)
+    axios.get(`api/profiles/${profileId}`)
       .then((response) => {
         this.setState({ profile: response.data});
       })
       .catch(function (error) {
         console.log(error);
       });
-
-      const { fetchedUser } = this.props;
-      if (fetchedUser) {
-        this.setState({ user: fetchedUser });
-      }
   }
     render() {
     const profile = this.state.profile;
+    const user = this.props.fetchedUser;
+
+    let renderedAvatar = dummyAvatar;
+    const { avatarUrl } = this.state.profile;
+    if (avatarUrl) renderedAvatar = avatarUrl;
     
     return (
       <div className = 'profile-container' >
@@ -44,7 +43,7 @@ class Profile extends Component {
         <div className = 'profile-picture-container'>
           <div style={{ width: '328px' }}>
           <div className = 'label-profile'> Picture </div>
-            <img src={img} style={{ width: '100%' }} alt='profile' />
+            <img src={renderedAvatar} style={{ width: '100%' }} alt='avatar' />
           </div>
           </div>
 
@@ -72,7 +71,7 @@ class Profile extends Component {
         </div>
 
         <div>
-        {profile.length !== 0 && this.state.user.profile === this.props.match.params.id ? (
+        {profile.length !== 0 && user.profile === this.props.match.params.id ? (
               <Link to={`/edit/${profile._id}`}>
                 <button className = 'button_profile' style={{ width: '100%' }}>
                   Edit Profile

@@ -86,7 +86,6 @@ class ForgotPassword extends Component {
             ) : (
               <div>
                 <form onSubmit={this.sendEmail}>
-                  {/* <label htmlFor="email">{loginLocales.email[lang]}</label> */}
                   <TextField
                     margin="normal"
                     label={loginLocales.email[lang]}
@@ -103,7 +102,8 @@ class ForgotPassword extends Component {
                       <p>{errorMessage}</p>
                     </div>
                   )}
-                  <Button
+                  <Button 
+                    className="rest-z-index"
                     style={{
                       marginRight: "5px",
                       color: "white",
@@ -115,8 +115,12 @@ class ForgotPassword extends Component {
                     {forgotLocales.submit[lang]}
                   </Button>
                   <Link style={{ textDecoration: "none" }} to="/">
-                    <Button variant="contained" type="">
-                      {forgotLocales.return[lang]}
+                    <Button
+                      className="rest-z-index"
+                      variant="contained"
+                      type=""
+                    >
+                        {forgotLocales.return[lang]}
                     </Button>
                   </Link>
                 </form>

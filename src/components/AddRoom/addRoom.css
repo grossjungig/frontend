@@ -1,0 +1,117 @@
+.label_room {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.input_room {
+    background: #f9f8f8;
+    border: 0.25px solid rgba(51, 51, 51, 0.6);
+    box-sizing: border-box;
+    height: 5vh;
+    font-size: 15px;
+    font-family: Montserrat;
+    width: -webkit-fill-available;
+}
+
+.select_room {
+    font-size: 15px;
+    font-family: Montserrat;
+    height: 5vh;
+    background: #f9f8f8;
+    width: -webkit-fill-available;
+}
+
+.option_room {
+    background-color: #F9F8F8;
+    font-family: Montserrat;
+}
+
+.button_room {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    align-items: center;
+    text-align: center;
+    /* Blue */
+    background: #f9f8f8;
+    /* Blue */
+    width: inherit;
+    height: 52px;
+    border: 1px solid #365fa7;
+    box-sizing: border-box;
+    color: #365fa7;
+}
+
+.button_room_cancel {
+    margin-top: 2vh;
+    width: 150px;
+}
+
+.button_room_submit {
+    margin-top: 2vh;
+    color: #F9F8F8;
+    background: #365FA7;
+    width: 150px;
+}
+
+.textarea_room {
+    font-size: 15px;
+    font-family: Montserrat;
+    width: -webkit-fill-available;
+    background: #f9f8f8;
+}
+
+.button_room_picture {
+    width: inherit;
+}
+
+.add_room_container {
+    width: inherit;
+}
+
+.main_div_addRoom {
+    display: flex;
+    justify-content: center;
+}
+
+.div_warning_1_addRoom {
+    height: auto;
+    width: auto;
+}
+
+.div_warning_2_addRoom {
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+}
+
+.main_div_2_addRoom {
+    width: 328px;
+}
+
+.warning_addRoom {
+    background: #f9f8f8;
+    /* Blue */
+    width: fit-content;
+    border: 1px solid #365fa7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding-right: 1vh;
+    padding-left: 1vh;
+    max-width: 700px;
+    margin: 1vh;
+}
+
+.div_button_addRoom {
+    display: flex;
+    justify-content: space-between;
+}
