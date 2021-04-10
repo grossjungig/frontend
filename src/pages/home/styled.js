@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import youngOldPlaying from '../../assets/images/youngOldPlaying.jpg';
+import playstation from "../../assets/images/backgrounds/playstation.jpg"
 
 export const MainPanel = styled.div`
   display: flex;
@@ -29,15 +29,21 @@ export const MainRow = styled.div`
 `;
 
 export const SecPanel = styled.div`
-  background-image: url(${youngOldPlaying});
-  height: 200px;
+  background-image: url(${playstation});
+  height: 720px;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 0.5rem;
+  background-position: center;
+  margin: 7rem 8rem;
 
-  @media (min-width: 768px) {
+  @media (max-width: 834px) {
+    margin: 1rem 1rem;
+  }
+
+  @media (min-width: 834px) {
     /* height: 400px; */
     padding: 6rem;
+
   }
 
   @media (min-width: 1060px) {
@@ -79,67 +85,34 @@ export const Mission = styled.div`
 export const How = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2rem;
-
+  background-color: ${props => props.backgroundColor || "#365FA7"};
+  padding: 2rem 0;
   /* Media Queries: Tablet Portrait */
   @media screen and (min-width: 768px) {
   }
   /* Media Queries: Desktop */
   @media screen and (min-width: 1060px) {
-    display: flex;
     justify-content: space-between;
   }
 `;
 
 
-export const HowGrid = styled.div`
-  display: grid;
-  grid-gap: 0.3rem;
-  grid-template-columns: auto auto;
-  justify-content: space-between;
-  padding: 0rem;
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
-  /* margin-top: 1.5rem; */
-  /* Media Queries: Tablet Portrait */
-  @media screen and (min-width: 768px) {
+export const HowFlex = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 8rem;
+
+  @media (max-width: 1500px) {
     margin-left: 0.3rem;
     margin-right: 0.3rem;
-    grid-template-columns: auto auto auto;
-  }
-  /* Media Queries: Desktop */
-  @media screen and (min-width: 1060px) {
-    display: grid;
-    grid-gap: 3rem;
-    grid-template-columns: auto auto auto;
-    justify-content: center;
-    margin: 2rem;
-    align-items: center;
-    padding-right: 8rem;
-    padding-left: 8rem;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* remove scrollbar in IE and Edge */
+    scrollbar-width: none;  /* remove scrollbar in Firefox */
+
+    &::-webkit-scrollbar {
+      display: none; /* remove scrollbar in Chrome, Safari and other webkit browsers */
+    }
   }
 `;
 
-export const CommunityPanel = styled.div`
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-  padding-top: 3rem;
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-  line-height: 26px;
-  color: black;
-  @media (min-width: 768px) {
-    margin-bottom: 0.5rem;
-    padding-top: 1.5rem;
-  }
-
-  @media (min-width: 1060px) {
-    margin-bottom: 0.5rem;
-    margin-top: 11rem;
-    padding-top: 1.5rem;
-  }
-`;
