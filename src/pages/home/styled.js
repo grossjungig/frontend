@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import playstation from "../../assets/images/backgrounds/playstation.jpg"
+import youngOldPlaying from "../../assets/images/youngOldPlaying.jpg"
 
 export const MainPanel = styled.div`
   display: flex;
@@ -29,7 +29,7 @@ export const MainRow = styled.div`
 `;
 
 export const SecPanel = styled.div`
-  background-image: url(${playstation});
+  background-image: url(${youngOldPlaying});
   height: 720px;
   background-repeat: no-repeat;
   background-size: cover;
