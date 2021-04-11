@@ -34,10 +34,10 @@ class Contact extends Component {
             </div>
             <h4>{homeLocales.social[lang]}</h4>
             <div className={'home-contact-icon-social-container'}>
-              <a href={"https://google.com"} target={'_blank'} rel={'noreferrer'}><img src={facebook} alt="facebook-logo"/></a>
-              <a href={"https://google.com"} target={'_blank'} rel={'noreferrer'}><img src={youtube} alt="youtube-logo"/></a>
-              <a href={"https://google.com"} target={'_blank'} rel={'noreferrer'}><img src={insta} alt="insta-logo"/></a>
-              <a href={"https://google.com"} target={'_blank'} rel={'noreferrer'}><img src={linkedIn} alt="linkedIn-logo"/></a>
+              <a href={homeLocales.social.facebook} target={'_blank'} rel={'noreferrer'}><img src={facebook} alt="facebook-logo"/></a>
+              <a href={homeLocales.social.youtube} target={'_blank'} rel={'noreferrer'}><img src={youtube} alt="youtube-logo"/></a>
+              <a href={homeLocales.social.insta} target={'_blank'} rel={'noreferrer'}><img src={insta} alt="insta-logo"/></a>
+              <a href={homeLocales.social.linkedIn} target={'_blank'} rel={'noreferrer'}><img src={linkedIn} alt="linkedIn-logo"/></a>
             </div>
           </div>
         </div>

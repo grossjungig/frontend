@@ -147,8 +147,12 @@
     "de":"kümmert sich um unsere Gesellschaft"
   },
   "social": {
-    "en" : "Social Media",
-    "de" : "Social Media"
+    "en": "Social Media",
+    "de": "Soziale Netzwerke",
+    "facebook" : "https://www.facebook.com/GrossjungigAI",
+    "insta" : "https://www.instagram.com/grossjungig_ai/",
+    "youtube" : "https://www.youtube.com/channel/UCmyASrfotwJXykup9I0wc4Q",
+    "linkedIn" : "https://www.linkedin.com/company/grossjungig-ai/"
   },
   "partners": {
     "title": {
