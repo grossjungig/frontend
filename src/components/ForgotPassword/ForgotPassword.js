@@ -7,11 +7,17 @@ import forgotLocales from "../../locales/locales.forgotpassword.json";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-/*const title = {
-  pageTitle: "Forgot Password Screen",
-};*/
+const ForgotPassword = () => {
+  const lang = localStorage.getItem("lang");
+  return (
+    <div className="full-block">
+      <h1>{forgotLocales.grossjungig[lang]}</h1>
+      <h3>{forgotLocales.prompt[lang]}</h3>
+    </div>
+  );
+};
 
-class ForgotPassword extends Component {
+/* class ForgotPassword extends Component {
   constructor() {
     super();
 
@@ -67,11 +73,7 @@ class ForgotPassword extends Component {
     const lang = localStorage.getItem("lang");
     return (
       <div className="full-block">
-        {/* <div className="side-view">
-          <img src="../image/signup.png" alt="login-side-view" />
-        </div> */}
         <div className="login">
-          {/* <h2>{forgotLocales.welcome[lang]}</h2> */}
           <h1>{forgotLocales.grossjungig[lang]}</h1>
           <h3>{forgotLocales.prompt[lang]}</h3>
           <div className="profile-form">
@@ -131,6 +133,6 @@ class ForgotPassword extends Component {
       </div>
     );
   }
-}
+} */
 
 export default ForgotPassword;

@@ -23,7 +23,6 @@ export default class ResetPassword extends Component {
   }
 
   async componentDidMount() {
-    console.log("It is working");
     const {
       match: {
         params: { token },
