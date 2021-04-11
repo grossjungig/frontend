@@ -1,18 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import loginLocales from "../../locales/locales.login.json";
 import "../../pages/login/login.css";
-import forgotLocales from "../../locales/locales.forgotpassword.json";
+import locales from "../../locales/locales.forgotpassword.json";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import './index.css'
 
 const ForgotPassword = () => {
   const lang = localStorage.getItem("lang");
   return (
     <div className="full-block">
-      <h1>{forgotLocales.grossjungig[lang]}</h1>
-      <h3>{forgotLocales.prompt[lang]}</h3>
+      <h1>{locales.grossjungig[lang]}</h1>
+      <h3>{locales.prompt[lang]}</h3>
+      <form>
+        <TextField
+          fullWidth
+          label={locales.email[lang]}
+          margin="normal"
+          type="email"
+          variant="outlined"
+        />
+        <Button
+          className="submit-btn"
+          variant="contained"
+          type="submit"
+        >
+          {locales.submit[lang]}
+        </Button>
+      </form>
     </div>
   );
 };
