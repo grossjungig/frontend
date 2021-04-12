@@ -25,7 +25,7 @@ class AddRoom extends Component {
     name: '',
     roomTitle: '',
     gender: '',
-    age: '',
+    birthdate: '',
     phoneNumber: '',
     district: '',
     address: '',
@@ -44,34 +44,34 @@ class AddRoom extends Component {
 
   setHelp = (event) => {
     this.setState({expectedHelp:event})
-
   }
 
   addNewRoom = (event) => {
     event.preventDefault();
-    const arr=this.state.expectedHelp;
-    var helps=[];
-    for (var i = 0 ;i < arr.length; i++ )
+    const helps=this.state.expectedHelp;
+    const expectedHelps=[];
+    for (var i = 0 ;i < helps.length; i++ )
     {
-      helps.push(arr[i].value);
+      expectedHelps.push(helps[i].value);
     }
     axios
       .post('api/addRoom' , {
         name: this.state.name,
         roomTitle: this.state.roomTitle,
         gender: this.state.gender,
-        age: this.state.age,
+        birthdate: this.state.birthdate,
         phoneNumber: this.state.phoneNumber,
         district: this.state.district,
         address: this.state.address,
         postcode: this.state.postcode,
         description: this.state.description,
-        expectedHelp: helps,
+        expectedHelp: expectedHelps,
         price: this.state.price,
         user: this.props.fetchedUser._id,
       })
       .then((response) => {
-        this.props.history.push(`/berlin/${response.data._id}`)
+        const roomId = response.data._id
+        this.props.history.push(`/berlin/${roomId}`)
       })
       .catch((err) => {
         this.setState({
@@ -111,10 +111,10 @@ class AddRoom extends Component {
               <option className="option_room" value="divers">Divers</option>
             </select> 
 
-            <label className="label_room" htmlFor="age">Age</label>
+            <label className="label_room" htmlFor="age">Birthdate</label>
             <input
-              type="number"
-              name="age"
+              type="date"
+              name="birthdate"
               value={this.state.age}
               onChange={this.setFormState}
               className="input_room"
