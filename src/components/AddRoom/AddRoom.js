@@ -111,11 +111,11 @@ class AddRoom extends Component {
               <option className="option_room" value="divers">Divers</option>
             </select> 
 
-            <label className="label_room" htmlFor="age">Birthdate</label>
+            <label className="label_room" htmlFor="birthdate">Birthdate</label>
             <input
               type="date"
               name="birthdate"
-              value={this.state.age}
+              value={this.state.birthdate}
               onChange={this.setFormState}
               className="input_room"
             /> 
