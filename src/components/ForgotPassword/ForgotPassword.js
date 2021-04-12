@@ -1,31 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import loginLocales from "../../locales/locales.login.json";
-import "../../pages/login/login.css";
+import React, { useState } from "react";
+import axios from '../../axios';
 import locales from "../../locales/locales.forgotpassword.json";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import './index.css'
 
 const ForgotPassword = () => {
-  const lang = localStorage.getItem("lang");
+  const lang = localStorage.getItem('lang');
+  const [email, setEmail] = useState('');
+  const submitEmail = async () => {
+    
+  };
+
   return (
     <div className="full-block">
       <h1>{locales.grossjungig[lang]}</h1>
       <h3>{locales.prompt[lang]}</h3>
-      <form>
+      <form noValidate={false}>
         <TextField
           fullWidth
           label={locales.email[lang]}
           margin="normal"
+          onChange={({target}) => { setEmail(target.value); }}
           type="email"
           variant="outlined"
         />
         <Button
           className="submit-btn"
           variant="contained"
-          type="submit"
+          onClick={submitEmail}
         >
           {locales.submit[lang]}
         </Button>
