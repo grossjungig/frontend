@@ -28,6 +28,7 @@ a {
   text-decoration: none;
   cursor: pointer;
   text-align: center;
+  color: var(--gai-blue)
 }
 
 button {
