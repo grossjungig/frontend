@@ -71,7 +71,7 @@ class Profile extends Component {
         </div>
 
         <div>
-        {profile.length !== 0 && user.profile === this.props.match.params.id ? (
+        {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id ? (
               <Link to={`/edit/${profile._id}`}>
                 <button className = 'button_profile' style={{ width: '100%' }}>
                   Edit Profile
