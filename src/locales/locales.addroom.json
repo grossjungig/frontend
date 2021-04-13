@@ -1,32 +1,82 @@
 {
-  "title": {
-    "en": "Rooms",
-    "de": "Zimmer"
-  },
-  "district": {
-    "en": "District",
-    "de": "Bezirk"
-  },
-  "add": {
-    "en": "Add New Room",
-    "de": "Neues Zimmer hinzufügen"
-  },
-  "search": {
-    "en": "Search Room by Postcode",
-    "de": "Zimmer sortieren beim Postleitzahl"
-  },
-  "placeholder": {
-    "en": "Search by Postcode",
-    "de": "Zimmer beim Postleitzahl"
-  },
+    "personalInformation": {
+        "en": "Please do not leave your personal identifying information here",
+        "de": "Bitte hinterlassen Sie Ihre persönlichen Identifizierungsdaten nicht hier"
+    },
+    "name": {
+        "en": "First Name",
+        "de": "Vorname"
+    },
+    "about": {
+        "en": "About me (max 120 signs)",
+        "de": "Über mich (max. 120 Zeichen)"
+    },
+    "price": {
+        "en": "Price",
+        "de": "preis"
+    },
+    "select": {
+        "en": "Select",
+        "de": "Auswählen"
+    },
+    "district": {
+        "en": "Prefered District",
+        "de": "Bevorzugter Bezirk"
+    },
+    "phoneNumber": {
+        "en": "Phone Number",
+        "de": "Telefonnummer"
+    },
+    "email": {
+        "en": "Email",
+        "de": "E-Mail"
+    },
+    "neighbourhood": {
+        "en": "Neighbourhood",
+        "de": "Nachbarschaft"
+    },
+    "picture": {
+        "en": "Picture",
+        "de": "Bild"
+    },
+    "uploadPicture": {
+        "en": "Upload the picture",
+        "de": "Hochladen des Bildes"
+    },
+    "cancel": {
+        "en": "Cancel",
+        "de": "bbrechen"
+    },
+    "submit": {
+        "en": "Submit",
+        "de": "Einreichen"
+    },
+    "address": {
+        "en": "Address",
+        "de": "Adresse"
+    },
 
-  "suburb": {
-    "en": "Suburb",
-    "de": "Stadteil"
-  },
 
-  "postcode": {
-    "en": "Postcode",
-    "de": "Postleitzahl"
-  }
+    "add": {
+        "en": "Add New Room",
+        "de": "Neues Zimmer hinzufügen"
+    },
+    "search": {
+        "en": "Search Room by Postcode",
+        "de": "Zimmer sortieren beim Postleitzahl"
+    },
+    "placeholder": {
+        "en": "Search by Postcode",
+        "de": "Zimmer beim Postleitzahl"
+    },
+
+    "suburb": {
+        "en": "Suburb",
+        "de": "Stadteil"
+    },
+
+    "postcode": {
+        "en": "Postcode",
+        "de": "Postleitzahl"
+    }
 }

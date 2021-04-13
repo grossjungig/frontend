@@ -3,7 +3,7 @@ import { Redirect,Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from 'react-redux';
 import Select from 'react-select'
-
+import addProfileLocales from '../../locales/locales.addprofile.json'
 const options = [
   { value: 'Shopping', label: 'Shopping' },
   { value: 'Cooking or baking', label: 'Cooking or baking' },
@@ -87,20 +87,20 @@ class AddProfile extends Component {
     if (this.state.redirect) {
       return <Redirect to="/profiles" />;
     }
-
+    const lang = localStorage.getItem("lang");
     return (
 
       <div style={{ height: "auto", width: "auto" }}>
         <div style={{ display: "flex", justifyContent: "center", marginTop: "3vh" }}>
           <div className="warning" style={{ margin: "1vh" }}>
-            <p >Please do not leave your personal identifying information here.</p>
+            <p >{addProfileLocales.info[lang]}</p>
           </div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div style={{ width: "328px" }}>
 
-            <label className="label_profile" htmlFor="name" style={{marginBottom:"2vh"}}>First Name</label>
+            <label className="label_profile" htmlFor="name" style={{marginBottom:"2vh"}}>{addProfileLocales.name[lang]}</label>
             <input
               type="text"
               name="name"
@@ -110,7 +110,7 @@ class AddProfile extends Component {
               className="input_profile"
             />
 
-            <label className="label_profile" htmlFor="gender">Gender</label>
+            <label className="label_profile" htmlFor="gender">{addProfileLocales.gender[lang]}</label>
             <select
               name="gender"
               type="select"
@@ -119,13 +119,13 @@ class AddProfile extends Component {
               style={{ marginTop: "2vh" }}
               className="select_profile"
             >
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="" disabled>Select</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="male">Male</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="female">Female</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="divers">Divers</option>
+              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="" disabled>{addProfileLocales.select[lang]}</option>
+              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="male">{addProfileLocales.male[lang]}</option>
+              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="female">{addProfileLocales.female[lang]}</option>
+              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="divers">{addProfileLocales.divers[lang]}</option>
             </select>
 
-            <label htmlFor="age" className="label_profile" style={{marginBottom:"2vh"}} >Age</label>
+            <label htmlFor="age" className="label_profile" style={{marginBottom:"2vh"}} >{addProfileLocales.age[lang]}</label>
             <input
               type="text"
               name="age"
@@ -135,7 +135,7 @@ class AddProfile extends Component {
               className="input_profile"
             />
 
-            <label className="label_profile" htmlFor="price" style={{marginBottom:"2vh"}}>Requested room price</label>
+            <label className="label_profile" htmlFor="price" style={{marginBottom:"2vh"}}>{addProfileLocales.requestedPrice[lang]}</label>
             <input
               type="number"
               name="price"
@@ -144,7 +144,7 @@ class AddProfile extends Component {
               onChange={this.setFormState}
               className="input_profile"
             />
-            <label htmlFor="district" className="label_profile" >About me (max 120 signs)</label>
+            <label htmlFor="district" className="label_profile" >{addProfileLocales.about[lang]}</label>
             <textarea
               type="text"
               name="description"
@@ -157,11 +157,11 @@ class AddProfile extends Component {
               className="textarea_profile"
             />
 
-            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>Expected Help</label>
-            <Select isMulti options={options} onChange={this.setHelp} id="help"
+            <label className="label_profile" htmlFor="help" style={{marginBottom:"2vh"}}>{addProfileLocales.expectedHelp[lang]}</label>
+            <Select isMulti options={addProfileLocales.options[lang]} onChange={this.setHelp} id="help"
               name="help" />
 
-            <label className="label_profile" htmlFor="select">Prefered district</label>
+            <label className="label_profile" htmlFor="select">{addProfileLocales.district[lang]}</label>
             <select
               name="district"
               type="select"
@@ -170,7 +170,7 @@ class AddProfile extends Component {
               className="select_profile"
               placeholder="Select"
             >
-              <option value="" disabled>Select</option>
+              <option value="" disabled>{addProfileLocales.select[lang]}</option>
               <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
               <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
               <option value="Lichtenberg">Lichtenberg</option>
@@ -187,22 +187,22 @@ class AddProfile extends Component {
 
 
             
-            <label className="label_profile" >Picture</label>
+            <label className="label_profile" >{addProfileLocales.picture[lang]}</label>
             <button type="submit" className="button_profile">
-              Upload the picture
-
+             
+              {addProfileLocales.uploadPicture[lang]}
         </button>
 
             <div className="warning" style={{ marginTop: "2vh" }}>
-              <p >By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.</p>
+              <p>{addProfileLocales.policy[lang]}</p>
           
             </div>
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Link to={`/userportal`}>
-              <button type="submit" className="button_profile" style={{ width: "150px" }}>Cancel</button>
+              <button type="submit" className="button_profile" style={{ width: "150px" }}>{addProfileLocales.cancel[lang]}</button>
               </Link>
-              <button type="submit" className="button_profile" style={{ width: "150px", background: "#365FA7", color: "#F9F8F8" }} onClick={this.addNewProfile} >Submit</button>
+              <button type="submit" className="button_profile" style={{ width: "150px", background: "#365FA7", color: "#F9F8F8" }} onClick={this.addNewProfile} >{addProfileLocales.submit[lang]}</button>
             </div>
             {this.state.message && <p>{this.state.message}</p>}
 
