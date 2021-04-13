@@ -51,7 +51,7 @@ const AboutUs = () => {
         
         <StaffBoard
           className="core-staff" team={coreStaff} lang={lang}
-          color="#fff" height="240"
+          color="#fff" height="180"
         />
 
       </section>
