@@ -16,7 +16,7 @@ class People extends Component {
     const response = await axios.get('api/profiles');
 
     this.setState({
-      // people: response.data.profiles,
+      people: response.data.profiles,
       loading: false
     });
   }
