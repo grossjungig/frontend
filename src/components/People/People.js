@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import axios from '../../axios';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
 
 export default class People extends Component {
@@ -8,22 +8,20 @@ export default class People extends Component {
   };
 
   async componentDidMount() {
-    const response = await axios.get(
-      `${process.env.REACT_APP_BACKENDURL}api/profiles`
-    );
+    const response = await axios.get('api/profiles');
 
-    // Set state
     this.setState({
       people: response.data.profiles,
     });
   }
+
   handleClick(_id) {
     this.props.history.push(`/profile/${_id}`);
   }
+
   render() {
     return (
       <div>
-        {" "}
         {this.state.people.map((profile) => {
           return (
             <div
@@ -47,7 +45,7 @@ export default class People extends Component {
               </div>
             </div>
           );
-        })}{" "}
+        })}
       </div>
     );
   }
