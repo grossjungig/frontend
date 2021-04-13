@@ -49,8 +49,7 @@ class AddRoom extends Component {
         owner: this.props.fetchedUser._id,
       })
       .then((response) => {
-        this.props.history.push("/rooms");
-        console.log("this is response", response);
+        this.props.history.push(`/berlin/${response.data._id}`);
       })
       .catch((err) => {
         this.setState({
@@ -60,7 +59,6 @@ class AddRoom extends Component {
   };
 
   render() {
-    // const lang = localStorage.getItem("lang");
     if (this.state.redirect) {
       return <Redirect to="/berlin" />;
     }
@@ -209,7 +207,7 @@ class AddRoom extends Component {
             <button type="submit" className="button_room">Upload the picture</button>
 
             <div className="div_button_addRoom">
-            <Link to={`/profile`}>
+            <Link to={`/userportal`}>
               <button type="submit" className="button_room button_room_cancel" >Cancel</button>
             </Link>
               <button type="submit" className="button_room button_room_submit" onClick={this.addNewRoom} >Submit</button>
