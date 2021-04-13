@@ -26,22 +26,12 @@ class People extends Component {
   }
 
   render() {
-    const noResult = this.state.people.length === 0;
-    const { loading } = this.state;
-    const { loggedIn, user } = this.props;
-
-    console.log(user);
-
-    if (loading) {
+    if (this.state.loading) {
       return (
         <div className="loading">
           <Spinner />
         </div>
       )
-    }
-
-    if (!loading && noResult) {
-      this.props.history.push('/signup');
     }
 
     return (
@@ -78,7 +68,6 @@ class People extends Component {
 const mapStateToProps = (reduxState) => {
   return {
     loggedIn: !!reduxState.token,
-    user: reduxState.user
   };
 };
 

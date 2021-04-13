@@ -15,10 +15,9 @@ class Berlin extends Component {
     select: "--",
     maxPrice: "",
     searchedRoom: [],
-    photos: [], //[urls pointing to the images]
+    photos: [],
     filter: false,
   };
-  //1. from frontend, axios request a room data-> route rooms.js
   async componentDidMount() {
     const response = await axios.get(
       `${process.env.REACT_APP_BACKENDURL}api/rooms`
