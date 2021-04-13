@@ -3,17 +3,21 @@ import axios from '../../axios';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { capitalizeFirstLetter } from '../../utils';
 import './index.css'
+import Spinner from '../Spinner';
+import { connect } from 'react-redux';
 
-export default class People extends Component {
+class People extends Component {
   state = {
     people: [],
+    loading: true,
   };
 
   async componentDidMount() {
     const response = await axios.get('api/profiles');
 
     this.setState({
-      people: response.data.profiles,
+      // people: response.data.profiles,
+      loading: false
     });
   }
 
@@ -22,6 +26,24 @@ export default class People extends Component {
   }
 
   render() {
+    const noResult = this.state.people.length === 0;
+    const { loading } = this.state;
+    const { loggedIn, user } = this.props;
+
+    console.log(user);
+
+    if (loading) {
+      return (
+        <div className="loading">
+          <Spinner />
+        </div>
+      )
+    }
+
+    if (!loading && noResult) {
+      this.props.history.push('/signup');
+    }
+
     return (
       <ul className="profile-card-container">
         {this.state.people.map((profile) => {
@@ -52,3 +74,12 @@ export default class People extends Component {
     );
   }
 }
+
+const mapStateToProps = (reduxState) => {
+  return {
+    loggedIn: !!reduxState.token,
+    user: reduxState.user
+  };
+};
+
+export default connect(mapStateToProps)(People);
