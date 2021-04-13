@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from '../../axios';
-import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
+import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
+import { capitalizeFirstLetter } from '../../utils';
+import './index.css'
 
 export default class People extends Component {
   state = {
@@ -21,32 +23,32 @@ export default class People extends Component {
 
   render() {
     return (
-      <div>
+      <ul className="profile-card-container">
         {this.state.people.map((profile) => {
           return (
-            <div
-              style={{ display: "flex", justifyContent: "center" }}
+            <li
+              className="profile-card"
               onClick={() => this.handleClick(profile._id)}
               key={profile._id}
             >
-              <div className="card_people">
-                <div className="card_img">
-                  <img src={profile.avatarUrl || dummyAvatar} alt="person" style={{ width: "100%" }} />
-                </div>
-                <div className="container_people">
-                  <h4>
-                    <b>
-                      {profile.name}, {profile.age}
-                    </b>
-                  </h4>
-                  <p>{profile.district}</p>
-                  <p>{profile.price}</p>
-                </div>
+              <div className="profile-card__avatar">
+                <img src={profile.avatarUrl || dummyAvatar} alt="person" />
               </div>
-            </div>
+              <div >
+                <h3>{capitalizeFirstLetter(profile.name)}, {profile.age}</h3>
+                <div>
+                  <span className="profile-card__item">would live in:</span>
+                  {profile.district}
+                </div>
+                <p>
+                <span className="profile-card__item">can pay around:</span>
+                  {profile.price}€ (monthly)
+                </p>
+              </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     );
   }
 }
