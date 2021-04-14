@@ -17,45 +17,45 @@
     },
     "seniorList": {
         "first": {
-            "en": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jede junge Person und deren Anfrage lesen.",
+            "en": "Search for your perfect flatmate. See each profile of young people and their request.",
             "de": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jede junge Person und deren Anfrage lesen."
         },
         "second": {
-            "en": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit.",
+            "en": "When you find the right person and would like to get in touch, please let us know by emailing us at info@grossjungig.de.",
             "de": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit."
         },
         "third": {
-            "en": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen, Ihre Telefonnummer und die vollständige Adresse ihrer Wohnung anderen NutzerInnen nicht.",
+            "en": "We keep your information private and secure. We will not reveal your full name, phone number, or full home address to other users.",
             "de": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen, Ihre Telefonnummer und die vollständige Adresse ihrer Wohnung anderen NutzerInnen nicht."
         },
         "fourth": {
-            "en": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen.",
+            "en": "We will then introduce you to each other and help you arrange a meeting and rental terms.",
             "de": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen."
         },
         "fifth": {
-            "en": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab.",
+            "en": "You will sign a rental agreement with each other and a service agreement with Großjungig AI.",
             "de": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab."
         }
     },
     "juniorList": {
         "first": {
-            "en": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jedes Zimmer und jede ältere Person lesen.",
+            "en": "Search for your perfect flatmate. See the information for each room and each senior person.",
             "de": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jedes Zimmer und jede ältere Person lesen."
         },
         "second": {
-            "en": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit.",
+            "en": "If you would like to contact someone, please let us know by emailing us at info@grossjungig.de.",
             "de": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit."
         },
         "third": {
-            "en": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen und Ihre Telefonnummer anderen NutzerInnen nicht.",
+            "en": "We keep your information private and secure. We do not reveal your full name and phone number to other users.",
             "de": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen und Ihre Telefonnummer anderen NutzerInnen nicht."
         },
         "fourth": {
-            "en": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen.",
+            "en": "We will introduce you to each other and help you arrange a meeting and rental terms.",
             "de": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen."
         },
         "fifth": {
-            "en": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab.",
+            "en": "You will sign a rental agreement with each other and a service agreement with Großjungig AI.",
             "de": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab."
         }
     },
@@ -64,7 +64,7 @@
         "de": "Mehr Informationen"
     },
     "description": {
-        "en": "Auf der endgültigen Version der Plattform grossjungig.de (im Moment ist es noch ein Prototyp und auch sind zurzeit die Kapazitäten beschränkt) kann man Präferenzen für ein Zimmer, einen Stadtbezirk und einen Mitbewohner angeben. Unsere NutzerInnen bekommen dann personalisierte Ergebnisse und können bei Interesse die AnbieterInnen kontaktieren. Andere Features der Plattform wären: ID-Verifizierung, Erstellung von Mietverträgen und elektronischen Unterschriften, sowie sichere Unterhaltung, Ranking und Reviews.",
+        "en": "On the final version of the platform grossjungig.de (at the moment it is a prototype and capacities are also limited) users can enter preferences for a room, a district and a flatmate. Users then receive personalized results and can contact each other. Other features of the platform would be: ID verification, creation of rental agreements and electronic signatures, as well as secure conversation, ranking and ratings.",
         "de": "Auf der endgültigen Version der Plattform grossjungig.de (im Moment ist es noch ein Prototyp und auch sind zurzeit die Kapazitäten beschränkt) kann man Präferenzen für ein Zimmer, einen Stadtbezirk und einen Mitbewohner angeben. Unsere NutzerInnen bekommen dann personalisierte Ergebnisse und können bei Interesse die AnbieterInnen kontaktieren. Andere Features der Plattform wären: ID-Verifizierung, Erstellung von Mietverträgen und elektronischen Unterschriften, sowie sichere Unterhaltung, Ranking und Reviews."
     }
 
