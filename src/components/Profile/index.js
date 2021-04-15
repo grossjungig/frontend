@@ -20,7 +20,22 @@ class Profile extends Component {
         console.log(error);
       });
   }
-    render() {
+
+  deleteProfile = () => {
+    const confirmed = window.confirm('Are you sure?');
+    const profileId = this.props.match.params.id;
+    if (confirmed) {
+      axios.delete(`api/profiles/${profileId}`)
+      .then(({data}) => {
+        const deleted = data.deletedCount === 1;
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+    }
+  };
+
+  render() {
     const profile = this.state.profile;
     const user = this.props.fetchedUser;
 
@@ -29,7 +44,7 @@ class Profile extends Component {
     if (avatarUrl) renderedAvatar = avatarUrl;
     
     return (
-      <div className={`full-block`}>
+      <div className="full-block">
         <div className={styles.profile}>
           <div className={styles['profile__msg']}>
             If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271
@@ -41,7 +56,7 @@ class Profile extends Component {
             <span>Name</span><span>{profile.name}</span>
             <span>Age</span><span>{profile.age}</span>
             <span>pays</span> <span>{profile.price}€</span>
-            <span>would live in</span><span> {profile.district} </span>
+            <span>would live in</span><span>{profile.district}</span>
             <span>helps with</span>
             <span>
               {profile.length !== 0 && profile.help.map(
@@ -65,6 +80,7 @@ class Profile extends Component {
     );
   }
 }
+
 const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
