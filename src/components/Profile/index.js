@@ -21,17 +21,19 @@ class Profile extends Component {
       });
   }
 
-  deleteProfile = () => {
+  deleteProfile = async () => {
     const confirmed = window.confirm('Are you sure?');
     const profileId = this.props.match.params.id;
     if (confirmed) {
-      axios.delete(`api/profiles/${profileId}`)
-      .then(({data}) => {
-        const deleted = data.deletedCount === 1;
-      })
-      .catch(function (err) {
+      try {
+        const { data: { msg } } = await axios.delete(`api/profiles/${profileId}`)
+        if (msg === 'profile_deleted') {
+          this.props.history.push('/userportal')
+          alert('Profile successfully deleted.')
+        }
+      } catch (err) {
         console.log(err);
-      });
+      }
     }
   };
 
