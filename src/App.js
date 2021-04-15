@@ -43,52 +43,56 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Navbar updatePage={this.updatePage} />
-        <Switch>
-          <Route exact path="/"><Home/></Route>
-          <Route exact path="/signup"><Signup/></Route>
+      <div className="app">
+        <div className="app__content">
+          <Navbar updatePage={this.updatePage} />
+          <Switch>
+            <Route exact path="/"><Home/></Route>
+            <Route exact path="/signup"><Signup/></Route>
 
-          <Route exact path="/login" render={(props) => (
-            <Login history={props.history} />
-          )}/>
+            <Route exact path="/login" render={(props) => (
+              <Login history={props.history} />
+            )}/>
 
-          <Route exact path="/userportal" render={(props) => 
-            <UserPortal {...props} />}
-          />
-
-          <Route exact path="/berlin" render={(props) => 
-            <Berlin {...props} />
-          }/>
-
-          <Route exact path="/people" render={(props) => <People {...props} />} />
-          <Route exact path="/berlin/:id" render={(props) => <Details {...props} />} />
-          <Route exact path="/addRoom" render={(props) => <AddRoom {...props} />} />
-          <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
-          <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
-          <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
-          <Route exact path="/edit/:id" render={(props) => (
-            <EditProfile history={props.history} />
-          )}/>
-
-          <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
-          <Route exact path="/maps" component={MapView} />
-          <Route exact path="/forgotPassword" component={ForgotPassword} />
-          <Route
-            exact
-            path="/addProfile"
-            render={(props) => <AddProfile {...props} />}
-          />
-          <Route exact path="/profile/:id" render={(props) => (
-            <Profile
-              history={props.history}
-              {...props}
-            
+            <Route exact path="/userportal" render={(props) => 
+              <UserPortal {...props} />}
             />
-          )}/>
-          <Route exact path="/reset/:token" component={ResetPassword} />
-        </Switch>
-        <Footer className="footer-stick" />
+
+            <Route exact path="/berlin" render={(props) => 
+              <Berlin {...props} />
+            }/>
+
+            <Route exact path="/people" render={(props) => <People {...props} />} />
+            <Route exact path="/berlin/:id" render={(props) => <Details {...props} />} />
+            <Route exact path="/addRoom" render={(props) => <AddRoom {...props} />} />
+            <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
+            <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
+            <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
+            <Route exact path="/edit/:id" render={(props) => (
+              <EditProfile history={props.history} />
+            )}/>
+
+            <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
+            <Route exact path="/maps" component={MapView} />
+            <Route exact path="/forgotPassword" component={ForgotPassword} />
+            <Route
+              exact
+              path="/addProfile"
+              render={(props) => <AddProfile {...props} />}
+            />
+            <Route exact path="/profile/:id" render={(props) => (
+              <Profile
+                history={props.history}
+                {...props}
+              
+              />
+            )}/>
+            <Route exact path="/reset/:token" component={ResetPassword} />
+          </Switch>
+        </div>
+        <div className="app__footer">
+          <Footer />
+        </div>
       </div>
     );
   }
