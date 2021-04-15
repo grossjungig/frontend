@@ -23,7 +23,7 @@ import UploadPhotos from "./components/UploadPhotos";
 import Details from "./components/Details/Details";
 import MapView from "./components/MapView/MapView";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile";
 
 import People from "./components/People/People";
 import ResetPassword from "./components/ResetPassword/ResetPassword";

@@ -85,90 +85,6 @@ nav {
 
 /* AddProfile */
 
-.warning {
-  background: #f9f8f8;
-  /* Blue */
-  width: fit-content;
-  border: 1px solid #365fa7;
-  box-sizing: border-box;
-  border-radius: 8px;
-  padding-right: 1vh;
-  padding-left: 1vh;
-  max-width: 700px;
-}
-
-.warning p {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
-  /* Blue */
-  color: #365fa7;
-}
-
-.label_profile {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
-  display: flex;
-  align-items: center;
-  margin-top: 2vh;
-}
-
-.input_profile {
-  background: #f9f8f8;
-  border: 0.25px solid rgba(51, 51, 51, 0.6);
-  box-sizing: border-box;
-  height: 5vh;
-  font-size: 15px;
-  font-family: Montserrat;
-  width: -webkit-fill-available;
-}
-
-.select_profile {
-  font-size: 15px;
-  font-family: Montserrat;
-  height: 5vh;
-  background: #f9f8f8;
-  width: inherit;
-  margin-top: 2vh;
-}
-
-.textarea_profile {
-  font-size: 15px;
-  font-family: Montserrat;
-  width: -webkit-fill-available;
-  background: #f9f8f8;
-}
-
-.button_profile {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
-  align-items: center;
-  text-align: center;
-  /* Blue */
-  background: #f9f8f8;
-  /* Blue */
-  width: inherit;
-  height: 52px;
-  border: 1px solid #365fa7;
-  box-sizing: border-box;
-  color: #365fa7;
-  margin-top: 2vh;
-}
-
-.tableProfile {
-  border: none !important;
-  padding: 0px;
-  vertical-align: baseline;
-}
-
 .tdcol {
   font-family: Montserrat;
   font-style: normal;
@@ -336,3 +252,18 @@ theader {
   width: 50%;
   object-fit: cover;
 }
+
+/* Added By Heisenberg */
+
+.full-block {
+  display: flex;
+  max-width: 35vw;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0.1rem solid lightgray;
+  width: 50rem;
+  height: 45rem;
+  min-width: 375px;
+  background-color: white;
+}
+
