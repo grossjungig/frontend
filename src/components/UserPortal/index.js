@@ -20,7 +20,7 @@ const UserPortal = (props) => {
   let renderedLinks;
   if (user.role === "senior") {
     renderedLinks = <Link to="/addroom">
-      <button type="submit">
+      <button className={styles.btn}>
         {portalLocales.add[lang]}
       </button>
     </Link>;
@@ -29,14 +29,14 @@ const UserPortal = (props) => {
     if (!user.profile) {
       renderedLinks = <Link to="/addprofile">
         <div>
-          <button type="submit">
+          <button className={styles.btn}>
             {portalLocales.profile[lang]}
           </button>
         </div>
       </Link>;
     } else {
       renderedLinks = <Link to={`profile/${user.profile}`}>
-        <button type="submit">
+        <button className={styles.btn}>
           {portalLocales.profile2[lang]}{" "}
         </button>
       </Link>;
@@ -49,7 +49,7 @@ const UserPortal = (props) => {
         <h1 className={styles.title}>{portalLocales.greeting[lang]} {user.name}!</h1>
         <div>
           <Link to="/berlin">
-            <button>{portalLocales.rooms[lang]}</button>
+            <button className={styles.btn}>{portalLocales.rooms[lang]}</button>
           </Link>
           {renderedLinks}
         </div>
