@@ -49,21 +49,19 @@ class Profile extends Component {
               }
             </span>
           </div>
-
-          <div>
-            {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id &&
-              <>
-                <Link to={`/edit/${profile._id}`}>
-                  <button>
-                    Edit Profile
-                  </button>
-                </Link>
-                <button>Delete Profile</button>
-              </>
-            }
-          </div>
+          {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id &&
+            <div className={styles['profile__details__ctrl']}>
+              <Link to={`/edit/${profile._id}`}>
+                <button className={styles['ctrl__btn']}>Edit Profile</button>
+              </Link>
+              <button 
+                className={`${styles['ctrl__btn']} ${styles['btn-del']}`}
+                onClick={this.deleteProfile}
+              >Delete Profile</button>
+            </div>
+          }
         </div>
-    </div>    
+      </div>    
     );
   }
 }
