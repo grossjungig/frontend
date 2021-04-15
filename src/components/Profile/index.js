@@ -2,8 +2,10 @@ import axios from '../../axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import styles from './index.module.css';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
+
+import styles from './index.module.css';
+import { fullBlock } from '../../shared/index.module.css'
 
 class Profile extends Component {
   state = {
@@ -46,7 +48,7 @@ class Profile extends Component {
     if (avatarUrl) renderedAvatar = avatarUrl;
     
     return (
-      <div className="full-block">
+      <div className={fullBlock}>
         <div className={styles.main}>
           <div className={styles.msg}>
             If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271

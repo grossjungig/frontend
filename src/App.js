@@ -15,7 +15,7 @@ import AddProfile from "./pages/profile/addProfile";
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
 
-import UserPortal from "./components/UserPortal/UserPortal.js";
+import UserPortal from "./components/UserPortal";
 import Berlin from "./components/Berlin/Berlin.js";
 import AddRoom from "./components/AddRoom/AddRoom.js";
 import UploadPhotos from "./components/UploadPhotos";

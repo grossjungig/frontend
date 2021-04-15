@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import portalLocales from "../../locales/locales.portal.json";
 import { connect } from "react-redux";
 
+import styles from './index.module.css';
+import { fullBlock } from '../../shared/index.module.css';
+
 const UserPortal = (props) => {
   const lang = localStorage.getItem("lang");
   const [user, setUser] = useState({ name: "" });
@@ -17,7 +20,7 @@ const UserPortal = (props) => {
   let renderedLinks;
   if (user.role === "senior") {
     renderedLinks = <Link to="/addroom">
-      <button id="create-room-button" type="submit">
+      <button type="submit">
         {portalLocales.add[lang]}
       </button>
     </Link>;
@@ -25,15 +28,15 @@ const UserPortal = (props) => {
     // role = junior
     if (!user.profile) {
       renderedLinks = <Link to="/addprofile">
-        <div style={{alignItems: "center"}}>
-          <button id="create-room-button" type="submit">
+        <div>
+          <button type="submit">
             {portalLocales.profile[lang]}
           </button>
         </div>
       </Link>;
     } else {
       renderedLinks = <Link to={`profile/${user.profile}`}>
-        <button id="create-room-button" type="submit">
+        <button type="submit">
           {portalLocales.profile2[lang]}{" "}
         </button>
       </Link>;
@@ -41,22 +44,15 @@ const UserPortal = (props) => {
   }
 
   return (
-    <div className="portal-container" style={{ textAlign: "center" }}>
-      <h1
-        style={{
-          color: "#365FA7",
-          fontFamily: "Montserrat",
-          fontWeight: "600",
-        }}
-      >
-        {portalLocales.greeting[lang]} {user.name}!
-      </h1>
-
-      <div className="portal-container">
-        <Link to="/berlin">
-          <button>{portalLocales.rooms[lang]}</button>
-        </Link>
-        {renderedLinks}
+    <div className={fullBlock}>
+      <div className={styles.main}>
+        <h1 className={styles.title}>{portalLocales.greeting[lang]} {user.name}!</h1>
+        <div>
+          <Link to="/berlin">
+            <button>{portalLocales.rooms[lang]}</button>
+          </Link>
+          {renderedLinks}
+        </div>
       </div>
     </div>
   );
