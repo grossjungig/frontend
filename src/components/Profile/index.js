@@ -47,14 +47,14 @@ class Profile extends Component {
     
     return (
       <div className="full-block">
-        <div className={styles.profile}>
-          <div className={styles['profile__msg']}>
+        <div className={styles.main}>
+          <div className={styles.msg}>
             If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271
           </div>
           
-          <img src={renderedAvatar} alt="avatar" className={styles['profile__pic']} />
+          <img src={renderedAvatar} alt="avatar" className={styles.pic} />
 
-          <div className={styles['profile__details']}>
+          <div className={styles.details}>
             <span>Name</span><span>{profile.name}</span>
             <span>Age</span><span>{profile.age}</span>
             <span>pays</span> <span>{profile.price}€</span>
@@ -67,12 +67,12 @@ class Profile extends Component {
             </span>
           </div>
           {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id &&
-            <div className={styles['profile__details__ctrl']}>
+            <div className={styles.ctrl}>
               <Link to={`/edit/${profile._id}`}>
-                <button className={styles['ctrl__btn']}>Edit Profile</button>
+                <button className={styles.btn}>Edit Profile</button>
               </Link>
               <button 
-                className={`${styles['ctrl__btn']} ${styles['btn-del']}`}
+                className={`${styles.btn} ${styles.delBtn}`}
                 onClick={this.deleteProfile}
               >Delete Profile</button>
             </div>
