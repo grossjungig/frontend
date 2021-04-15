@@ -29,33 +29,39 @@ class Profile extends Component {
     if (avatarUrl) renderedAvatar = avatarUrl;
     
     return (
-      <div className={`full-block ${styles.profile}`}>
-        <div className={styles['profile__msg']}>
-          If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271
-        </div>
- 
-        <img src={renderedAvatar} alt='avatar' />
-        <div> {profile.name} </div>
-        <div> {profile.age} </div>
-        <div> €{profile.price} </div>
-        <div> {profile.district} </div>
-        {profile.length !== 0 && 
-          profile.help.map(help =>
-            <div key = {help}> - {help} </div>
-          )
-        }
+      <div className={`full-block`}>
+        <div className={styles.profile}>
+          <div className={styles['profile__msg']}>
+            If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271
+          </div>
+          
+          <img src={renderedAvatar} alt="avatar" className={styles['profile__pic']} />
 
-        <div>
-          {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id &&
-            <>
-              <Link to={`/edit/${profile._id}`}>
-                <button>
-                  Edit Profile
-                </button>
-              </Link>
-              <button>Delete Profile</button>
-            </>
-          }
+          <div className={styles['profile__details']}>
+            <span>Name</span><span>{profile.name}</span>
+            <span>Age</span><span>{profile.age}</span>
+            <span>pays</span> <span>{profile.price}€</span>
+            <span>would live in</span><span> {profile.district} </span>
+            <span>helps with</span>
+            <span>
+              {profile.length !== 0 && profile.help.map(
+                help => <span key = {help}>{help}</span>)
+              }
+            </span>
+          </div>
+
+          <div>
+            {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id &&
+              <>
+                <Link to={`/edit/${profile._id}`}>
+                  <button>
+                    Edit Profile
+                  </button>
+                </Link>
+                <button>Delete Profile</button>
+              </>
+            }
+          </div>
         </div>
     </div>    
     );
