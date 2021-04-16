@@ -47,12 +47,10 @@ const UserPortal = (props) => {
     <div className={fullBlock}>
       <div className={styles.main}>
         <h1 className={styles.title}>{portalLocales.greeting[lang]} {user.name}!</h1>
-        <div>
-          <Link to="/berlin">
-            <button className={styles.btn}>{portalLocales.rooms[lang]}</button>
-          </Link>
-          {renderedLinks}
-        </div>
+        <Link to="/berlin">
+          <button className={styles.btn}>{portalLocales.rooms[lang]}</button>
+        </Link>
+        {renderedLinks}
       </div>
     </div>
   );
