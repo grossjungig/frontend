@@ -12,7 +12,7 @@ import { generateBase64FromImage } from '../../../utils';
 const options = [
   { value: 'Shopping', label: 'Shopping' },
   { value: 'Cooking or baking', label: 'Cooking or baking' },
-  { value: 'Help with digital devices', label: 'Help with digital devices' },
+  { value: 'digital devices', label: 'digital devices' },
   { value: 'Moving the lawn', label: 'Moving the lawn' },
   { value: 'Gardening', label: 'Gardening' },
   { value: 'Reading out loud', label: 'Reading out loud' },
@@ -130,12 +130,14 @@ class AddProfile extends Component {
       return <Redirect to="/profiles" />;
     }
 
+
+
     return (
 
       <div style={{ height: "auto", width: "auto" }}>
         <div style={{ display: "flex", justifyContent: "center", marginTop: "3vh" }}>
           <div className="warning" style={{ margin: "1vh" }}>
-            <p >Please do not leave your personal identifying information here.</p>
+            <p>Please do not leave your personal identifying information here.</p>
           </div>
         </div>
 

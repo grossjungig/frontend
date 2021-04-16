@@ -115,14 +115,18 @@ const Card2Root = styled.div`
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  /* non-active */
   border: 0.5px solid #baafa1;
   box-sizing: border-box;
   border-radius: 10px;
   padding: 0.15rem;
-  max-width: 170px;
+  margin: 16px; 
   align-items: center;
   box-sizing: border-box;
+  height: 320px;
+  width: 288px;
+  min-height: 320px;
+  min-width: 288px;
+
 
   /*For tablet*/
   @media (min-width: 768px) {
@@ -148,6 +152,7 @@ const Card2Title = styled.div`
   font-size: 24px;
   line-height: 2.7425rem;
   display: flex;
+  justify-content:center;
   align-items: center;
   text-align: center;
   border: 2px solid;
@@ -178,63 +183,39 @@ const Card2Text = styled.div`
 const Card3Root = styled.div`
   position: relative;
   background: #ffffff;
-  /* non-active */
   border: 0.2px solid #baafa1;
   box-sizing: border-box;
-  width: 50%;
-  height: 60%;
-  /* neun */
+  border-radius: 24px;
+  height: 240px;
+  width: 560px;
+  padding: 1rem 1.5rem;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15),
     -2px -2px 8px rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  top: 75%;
-  left: 50%;
   padding: 0.5rem;
+  top: 87%;
+  left: -9%;
+  padding: 2rem;
+  margin-top: 4rem;
 
-  @media (min-width: 768px) {
-    padding: 2rem;
-    margin-top: 4rem;
-  }
-  @media (min-width: 1060px) {
-    /* font-style: normal;
-    font-weight: medium;
-    font-size: 36px;
-
-    color: rgb(32, 32, 32);
-    padding-top: 0.1rem;
-    padding-right: 4rem;
-    padding-left: 4rem;
-    padding-bottom: 12rem; */
-    position: static;
-    background: rgb(255, 255, 255);
-    border: 0.5px solid rgb(186, 175, 161);
-    box-sizing: border-box;
-    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px,
-      rgba(255, 255, 255, 0.15) -2px -2px 8px;
-    border-radius: 24px;
-    height: 240px;
-    width: 560px;
-    /* top: 680px;
-    left: 12rem; */
-    padding: 1rem 1.5rem;
-    margin-top: 20rem;
+  @media (max-width: 834px) {
+    top: 87%;
+    left: 0%;
+    width: 100%;
+    height: 150px;
   }
 `;
 
 const Card3Text = styled.div`
   font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
   text-align: justify;
-  /* #202020 */
   color: #202020;
-  @media (min-width: 768px) {
+  font-weight: 600;
+  @media (max-width: 834px) {
     font-size: 18px;
   }
-  @media (min-width: 1060px) {
+  @media (min-width: 834px) {
     font-style: normal;
-    font-weight: bold;
-    font-size: 30px;
+    font-size: 24px;
     line-height: 36px;
     text-align: center;
     color: rgb(32, 32, 32);

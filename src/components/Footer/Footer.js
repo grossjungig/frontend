@@ -63,10 +63,6 @@ const Root = styled.div`
   flex-direction: column;
   /* width: 375px;
   height: 200px; */
-  padding-top: 2rem;
-  padding-bottom: 5rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
   background-color: #365da7;
   color: white;
   /*Media queries Desktop*/

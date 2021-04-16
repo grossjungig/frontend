@@ -1,6 +1,6 @@
 .cookie-consent {
     background-color: var(--gai-light-blue);
-    border-radius: 5px;
+    border: var(--gai-red) 2px solid;
     padding: 10px;
 }
 

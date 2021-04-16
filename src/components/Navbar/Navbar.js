@@ -59,9 +59,9 @@ const Navbar = (props) => {
 
   return (
     <div>
-      {ccDisplayed ? <CookieConsent clicked={confirmCc} />: null}
       <nav >
         <header className="header">
+          {ccDisplayed ? <CookieConsent clicked={confirmCc} />: null}
           <HashLink smooth className="logo" to="/#">
             <img
               style={{ height: "34px" }}
@@ -131,6 +131,7 @@ const Navbar = (props) => {
               </>
             )}
             <li>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a>
                 <button
                   className="round-button language-switch"

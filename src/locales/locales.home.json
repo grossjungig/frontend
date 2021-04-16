@@ -104,39 +104,49 @@
     "en": "Contact",
     "de": "Kontakt"
   },
-  "step_1":{
-    "en":      "Seniors — create a profile with 5 clicks, select your roommate preferences, tell us about your room and post pictures.",
-    
-    "de":"Senioren – Erstellen Sie ein Profil in 5 Klicks, wählen Sie Ihre Mitbewohnerpräferenzen aus, Erzählen Sie uns von Ihrem Zimmer und veröffentlichen Sie passende Fotos. "
+  "step_1_sr":{
+    "en": "Search for your perfect flatmate. See each profile of young people and their request.",
+    "de": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jede junge Person und deren Anfrage lesen."
   },
-  "step_2":{
-    "en":      "Youth —  create a profile with 5 clicks, select your roommate preferences, look for a room on the map.",
-    
-    "de":"Junge Menschen: Erstellen Sie ein Profil mit 5 Klicks, wählen Sie ihre Zimmer- und Mitbewohnerpräferenzen aus und starten Sie mit der Suche."
+  "step_2_sr":{
+    "en": "When you find the right person and would like to get in touch, please let us know by emailing us at info@grossjungig.de.",
+    "de": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit."
   },
-  "step_3":{
-    "en":      "If you are interested in a certain room / roommate, please contact us at info@grossjungig.de. We will process your request and get back to you with more information.",
-    
-    "de":"Wenn Sie an einem bestimmten Zimmer/Mitbewohner interessiert sind, kontaktieren Sie uns bitte unter info@grossjungig.de. Wir werden Ihre Anfrage bearbeiten und melden uns mit Details bei Ihnen."
+  "step_3_sr":{
+    "en": "We keep your information private and secure. We will not reveal your full name, phone number, or full home address to other users.",
+    "de": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen, Ihre Telefonnummer und die vollständige Adresse ihrer Wohnung anderen NutzerInnen nicht."
   },
-  "step_4":{
-    "en":      "After we introduce you to each other and you decide on the test period, we will help you to sign the rental agreement and to extend it after the test period.",
-    
-    "de":"Nach dem wir Sie einander vorstellen und Sie sich für die Testperiode entscheiden, helfen wir Ihnen, den Mietvertrag zu unterschreiben sowie ihn nach der Testperiode zu verlängern. "
+  "step_4_sr":{
+    "en": "We will then introduce you to each other and help you arrange a meeting and rental terms.",
+    "de": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen."
   },
-  "step_5":{
-    "en":      "Seniors: Receive secure payment for your room. The money goes straight to your account.",
-
-    "de":"Senioren: Erhalten Sie eine sichere Bezahlung für Ihr Zimmer. Das Geld geht direkt auf Ihr Konto. "
+  "step_5_sr":{
+    "en": "You will sign a rental agreement with each other and a service agreement with Großjungig AI.",
+    "de": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab."
   },
-  "step_6":{
-    "en":      "Young people: If you would like to contact a particular senior person, please send us a message to info@grossjungig.de.",
-
-    "de":"Junge Menschen: Wenn Sie eine Person kontakieren möchten, senden Sie uns bitte eine Nachricht an info@grossjungig.de"
+  "step_1_jr":{
+    "en": "Search for your perfect flatmate. See the information for each room and each senior person.",
+    "de": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jedes Zimmer und jede ältere Person lesen."
+  },
+  "step_2_jr":{
+    "en": "If you would like to contact someone, please let us know by emailing us at info@grossjungig.de.",
+    "de": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit."
+  },
+  "step_3_jr":{
+    "en": "We keep your information private and secure. We do not reveal your full name and phone number to other users.",
+    "de": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen und Ihre Telefonnummer anderen NutzerInnen nicht."
+  },
+  "step_4_jr":{
+    "en": "We will introduce you to each other and help you arrange a meeting and rental terms.",
+    "de": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen."
+  },
+  "step_5_jr":{
+    "en": "You will sign a rental agreement with each other and a service agreement with Großjungig AI.",
+    "de": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab."
   },
   "opinion":{
-    "en":      "We’ve learnt so much from each other.It’s nice to have someone to talk to.",
-    "de":"Wir haben so viel von einander gelernt! Es ist schön, mit jemanden Zuhause reden zu dürfen."
+    "en": "We’ve learnt so much from each other.It’s nice to have someone to talk to.",
+    "de": "Wir haben so viel von einander gelernt! Es ist schön, mit jemanden Zuhause reden zu dürfen."
   },
   "contact_us":{
     "en":"If you have questions we are happy to answer them!",

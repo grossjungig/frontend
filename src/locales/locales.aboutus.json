@@ -68,11 +68,11 @@
       "de": "Marketing & Operations"
     },
     "Menna": {
-      "en": "Webdevelopment & AI",
+      "en": "Web development & AI",
       "de": "Webentwicklung & KI"
     },
     "Luca": {
-      "en": "Webdevelopment",
+      "en": "Web development",
       "de": "Webentwicklung"
     },
     "Magda": {
@@ -80,7 +80,7 @@
       "de": "UX/UI-Design"
     },
     "Vicky": {
-      "en": "Webdevelopment",
+      "en": "Web development",
       "de": "Webentwicklung"
     },
     "Rosina": {
@@ -92,7 +92,7 @@
       "de": "Geschäftsentwicklung"
     },
     "Nida": {
-      "en": "Webdevelopment",
+      "en": "Web development",
       "de": "Webentwicklung"
     },
     "Vlad": {
@@ -100,15 +100,15 @@
       "de": "Geschäftsentwicklung"
     },
     "Skander": {
-      "en": "Marketing",
-      "de": "Marketing"
+      "en": "Investment relations",
+      "de": "Investitionen"
     },
     "Maria": {
       "en": "Marketing",
       "de": "Marketing"
     },
     "Morteza": {
-      "en": "Webdevelopment & AI",
+      "en": "Web development & AI",
       "de": "Webentwicklung & KI"
     },
     "Sree": {
@@ -118,6 +118,34 @@
     "Pablo": {
       "en": "Tech Mentor",
       "de": "Tech Mentor"
+    }, 
+    "Kilian": {
+      "en": "Business Development",
+      "de": "Geschäftsentwicklung"
+    }, 
+    "Christian": {
+      "en": "Customer relations",
+      "de": "Kundenbetreuung"
+    }, 
+    "Jen": {
+      "en": "Web development",
+      "de": "Webentwicklung"
+    }, 
+    "Valentina": {
+      "en": "UX/UI Design",
+      "de": "UX/UI-Design"
+    }, 
+    "Ane": {
+      "en": "Investment intern",
+      "de": "Investitionen Praktikant"
+    },
+    "Chiao": {
+      "en": "Digital Marketing",
+      "de": "Digitales Marketing"
+    }, 
+    "Roberta": {
+      "en": "Product",
+      "de": "Produkt"
     }
   }
 }
