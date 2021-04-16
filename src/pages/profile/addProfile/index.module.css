@@ -1,0 +1,38 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.msg {
+    background-color: var(--gai-white);
+    border: 1px solid #365fa7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: var(--gai-blue);
+    font-size: 10px;
+    max-width: 700px;
+    margin-bottom: 10px;
+    padding: 16px;
+    width: fit-content;
+}
+
+.form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form > * {
+    margin-bottom: 10px;
+}
+
+.formCtrl label {
+    display: block;
+}
+
+.input {
+    width: 250px;
+    height: 30px;
+}
