@@ -12,15 +12,15 @@ import { generateBase64FromImage } from '../../../utils';
 const options = [
   { value: 'Shopping', label: 'Shopping' },
   { value: 'Cooking or baking', label: 'Cooking or baking' },
-  { value: 'digital devices', label: 'digital devices' },
-  { value: 'Moving the lawn', label: 'Moving the lawn' },
+  { value: 'Help with digital devices', label: 'Help with digital devices' },
+  { value: 'Mowing the lawn', label: 'Mowing the lawn' },
   { value: 'Gardening', label: 'Gardening' },
   { value: 'Reading out loud', label: 'Reading out loud' },
   { value: 'Car transportation', label: 'Car transportation' },
   { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
   { value: 'Accompanying on walks', label: 'Accompanying on walks' },
   { value: 'Taking care of pets', label: 'Taking care of pets' },
-  { value: 'Pflage/ Taking care of Seniors', label: 'Pflage/ Taking care of Seniors' }
+  { value: 'Taking care of Seniors', label: 'Taking care of Seniors' }
 ]
 
 class AddProfile extends Component {
