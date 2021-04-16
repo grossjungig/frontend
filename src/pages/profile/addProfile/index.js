@@ -246,7 +246,7 @@ class AddProfile extends Component {
 
             <div className={styles.formCtrl}>
               <label >Profile picture</label>
-              <img src={this.state.avatarPreview} className="avatar-preview" alt="avatar"/>
+              <img src={this.state.avatarPreview} className={styles.avatarImg} alt="avatar"/>
               <input
                   type="file"
                   accept="image/png, image/jpeg, image/jpg"
