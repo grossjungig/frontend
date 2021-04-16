@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "../../pages/login/login.css";
 import './signup.css';
+import { fullBlock } from '../../shared/index.module.css';
 import axios from '../../axios';
 import signupLocales from "../../locales/locales.signup.json";
 import TextField from "@material-ui/core/TextField";
@@ -63,7 +64,7 @@ class Signup extends Component {
     }
 
     return (
-      <div className="full-block">
+      <div className={fullBlock}>
         <div className="x"></div>
         <div className="login">
           <h2>{signupLocales.welcome[lang]}</h2>{" "}

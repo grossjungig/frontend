@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
 
 import "./App.css";
 
@@ -16,14 +15,14 @@ import AddProfile from "./pages/profile/addProfile";
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
 
-import UserPortal from "./components/UserPortal/UserPortal.js";
+import UserPortal from "./components/UserPortal";
 import Berlin from "./components/Berlin/Berlin.js";
 import AddRoom from "./components/AddRoom/AddRoom.js";
 import UploadPhotos from "./components/UploadPhotos";
 import Details from "./components/Details/Details";
 import MapView from "./components/MapView/MapView";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile";
 
 import People from "./components/People/People";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
@@ -31,8 +30,6 @@ import EditProfile from "./components/EditProfile/EditProfile";
 
 import { connect } from 'react-redux';
 import { dispatchCheckAuth } from './store/auth/thunks';
-
-const theme = { main: "#ed8707" };
 
 class App extends React.Component {
 
@@ -46,8 +43,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <ThemeProvider theme={theme}>
+      <div className="app">
+        <div className="app__content">
           <Navbar updatePage={this.updatePage} />
           <Switch>
             <Route exact path="/"><Home/></Route>
@@ -90,11 +87,12 @@ class App extends React.Component {
               
               />
             )}/>
-
             <Route exact path="/reset/:token" component={ResetPassword} />
           </Switch>
-        </ThemeProvider>
-        <Footer className="footer-stick" />
+        </div>
+        <div className="app__footer">
+          <Footer />
+        </div>
       </div>
     );
   }
