@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect,Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import styles from './index.module.css';
 import { fullBlock } from '../../../shared/index.module.css';
 import axios from '../../../axios';
@@ -158,7 +158,6 @@ class AddProfile extends Component {
                 type="select"
                 value={this.state.gender}
                 onChange={this.setFormState}
-                className="select_profile"
                 className={styles.input}
               >
                 <option  value="" disabled>Select</option>
