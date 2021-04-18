@@ -39,6 +39,9 @@ nav {
 .language-switch {
   margin-top: 5px;
 }
+button {
+  outline: none
+}
 
 .header {
   top: 0;
