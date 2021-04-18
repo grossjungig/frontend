@@ -7,7 +7,6 @@
     "en": "Großjungig AI is the first and only rental platform for seniors and young people.",
     "de": "Großjungig AI ist die erste und einzige Wohnplattform für ältere und junge Menschen."
   },
-
   "description": {
     "first": {
       "en": "Großjungig AI is the first and only rental platform for seniors and young people. Großjungig AI is an online platform where seniors can post an ad if they have a spare room at their home and are looking for roommates. At the same time, young people can see these ads and contact the seniors. Our mission is to connect people and promote cross-generational cohesion. We want to make it possible for seniors not only to find a roommate and to earn money, but also to receive support in everyday life from young people. These are often small things like shopping, carrying heavy items, helping in the garden, drinking coffee / tea, playing chess, etc. Senior citizens can also teach the younger roommate and help with challenges they encounter. How exactly and how much time young people help seniors and how do they spend their time together can be discussed individually and a suitable solution can be found for both sides.",
@@ -45,13 +44,13 @@
           "en": "Facts",
           "de": "Fakten"
         },
-        "en": [ 
+        "en": [
           "Female CEO",
           "75% of leadership is female",
           "71% of the team is female",
           "Over 10 nationalities"
         ],
-        "de": [ 
+        "de": [
           "Geschäftsführerin",
           "75% der Führungskräfte sind weiblich",
           "71% des Teams sind weiblich",
@@ -84,8 +83,8 @@
       "de": "Webentwicklung"
     },
     "Rosina": {
-      "en": "QA",
-      "de": "QA"
+      "en": "Quality Assurance",
+      "de": "Qualitätskontrolle"
     },
     "Tammy": {
       "en": "Business Development",
@@ -118,23 +117,23 @@
     "Pablo": {
       "en": "Tech Mentor",
       "de": "Tech Mentor"
-    }, 
+    },
     "Kilian": {
       "en": "Business Development",
       "de": "Geschäftsentwicklung"
-    }, 
+    },
     "Christian": {
       "en": "Customer relations",
       "de": "Kundenbetreuung"
-    }, 
+    },
     "Jen": {
       "en": "Web development",
       "de": "Webentwicklung"
-    }, 
+    },
     "Valentina": {
       "en": "UX/UI Design",
       "de": "UX/UI-Design"
-    }, 
+    },
     "Ane": {
       "en": "Investment intern",
       "de": "Investitionen Praktikant"
@@ -142,7 +141,7 @@
     "Chiao": {
       "en": "Digital Marketing",
       "de": "Digitales Marketing"
-    }, 
+    },
     "Roberta": {
       "en": "Product",
       "de": "Produkt"
