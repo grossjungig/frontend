@@ -207,21 +207,6 @@ class Details extends Component {
             </CardContent>
           </Card>
         </div>
-        <div className="markus-container">
-          <div className="detail-container-text">
-            <div className="paragraphs"></div>
-            <Link to="/berlin">
-              <Fab
-                style={{
-                  backgroundColor: "#365da7",
-                  color: "white",
-                }}
-              >
-                {detailsLocales.return[lang]}
-              </Fab>
-            </Link>
-          </div>
-        </div>
       </div>
     );
   }
