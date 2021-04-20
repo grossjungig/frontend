@@ -46,6 +46,8 @@ class Profile extends Component {
     let renderedAvatar = dummyAvatar;
     const { avatarUrl } = this.state.profile;
     if (avatarUrl) renderedAvatar = avatarUrl;
+
+    console.log(profile);
     
     return (
       <div className={fullBlock}>
@@ -59,14 +61,17 @@ class Profile extends Component {
           <div className={styles.details}>
             <span>Name</span><span>{profile.name}</span>
             <span>Age</span><span>{profile.age}</span>
+            <span>Gender</span><span>{profile.gender}</span>
             <span>pays</span> <span>{profile.price}€</span>
             <span>would live in</span><span>{profile.district}</span>
             <span>helps with</span>
             <span>
               {profile.length !== 0 && profile.help.map(
-                help => <span key = {help}>{help}</span>)
+                help => <span key = {help}>{help}, </span>)
               }
             </span>
+            <span>Bio</span>
+            <span className={styles.bio} >"{profile.description}"</span>
           </div>
           {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id &&
             <div className={styles.ctrl}>
