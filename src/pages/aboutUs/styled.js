@@ -43,7 +43,7 @@ const IconContainer = styled.div`
 `;
 
 export const TeamItem = ({ image, name, role, height, color, link }) => {
-  let imgEl = <img src={image} alt={`${name} - ${role}`} height={height} width="auto" />;
+  let imgEl = <img src={image} alt={`${name} - ${role}`} height={height} width={"auto"} />;
   if (link) imgEl = <a href={link} target="_blank" rel="noopener noreferrer" >{imgEl}</a>
   return (
     <ItemContainer>
@@ -61,7 +61,7 @@ const ItemContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-width: 160px;
+  min-width: 200px;
 
   img {
     border-radius: 50%;

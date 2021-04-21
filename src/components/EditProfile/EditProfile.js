@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import axios from '../../axios';
 import newAxios from 'axios';
-import { Link } from "react-router-dom";
 import Select from 'react-select'
 import { connect } from 'react-redux';
-import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
+import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { generateBase64FromImage } from '../../utils';
+
+import apStyles from '../../pages/profile/addProfile/index.module.css'; // ap = Add Profile
+import { fullBlock } from '../../shared/index.module.css';
+import { delBtn, formAction } from './index.module.css';
 
 const options = [
   { value: 'Shopping', label: 'Shopping' },
@@ -59,7 +62,8 @@ class EditProfile extends Component {
           owner: data.owner,
           help: data.help,
           images: [],
-          avatarPreview: data.avatarUrl
+          avatarPreview: data.avatarUrl,
+          avatarUrl: data.avatarUrl
         });
        
         const helps = data.help;
@@ -148,64 +152,70 @@ class EditProfile extends Component {
       
   };
 
+  cancelEdit = () => {
+    this.props.history.push('/userportal');
+  }
+
   render() {
-
     return (
-      <div style={{ height: "auto", width: "auto" }}>
-
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "3vh" }}>
-          <div className="warning" style={{ margin: "1vh" }}>
-            <p >Please do not leave your personal identifying information here.</p>
+      <div className={fullBlock}>
+        <div className={apStyles.main}>
+          <div className={apStyles.msg}>
+            Please do not leave your personal identifying information here.
           </div>
-        </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div style={{ width: "328px" }}>
-            <label className="label_profile" htmlFor="name" style={{ marginBottom: "2vh" }}>First Name</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={this.state.name}
-              onChange={this.setFormState}
-              className="input_profile"
-            />
+          
+          <div className={apStyles.form}>
+            <div className={apStyles.formCtrl}>
+              <label>First Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={this.state.name}
+                onChange={this.setFormState}
+                className={apStyles.input}
+              />
+            </div>
 
-            <label className="label_profile" htmlFor="gender">Gender</label>
-            <select
-              name="gender"
-              type="select"
-              value={this.state.gender}
-              onChange={this.setFormState}
-              style={{ marginTop: "2vh" }}
-              className="select_profile"
-            >
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="" disabled >Select</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="male">Male</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="female">Female</option>
-              <option style={{ backgroundColor: "#F9F8F8", fontFamily: "Montserrat" }} value="divers">Divers</option>
-            </select>
+            <div className={apStyles.formCtrl}>
+              <label className="label_profile" htmlFor="gender">Gender</label>
+              <select
+                name="gender"
+                type="select"
+                value={this.state.gender}
+                onChange={this.setFormState}
+                className={apStyles.input}
+              >
+                <option value="" disabled >Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="divers">Divers</option>
+              </select>
+            </div>
 
-            <label htmlFor="age" className="label_profile" style={{ marginBottom: "2vh" }}>Age</label>
-            <input
-              type="text"
-              name="age"
-              id="age"
-              value={this.state.age}
-              onChange={this.setFormState}
-              className="input_profile"
-            />
+            <div className={apStyles.formCtrl}>
+              <label>Age</label>
+              <input
+                type="text"
+                name="age"
+                id="age"
+                value={this.state.age}
+                onChange={this.setFormState}
+                className={apStyles.input}
+              />
+            </div>
 
-            <label className="label_profile" htmlFor="price" style={{ marginBottom: "2vh" }} >Requested room price</label>
+            <label>Requested room price</label>
             <input
               type="number"
               name="price"
               id="price"
               value={this.state.price}
               onChange={this.setFormState}
-              className="input_profile"
+              className={apStyles.input}
             />
 
-            <label htmlFor="district" className="label_profile" >About me (max 120 signs)</label>
+            <label>About me (max 120 signs)</label>
             <textarea
               type="text"
               name="description"
@@ -214,21 +224,27 @@ class EditProfile extends Component {
               onChange={this.setFormState}
               maxLength="120"
               rows="3"
-              style={{ marginTop: "2vh" }}
-              className="textarea_profile"
+              className={apStyles.input}
             />
-            <label className="label_profile" htmlFor="help" style={{ marginBottom: "2vh" }}>Expected Help</label>
-            <Select isMulti options={options} onChange={this.setHelp} id="help" value={this.state.help}
-              name="help" />
+            <label>Expected Help</label>
+            <Select
+              isMulti
+              options={options}
+              onChange={this.setHelp}
+              id="help"
+              value={this.state.help}
+              name="help"
+              className={apStyles.input}
+            />
 
-            <label className="label_profile" htmlFor="select">Prefered district</label>
+            <label>Prefered district</label>
             <select
               name="district"
               type="select"
               value={this.state.district}
               onChange={this.setFormState}
-              className="select_profile"
               placeholder="Select"
+              className={apStyles.input}
             >
               <option value="" disabled >Select</option>
               <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
@@ -246,29 +262,30 @@ class EditProfile extends Component {
             </select>
 
             <label className="label_profile" >Profile picture</label>
-            <img src={this.state.avatarPreview} className="avatar-preview" alt="avatar"/>
+            <img
+              className={apStyles.avatarImg}
+              alt="avatar"
+              src={this.state.avatarPreview}
+            />
             <input
                 type="file"
                 accept="image/png, image/jpeg, image/jpg"
                 onChange={this.handleAvatarChange}
+                className={apStyles.input}
             />
-            <span className="avatar-preview-err">{this.state.avatarPreviewErr}</span>
+            <span>{this.state.avatarPreviewErr}</span>
 
-            <div className="warning" style={{ marginTop: "2vh" }}>
-              <p >By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.</p>
-
+            <div className={apStyles.msg}>
+              By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.
             </div>
-
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Link to={'/userportal'}>
-              <button type="submit" className="button_profile" style={{ width: "150px" }}>Cancel</button>
-              </Link>
-              <button type="submit" className="button_profile" style={{ width: "150px", background: "#365FA7", color: "#F9F8F8" }} onClick={this.editProfile} >Submit</button>
+          
+            <div className={formAction}>
+              <button className={`${apStyles.btn} ${delBtn}`} onClick={this.cancelEdit}>Cancel</button>
+              <button className={apStyles.btn} onClick={this.editProfile}>Submit</button>
             </div>
             {this.state.message && <p>{this.state.message}</p>}
           </div>
         </div>
-
       </div>
     );
   }

@@ -2,10 +2,10 @@ import React, { Component } from "react";
 // import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "./login.css";
+import { fullBlock } from '../../shared/index.module.css';
 import loginLocales from "../../locales/locales.login.json";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-
 import { connect } from 'react-redux';
 import { dispatchLogin } from '../../store/auth/thunks';
 
@@ -33,7 +33,7 @@ class Login extends Component {
       return <Redirect to="/userportal" />;
     }
     return (
-      <div className="full-block">
+      <div className={fullBlock}>
         <div className="login">
           <h2>{loginLocales.welcome[lang]}</h2>
           <h3>{loginLocales.prompt[lang]}</h3>

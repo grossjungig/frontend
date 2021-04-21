@@ -21,7 +21,7 @@ export const h2CSS = css`
   font-weight: 400;
   font-size: 1rem;
   line-height: 2rem;
-  color: #202020;
+  color: ${props => props.titleColor || "#202020"};
   @media screen and (min-width: 1060px) {
     font-weight: 700;
     font-size: 1.5rem;

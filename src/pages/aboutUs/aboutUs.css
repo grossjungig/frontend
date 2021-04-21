@@ -71,15 +71,13 @@
   .core-staff {
     overflow-x: scroll;
     justify-content: initial;
-    width: 90%;
   } 
 
   .core-staff > * {
-    margin: 0 100px;
+    margin: 0 50px;
   }
 
   .staff {
-    width: 90%;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: scroll;
