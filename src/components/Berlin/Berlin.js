@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from '../../axios';
 import roomsLocales from "../../locales/locales.rooms.json";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -16,13 +16,13 @@ class Berlin extends Component {
     select: "--",
     maxPrice: "",
     searchedRoom: [],
-    photos: [], //[urls pointing to the images]
+    photos: [],
     filter: false,
   };
-  //1. from frontend, axios request a room data-> route rooms.js
+
   async componentDidMount() {
     const response = await axios.get(
-      `${process.env.REACT_APP_BACKENDURL}api/rooms`
+      `api/rooms`
     );
     this.setState({
       rooms: response.data.rooms,
@@ -96,7 +96,7 @@ class Berlin extends Component {
               </div>
 
               <div className="container_people">
-                <h3>{el.name}</h3>
+                <h3>{el.roomTitle}</h3>
                 <p>
                   {el.adress} {el.postcode} {el.district}
                 </p>
@@ -186,7 +186,6 @@ class Berlin extends Component {
                   name="search"
                   value={this.state.search}
                   onChange={this.searchedName}
-                  // label={roomsLocales.search[lang]}
                   type="search"
                   variant="outlined"
                 />
@@ -204,7 +203,6 @@ class Berlin extends Component {
                     fullWidth
                     id="outlined-search"
                     name="search"
-                    // label={roomsLocales["max-price"][lang]}
                     type="search"
                     variant="outlined"
                     value={this.state.MaxPrice}
