@@ -46,8 +46,6 @@ class Profile extends Component {
     let renderedAvatar = dummyAvatar;
     const { avatarUrl } = this.state.profile;
     if (avatarUrl) renderedAvatar = avatarUrl;
-
-    console.log(profile);
     
     return (
       <div className={fullBlock}>
