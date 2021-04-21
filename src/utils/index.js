@@ -8,3 +8,7 @@ export const generateBase64FromImage = imageFile => {
     reader.readAsDataURL(imageFile);
     return promise;
 };
+
+export const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}

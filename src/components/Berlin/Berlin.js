@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from '../../axios';
 import roomsLocales from "../../locales/locales.rooms.json";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
+import styles from './index.module.css';
 
 class Berlin extends Component {
   state = {
@@ -15,13 +16,13 @@ class Berlin extends Component {
     select: "--",
     maxPrice: "",
     searchedRoom: [],
-    photos: [], //[urls pointing to the images]
+    photos: [],
     filter: false,
   };
-  //1. from frontend, axios request a room data-> route rooms.js
+
   async componentDidMount() {
     const response = await axios.get(
-      `${process.env.REACT_APP_BACKENDURL}api/rooms`
+      `api/rooms`
     );
     this.setState({
       rooms: response.data.rooms,
@@ -95,7 +96,7 @@ class Berlin extends Component {
               </div>
 
               <div className="container_people">
-                <h3>{el.name}</h3>
+                <h3>{el.roomTitle}</h3>
                 <p>
                   {el.adress} {el.postcode} {el.district}
                 </p>
@@ -107,23 +108,23 @@ class Berlin extends Component {
       );
     });
     return (
-      <div className="tables-x" data-testid="berlin-root">
-        <div className="offers-title">
+      <div className="tables-x">
+        <div className={styles.offersTitle}>
           <h1>
             {roomsLocales.title[lang]} Berlin {this.state.rooms.length}{" "}
             {roomsLocales.offers[lang]}
           </h1>
         </div>
 
-        <div className="search-block">
-          <div className="search-form">
+        <div className={styles.searchBlock}>
+          <div className={styles.searchForm}>
             {" "}
             <div>
               <div>
-                <div className="offers-input-labels">
+                <div className={styles.offerInputLabels}>
                   {" "}
                   <label
-                    className="offers-input-labels"
+                    className={styles.offerInputLabels}
                     htmlFor="filterbydistrict"
                   >
                     {roomsLocales.suburb[lang]}:{" "}
@@ -131,9 +132,6 @@ class Berlin extends Component {
                 </div>
                 <div>
                   <FormControl variant="outlined" style={{ width: "100%" }}>
-                    {/* <InputLabel id="demo-simple-select-outlined-label">
-              Stadteil
-            </InputLabel> */}
                     <Select
                       fullWidth
                       name="select"
@@ -173,10 +171,10 @@ class Berlin extends Component {
                     </Select>
                   </FormControl>
                 </div>
-                <div className="offers-input-labels">
+                <div className={styles.offerInputLabels}>
                   {" "}
                   <label
-                    className="offers-input-labels"
+                    className={styles.offerInputLabels}
                     htmlFor="filterbypostcode"
                   >
                     {roomsLocales.search[lang]}:{" "}
@@ -188,14 +186,13 @@ class Berlin extends Component {
                   name="search"
                   value={this.state.search}
                   onChange={this.searchedName}
-                  // label={roomsLocales.search[lang]}
                   type="search"
                   variant="outlined"
                 />
               </div>
 
               <div>
-                <div className="offers-input-labels">
+                <div className={styles.offerInputLabels}>
                   <label htmlFor="searchbyprice">
                     {roomsLocales["max-price"][lang]}:{" "}
                   </label>
@@ -206,7 +203,6 @@ class Berlin extends Component {
                     fullWidth
                     id="outlined-search"
                     name="search"
-                    // label={roomsLocales["max-price"][lang]}
                     type="search"
                     variant="outlined"
                     value={this.state.MaxPrice}
@@ -229,7 +225,7 @@ class Berlin extends Component {
           </div>
         </div>
 
-        <div className="table-container">{room}</div>
+        <div className={styles.tableContainer}>{room}</div>
       </div>
     );
   }

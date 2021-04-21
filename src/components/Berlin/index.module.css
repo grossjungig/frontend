@@ -1,0 +1,28 @@
+.offersTitle {
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchBlock {
+    display: flex;
+    max-width: 30vw;
+    margin: 0 auto;
+    width: 50rem;
+    min-width: 375px;
+}
+
+.searchForm {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.offersInputLabels {
+    padding-bottom: 0.6rem;
+    padding-top: 0.6rem;
+}
+
+.tableContainer {
+    text-align: left;
+    margin: 20px auto;
+}
