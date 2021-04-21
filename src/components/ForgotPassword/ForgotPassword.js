@@ -9,8 +9,14 @@ import { fullBlock } from '../../shared/index.module.css';
 const ForgotPassword = () => {
   const lang = localStorage.getItem('lang');
   const [email, setEmail] = useState('');
+  
   const submitEmail = async () => {
-    
+    try {
+      const res = await axios.post(`api/auth/forgotPassword`, { email });
+      console.log(res);
+    } catch (err) {
+      console.log({...err});
+    }
   };
 
   return (
@@ -18,7 +24,7 @@ const ForgotPassword = () => {
       <div className={styles.main}>
         <h1>{locales.grossjungig[lang]}</h1>
         <h3>{locales.prompt[lang]}</h3>
-        <form noValidate={false}>
+        <form>
           <TextField
             fullWidth
             label={locales.email[lang]}
