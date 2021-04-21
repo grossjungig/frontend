@@ -3,7 +3,8 @@ import axios from '../../axios';
 import locales from "../../locales/locales.forgotpassword.json";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import './index.css'
+import styles from './index.module.css';
+import { fullBlock } from '../../shared/index.module.css';
 
 const ForgotPassword = () => {
   const lang = localStorage.getItem('lang');
@@ -13,26 +14,28 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="full-block">
-      <h1>{locales.grossjungig[lang]}</h1>
-      <h3>{locales.prompt[lang]}</h3>
-      <form noValidate={false}>
-        <TextField
-          fullWidth
-          label={locales.email[lang]}
-          margin="normal"
-          onChange={({target}) => { setEmail(target.value); }}
-          type="email"
-          variant="outlined"
-        />
-        <Button
-          className="submit-btn"
-          variant="contained"
-          onClick={submitEmail}
-        >
-          {locales.submit[lang]}
-        </Button>
-      </form>
+    <div className={fullBlock}>
+      <div className={styles.main}>
+        <h1>{locales.grossjungig[lang]}</h1>
+        <h3>{locales.prompt[lang]}</h3>
+        <form noValidate={false}>
+          <TextField
+            fullWidth
+            label={locales.email[lang]}
+            margin="normal"
+            onChange={({target}) => { setEmail(target.value); }}
+            type="email"
+            variant="outlined"
+          />
+          <Button
+            className={styles.submitBtn}
+            variant="contained"
+            onClick={submitEmail}
+          >
+            {locales.submit[lang]}
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };
