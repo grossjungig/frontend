@@ -16,7 +16,7 @@ import NavBanner from "./NavBanner";
 const Navbar = (props) => {
   const history = useHistory();
   const [checked, setChecked] = useState(false);
-  const [lang, setLanguage] = useState("de")
+  const [lang, setLanguage] = useState(localStorage.getItem("lang"))
 
   const imageChange = (updatePage) => {
     const language = localStorage.getItem("lang");
@@ -138,7 +138,7 @@ const Navbar = (props) => {
                   onClick={(e) => imageChange(props.updatePage)}
                   alt="Language Switcher"
                 >
-                  {lang === "de" ? "EN" : "DE"}
+                  {lang === "de" ? "DE" : "EN"}
                 </button>
               </a>
             </li>
