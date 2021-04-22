@@ -5,24 +5,12 @@ import { fullBlock } from '../../../shared/index.module.css';
 import axios from '../../../axios';
 import newAxios from 'axios';
 import { connect } from 'react-redux';
-import Select from 'react-select'
+import offeredhelps from '../../../assets/checkbox/help';
+import Checkbox from '../../../components/Checkbox/Checkbox'
 import { dispatchCheckAuth } from "../../../store/auth/thunks";
 import dummyAvatar from '../../../assets/images/dummy-avatar.jpg'
 import { generateBase64FromImage } from '../../../utils';
 
-const options = [
-  { value: 'Shopping', label: 'Shopping' },
-  { value: 'Cooking or baking', label: 'Cooking or baking' },
-  { value: 'digital devices', label: 'digital devices' },
-  { value: 'Moving the lawn', label: 'Moving the lawn' },
-  { value: 'Gardening', label: 'Gardening' },
-  { value: 'Reading out loud', label: 'Reading out loud' },
-  { value: 'Car transportation', label: 'Car transportation' },
-  { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
-  { value: 'Accompanying on walks', label: 'Accompanying on walks' },
-  { value: 'Taking care of pets', label: 'Taking care of pets' },
-  { value: 'Pflage/ Taking care of Seniors', label: 'Pflage/ Taking care of Seniors' }
-]
 
 class AddProfile extends Component {
   state = {
@@ -36,10 +24,11 @@ class AddProfile extends Component {
     address: "",
     phoneNumber: "",
     owner: "",
-    help: [],
     images: [],
     redirect: false,
+    offeredHelp: [],
     user: '',
+    checkedItems: new Map(),
 
     avatarUrl: '',
     avatarPreview: dummyAvatar,
@@ -54,17 +43,20 @@ class AddProfile extends Component {
       this.setState({ user: fetchedUser });
     }
   }
+
   
   setFormState = (event) => {
-
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
 
   setHelp = (event) => {
-    this.setState({ help: event })
-  }
+    const help = event.target.name;
+    const isChecked = event.target.checked;
+      this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(help, isChecked) }));
+    }
+
 
   handleAvatarChange = async (event) => {
     const avatarFile = event.target.files[0];
@@ -90,15 +82,12 @@ class AddProfile extends Component {
     }
   }
 
-  addNewProfile = (event) => {
-    event.preventDefault();
-    const arr=this.state.help;
-    var helps=[];
-    for (var i = 0 ;i < arr.length; i++ )
-    {
-      helps.push(arr[i].value);
-    }
-
+    onSubmit = (event) => {
+      
+      var checkedItems =  this.state.checkedItems;
+      var filterCheckedItems = checkedItems.forEach((value,key) =>{ if(value === false) checkedItems.delete(key)})
+      var stringifyOfferedHelp = JSON.stringify(Array.from(checkedItems.entries()));
+    
     // Direct Upload to AWS S3
     const { signedRequest, avatarFile } = this.state;
     newAxios.put(signedRequest, avatarFile )
@@ -114,8 +103,10 @@ class AddProfile extends Component {
       price: this.state.price,
       gender: this.state.gender,
       age: this.state.age,
-      help: helps,
-      avatarUrl: this.state.avatarUrl
+      help: filterCheckedItems,
+      offeredHelp: stringifyOfferedHelp, 
+      avatarUrl: this.state.avatarUrl,
+      
     })
       .then((res) => {
         this.props.refreshUser();
@@ -207,14 +198,11 @@ class AddProfile extends Component {
 
             <div className={styles.formCtrl}>
               <label htmlFor="help">Offered Help</label>
-              <Select
-                isMulti
-                options={options}
-                onChange={this.setHelp}
-                id="help"
-                name="help"
-                className={styles.input}
-              />
+              <div>
+              {offeredhelps.map(help => (
+                <Checkbox key={help.key} item={help}  setHelp={this.setHelp} />
+              ))}
+              </div>
             </div>
 
             <div className={styles.formCtrl}>
@@ -260,7 +248,7 @@ class AddProfile extends Component {
             </div>
 
             <div>
-              <button type="submit" className={styles.btn} onClick={this.addNewProfile} >Submit</button>
+              <button type="submit" className={styles.btn} onClick={this.onSubmit} >Submit</button>
             </div>
           </div>
           {this.state.message && <p>{this.state.message}</p>}

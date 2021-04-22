@@ -3,20 +3,27 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
-
+import { dispatchCheckAuth } from "../../store/auth/thunks";
 import styles from './index.module.css';
 import { fullBlock } from '../../shared/index.module.css'
 
 class Profile extends Component {
   state = {
     profile: [],
+    offeredHelp : [],
   };
 
   componentDidMount() {
+    this.props.refreshUser();
     const profileId = this.props.match.params.id;
     axios.get(`api/profiles/${profileId}`)
       .then((response) => {
-        this.setState({ profile: response.data});
+        var parseOfferedHelp= JSON.parse(response.data.offeredHelp);
+        var offeredHelp = parseOfferedHelp.flat(1)
+        this.setState({ 
+          profile: response.data,
+          offeredHelp: offeredHelp
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -41,6 +48,8 @@ class Profile extends Component {
 
   render() {
     const profile = this.state.profile;
+    const offeredHelp = this.state.offeredHelp
+
     const user = this.props.fetchedUser;
 
     let renderedAvatar = dummyAvatar;
@@ -63,9 +72,10 @@ class Profile extends Component {
             <span>would live in</span><span>{profile.district}</span>
             <span>helps with</span>
             <span>
-              {profile.length !== 0 && profile.help.map(
-                help => <span key = {help}>{help}</span>)
-              }
+              {profile.length !== 0 && offeredHelp.map(help =>
+              typeof help === 'string'? <span key = {help}>{help}</span> : null
+              
+              )}
             </span>
           </div>
           {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id &&
@@ -88,5 +98,8 @@ class Profile extends Component {
 const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
+const mapDispatchToProps = {
+  refreshUser: () => dispatchCheckAuth()
+};
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
