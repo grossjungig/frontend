@@ -15,7 +15,7 @@
 }
 
 .pic {
-    width: 100%;
+    width: 60%;
 }
 
 .details {
@@ -53,6 +53,11 @@
     font-weight: 600;
 }
 
+.details .bio {
+    font-weight: normal !important;
+    font-style: italic;
+}
+
 @media (max-width: 810px) {
     .ctrl {
         flex-direction: column;
@@ -64,5 +69,3 @@
         width: 200px;
     }
 }
-
-/* TODO: MOBILE Styling */

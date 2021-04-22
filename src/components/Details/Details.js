@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import detailsLocales from "../../locales/locales.details.json";
-import Fab from "@material-ui/core/Fab";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
@@ -206,21 +205,6 @@ class Details extends Component {
               </div>
             </CardContent>
           </Card>
-        </div>
-        <div className="markus-container">
-          <div className="detail-container-text">
-            <div className="paragraphs"></div>
-            <Link to="/berlin">
-              <Fab
-                style={{
-                  backgroundColor: "#365da7",
-                  color: "white",
-                }}
-              >
-                {detailsLocales.return[lang]}
-              </Fab>
-            </Link>
-          </div>
         </div>
       </div>
     );
