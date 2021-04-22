@@ -6,7 +6,8 @@ import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { generateBase64FromImage } from '../../utils';
 import offeredhelps from '../../assets/checkbox/help';
 import Checkbox from '../Checkbox/Checkbox'
-import apStyles from '../Checkbox/index.module.css'; // ap = Add Profile
+
+import apStyles from '../../pages/profile/addProfile/index.module.css'; // ap = Add Profile
 import { fullBlock } from '../../shared/index.module.css';
 import { delBtn, formAction } from './index.module.css';
 
