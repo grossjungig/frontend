@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { Button } from "../styled";
+import axios from '../../axios';
+import Button from "@material-ui/core/Button";
 import resetLocales from "../../locales/locales.resetpassword.json";
+
+import { fullBlock } from '../../shared/index.module.css';
+import styles from './index.module.css';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const loading = {
   margin: "1em",
@@ -19,6 +23,7 @@ export default class ResetPassword extends Component {
       updated: false,
       isLoading: true,
       error: false,
+      inputType: "password"
     };
   }
 
@@ -29,14 +34,8 @@ export default class ResetPassword extends Component {
       },
     } = this.props;
     try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_BACKENDURL}resetPassword/reset`,
-        {
-          params: {
-            resetPasswordToken: token,
-          },
-        }
-      );
+      const response = await axios.get('resetPassword/reset', {
+        params: { resetPasswordToken: token } });
 
       if (response.data) {
         this.setState({
@@ -72,19 +71,17 @@ export default class ResetPassword extends Component {
     } = this.props;
     try {
       const response = await axios.put(
-        `${process.env.REACT_APP_BACKENDURL}updatePassword/updatePasswordViaEmail`,
+        'updatePassword/updatePasswordViaEmail',
         {
           email,
           password,
           resetPasswordToken: token,
         }
       );
-      console.log(response.data);
+
       if (response.data.message === "password updated") {
-        this.setState({
-          updated: true,
-          error: false,
-        });
+        alert('Password updated');
+        this.props.history.push('/login')
       } else {
         this.setState({
           updated: false,
@@ -97,7 +94,7 @@ export default class ResetPassword extends Component {
   };
 
   render() {
-    const { password, error, isLoading, updated } = this.state;
+    const { password, error, isLoading } = this.state;
     const lang = localStorage.getItem("lang");
     if (error) {
       return (
@@ -123,35 +120,30 @@ export default class ResetPassword extends Component {
       );
     }
     return (
-      <div className="full-block">
-        <div className="side-view">
-          <img src="../image/signup.png" alt="login-side-view" />
-        </div>
-        <form className="password-form" onSubmit={this.updatePassword}>
-          <input
-            id="password"
-            label="password"
-            onChange={this.handleChange("password")}
-            value={password}
-            type="password"
-          />
-          <Button type="submit" label={resetLocales.update[lang]}></Button>
-        </form>
-
-        {updated && (
-          <div>
-            <p>
-              Your password has been successfully reset, please try logging in
-              again.
-            </p>
-            <Link>
-              <Button label={resetLocales.login[lang]}></Button>
-            </Link>
+      <div className={fullBlock}>
+        <form className={styles.form} onSubmit={this.updatePassword}>
+          <div className={styles.formCtrl}>
+            <input
+              className={styles.pwdInput}
+              label="password"
+              onChange={this.handleChange("password")}
+              value={password}
+              type={this.state.inputType}
+              placeholder="Enter a new password"
+            />
+            <VisibilityIcon
+              className={styles.showIcon}
+              onMouseDown={() => {this.setState({ inputType: "text" })}}
+              onMouseUp={() => {this.setState({ inputType: "password" })}}
+            />
           </div>
-        )}
-        <Link>
-          <Button label={resetLocales.return[lang]}></Button>
-        </Link>
+          <Button 
+            type="submit"
+            className={styles.submitBtn}
+          >
+            {resetLocales.update[lang]}
+          </Button>
+        </form>
       </div>
     );
   }

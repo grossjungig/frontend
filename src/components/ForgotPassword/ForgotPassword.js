@@ -13,7 +13,7 @@ const ForgotPassword = () => {
   const submitEmail = async () => {
     try {
       const res = await axios.post(`api/auth/forgotPassword`, { email });
-      console.log(res);
+      if (res.statue === 200) alert('Please check your email');
     } catch (err) {
       console.log({...err});
     }
