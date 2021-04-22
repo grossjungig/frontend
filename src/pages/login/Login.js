@@ -62,7 +62,7 @@ class Login extends Component {
               onChange={this.setFormState}
             />
             <h5>
-              {loginLocales.forgot[lang]}{" "}
+              {loginLocales.forgot[lang] + ' '}
               <Link to="/forgotPassword" style={{ textDecoration: "none" }}>
                 {loginLocales.click[lang]}
               </Link>
