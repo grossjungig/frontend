@@ -37,7 +37,7 @@ export default class ResetPassword extends Component {
           },
         }
       );
-      // console.log(response);
+
       if (response.data) {
         this.setState({
           username: response.data.username,
