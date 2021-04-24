@@ -1,13 +1,17 @@
 .app {
   position: relative;
   min-height: 100vh;
+  background-color: white;
+
 }
 
 .app__content {
   padding-bottom: 202px; /* Heigh of the Footer */
+  background-color: white;
 }
 
 .app__footer {
+  background-color: var(--gai-blue);
   position: absolute;
   bottom: 0;
   width: 100%;

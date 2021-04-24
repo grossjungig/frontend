@@ -1,9 +1,10 @@
 import React from "react";
 import { H1 } from "../../components/typography";
+import "./Impressum.css"
 
 export default function Impressum() {
   return (
-    <div>
+    <div className="impressum-wrapper">
       <H1>Impressum</H1>
       <p>zugleich Anbieterkennung im Sinne von §§ 5 TMG, 55 RStV</p>
       <p>

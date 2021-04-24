@@ -1,0 +1,13 @@
+.how-it-works-wrapper{
+    text-align: center;
+    width:80%;
+    margin:auto auto 6rem auto;
+
+} 
+
+/* 48em = 768px */
+
+ @media (min-width: 48em) {
+    .how-it-works-wrapper{
+    max-width: 780px;}
+}
