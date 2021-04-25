@@ -23,10 +23,6 @@ export const MainPanel = styled.div`
     padding: 3rem;
   }
 `;
-export const MainRow = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 export const SecPanel = styled.div`
   background-image: url(${youngOldPlaying});
@@ -51,23 +47,7 @@ export const SecPanel = styled.div`
   }
 `;
 
-export const RowChoose = styled.div`
-  display: flex;
-  padding: 0.15rem 0.5rem;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-`;
-
 export const RowSelect = styled.div`
-  display: flex;
-  padding: 0.15rem;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-`;
-
-export const RowSearch = styled.div`
   display: flex;
   padding: 0.15rem;
   justify-content: center;

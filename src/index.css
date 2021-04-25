@@ -2,6 +2,11 @@
   font-family: "Montserrat", sans-serif;
 }
 
+h1 {
+  font-weight: 600;
+  font-size: 36px;
+}
+
 :root {
   --gai-light-blue: #CFE7F0;
   --gai-blue: #365FA7;
