@@ -3,6 +3,7 @@ import axios from '../../axios';
 import newAxios from 'axios';
 import Select from 'react-select'
 import { connect } from 'react-redux';
+import { dispatchCheckAuth } from "../../store/auth/thunks";
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { generateBase64FromImage } from '../../utils';
 
@@ -293,5 +294,8 @@ class EditProfile extends Component {
 const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
+const mapDispatchToProps = {
+  refreshUser: () => dispatchCheckAuth()
+};
 
-export default connect(mapStateToProps)(EditProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile);
