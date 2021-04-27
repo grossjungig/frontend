@@ -1,0 +1,36 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+}
+
+.submitBtn {
+    color: var(--gai-white);
+    background-color: var(--gai-blue);
+    transition: all 300ms;
+}
+
+.submitBtn:hover {
+    background-color: var(--gai-blue);
+    opacity: 0.9;
+}
+
+.formCtrl {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.pwdInput {
+    width: 100%;
+    display: block;
+    padding: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.showIcon {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}

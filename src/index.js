@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import authReducer from './store/auth/reducers'
+import { StylesProvider } from '@material-ui/core/styles'
 
 // TODO: Move it to Redux.
 if (!localStorage.getItem("lang")) {
@@ -19,7 +20,13 @@ const store = createStore(authReducer, applyMiddleware(ReduxThunk));
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <StylesProvider injectFirst>
+        {/* 
+          injectFirst?: bool - this gives priority to the component-CSS files 
+          over Material UI Default stylings.
+        */}
+        <App />
+      </StylesProvider>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
