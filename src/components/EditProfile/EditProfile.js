@@ -1,29 +1,16 @@
 import React, { Component } from "react";
 import axios from '../../axios';
 import newAxios from 'axios';
-import Select from 'react-select'
 import { connect } from 'react-redux';
 import { dispatchCheckAuth } from "../../store/auth/thunks";
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { generateBase64FromImage } from '../../utils';
+import offeredhelps from '../../assets/checkbox/help';
+import Checkbox from '../Checkbox/Checkbox'
 
 import apStyles from '../../pages/profile/addProfile/index.module.css'; // ap = Add Profile
 import { fullBlock } from '../../shared/index.module.css';
 import { delBtn, formAction } from './index.module.css';
-
-const options = [
-  { value: 'Shopping', label: 'Shopping' },
-  { value: 'Cooking or baking', label: 'Cooking or baking' },
-  { value: 'Help with digital devices', label: 'Help with digital devices' },
-  { value: 'Mowing the lawn', label: 'Mowing the lawn' },
-  { value: 'Gardening', label: 'Gardening' },
-  { value: 'Reading out loud', label: 'Reading out loud' },
-  { value: 'Car transportation', label: 'Car transportation' },
-  { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
-  { value: 'Accompanying on walks', label: 'Accompanying on walks' },
-  { value: 'Taking care of pets', label: 'Taking care of pets' },
-  { value: 'Taking care of Seniors', label: 'Taking care of Seniors' }
-]
 
 class EditProfile extends Component {
   state = {
@@ -37,7 +24,7 @@ class EditProfile extends Component {
     price: "",
     phoneNumber: "",
     owner: "",
-    help: [],
+    checkedItems: new Map(),
     images: [],
     redirect: false,
 
@@ -51,6 +38,7 @@ class EditProfile extends Component {
   componentDidMount() {
     axios.get(`api/profiles/${this.props.fetchedUser.profile}`)
       .then(({data}) => {
+        var offeredHelp = new Map(JSON.parse(data.offeredHelp));
         this.setState({
           name: data.user.name,
           email: data.user.email,
@@ -61,31 +49,27 @@ class EditProfile extends Component {
           price: data.price,
           phoneNumber: data.phoneNumber,
           owner: data.owner,
-          help: data.help,
+          checkedItems: new Map([...this.state.checkedItems, ...offeredHelp]),
           images: [],
           avatarPreview: data.avatarUrl,
-          avatarUrl: data.avatarUrl
+          avatarUrl: data.avatarUrl,
+          
         });
-       
-        const helps = data.help;
-        var helpsArr = [];
-        for (var i = 0; i < helps.length; i++) {
-            var help = { label: helps[i], value: helps[i] }
-            helpsArr.push(help);
-        }     
-        this.setState({ help: helpsArr })
       })
       .catch((error) => {
         console.log(error);
       });
+
   }
 
   setHelp = (event) => {
-    this.setState({ help: event })
+    const help = event.target.name;
+    const isChecked = event.target.checked;
+    this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(help, isChecked) }));
+
   }
 
   setFormState = (event) => {
-
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -115,15 +99,12 @@ class EditProfile extends Component {
     }
   }
 
-  editProfile = (event) => {
+  onSubmit = (event) => {
     event.preventDefault();
-    const arr=this.state.help;
-    const helps=[];
-    for (var i = 0 ;i < arr.length; i++ )
-    {
-      helps.push(arr[i].value);
-    }
-
+    var checkedItems = this.state.checkedItems;
+    var filterCheckedItems = checkedItems.forEach((value,key) =>{ if(value === false) checkedItems.delete(key)})
+    var stringifyOfferedHelp = JSON.stringify(Array.from(checkedItems.entries()));
+    
     const obj = {
       name: this.state.name,
       age: this.state.age,
@@ -135,7 +116,7 @@ class EditProfile extends Component {
       phoneNumber: this.state.phoneNumber,
       owner: this.state.owner,
       avatarUrl: this.state.avatarUrl,
-      help: helps,
+      offeredHelp: stringifyOfferedHelp
     };
 
     // Direct Upload to AWS S3
@@ -227,16 +208,13 @@ class EditProfile extends Component {
               rows="3"
               className={apStyles.input}
             />
-            <label>Expected Help</label>
-            <Select
-              isMulti
-              options={options}
-              onChange={this.setHelp}
-              id="help"
-              value={this.state.help}
-              name="help"
-              className={apStyles.input}
-            />
+
+            <label>Offered Help</label>
+            <div>
+            {offeredhelps.map(help => (
+                <Checkbox key={help.key} item={help} checked={this.state.checkedItems.get(help.name)}  setHelp={this.setHelp} />
+              ))}
+            </div>
 
             <label>Prefered district</label>
             <select
@@ -282,7 +260,7 @@ class EditProfile extends Component {
           
             <div className={formAction}>
               <button className={`${apStyles.btn} ${delBtn}`} onClick={this.cancelEdit}>Cancel</button>
-              <button className={apStyles.btn} onClick={this.editProfile}>Submit</button>
+              <button className={apStyles.btn} onClick={this.onSubmit}>Submit</button>
             </div>
             {this.state.message && <p>{this.state.message}</p>}
           </div>
