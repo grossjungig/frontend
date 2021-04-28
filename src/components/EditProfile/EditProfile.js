@@ -17,16 +17,11 @@ class EditProfile extends Component {
     profile: [],
     name: "",
     age: "",
-    email: "",
     gender: "select",
     district: "select",
     description: "",
     price: "",
-    phoneNumber: "",
-    owner: "",
-    checkedItems: new Map(),
-    images: [],
-    redirect: false,
+    offeredHelp:[],
 
     avatarUrl: '',
     avatarPreview: dummyAvatar,
@@ -38,7 +33,6 @@ class EditProfile extends Component {
   componentDidMount() {
     axios.get(`api/profiles/${this.props.fetchedUser.profile}`)
       .then(({data}) => {
-        var offeredHelp = new Map(JSON.parse(data.offeredHelp));
         this.setState({
           name: data.user.name,
           email: data.user.email,
@@ -48,12 +42,9 @@ class EditProfile extends Component {
           description: data.description,
           price: data.price,
           phoneNumber: data.phoneNumber,
-          owner: data.owner,
-          checkedItems: new Map([...this.state.checkedItems, ...offeredHelp]),
-          images: [],
+          offeredHelp: data.help.slice(),
           avatarPreview: data.avatarUrl,
           avatarUrl: data.avatarUrl,
-          
         });
       })
       .catch((error) => {
@@ -62,12 +53,15 @@ class EditProfile extends Component {
 
   }
 
-  setHelp = (event) => {
-    const help = event.target.name;
-    const isChecked = event.target.checked;
-    this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(help, isChecked) }));
-
-  }
+  handleHelp = ({ target }) => {
+    const help = target.name;
+    const isChecked = target.checked;
+    if (isChecked) {
+      this.setState({ offeredHelp: [...this.state.offeredHelp, help] })
+      } else {
+      this.setState(
+        { offeredHelp: this.state.offeredHelp.filter((item) => item !== help) })}
+  };
 
   setFormState = (event) => {
     this.setState({
@@ -94,17 +88,18 @@ class EditProfile extends Component {
       this.setState({ avatarFile: avatarFile });
       
     } catch (err) {
-      console.log(err);
       this.setState({ avatarPreviewErr: err.message });
     }
   }
 
   onSubmit = (event) => {
     event.preventDefault();
-    var checkedItems = this.state.checkedItems;
-    var filterCheckedItems = checkedItems.forEach((value,key) =>{ if(value === false) checkedItems.delete(key)})
-    var stringifyOfferedHelp = JSON.stringify(Array.from(checkedItems.entries()));
-    
+
+    // Direct Upload to AWS S3
+    const { signedRequest, avatarFile } = this.state;
+    newAxios.put(signedRequest, avatarFile )
+      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
+   
     const obj = {
       name: this.state.name,
       age: this.state.age,
@@ -114,16 +109,10 @@ class EditProfile extends Component {
       description: this.state.description,
       price: this.state.price,
       phoneNumber: this.state.phoneNumber,
-      owner: this.state.owner,
       avatarUrl: this.state.avatarUrl,
-      offeredHelp: stringifyOfferedHelp
+      help: this.state.offeredHelp
     };
 
-    // Direct Upload to AWS S3
-    const { signedRequest, avatarFile } = this.state;
-    newAxios.put(signedRequest, avatarFile )
-      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
-   
     axios
       .post(
         `api/edit/${this.props.fetchedUser.profile}`,
@@ -131,7 +120,6 @@ class EditProfile extends Component {
       )
       .then((res) => this.props.history.push(`/profile/${this.props.fetchedUser.profile}`)
       );
-      
   };
 
   cancelEdit = () => {
@@ -139,6 +127,8 @@ class EditProfile extends Component {
   }
 
   render() {
+    const { name, age, gender, price, description, district, offeredHelp, avatarPreview, avatarPreviewErr, message } = this.state;
+
     return (
       <div className={fullBlock}>
         <div className={apStyles.main}>
@@ -153,7 +143,7 @@ class EditProfile extends Component {
                 type="text"
                 name="name"
                 id="name"
-                value={this.state.name}
+                value={name}
                 onChange={this.setFormState}
                 className={apStyles.input}
               />
@@ -164,7 +154,7 @@ class EditProfile extends Component {
               <select
                 name="gender"
                 type="select"
-                value={this.state.gender}
+                value={gender}
                 onChange={this.setFormState}
                 className={apStyles.input}
               >
@@ -181,7 +171,7 @@ class EditProfile extends Component {
                 type="text"
                 name="age"
                 id="age"
-                value={this.state.age}
+                value={age}
                 onChange={this.setFormState}
                 className={apStyles.input}
               />
@@ -192,7 +182,7 @@ class EditProfile extends Component {
               type="number"
               name="price"
               id="price"
-              value={this.state.price}
+              value={price}
               onChange={this.setFormState}
               className={apStyles.input}
             />
@@ -202,7 +192,7 @@ class EditProfile extends Component {
               type="text"
               name="description"
               id="description"
-              value={this.state.description}
+              value={description}
               onChange={this.setFormState}
               maxLength="120"
               rows="3"
@@ -212,7 +202,7 @@ class EditProfile extends Component {
             <label>Offered Help</label>
             <div>
             {offeredhelps.map(help => (
-                <Checkbox key={help.key} item={help} checked={this.state.checkedItems.get(help.name)}  setHelp={this.setHelp} />
+                <Checkbox key={help.key} item={help} checked={offeredHelp.includes(help.name)}  handleHelp={this.handleHelp} />
               ))}
             </div>
 
@@ -220,7 +210,7 @@ class EditProfile extends Component {
             <select
               name="district"
               type="select"
-              value={this.state.district}
+              value={district}
               onChange={this.setFormState}
               placeholder="Select"
               className={apStyles.input}
@@ -244,7 +234,7 @@ class EditProfile extends Component {
             <img
               className={apStyles.avatarImg}
               alt="avatar"
-              src={this.state.avatarPreview}
+              src={avatarPreview}
             />
             <input
                 type="file"
@@ -252,7 +242,7 @@ class EditProfile extends Component {
                 onChange={this.handleAvatarChange}
                 className={apStyles.input}
             />
-            <span>{this.state.avatarPreviewErr}</span>
+            <span>{avatarPreviewErr}</span>
 
             <div className={apStyles.msg}>
               By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.
@@ -262,7 +252,7 @@ class EditProfile extends Component {
               <button className={`${apStyles.btn} ${delBtn}`} onClick={this.cancelEdit}>Cancel</button>
               <button className={apStyles.btn} onClick={this.onSubmit}>Submit</button>
             </div>
-            {this.state.message && <p>{this.state.message}</p>}
+            {message && <p>{message}</p>}
           </div>
         </div>
       </div>

@@ -18,11 +18,8 @@ class Profile extends Component {
     const profileId = this.props.match.params.id;
     axios.get(`api/profiles/${profileId}`)
       .then((response) => {
-        var parseOfferedHelp= JSON.parse(response.data.offeredHelp);
-        var offeredHelp = parseOfferedHelp.flat(1)
         this.setState({ 
           profile: response.data,
-          offeredHelp: offeredHelp
         });
       })
       .catch(function (error) {
@@ -47,9 +44,7 @@ class Profile extends Component {
   };
 
   render() {
-    const profile = this.state.profile;
-    const offeredHelp = this.state.offeredHelp
-
+    const {profile} = this.state
     const user = this.props.fetchedUser;
 
     let renderedAvatar = dummyAvatar;
@@ -69,13 +64,12 @@ class Profile extends Component {
             <span>Name</span><span>{profile.name}</span>
             <span>Age</span><span>{profile.age}</span>
             <span>Gender</span><span>{profile.gender}</span>
-            <span>pays</span> <span>{profile.price}€</span>
-            <span>would live in</span><span>{profile.district}</span>
-            <span>helps with</span>
+            <span>Pays</span> <span>{profile.price}€</span>
+            <span>Would live in</span><span>{profile.district}</span>
+            <span>Helps with</span>
             <span>
-              {profile.length !== 0 && offeredHelp.map(help =>
-              typeof help === 'string'? <span key = {help}>{help}</span> : null
-              
+              {profile.length !== 0 && profile.help.map(help =>
+               <span key = {help}>-{help}</span> 
               )}
             </span>
             <span>Bio</span>
