@@ -3,24 +3,20 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
-import { dispatchCheckAuth } from "../../store/auth/thunks";
+
 import styles from './index.module.css';
 import { fullBlock } from '../../shared/index.module.css'
 
 class Profile extends Component {
   state = {
     profile: [],
-    offeredHelp : [],
   };
 
   componentDidMount() {
-    this.props.refreshUser();
     const profileId = this.props.match.params.id;
     axios.get(`api/profiles/${profileId}`)
       .then((response) => {
-        this.setState({ 
-          profile: response.data,
-        });
+        this.setState({ profile: response.data});
       })
       .catch(function (error) {
         console.log(error);
@@ -44,7 +40,7 @@ class Profile extends Component {
   };
 
   render() {
-    const {profile} = this.state
+    const profile = this.state.profile;
     const user = this.props.fetchedUser;
 
     let renderedAvatar = dummyAvatar;
@@ -68,9 +64,9 @@ class Profile extends Component {
             <span>Would live in</span><span>{profile.district}</span>
             <span>Helps with</span>
             <span>
-              {profile.length !== 0 && profile.help.map(help =>
-               <span key = {help}>-{help}</span> 
-              )}
+              {profile.length !== 0 && profile.help.map(
+                help => <span key = {help}> -{help} </span>)
+              }
             </span>
             <span>Bio</span>
             <span className={styles.bio} >"{profile.description}"</span>
@@ -95,8 +91,5 @@ class Profile extends Component {
 const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
-const mapDispatchToProps = {
-  refreshUser: () => dispatchCheckAuth()
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps)(Profile);
