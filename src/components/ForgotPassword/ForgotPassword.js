@@ -10,6 +10,7 @@ import { fullBlock } from '../../shared/index.module.css';
 const ForgotPassword = () => {
   const lang = localStorage.getItem('lang');
   const [email, setEmail] = useState('');
+  const [notFound, setNotFound] = useState(false);
   const history = useHistory();
   
   const submitEmail = async (event) => {
@@ -21,7 +22,9 @@ const ForgotPassword = () => {
         history.push('/');
       }
     } catch (err) {
-      console.log({...err});
+      const errType = err.response.data.data[0]
+      console.log(errType);
+      if (errType === 'EMAIL_NOT_FOUND') setNotFound(true);
     }
   };
 
@@ -38,14 +41,16 @@ const ForgotPassword = () => {
             onChange={({target}) => { setEmail(target.value); }}
             type="email"
             variant="outlined"
+            error={notFound}
           />
           <Button
             className={styles.submitBtn}
             variant="contained"
             onClick={submitEmail}
-          >
+            >
             {locales.submit[lang]}
           </Button>
+          { notFound && <p style={{ color: 'var(--gai-red)' }}>Email not found!</p> }
         </form>
       </div>
     </div>
