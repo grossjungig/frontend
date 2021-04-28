@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import axios from '../../axios';
 import locales from "../../locales/locales.forgotpassword.json";
 import Button from "@material-ui/core/Button";
@@ -9,11 +10,16 @@ import { fullBlock } from '../../shared/index.module.css';
 const ForgotPassword = () => {
   const lang = localStorage.getItem('lang');
   const [email, setEmail] = useState('');
+  const history = useHistory();
   
-  const submitEmail = async () => {
+  const submitEmail = async (event) => {
+    event.preventDefault();
     try {
       const res = await axios.post(`api/auth/forgotPassword`, { email });
-      if (res.statue === 200) alert('Please check your email');
+      if (res.status === 200) {
+        alert('Please check your email');
+        history.push('/');
+      }
     } catch (err) {
       console.log({...err});
     }
