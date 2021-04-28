@@ -23,7 +23,6 @@ const ForgotPassword = () => {
       }
     } catch (err) {
       const errType = err.response.data.data[0]
-      console.log(errType);
       if (errType === 'EMAIL_NOT_FOUND') setNotFound(true);
     }
   };
