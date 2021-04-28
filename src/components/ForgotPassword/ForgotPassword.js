@@ -46,7 +46,8 @@ const ForgotPassword = () => {
             className={styles.submitBtn}
             variant="contained"
             onClick={submitEmail}
-            >
+            type="submit"
+          >
             {locales.submit[lang]}
           </Button>
           { notFound && <p style={{ color: 'var(--gai-red)' }}>Email not found!</p> }
