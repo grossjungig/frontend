@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from '../../axios';
-import detailsLocales from "../../locales/locales.details.json";
+//import detailsLocales from "../../locales/locales.details.json";
 import { connect } from 'react-redux';
 
 import { fullBlock } from '../../shared/index.module.css'
@@ -44,7 +44,7 @@ class Details extends Component {
   };
 
   render() {
-    const lang = localStorage.getItem("lang");
+    //const lang = localStorage.getItem("lang");
     const room = this.state.room;
     const user = this.props.fetchedUser;
 
