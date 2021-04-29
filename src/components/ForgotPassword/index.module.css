@@ -9,8 +9,8 @@
   color: var(--gai-white);
   background-color: var(--gai-blue);
   height: 40px;
+  min-width: 170px;
   transition: all 300ms;
-  width: 170px;
 }
 
 .submitBtn:hover {
