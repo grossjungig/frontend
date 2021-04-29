@@ -155,7 +155,7 @@ class Signup extends Component {
             >
               {
                 this.state.isLoading ?
-                <CircularProgress className={styles.progress} size={30} /> :
+                <CircularProgress className="progress" size={30} /> :
                 signupLocales.submit[lang]
               }
             </Button>
