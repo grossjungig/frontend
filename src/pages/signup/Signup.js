@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class Signup extends Component {
   state = {
@@ -19,10 +20,13 @@ class Signup extends Component {
     pwdConfirm: "",
     role: "senior",
     messages: [],
+    isLoading: false,
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.setState({ isLoading: true });
+    const lang = localStorage.getItem("lang");
 
     axios
       .post('api/auth/signup', {
@@ -33,12 +37,14 @@ class Signup extends Component {
         role: this.state.role,
       })
       .then((response) => {
+        this.setState({ isLoading: false });
         if (response.data.message === 'User created') {
           this.props.history.push('/login');
-          alert('Your account has been created. You can now log in!');
+          alert(signupLocales.success_msg[lang]);
         }
       })
       .catch((err) => {
+        this.setState({ isLoading: false });
         this.setState({ messages: err.response.data.data });
       });
   };
@@ -147,7 +153,11 @@ class Signup extends Component {
               onClick={this.handleSubmit}
               type="submit"
             >
-              {signupLocales.submit[lang]}
+              {
+                this.state.isLoading ?
+                <CircularProgress className={styles.progress} size={30} /> :
+                signupLocales.submit[lang]
+              }
             </Button>
           </form>
           {errorMessages}

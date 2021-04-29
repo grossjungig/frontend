@@ -36,8 +36,12 @@
     "de": "Grossjungig AI! "
   },
   "submit": {
-    "en": "Submit",
-    "de": "Weiter"
+    "en": "Sign up",
+    "de": "Registrieren"
+  },
+  "success_msg": {
+    "en": "Your account has been created. You can now log in!",
+    "de": "Ihr Konto wurde erstellt. Sie können sich jetzt einloggen!"
   },
   "errors": {
     "INVALID_NAME": {
