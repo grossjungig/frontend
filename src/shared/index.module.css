@@ -7,3 +7,7 @@
     border: 0.1rem solid lightgray;
     background-color: white;
 }
+
+.error {
+    color: var(--gai-red)
+}
