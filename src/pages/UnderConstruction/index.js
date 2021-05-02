@@ -1,6 +1,7 @@
 import React from 'react';
 import Countdown from './Countdown';
 import styles from './index.module.css';
+import text from './text';
 import bg from '../../assets/images/backgrounds/hero-home-background-picture.jpg';
 
 export default () => {
@@ -21,15 +22,24 @@ export default () => {
 
                 {/* Content */}
                 <div className={styles.content}>
-                    <div className={styles.contentL}>
+
+                    {/* Text */}
+                    <div className={styles.subcontent1}>
+                        <p>{text.main.about.en}</p>
+                        <p>{text.main.joinUs.en}</p>
+                    </div>
+
+                    {/* Countdown */}
+                    <div className={styles.subcontent2}>
                         <Countdown />
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iure.</p>
+                        <div className={styles.form}>
+                            <h3>Newsletter</h3>
+                            <input type="text" placeholder="first name"/>
+                            <input type="text" placeholder="Email"/>
+                            <button>Subscribe</button>
+                        </div>
                     </div>
-                    <div className={styles.contentR}>
-                        <p>Newsletter</p>
-                        <p>Subscribe (Email, Name)</p>
-                        <button>subscribe</button>
-                    </div>
+
                 </div>
 
 

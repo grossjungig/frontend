@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import FlipDown from './flipdown';
-import './flipdown.css'
+import './flipdown.css';
+import './index.css';
 
 export default () => {
     const JUN_1ST_2021 = 1622505600;
@@ -10,6 +11,6 @@ export default () => {
     });
 
     return (
-        <div id="flipdown" className="flipdown"></div>
+        <div id="flipdown" className="flipdown cmp"></div>
     )
 }
