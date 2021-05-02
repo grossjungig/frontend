@@ -60,15 +60,7 @@ class Berlin extends Component {
       if (value) {
         filtered = true
         filteredRooms = filteredRooms.filter((room) => {
-          switch(key) {
-            case 'district':
-              return room[key] === this.state.filters[key];
-            case 'postcode':
-            case 'price':
-              return room[key] === parseInt(this.state.filters[key]);
-            default:
-              return false
-          }
+          return room[key] == this.state.filters[key];
         });
       }
     }
