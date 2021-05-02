@@ -60,6 +60,7 @@ class Berlin extends Component {
       if (value) {
         filtered = true
         filteredRooms = filteredRooms.filter((room) => {
+          // eslint-disable-next-line
           return room[key] == this.state.filters[key];
         });
       }
