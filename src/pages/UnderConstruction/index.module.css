@@ -1,0 +1,26 @@
+.main * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.bg {
+    filter:
+        blur(3px);
+    z-index: -10;
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
