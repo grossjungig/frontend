@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "./home.css";
 
 import homeLocales from "../../locales/locales.home.json";
-import { H1, H2, H3 } from '../../components/typography';
-import { Button, SecButton, PrimaryButtonLong, Card2, Card3 } from "../../components/styled";
+import { H2, H3 } from '../../components/typography';
+import { Card2, Card3 } from "../../components/styled";
 import Hero from "../home/components/Hero/Hero";
 import Why from "./components/Why/Why.js";
 import Contact from "./components/Contact/Contact";
