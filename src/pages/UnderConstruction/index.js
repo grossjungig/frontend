@@ -3,6 +3,7 @@ import Countdown from './Countdown';
 import styles from './index.module.css';
 import text from './text';
 import bg from '../../assets/images/backgrounds/hero-home-background-picture.jpg';
+import logo from '../../assets/images/Logo.png'
 
 export default () => {
     return (
@@ -16,8 +17,10 @@ export default () => {
                 
                 {/* Header */}
                 <div className={styles.header}>
-                    <div>LOGO</div>
-                    <div>Social Nets</div>
+                    <div className={styles.logo}>
+                        <img src={logo} alt="logo"/>
+                    </div>
+                    {/* <div>Social Nets</div> */}
                 </div>
 
                 {/* Content */}
@@ -29,13 +32,17 @@ export default () => {
                         <p>{text.main.joinUs.en}</p>
                     </div>
 
-                    {/* Countdown */}
+                    {/* Countdown & Form */}
                     <div className={styles.subcontent2}>
                         <Countdown />
                         <div className={styles.form}>
                             <h3>Newsletter</h3>
                             <input type="text" placeholder="first name"/>
-                            <input type="text" placeholder="Email"/>
+                            <input type="mail" placeholder="Email"/>
+                            <select>
+                                <option value="offer">Offer</option>
+                                <option value="request">Request</option>
+                            </select>
                             <button>Subscribe</button>
                         </div>
                     </div>
