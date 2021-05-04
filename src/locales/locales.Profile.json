@@ -90,6 +90,38 @@
     "policy": {
         "en": "By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.",
         "de": "Mit der Erstellung einer Anfrage stimmen Sie unseren Geschäftsbedingungen und Datenschutzrichtlinien zu."
+    },
+    "request": {
+        "en": "If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271",
+        "de": "Wenn Sie an dieser Anfrage interessiert sind, wenden Sie sich bitte an info@grossjungig.de oder +49 30 55231271"
+    },
+    "name2": {
+        "en": "Name",
+        "de": "Namen"
+    },
+    "pays": {
+        "en": "Pays",
+        "de": "Zahlt"
+    },
+    "wouldLive": {
+        "en": "Would live in",
+        "de": "Würde in leben"
+    },
+    "helpWith": {
+        "en": "Helps with",
+        "de": "Hilft bei der"
+    },
+    "bio": {
+        "en": "Bio",
+        "de": "Bio"
+    },
+    "deleteProfile": {
+        "en": "Delete Profile",
+        "de": "Profil löschen"
+    },
+    "editProfile": {
+        "en": "Edit Profile",
+        "de": "Profil bearbeiten"
     }
   
   }

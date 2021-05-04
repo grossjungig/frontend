@@ -6,6 +6,7 @@ import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
 
 import styles from './index.module.css';
 import { fullBlock } from '../../shared/index.module.css'
+import ProfileLocales from "../../locales/locales.Profile.json";
 
 class Profile extends Component {
   state = {
@@ -42,6 +43,7 @@ class Profile extends Component {
   render() {
     const profile = this.state.profile;
     const user = this.props.fetchedUser;
+    const lang = localStorage.getItem("lang");
 
     let renderedAvatar = dummyAvatar;
     const { avatarUrl } = this.state.profile;
@@ -51,35 +53,35 @@ class Profile extends Component {
       <div className={fullBlock}>
         <div className={styles.main}>
           <div className={styles.msg}>
-            If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271
+          {ProfileLocales.request[lang]}
           </div>
           
           <img src={renderedAvatar} alt="avatar" className={styles.pic} />
 
           <div className={styles.details}>
-            <span>Name</span><span>{profile.name}</span>
-            <span>Age</span><span>{profile.age}</span>
-            <span>Gender</span><span>{profile.gender}</span>
-            <span>pays</span> <span>{profile.price}€</span>
-            <span>would live in</span><span>{profile.district}</span>
-            <span>helps with</span>
+            <span>{ProfileLocales.name2[lang]}</span><span>{profile.name}</span>
+            <span>{ProfileLocales.age[lang]}</span><span>{profile.age}</span>
+            <span>{ProfileLocales.gender[lang]}</span><span>{profile.gender}</span>
+            <span>{ProfileLocales.pays[lang]}</span> <span>{profile.price}€</span>
+            <span>{ProfileLocales.wouldLive[lang]}</span><span>{profile.district}</span>
+            <span>{ProfileLocales.helpWith[lang]}</span>
             <span>
               {profile.length !== 0 && profile.help.map(
                 help => <span key = {help}>{help}, </span>)
               }
             </span>
-            <span>Bio</span>
+            <span>{ProfileLocales.bio[lang]}</span>
             <span className={styles.bio} >"{profile.description}"</span>
           </div>
           {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id &&
             <div className={styles.ctrl}>
               <Link to={`/edit/${profile._id}`}>
-                <button className={styles.btn}>Edit Profile</button>
+                <button className={styles.btn}>{ProfileLocales.editProfile[lang]}</button>
               </Link>
               <button 
                 className={`${styles.btn} ${styles.delBtn}`}
                 onClick={this.deleteProfile}
-              >Delete Profile</button>
+              >{ProfileLocales.deleteProfile[lang]}</button>
             </div>
           }
         </div>
