@@ -5,24 +5,12 @@ import Select from 'react-select'
 import { connect } from 'react-redux';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { generateBase64FromImage } from '../../utils';
-
 import apStyles from '../../pages/profile/addProfile/index.module.css'; // ap = Add Profile
 import { fullBlock } from '../../shared/index.module.css';
 import { delBtn, formAction } from './index.module.css';
 
-const options = [
-  { value: 'Shopping', label: 'Shopping' },
-  { value: 'Cooking or baking', label: 'Cooking or baking' },
-  { value: 'Help with digital devices', label: 'Help with digital devices' },
-  { value: 'Mowing the lawn', label: 'Mowing the lawn' },
-  { value: 'Gardening', label: 'Gardening' },
-  { value: 'Reading out loud', label: 'Reading out loud' },
-  { value: 'Car transportation', label: 'Car transportation' },
-  { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
-  { value: 'Accompanying on walks', label: 'Accompanying on walks' },
-  { value: 'Taking care of pets', label: 'Taking care of pets' },
-  { value: 'Taking care of Seniors', label: 'Taking care of Seniors' }
-]
+import editProfileLocales from "../../locales/locales.editProfile.json";
+
 
 class EditProfile extends Component {
   state = {
@@ -157,16 +145,17 @@ class EditProfile extends Component {
   }
 
   render() {
+    const lang = localStorage.getItem("lang");
     return (
       <div className={fullBlock}>
         <div className={apStyles.main}>
           <div className={apStyles.msg}>
-            Please do not leave your personal identifying information here.
+            {editProfileLocales.info[lang]}
           </div>
           
           <div className={apStyles.form}>
             <div className={apStyles.formCtrl}>
-              <label>First Name</label>
+              <label>{editProfileLocales.name[lang]}</label>
               <input
                 type="text"
                 name="name"
@@ -178,7 +167,7 @@ class EditProfile extends Component {
             </div>
 
             <div className={apStyles.formCtrl}>
-              <label className="label_profile" htmlFor="gender">Gender</label>
+              <label className="label_profile" htmlFor="gender">{editProfileLocales.gender[lang]}</label>
               <select
                 name="gender"
                 type="select"
@@ -186,15 +175,15 @@ class EditProfile extends Component {
                 onChange={this.setFormState}
                 className={apStyles.input}
               >
-                <option value="" disabled >Select</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="divers">Divers</option>
+                <option value="" disabled >{editProfileLocales.select[lang]}</option>
+                <option value="male">{editProfileLocales.male[lang]}</option>
+                <option value="female">{editProfileLocales.female[lang]}</option>
+                <option value="divers">{editProfileLocales.divers[lang]}</option>
               </select>
             </div>
 
             <div className={apStyles.formCtrl}>
-              <label>Age</label>
+              <label>{editProfileLocales.age[lang]}</label>
               <input
                 type="text"
                 name="age"
@@ -205,7 +194,7 @@ class EditProfile extends Component {
               />
             </div>
 
-            <label>Requested room price</label>
+            <label>{editProfileLocales.requestedPrice[lang]}</label>
             <input
               type="number"
               name="price"
@@ -215,7 +204,7 @@ class EditProfile extends Component {
               className={apStyles.input}
             />
 
-            <label>About me (max 120 signs)</label>
+            <label>{editProfileLocales.about[lang]}</label>
             <textarea
               type="text"
               name="description"
@@ -226,10 +215,10 @@ class EditProfile extends Component {
               rows="3"
               className={apStyles.input}
             />
-            <label>Expected Help</label>
+            <label>{editProfileLocales.getHelp[lang]}</label>
             <Select
               isMulti
-              options={options}
+              options={editProfileLocales.options[lang]}
               onChange={this.setHelp}
               id="help"
               value={this.state.help}
@@ -237,7 +226,7 @@ class EditProfile extends Component {
               className={apStyles.input}
             />
 
-            <label>Prefered district</label>
+            <label>{editProfileLocales.district[lang]}</label>
             <select
               name="district"
               type="select"
@@ -261,7 +250,7 @@ class EditProfile extends Component {
               <option value="Treptow-Koepenick">Treptow-Koepenick</option>
             </select>
 
-            <label className="label_profile" >Profile picture</label>
+            <label className="label_profile" >{editProfileLocales.picture[lang]}</label>
             <img
               className={apStyles.avatarImg}
               alt="avatar"
@@ -276,12 +265,12 @@ class EditProfile extends Component {
             <span>{this.state.avatarPreviewErr}</span>
 
             <div className={apStyles.msg}>
-              By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.
+            {editProfileLocales.policy[lang]}
             </div>
           
             <div className={formAction}>
-              <button className={`${apStyles.btn} ${delBtn}`} onClick={this.cancelEdit}>Cancel</button>
-              <button className={apStyles.btn} onClick={this.editProfile}>Submit</button>
+              <button className={`${apStyles.btn} ${delBtn}`} onClick={this.cancelEdit}>{editProfileLocales.cancel[lang]}</button>
+              <button className={apStyles.btn} onClick={this.editProfile}>{editProfileLocales.submit[lang]}</button>
             </div>
             {this.state.message && <p>{this.state.message}</p>}
           </div>
