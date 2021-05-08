@@ -48,7 +48,6 @@
 }
 
 .tab:first-child {
-    background-color: var(--gai-black);
     margin-right: 5px;
 }
 
@@ -67,14 +66,24 @@
     font-size: 16px;
     font-weight: 600;
     border: 1px solid black;
-    color: var(--gai-white);
+    color: var(--gai-black);
     border-radius: var(--gai-btn-radius);
-    width: 100%
+    width: 100%;
 }
 
-.btnDeselect {
-    color: var(--gai-black);
-    background-color: var(--gai-white);
+.btn:hover {
+    color: var(--gai-white);
+    background-color: #333333bd
+}
+
+.btnSelected {
+    color: var(--gai-white);
+    background-color: var(--gai-black)
+}
+
+.btnSelected:hover {
+    color: var(--gai-white);
+    background-color: var(--gai-black)
 }
 
 .submit {

@@ -7,7 +7,9 @@ import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
+import {berlinDistricts} from '../../utils/index'
 import styles from './index.module.css';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 class Berlin extends Component {
   state = {
@@ -33,7 +35,7 @@ class Berlin extends Component {
     let district = new URLSearchParams(url.slice(url.indexOf('?') + 1)).get('district');
     if (district) {
       let data = {
-        target : {
+        target: {
           name: 'district',
           value: district
         }
@@ -60,6 +62,7 @@ class Berlin extends Component {
       if (value) {
         filtered = true
         filteredRooms = filteredRooms.filter((room) => {
+          // has to work with numbers and strings
           // eslint-disable-next-line
           return room[key] == this.state.filters[key];
         });
@@ -75,6 +78,12 @@ class Berlin extends Component {
   render() {
     const lang = localStorage.getItem("lang");
     let display = this.state.filtered ? "filteredRooms" : "allRooms";
+    const dropdownItems = berlinDistricts.map((district, index) => {
+        return <MenuItem key={index} value={district}>
+          {district}
+        </MenuItem>
+      }
+    )
     const room = this.state[display].map((el) => {
       return (
         <Link to={`/berlin/${el._id}`} key={el._id}>
@@ -138,38 +147,16 @@ class Berlin extends Component {
                       fullWidth
                       name="district"
                       type="select"
-                      labelId="demo-simple-select-outlined-label"
-                      id="demo-simple-select-outlined"
+                      id="district-select"
                       value={this.state.filters.district ?? ''}
                       onChange={this.setFilter}
+                      displayEmpty
+                      IconComponent={ExpandMoreIcon}
                     >
-                      <MenuItem value=''>
-                        <em>{roomsLocales.search_district[lang]}</em>
+                      <MenuItem value="">
+                        {roomsLocales.search_district[lang]}
                       </MenuItem>
-                      <MenuItem value="Charlottenburg-Wilmersdorf">
-                        Charlottenburg-Wilmersdorf
-                      </MenuItem>
-                      <MenuItem value="Friedrichshain-Kreuzberg">
-                        Friedrichshain-Kreuzberg
-                      </MenuItem>
-                      <MenuItem value="Lichtenberg">Lichtenberg</MenuItem>
-                      <MenuItem value="Marzahn-Hellersdorf">
-                        Marzahn-Hellersdorf
-                      </MenuItem>
-                      <MenuItem value="Mitte">Mitte</MenuItem>
-                      <MenuItem value="Neukoelln">Neukoelln</MenuItem>
-                      <MenuItem value="Pankow">Pankow</MenuItem>
-                      <MenuItem value="Reinickendorf">Reinickendorf</MenuItem>
-                      <MenuItem value="Spandau">Spandau</MenuItem>
-                      <MenuItem value="Steglitz-Zehlendorf">
-                        Steglitz-Zehlendorf
-                      </MenuItem>
-                      <MenuItem value="Tempelhof-Schoeneberg">
-                        Tempelhof-Schoeneberg
-                      </MenuItem>
-                      <MenuItem value="Treptow-Koepenick">
-                        Treptow-Koepenick
-                      </MenuItem>
+                      {dropdownItems}
                     </Select>
                   </FormControl>
                 </div>
