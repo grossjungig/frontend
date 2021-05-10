@@ -1,214 +1,94 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import detailsLocales from "../../locales/locales.details.json";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
+import axios from '../../axios';
+//import detailsLocales from "../../locales/locales.details.json";
+import { connect } from 'react-redux';
+
+import { fullBlock } from '../../shared/index.module.css'
+import styles from '../Profile/index.module.css'; //style from profile
+
 
 class Details extends Component {
   state = {
-    data: {},
-    images: [],
+    room: [],
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const roomId = this.props.match.params.id;
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKENDURL}api/rooms/${roomId}`
-    ); // passing roomId to the axios call
-
-    this.setState({
-      data, //same as data:data,shorthand notation for objects
-    });
-    this.setState({
-      images: data.images,
-    });
+    axios.get(`api/rooms/${roomId}`).then(response => {
+      this.setState({
+        room: response.data
+      })
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
-  //delete room
+  getAge(dateString){
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+    {
+        age--;
+    }
+    return age;
+  }
+
   deleteRoom = async (event) => {
     event.preventDefault();
     const deleteRoomId = this.props.match.params.id;
-    await axios.delete(
-      `${process.env.REACT_APP_BACKENDURL}api/rooms/${deleteRoomId}/delete`
-    );
-
-    this.props.history.push("/berlin");
+    await axios.delete(`api/rooms/${deleteRoomId}/delete`).then(response => {
+      this.props.history.push("/berlin");
+    })
   };
 
   render() {
-    let pics =
-      this.state.data.images &&
-      this.state.data.images.map((image) => {
-        return (
-          <img
-            key={image._id}
-            src={image.secureUrl}
-            className="sliderimg"
-            alt="the room"
-          />
-        );
-      });
-    const lang = localStorage.getItem("lang");
-    const roomId = this.props.match.params.id;
-    // this allows to verify if there is a user or not so ifyou are not logged in you can still browse the various rooms
-    if (this.props.user && this.props.user._id === this.state.data.owner) {
-      return (
-        <div className="detail-container">
-          <h2>{this.state.data.name}</h2>
-          <div className="markus-container">
-            <div className="detail-container-text">
-              <div className="paragraphs">
-                <h3>{detailsLocales.address[lang]}:</h3>
-                <p>{this.state.data.address}</p>
-              </div>
-              <div className="paragraphs">
-                <h3>{detailsLocales.postcode[lang]}:</h3>
-                <p>{this.state.data.postcode}</p>
-              </div>
-              <div className="paragraphs">
-                <h3>{detailsLocales.district[lang]}:</h3>
-                <p>{this.state.data.district}</p>
-              </div>
-              <div className="paragraphs">
-                <h3>{detailsLocales.describe[lang]}:</h3>
-                <p>{this.state.data.description}</p>
-              </div>
-            </div>
+    //const lang = localStorage.getItem("lang");
+    const room = this.state.room;
+    const user = this.props.fetchedUser;
+
+    if(user !== null && room.length !== 0){
+    return(
+      <div className={fullBlock}> 
+        <div className={styles.main}>
+          <div className={styles.msg}>
+            If you are interested in this room, please contact info@grossjungig.de or +49 30 55231271
           </div>
-          <div className="photo-container">
-            {this.state.data.images.map((image) => {
-              return (
-                <img
-                  alt="room"
-                  width="300px"
-                  height="auto"
-                  src={image.secureUrl}
-                ></img>
-              );
-            })}
+          <h3>{room.roomTitle}</h3>
+          <img  alt="avatar" className={styles.pic} />
+          <div className={styles.details}>
+            <span>Owner</span><span>{room.name}</span>
+            <span>Gender</span><span>{room.gender}</span>
+            <span>Age</span><span>{this.getAge(room.birthdate)}</span>
+            <span>Price/Month</span> <span>{room.price}€/month</span>
+            <span>Additional Cost</span><span>50€/month</span>
+            <span>Room In</span><span>{room.district}</span>
+            <span>Help with</span>
+            <span>
+              {room.expectedHelp.map(
+                help => <span key = {help}>{help}, </span>)}
+            </span>
+            <span>Bio</span>
+            <span className={styles.bio} >"{room.description}"</span>
           </div>
-          <div className="buttons">
-            <Link to={`/uploadphotos/${roomId}`}>
-              <button>{detailsLocales.images[lang]}</button>
-            </Link>
-            <button onClick={this.deleteRoom}>
-              {detailsLocales.delete[lang]}
-            </button>
-            <Link to="/berlin">
-              <button>{detailsLocales.return[lang]}</button>
-            </Link>
-          </div>
-        </div>
-      );
-    }
-    return (
-      <div className="detail-container">
-        <div>
-          <Card>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "3vh",
-              }}
-            >
-              <div
-                className="warning"
-                style={{ margin: "3vw", minWidth: "95%" }}
-              >
-                <p sytle={{ padding: "5px" }}>
-                  If you want to rent this room or connect with this senior,
-                  please contact us at +49-30-55231271 or info@grossjungig.de{" "}
-                </p>
-              </div>
-            </div>
-            <CardContent>
-              <Link to="/berlin">
-                <div className="detail-row">
-                  <ArrowBackIcon
-                    style={{ padding: "10px", fontSize: 30 }}
-                  ></ArrowBackIcon>
-                  <p>{detailsLocales.return[lang]}</p>
-                </div>
-              </Link>
-              <div className="detail-row">
-                <p className="detail-description-title">
-                  {detailsLocales.describe[lang]}:
-                </p>
-                <p className="detail-description-info">
-                  {this.state.data.description}
-                </p>
-              </div>
-              <div className="detail-row">
-                <p className="detail-description-title">
-                  {detailsLocales.address[lang]}:
-                </p>
-                <p className="detail-description-info">
-                  {this.state.data.address}
-                  <br></br> {this.state.data.postcode}{" "}
-                  {this.state.data.district}
-                </p>
-              </div>
-              <div className="detail-row">
-                <p className="detail-description-title">
-                  {detailsLocales.price[lang]}:
-                </p>
-                <p className="detail-description-info">
-                  {this.state.data.price} €
-                </p>
-              </div>
-              <div className="detail-row">
-                <p className="detail-description-title">
-                  {detailsLocales.additional_costs[lang]}:
-                </p>
-                <p className="detail-description-info"></p>
-              </div>
-              <div className="detail-row">
-                <p className="detail-description-title">
-                  {detailsLocales.owner[lang]}:
-                </p>
-                <p className="detail-description-info"></p>
-              </div>
-              <div className="detail-row">
-                <p className="detail-description-title">
-                  {detailsLocales.about_owner[lang]}:
-                </p>
-                <p className="detail-description-info"></p>
-              </div>
-              <div className="detail-row">
-                <p className="detail-description-title">
-                  {detailsLocales.expected_help[lang]}:
-                </p>
-                <p className="detail-description-info"></p>
-              </div>
-              <div className="detail-row">
-                <p className="detail-description-title">
-                  {detailsLocales.pictures[lang]}:
-                </p>
-                <div className="detail-description-info photo-container">
-                  {this.state.images.length > 0 ? (
-                    <AliceCarousel
-                      infinite="true"
-                      autoPlay="true"
-                      autoPlayInterval="2000"
-                    >
-                      {pics}
-                    </AliceCarousel>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          {user._id === room.user ? 
+            <div className={styles.ctrl}>
+              <button className={styles.btn}>Edit Room</button>
+            <button 
+              className={`${styles.btn} ${styles.delBtn}`}
+              onClick={this.deleteRoom}>Delete Room</button>
+          </div> : null}
         </div>
       </div>
-    );
+    )
+  }else{
+    return 'loading ...'
   }
 }
+}
+const mapStateToProps = (reduxState) => ({
+  fetchedUser: reduxState.user
+});
 
-export default Details;
+export default connect(mapStateToProps)(Details);
