@@ -61,7 +61,7 @@ class Details extends Component {
             <span>Owner</span><span>{room.name}</span>
             <span>Gender</span><span>{room.gender}</span>
             <span>Age</span><span>{this.getAge(room.birthdate)}</span>
-            <span>Price/Month</span> <span>{room.price}€/month</span>
+            <span>Price</span> <span>{room.price}€/month</span>
             <span>Additional Cost</span><span>50€/month</span>
             <span>Room In</span><span>{room.district}</span>
             <span>Help with</span>
