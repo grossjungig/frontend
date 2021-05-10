@@ -1,0 +1,100 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 90px 30px;
+}
+
+.main h2 {
+    font-weight: 600;
+    line-height: 34px;
+}
+
+.main h4 {
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.container {
+    margin-top: 40px;
+    border: 1px solid #365DA7;
+    border-radius: 16px;
+}
+
+.container h4 {
+    margin: 8px 0;
+}
+
+.textCard {
+    text-align: center;
+    padding: 60px 20px 80px;
+    border-radius: 16px;
+    background-color: #AAD7EE;
+}
+
+.iconsCard {
+    background-color: white;
+    border-radius: 16px;
+    text-align: center;
+    padding: 36px 10px 50px;
+    margin: -20px 0 0;
+}
+
+.iconContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.icon {
+    margin-bottom: 36px
+}
+
+.iconSocialContainer {
+    margin-top: 10px;
+}
+
+.iconSocialContainer a {
+    margin: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .iconContainer {
+        flex-direction: row;
+    }
+
+    .iconsCard {
+        padding: 50px 10px;
+    }
+
+    .iconSocialContainer a {
+        margin: 16px;
+    }
+}
+
+@media screen and (min-width: 1060px) {
+    .container {
+        display: flex;
+        width: 100%;
+        max-width: 1032px;
+        border: 1px solid #365FA7;
+    }
+
+    .textContainer {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .textCard {
+        width: 50%;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .iconsCard {
+        width: 50%;
+        margin: 0
+    }
+}
