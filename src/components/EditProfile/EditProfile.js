@@ -31,7 +31,8 @@ class EditProfile extends Component {
   };
 
   componentDidMount() {
-    axios.get(`api/profiles/${this.props.fetchedUser.profile}`)
+    const profileId = this.props.match.params.id;
+    axios.get(`api/profiles/${profileId}`)
       .then(({data}) => {
         this.setState({
           name: data.user.name,

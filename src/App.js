@@ -68,10 +68,7 @@ class App extends React.Component {
             <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
             <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
             <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
-            <Route exact path="/edit/:id" render={(props) => (
-              <EditProfile history={props.history} />
-            )}/>
-
+            <Route exact path="/edit/:id" render={(props) => <EditProfile {...props} />}/>
             <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
             <Route exact path="/maps" component={MapView} />
             <Route exact path="/forgotPassword" component={ForgotPassword} />
