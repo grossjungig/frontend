@@ -1,4 +1,12 @@
 {
+  "senior":{
+    "en": "Seniors",
+    "de": "Senioren"
+  },
+  "young":{
+    "en": "Young",
+    "de": "Jung"
+  },
   "youthB": {
     "en": "For young people:",
     "de": "Für junge Leute:"
