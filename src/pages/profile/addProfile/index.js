@@ -9,7 +9,7 @@ import Select from 'react-select'
 import { dispatchCheckAuth } from "../../../store/auth/thunks";
 import dummyAvatar from '../../../assets/images/dummy-avatar.jpg'
 import { generateBase64FromImage } from '../../../utils';
-import addProfileLocales from '../../locales/locales.Profile.json'
+import addProfileLocales from '../../../locales/locales.Profile.json'
 
 
 
