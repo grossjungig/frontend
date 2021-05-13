@@ -1,13 +1,12 @@
-import React from 'react'
+import React from 'react';
 import howitworksLocales from '../../locales/locales.howitworks.json';
 import { H1, H2, H3 } from '../../components/typography';
-import "./HowItWorks.css"
 const { title, subtitle, seniors, junior, seniorList, juniorList, descriptionTitle, description } = howitworksLocales;
 
 export default function HowItWorks() {
     const lang = localStorage.getItem("lang");
     return (
-        <div className="how-it-works-wrapper">
+        <div >
             <H1>{title[lang]}</H1>
             <H2>{subtitle[lang]}</H2>
             <H3>{seniors[lang]}</H3>
