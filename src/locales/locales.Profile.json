@@ -67,6 +67,10 @@
         "en": "About me (max 120 signs)",
         "de": "Über mich (max. 120 Zeichen)"
     },
+    "offeredHelp": {
+        "en": "Offered Help",
+        "de": "Angebotene Hilfe"
+    },
     "getHelp": {
         "en": "Help I'd like to get",
         "de": "Erwartete Hilfe"

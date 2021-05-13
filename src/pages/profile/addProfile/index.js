@@ -9,20 +9,9 @@ import Select from 'react-select'
 import { dispatchCheckAuth } from "../../../store/auth/thunks";
 import dummyAvatar from '../../../assets/images/dummy-avatar.jpg'
 import { generateBase64FromImage } from '../../../utils';
+import addProfileLocales from '../../locales/locales.Profile.json'
 
-const options = [
-  { value: 'Shopping', label: 'Shopping' },
-  { value: 'Cooking or baking', label: 'Cooking or baking' },
-  { value: 'Help with digital devices', label: 'Help with digital devices' },
-  { value: 'Mowing the lawn', label: 'Mowing the lawn' },
-  { value: 'Gardening', label: 'Gardening' },
-  { value: 'Reading out loud', label: 'Reading out loud' },
-  { value: 'Car transportation', label: 'Car transportation' },
-  { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
-  { value: 'Accompanying on walks', label: 'Accompanying on walks' },
-  { value: 'Taking care of pets', label: 'Taking care of pets' },
-  { value: 'Taking care of Seniors', label: 'Taking care of Seniors' }
-]
+
 
 class AddProfile extends Component {
   state = {
@@ -130,17 +119,18 @@ class AddProfile extends Component {
     if (this.state.redirect) {
       return <Redirect to="/profiles" />;
     }
+    const lang = localStorage.getItem("lang");
 
     return (
       <div className={fullBlock}>
         <div className={styles.main}>
           <div className={styles.msg}>
-            Please do not leave your personal identifying information here.
+          {addProfileLocales.info[lang]}
           </div>
 
           <div className={styles.form}>
             <div className={styles.formCtrl}>
-              <label htmlFor="name">First Name</label>
+              <label htmlFor="name">{addProfileLocales.name[lang]}</label>
               <input
                 type="text"
                 name="name"
@@ -152,7 +142,7 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="gender">Gender</label>
+              <label htmlFor="gender">{addProfileLocales.gender[lang]}</label>
               <select
                 name="gender"
                 type="select"
@@ -160,15 +150,15 @@ class AddProfile extends Component {
                 onChange={this.setFormState}
                 className={styles.input}
               >
-                <option  value="" disabled>Select</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="divers">Divers</option>
+                <option  value="" disabled>{addProfileLocales.select[lang]}</option>
+                <option value="male">{addProfileLocales.male[lang]}</option>
+                <option value="female">{addProfileLocales.female[lang]}</option>
+                <option value="divers">{addProfileLocales.divers[lang]}</option>
               </select>
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="age">Age</label>
+              <label htmlFor="age">{addProfileLocales.age[lang]}</label>
               <input
                 type="text"
                 name="age"
@@ -180,7 +170,7 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="price">Requested room price</label>
+              <label htmlFor="price">{addProfileLocales.requestedPrice[lang]}</label>
               <input
                 type="number"
                 name="price"
@@ -192,7 +182,7 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="district" >About me (max 120 signs)</label>
+              <label htmlFor="district" >{addProfileLocales.about[lang]}</label>
               <textarea
                 type="text"
                 name="description"
@@ -206,10 +196,10 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="help">Offered Help</label>
+              <label htmlFor="help">{addProfileLocales.offeredHelp[lang]}</label>
               <Select
                 isMulti
-                options={options}
+                options={addProfileLocales.options[lang]}
                 onChange={this.setHelp}
                 id="help"
                 name="help"
@@ -218,7 +208,7 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="select">Prefered district</label>
+              <label htmlFor="select">{addProfileLocales.district[lang]}</label>
               <select
                 name="district"
                 type="select"
@@ -227,7 +217,7 @@ class AddProfile extends Component {
                 placeholder="Select"
                 className={styles.input}
               >
-                <option value="" disabled>Select</option>
+                <option value="" disabled>{addProfileLocales.select[lang]}</option>
                 <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
                 <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
                 <option value="Lichtenberg">Lichtenberg</option>
@@ -244,7 +234,7 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label >Profile picture</label>
+              <label >{addProfileLocales.picture[lang]}</label>
               <img src={this.state.avatarPreview} className={styles.avatarImg} alt="avatar"/>
               <input
                   type="file"
@@ -256,11 +246,11 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.msg}>
-              By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.
+            {addProfileLocales.policy[lang]} 
             </div>
 
             <div>
-              <button type="submit" className={styles.btn} onClick={this.addNewProfile} >Submit</button>
+              <button type="submit" className={styles.btn} onClick={this.addNewProfile} >{addProfileLocales.submit[lang]} </button>
             </div>
           </div>
           {this.state.message && <p>{this.state.message}</p>}
