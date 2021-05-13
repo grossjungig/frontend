@@ -1,0 +1,50 @@
+.contentWrapper{
+    margin:4rem auto;
+    max-width:90%;
+    text-align: center;
+
+}
+
+.header{
+    color:var(--gai-red);
+    font-size: 24px;
+    border: 1px solid var(--gai-blue);
+    padding: 0.5rem;
+    border-radius: 16px;
+    width:300px;
+
+    margin:1.5rem auto;
+    background-color: var(--gai-white);
+
+
+}
+.date{
+    margin:2rem;
+}
+.preface{
+    text-align: left;
+    margin:2rem auto 4rem auto;
+}
+.term{
+    text-align: left;
+    color:var(--gai-blue)
+
+}
+.termHeader{
+    text-align: left;
+
+}
+.termText{
+    text-align: left;
+
+}
+
+
+/*desktop*/
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+    .contentWrapper{
+        max-width: 70%
+    }
+}
