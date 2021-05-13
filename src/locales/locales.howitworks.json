@@ -1,11 +1,11 @@
-{   
+{
     "title": {
         "en": "How does it work?",
         "de": "Wie funktioniert es?"
-    }, 
+    },
     "subtitle": {
-      "en": "A couple of easy steps to find your new family",
-      "de": "Ein paar einfache Schritte, um Ihre neue Familie zu finden"
+        "en": "A couple of easy steps to find your new family",
+        "de": "Ein paar einfache Schritte, um Ihre neue Familie zu finden"
     },
     "seniors": {
         "en": "Seniors",
@@ -66,7 +66,15 @@
     "description": {
         "en": "On the final version of the platform grossjungig.de (at the moment it is a prototype and capacities are also limited) users can enter preferences for a room, a district and a flatmate. Users then receive personalized results and can contact each other. Other features of the platform would be: ID verification, creation of rental agreements and electronic signatures, as well as secure conversation, ranking and ratings.",
         "de": "Auf der endgültigen Version der Plattform grossjungig.de (im Moment ist es noch ein Prototyp und auch sind zurzeit die Kapazitäten beschränkt) kann man Präferenzen für ein Zimmer, einen Stadtbezirk und einen Mitbewohner angeben. Unsere NutzerInnen bekommen dann personalisierte Ergebnisse und können bei Interesse die AnbieterInnen kontaktieren. Andere Features der Plattform wären: ID-Verifizierung, Erstellung von Mietverträgen und elektronischen Unterschriften, sowie sichere Unterhaltung, Ranking und Reviews."
+    },
+    "faq": {
+        "header": {
+            "en": "For more question please visit FAQ:",
+            "de": "Für weitere Fragen besuchen Sie bitte FAQ:"
+        },
+        "button": {
+            "en": "Go to FAQ",
+            "de": "Zum FAQ"
+        }
     }
-
-
 }
