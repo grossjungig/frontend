@@ -48,7 +48,7 @@ class Details extends Component {
     const room = this.state.room;
     const user = this.props.fetchedUser;
 
-    if(user !== null && room.length !== 0){
+    if(room.length !== 0){
     return(
       <div className={fullBlock}> 
         <div className={styles.main}>
@@ -72,7 +72,7 @@ class Details extends Component {
             <span>Bio</span>
             <span className={styles.bio} >"{room.description}"</span>
           </div>
-          {user._id === room.user ? 
+          {user && user._id === room.user ? 
             <div className={styles.ctrl}>
               <button className={styles.btn}>Edit Room</button>
             <button 
