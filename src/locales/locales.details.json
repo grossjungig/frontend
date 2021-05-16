@@ -27,19 +27,6 @@
     "en": "Room in",
     "de": "Zimmer in"
   },
-
-  "address": {
-    "en": "Address",
-    "de": "Adresse"
-  },
-  "postcode": {
-    "en": "Postcode",
-    "de": "Postleitzahl"
-  },
-  "district": {
-    "en": "District",
-    "de": "Bezirk"
-  },
   "help_with": {
     "en": "Help with",
     "de": "Hilfe mit"
@@ -52,6 +39,22 @@
     "en": "Delete Room",
     "de": "Raum löschen"
   },
+
+
+  
+  "address": {
+    "en": "Address",
+    "de": "Adresse"
+  },
+  "postcode": {
+    "en": "Postcode",
+    "de": "Postleitzahl"
+  },
+  "district": {
+    "en": "District",
+    "de": "Bezirk"
+  },
+  
   "about_owner": {
     "en": "About the owner",
     "de": "Über die Person"

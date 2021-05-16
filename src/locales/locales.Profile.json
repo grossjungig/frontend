@@ -1,4 +1,45 @@
 {
+
+    "name": {
+        "en": "Name",
+        "de": "Name"
+    },
+    "age": {
+        "en": "Age",
+        "de": "Lebensjahr"
+    },
+    "request": {
+        "en": "If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271",
+        "de": "Wenn Sie an dieser Anfrage interessiert sind, wenden Sie sich bitte an info@grossjungig.de oder +49 30 55231271"
+    },
+    "gender": {
+        "en": "Gender",
+        "de": "Geschlecht"
+    },
+    "pays": {
+        "en": "Pays",
+        "de": "Zahlt"
+    },
+
+    "help_with": {
+        "en": "Help with",
+        "de": "Hilfe mit"
+      },
+      "would_live": {
+        "en": "Would live in",
+        "de": "Würde in leben"
+    },
+    "deleteProfile": {
+        "en": "Delete Profile",
+        "de": "Profil löschen"
+    },
+    "editProfile": {
+        "en": "Edit Profile",
+        "de": "Profil bearbeiten"
+    },
+
+
+
     "options": {
         "en": [
             { "value": "Shopping", "label": "Shopping" },
@@ -31,14 +72,8 @@
         "en": "Please do not leave your personal identifying information here.",
         "de": "Bitte hinterlassen Sie Ihre persönlichen Identifizierungsdaten nicht hier."
     },
-    "name": {
-        "en": "First Name",
-        "de": "Vorname"
-    },
-    "gender": {
-        "en": "Gender",
-        "de": "Geschlecht"
-    },
+    
+    
     "select": {
         "en": "Select",
         "de": "Auswählen"
@@ -55,10 +90,7 @@
         "en": "Divers",
         "de": "Taucher"
     },
-    "age": {
-        "en": "Age",
-        "de": "Lebensjahr"
-    },
+    
     "requestedPrice": {
         "en": "Requested room price",
         "de": "Gewünschter Zimmerpreis"
@@ -95,37 +127,17 @@
         "en": "By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.",
         "de": "Mit der Erstellung einer Anfrage stimmen Sie unseren Geschäftsbedingungen und Datenschutzrichtlinien zu."
     },
-    "request": {
-        "en": "If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271",
-        "de": "Wenn Sie an dieser Anfrage interessiert sind, wenden Sie sich bitte an info@grossjungig.de oder +49 30 55231271"
-    },
+    
     "name2": {
         "en": "Name",
         "de": "Namen"
     },
-    "pays": {
-        "en": "Pays",
-        "de": "Zahlt"
-    },
-    "wouldLive": {
-        "en": "Would live in",
-        "de": "Würde in leben"
-    },
-    "helpWith": {
-        "en": "Helps with",
-        "de": "Hilft bei der"
-    },
+    
+    
+    
     "bio": {
         "en": "Bio",
         "de": "Bio"
-    },
-    "deleteProfile": {
-        "en": "Delete Profile",
-        "de": "Profil löschen"
-    },
-    "editProfile": {
-        "en": "Edit Profile",
-        "de": "Profil bearbeiten"
     }
   
   }
