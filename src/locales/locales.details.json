@@ -39,7 +39,10 @@
     "en": "Delete Room",
     "de": "Raum löschen"
   },
-
+  "month": {
+    "en": "month",
+    "de": "monat"
+  },
 
   
   "address": {

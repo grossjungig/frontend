@@ -61,8 +61,8 @@ class Details extends Component {
             <span>{detailsLocales.owner[lang]} </span><span>{room.name}</span>
             <span>{detailsLocales.gender[lang]} </span><span>{room.gender}</span>
             <span>{detailsLocales.age[lang]} </span><span>{this.getAge(room.birthdate)}</span>
-            <span>{detailsLocales.price[lang]} </span> <span>{room.price}€/month</span>
-            <span>{detailsLocales.additional_costs[lang]}</span><span>50€/month</span>
+            <span>{detailsLocales.price[lang]} </span> <span>{room.price}€/{detailsLocales.month[lang]}</span>
+            <span>{detailsLocales.additional_costs[lang]}</span><span>50€/{detailsLocales.month[lang]}</span>
             <span>{detailsLocales.room_in[lang]} </span><span>{room.district}</span>
             <span>{detailsLocales.help_with[lang]} </span>
             <span>
