@@ -3,6 +3,24 @@
   min-height: 100vh;
 }
 
+body {
+  background-color: #f4f4f4;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+/* hide scrollbar on webkit browsers */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .app__content {
   padding-bottom: 202px; /* Heigh of the Footer */
 }
