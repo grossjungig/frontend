@@ -11,7 +11,7 @@ export const generateBase64FromImage = imageFile => {
 
 export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-}
+};
 
 export const berlinDistricts = [
   "Charlottenburg-Wilmersdorf",
@@ -26,4 +26,4 @@ export const berlinDistricts = [
   "Steglitz-Zehlendorf",
   "Tempelhof-Schöneberg",
   "Treptow-Köpenick"
-]
+];
