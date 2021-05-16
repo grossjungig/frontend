@@ -1,32 +1,27 @@
 import React, { Component } from "react";
 import axios from '../../axios';
 import newAxios from 'axios';
-import Select from 'react-select'
 import { connect } from 'react-redux';
+import { dispatchCheckAuth } from "../../store/auth/thunks";
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { generateBase64FromImage } from '../../utils';
+import offeredhelps from '../../assets/checkbox/help';
+import Checkbox from '../Checkbox/Checkbox'
+
 import apStyles from '../../pages/profile/addProfile/index.module.css'; // ap = Add Profile
 import { fullBlock } from '../../shared/index.module.css';
 import { delBtn, formAction } from './index.module.css';
-
-import editProfileLocales from "../../locales/locales.Profile.json";
-import { withRouter } from "react-router-dom";
 
 class EditProfile extends Component {
   state = {
     profile: [],
     name: "",
     age: "",
-    email: "",
     gender: "select",
     district: "select",
     description: "",
     price: "",
-    phoneNumber: "",
-    owner: "",
-    help: [],
-    images: [],
-    redirect: false,
+    offeredHelp:[],
 
     avatarUrl: '',
     avatarPreview: dummyAvatar,
@@ -36,8 +31,9 @@ class EditProfile extends Component {
   };
 
   componentDidMount() {
-    axios.get(`api/profiles/${this.props.fetchedUser.profile}`)
-      .then(({ data }) => {
+    const profileId = this.props.match.params.id;
+    axios.get(`api/profiles/${profileId}`)
+      .then(({data}) => {
         this.setState({
           name: data.user.name,
           email: data.user.email,
@@ -47,32 +43,28 @@ class EditProfile extends Component {
           description: data.description,
           price: data.price,
           phoneNumber: data.phoneNumber,
-          owner: data.owner,
-          help: data.help,
-          images: [],
+          offeredHelp: data.help.slice(),
           avatarPreview: data.avatarUrl,
-          avatarUrl: data.avatarUrl
+          avatarUrl: data.avatarUrl,
         });
-
-        const helps = data.help;
-        var helpsArr = [];
-        for (var i = 0; i < helps.length; i++) {
-          var help = { label: helps[i], value: helps[i] }
-          helpsArr.push(help);
-        }
-        this.setState({ help: helpsArr })
       })
       .catch((error) => {
         console.log(error);
       });
+
   }
 
-  setHelp = (event) => {
-    this.setState({ help: event })
-  }
+  handleHelp = ({ target }) => {
+    const help = target.name;
+    const isChecked = target.checked;
+    if (isChecked) {
+      this.setState({ offeredHelp: [...this.state.offeredHelp, help] })
+      } else {
+      this.setState(
+        { offeredHelp: this.state.offeredHelp.filter((item) => item !== help) })}
+  };
 
   setFormState = (event) => {
-
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -97,19 +89,18 @@ class EditProfile extends Component {
       this.setState({ avatarFile: avatarFile });
 
     } catch (err) {
-      console.log(err);
       this.setState({ avatarPreviewErr: err.message });
     }
   }
 
-  editProfile = (event) => {
+  onSubmit = (event) => {
     event.preventDefault();
-    const arr = this.state.help;
-    const helps = [];
-    for (var i = 0; i < arr.length; i++) {
-      helps.push(arr[i].value);
-    }
 
+    // Direct Upload to AWS S3
+    const { signedRequest, avatarFile } = this.state;
+    newAxios.put(signedRequest, avatarFile )
+      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
+   
     const obj = {
       name: this.state.name,
       age: this.state.age,
@@ -119,15 +110,9 @@ class EditProfile extends Component {
       description: this.state.description,
       price: this.state.price,
       phoneNumber: this.state.phoneNumber,
-      owner: this.state.owner,
       avatarUrl: this.state.avatarUrl,
-      help: helps,
+      help: this.state.offeredHelp
     };
-
-    // Direct Upload to AWS S3
-    const { signedRequest, avatarFile } = this.state;
-    newAxios.put(signedRequest, avatarFile)
-      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
 
     axios
       .post(
@@ -136,7 +121,6 @@ class EditProfile extends Component {
       )
       .then((res) => this.props.history.push(`/profile/${this.props.fetchedUser.profile}`)
       );
-
   };
 
   cancelEdit = () => {
@@ -144,7 +128,8 @@ class EditProfile extends Component {
   }
 
   render() {
-    const lang = localStorage.getItem("lang");
+    const { name, age, gender, price, description, district, offeredHelp, avatarPreview, avatarPreviewErr, message } = this.state;
+
     return (
       <div className={fullBlock}>
         <div className={apStyles.main}>
@@ -159,7 +144,7 @@ class EditProfile extends Component {
                 type="text"
                 name="name"
                 id="name"
-                value={this.state.name}
+                value={name}
                 onChange={this.setFormState}
                 className={apStyles.input}
               />
@@ -170,7 +155,7 @@ class EditProfile extends Component {
               <select
                 name="gender"
                 type="select"
-                value={this.state.gender}
+                value={gender}
                 onChange={this.setFormState}
                 className={apStyles.input}
               >
@@ -187,7 +172,7 @@ class EditProfile extends Component {
                 type="text"
                 name="age"
                 id="age"
-                value={this.state.age}
+                value={age}
                 onChange={this.setFormState}
                 className={apStyles.input}
               />
@@ -255,31 +240,82 @@ class EditProfile extends Component {
               </select>
             </div>
 
-            <div className={apStyles.formCtrl}>
-              <label className="label_profile" >{editProfileLocales.picture[lang]}</label>
-              <img
-                className={apStyles.avatarImg}
-                alt="avatar"
-                src={this.state.avatarPreview}
-              />
-              <input
+            <label>Requested room price</label>
+            <input
+              type="number"
+              name="price"
+              id="price"
+              value={price}
+              onChange={this.setFormState}
+              className={apStyles.input}
+            />
+
+            <label>About me (max 120 signs)</label>
+            <textarea
+              type="text"
+              name="description"
+              id="description"
+              value={description}
+              onChange={this.setFormState}
+              maxLength="120"
+              rows="3"
+              className={apStyles.input}
+            />
+
+            <label>Offered Help</label>
+            <div>
+            {offeredhelps.map(help => (
+                <Checkbox key={help.key} item={help} checked={offeredHelp.includes(help.name)}  handleHelp={this.handleHelp} />
+              ))}
+            </div>
+
+            <label>Prefered district</label>
+            <select
+              name="district"
+              type="select"
+              value={district}
+              onChange={this.setFormState}
+              placeholder="Select"
+              className={apStyles.input}
+            >
+              <option value="" disabled >Select</option>
+              <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
+              <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
+              <option value="Lichtenberg">Lichtenberg</option>
+              <option value="Marzahn-Hellersdorf">Marzahn-Hellersdorf</option>
+              <option value="Mitte">Mitte</option>
+              <option value="Neukoelln">Neukoelln</option>
+              <option value="Pankow">Pankow</option>
+              <option value="Reinickendorf">Reinickendorf</option>
+              <option value="Spandau">Spandau</option>
+              <option value="Steglitz-Zehlendorf">Steglitz-Zehlendorf</option>
+              <option value="Tempelhof-Schoeneberg">Tempelhof-Schoeneberg</option>
+              <option value="Treptow-Koepenick">Treptow-Koepenick</option>
+            </select>
+
+            <label className="label_profile" >Profile picture</label>
+            <img
+              className={apStyles.avatarImg}
+              alt="avatar"
+              src={avatarPreview}
+            />
+            <input
                 type="file"
                 accept="image/png, image/jpeg, image/jpg"
                 onChange={this.handleAvatarChange}
                 className={apStyles.input}
-              />
-            </div>
-            <span>{this.state.avatarPreviewErr}</span>
+            />
+            <span>{avatarPreviewErr}</span>
 
             <div className={apStyles.msg}>
               {editProfileLocales.policy[lang]}
             </div>
 
             <div className={formAction}>
-              <button className={`${apStyles.btn} ${delBtn}`} onClick={this.cancelEdit}>{editProfileLocales.cancel[lang]}</button>
-              <button className={apStyles.btn} onClick={this.editProfile}>{editProfileLocales.submit[lang]}</button>
+              <button className={`${apStyles.btn} ${delBtn}`} onClick={this.cancelEdit}>Cancel</button>
+              <button className={apStyles.btn} onClick={this.onSubmit}>Submit</button>
             </div>
-            {this.state.message && <p>{this.state.message}</p>}
+            {message && <p>{message}</p>}
           </div>
         </div>
       </div>
@@ -289,6 +325,8 @@ class EditProfile extends Component {
 const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
+const mapDispatchToProps = {
+  refreshUser: () => dispatchCheckAuth()
+};
 
-export default withRouter(connect(mapStateToProps)(EditProfile));
-
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile);

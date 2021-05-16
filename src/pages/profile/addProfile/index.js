@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import styles from './index.module.css';
 import { fullBlock } from '../../../shared/index.module.css';
 import axios from '../../../axios';
 import newAxios from 'axios';
 import { connect } from 'react-redux';
-import Select from 'react-select'
+import offeredhelps from '../../../assets/checkbox/help';
+import Checkbox from '../../../components/Checkbox/Checkbox'
 import { dispatchCheckAuth } from "../../../store/auth/thunks";
 import dummyAvatar from '../../../assets/images/dummy-avatar.jpg'
 import { generateBase64FromImage } from '../../../utils';
@@ -21,14 +21,8 @@ class AddProfile extends Component {
     district: "",
     description: "",
     price: "",
-    postcode: "",
-    address: "",
     phoneNumber: "",
-    owner: "",
-    help: [],
-    images: [],
-    redirect: false,
-    user: '',
+    offeredHelp: [],
 
     avatarUrl: '',
     avatarPreview: dummyAvatar,
@@ -37,23 +31,23 @@ class AddProfile extends Component {
     signedRequest: ''
   };
 
-  componentDidMount(){
-    const { fetchedUser } = this.props;
-    if (fetchedUser) {
-      this.setState({ user: fetchedUser });
-    }
-  }
   
   setFormState = (event) => {
-
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
 
-  setHelp = (event) => {
-    this.setState({ help: event })
-  }
+  handleHelp = ({ target }) => {
+    const help = target.name;
+    const isChecked = target.checked;
+    if (isChecked) {
+      this.setState({ offeredHelp: [...this.state.offeredHelp, help] })
+      } else {
+      this.setState({ offeredHelp:  this.state.offeredHelp.filter((item) => item !== help) })
+      }
+  };
+
 
   handleAvatarChange = async (event) => {
     const avatarFile = event.target.files[0];
@@ -74,52 +68,38 @@ class AddProfile extends Component {
       this.setState({ avatarFile: avatarFile });
       
     } catch (err) {
-      console.log(err);
       this.setState({ avatarPreviewErr: err.message });
     }
   }
 
-  addNewProfile = (event) => {
-    event.preventDefault();
-    const arr=this.state.help;
-    var helps=[];
-    for (var i = 0 ;i < arr.length; i++ )
-    {
-      helps.push(arr[i].value);
-    }
-
+    onSubmit = (event) => {
+      event.preventDefault();
     // Direct Upload to AWS S3
     const { signedRequest, avatarFile } = this.state;
     newAxios.put(signedRequest, avatarFile )
       .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
+
+      const obj = {
+        name: this.state.name,
+        age: this.state.age,
+        gender: this.state.gender,
+        district: this.state.district,
+        description: this.state.description,
+        price: this.state.price,
+        avatarUrl: this.state.avatarUrl,
+        help: this.state.offeredHelp
+      };
     
-    axios.post('api/addProfile', {
-      name: this.state.name,
-      district: this.state.district,
-      postcode: this.state.postcode,
-      address: this.state.address,
-      phoneNumber: this.state.phoneNumber,
-      description: this.state.description,
-      price: this.state.price,
-      gender: this.state.gender,
-      age: this.state.age,
-      help: helps,
-      avatarUrl: this.state.avatarUrl
-    })
-      .then((res) => {
+    axios.post('api/addProfile', obj).then((res) => {
         this.props.refreshUser();
         this.props.history.push(`/profile/${res.data._id}`);
-      })
-      .catch((err) => {
+      }).catch((err) => {
         console.log(err);
       });
   };
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect to="/profiles" />;
-    }
-    const lang = localStorage.getItem("lang");
+    const { name, age, gender, price, description, district, avatarPreview, avatarPreviewErr, message } = this.state;
 
     return (
       <div className={fullBlock}>
@@ -135,7 +115,7 @@ class AddProfile extends Component {
                 type="text"
                 name="name"
                 id="name"
-                value={this.state.name}
+                value={name}
                 onChange={this.setFormState}
                 className={styles.input}
               />
@@ -146,7 +126,7 @@ class AddProfile extends Component {
               <select
                 name="gender"
                 type="select"
-                value={this.state.gender}
+                value={gender}
                 onChange={this.setFormState}
                 className={styles.input}
               >
@@ -163,7 +143,7 @@ class AddProfile extends Component {
                 type="text"
                 name="age"
                 id="age"
-                value={this.state.age}
+                value={age}
                 onChange={this.setFormState}
                 className={styles.input}
               />
@@ -175,7 +155,7 @@ class AddProfile extends Component {
                 type="number"
                 name="price"
                 id="price"
-                value={this.state.price}
+                value={price}
                 onChange={this.setFormState}
                 className={styles.input}
               />
@@ -187,7 +167,7 @@ class AddProfile extends Component {
                 type="text"
                 name="description"
                 id="description"
-                value={this.state.description}
+                value={description}
                 onChange={this.setFormState}
                 maxLength="120"
                 rows="3"
@@ -196,15 +176,12 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="help">{addProfileLocales.offeredHelp[lang]}</label>
-              <Select
-                isMulti
-                options={addProfileLocales.options[lang]}
-                onChange={this.setHelp}
-                id="help"
-                name="help"
-                className={styles.input}
-              />
+              <label htmlFor="help">Offered Help</label>
+              <div>
+              {offeredhelps.map(help => (
+                <Checkbox key={help.key} item={help} handleHelp={this.handleHelp} />
+              ))}
+              </div>
             </div>
 
             <div className={styles.formCtrl}>
@@ -212,7 +189,7 @@ class AddProfile extends Component {
               <select
                 name="district"
                 type="select"
-                value={this.state.district}
+                value={district}
                 onChange={this.setFormState}
                 placeholder="Select"
                 className={styles.input}
@@ -234,15 +211,15 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label >{addProfileLocales.picture[lang]}</label>
-              <img src={this.state.avatarPreview} className={styles.avatarImg} alt="avatar"/>
+              <label >Profile picture</label>
+              <img src={avatarPreview} className={styles.avatarImg} alt="avatar"/>
               <input
                   type="file"
                   accept="image/png, image/jpeg, image/jpg"
                   onChange={this.handleAvatarChange}
                   className={styles.input}
               />
-              <span className="avatar-preview-err">{this.state.avatarPreviewErr}</span>
+              <span className="avatar-preview-err">{avatarPreviewErr}</span>
             </div>
 
             <div className={styles.msg}>
@@ -250,10 +227,10 @@ class AddProfile extends Component {
             </div>
 
             <div>
-              <button type="submit" className={styles.btn} onClick={this.addNewProfile} >{addProfileLocales.submit[lang]} </button>
+              <button type="submit" className={styles.btn} onClick={this.onSubmit} >Submit</button>
             </div>
           </div>
-          {this.state.message && <p>{this.state.message}</p>}
+          {message && <p>{message}</p>}
         </div>
       </div>
     );
