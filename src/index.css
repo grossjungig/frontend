@@ -13,15 +13,7 @@ h1 {
   --gai-red: #E9615B;
   --gai-white: #F9F8F8;
   --gai-black: #333;
-
   --gai-btn-radius: 16px;
-}
-
-body {
-  background-color: #f4f4f4;
-  margin: 0;
-  overflow-x: hidden;
-  padding: 0;
 }
 
 ul {
