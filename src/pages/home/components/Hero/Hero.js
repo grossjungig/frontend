@@ -1,18 +1,23 @@
 import React, {Component} from "react";
-import styles from "./hero.module.css"
+import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import homeLocales from "../../../../locales/locales.home.json";
-import heroBanner from "../../../../assets/images/backgrounds/hero-home-background-picture.jpg";
-import {Link, useHistory} from "react-router-dom";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListSubheader from '@material-ui/core/ListSubheader'
+import styles from "./hero.module.css"
+import homeLocales from "../../../../locales/locales.home.json";
+import heroBanner from "../../../../assets/images/backgrounds/hero-home-background-picture.jpg";
 import roomsLocales from "../../../../locales/locales.rooms.json";
 import {berlinDistricts} from "../../../../utils";
 
 class Hero extends Component {
+  constructor(props) {
+    super(props);
+    this.setFilter = this.setFilter.bind(this);
+  }
+
   state = {
     tab: 'rooms',
     filters: {
@@ -27,7 +32,7 @@ class Hero extends Component {
     })
   }
 
-  setFilter = (event) => {
+  setFilter(event) {
     const filters = {...this.state.filters};
     filters[event.target.name] = event.target.value
     this.setState({
@@ -58,24 +63,29 @@ class Hero extends Component {
               <div className={`${styles.tabs} ${styles.formGroup}`}>
                 <Button onClick={() => this.switchTab('rooms')}
                         className={`${styles.btn} ${styles.btnSelected} ${styles.tab}`}>
-                  {homeLocales.offers[lang]}</Button>
-                <Link to={"/people"} className={`${styles.btn}`}>
-                  <Button className={`${styles.btn}`}>
+                  {homeLocales.offers[lang]}
+                </Button>
+                <Link to={"/people"} className={styles.btn}>
+                  <Button className={`${styles.btn} ${styles.tab}`}>
                     {homeLocales.requests[lang]}
                   </Button>
                 </Link>
               </div>
-              <div className={`${styles.dropdowns}`}>
-                <FormControl variant="outlined" style={{width: "100%"}}>
+              <div className={styles.dropdowns}>
+                <FormControl variant={"outlined"} className={styles.formGroup}>
                   <Select
-                    className={`${styles.dropdown} ${styles.formGroup}`}
                     name="city"
-                    type="select"
                     id="city-select"
-                    value={this.state.filters.city ?? ''}
-                    onChange={this.setFilter}
+                    className={styles.dropdown}
+                    classes={{
+                      root: styles.MuiSelectRoot,
+                      outlined: styles.MuiSelectOutlined,
+                      select: styles.MuiSelect
+                    }}
                     displayEmpty
                     IconComponent={ExpandMoreIcon}
+                    value={this.state.filters.city ?? ''}
+                    onChange={this.setFilter}
                   >
                     <MenuItem value="">
                       {homeLocales.city[lang]}
@@ -85,22 +95,26 @@ class Hero extends Component {
                     </MenuItem>
                   </Select>
                 </FormControl>
-                <FormControl variant="outlined" style={{width: "100%"}}>
+                <FormControl variant={"outlined"} className={styles.formGroup}>
                   <Select
-                    className={`${styles.dropdown} ${styles.formGroup}`}
                     name="district"
-                    type="select"
                     id="district-select"
-                    value={this.state.filters.district ?? ''}
-                    onChange={this.setFilter}
+                    className={styles.dropdown}
+                    classes={{
+                      root: styles.MuiSelectRoot,
+                      outlined: styles.MuiSelectOutlined,
+                      select: styles.MuiSelect
+                    }}
                     displayEmpty
                     IconComponent={ExpandMoreIcon}
+                    value={this.state.filters.district ?? ''}
+                    onChange={this.setFilter}
                   >
                     <MenuItem value="">
                       {roomsLocales.search_district[lang]}
                     </MenuItem>
                     {this.state.filters.city === '' &&
-                      <ListSubheader>Berlin</ListSubheader>
+                    <ListSubheader>Berlin</ListSubheader>
                     }
                     {dropdownItems}
                   </Select>

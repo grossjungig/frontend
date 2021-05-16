@@ -1,6 +1,3 @@
-import MenuItem from "@material-ui/core/MenuItem";
-import React from "react";
-
 export const generateBase64FromImage = imageFile => {
   const reader = new FileReader();
   const promise = new Promise((resolve, reject) => {

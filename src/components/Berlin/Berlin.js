@@ -1,17 +1,22 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import axios from '../../axios';
-import roomsLocales from "../../locales/locales.rooms.json";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
-import {berlinDistricts} from '../../utils/index'
-import styles from './index.module.css';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {berlinDistricts} from '../../utils/index'
+import roomsLocales from "../../locales/locales.rooms.json";
+import styles from './index.module.css';
 
 class Berlin extends Component {
+  constructor(props) {
+    super(props);
+    this.setFilter = this.setFilter.bind(this);
+    this.filterRooms = this.filterRooms.bind(this);
+  }
   state = {
     allRooms: [],
     filteredRooms: [],
@@ -45,7 +50,7 @@ class Berlin extends Component {
     }
   }
 
-  setFilter = (event) => {
+  setFilter(event) {
     const filters = {...this.state.filters};
     filters[event.target.name] = event.target.value
     this.setState({
@@ -54,7 +59,7 @@ class Berlin extends Component {
     });
   }
 
-  filterRooms = (e) => {
+  filterRooms(e) {
     let filteredRooms = this.state.allRooms
     let filtered = false
 
@@ -78,6 +83,7 @@ class Berlin extends Component {
   render() {
     const lang = localStorage.getItem("lang");
     let display = this.state.filtered ? "filteredRooms" : "allRooms";
+
     const dropdownItems = berlinDistricts.map((district, index) => {
         return <MenuItem key={index} value={district}>
           {district}
