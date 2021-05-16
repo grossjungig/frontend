@@ -1,8 +1,33 @@
 {
-  "name": {
-    "en": "Name",
-    "de": "Name"
+  "interest": {
+    "en": "If you are interested in this room, please contact info@grossjungig.de or +49 30 55231271",
+    "de": "Wenn Sie Interesse an diesem Zimmer haben, wenden Sie sich bitte an info@grossjungig.de oder +49 30 55231271"
   },
+  "owner": {
+    "en": "Owner",
+    "de": "Vermieter*in"
+  },
+  "gender": {
+    "en": "Gender",
+    "de": "Geschlecht"
+  },
+  "age": {
+    "en": "Age",
+    "de": "Lebensjahr"
+  },
+  "price": {
+    "en": "Price",
+    "de": "Preis"
+  },
+  "additional_costs": {
+    "en": "Additional costs",
+    "de": "Nebenkosten"
+  },
+  "room_in": {
+    "en": "Room in",
+    "de": "Zimmer in"
+  },
+
   "address": {
     "en": "Address",
     "de": "Adresse"
@@ -15,27 +40,23 @@
     "en": "District",
     "de": "Bezirk"
   },
-  "price":{
-    "en":"Price",
-    "de":"Preis"
+  "help_with": {
+    "en": "Help with",
+    "de": "Hilfe mit"
   },
-  "additional_costs":{
-    "en":"Additional costs",
-    "de":"Nebenkosten"
+  "edit_room": {
+    "en": "Edit Room",
+    "de": "Raum bearbeiten"
   },
-  "owner":{
-    "en":"Owner",
-    "de":"Vermieter*in"
+  "delete_room": {
+    "en": "Delete Room",
+    "de": "Raum löschen"
   },
-  "about_owner":{
-    "en":"About the owner",
-    "de":"Über die Person"
+  "about_owner": {
+    "en": "About the owner",
+    "de": "Über die Person"
   },
   
-  "expected_help":{
-    "en":"Expected help",
-    "de":"Erwartete Hilfe"
-  },
   "describe": {
     "en": "Description",
     "de": "Beschreibung"

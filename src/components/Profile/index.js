@@ -59,12 +59,12 @@ class Profile extends Component {
           <img src={renderedAvatar} alt="avatar" className={styles.pic} />
 
           <div className={styles.details}>
-            <span>Name</span><span>{profile.name}</span>
-            <span>Age</span><span>{profile.age}</span>
-            <span>Gender</span><span>{profile.gender}</span>
-            <span>Pays</span> <span>{profile.price}€</span>
-            <span>Would live in</span><span>{profile.district}</span>
-            <span>Helps with</span>
+            <span>{ProfileLocales.name[lang]}</span><span>{profile.name}</span>
+            <span>{ProfileLocales.age[lang]}</span><span>{profile.age}</span>
+            <span>{ProfileLocales.gender[lang]}</span><span>{profile.gender}</span>
+            <span>{ProfileLocales.pays[lang]}</span> <span>{profile.price}€</span>
+            <span>{ProfileLocales.would_live[lang]}</span><span>{profile.district}</span>
+            <span>{ProfileLocales.help_with[lang]}</span>
             <span>
               {profile.length !== 0 && profile.help.map(
                 help => <span key = {help}> -{help} </span>)
