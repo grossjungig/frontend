@@ -1,0 +1,58 @@
+{
+  "soon": {
+    "en": "We will be there for you very soon",
+    "de": "Wir werden sehr bald für Sie da sein"
+  },
+  "info": {
+    "en": "We are Großjungig AI - the first co-living platform for seniors and young people, powered by Artificial Intelligence",
+    "de": "Wir sind Großjungig AI - die erste KI-gestützte Wohnplattform für Senioren und junge Menschen"
+  },
+  "one": {
+    "en": "Großjungig AI is reinventing intergenerational co-living in big cities by bringing seniors and youth together.",
+    "de": "Großjungig AI erfindet das generationsübergreifend Zusammenleben in Großstädten neu."
+  },
+  "two": {
+    "en": "We make the world more connected and promote social cohesion.",
+    "de": "Indem wir Senioren und junge Menschen zusammenbringen, machen wir die Welt verbundener und fördern den sozialen Zusammenhalt."
+  },
+  "three": {
+    "en": "We connect the disconnected generations in the comfort of their home.",
+    "de": "Wir verbinden die getrennte Generationen von Zuhause aus. "
+  },
+  "discount": {
+    "en": "Secure the 100% discount for the first month!",
+    "de": "Sichern Sie sich den 100%-Rabatt für den ersten Monat!"
+  },
+  "access": {
+    "en": "Sign up for early access.",
+    "de": "Anmelden für frühen Zugang."
+  },
+  "name": {
+    "en": "Name",
+    "de": "Vorname"
+  },
+  "email": {
+    "en":"Email Address",
+    "de": "Email-Adresse"
+  },
+  "role": {
+    "en":"What are you looking for?",
+    "de": "Wonach suchen Sie?"
+  },
+  "senior": {
+    "en": "Seniors - To offer a room",
+    "de": "Senior - Zimmerangebot"
+  },
+  "junior": {
+    "en": "Youngs - Looking for a room",
+    "de": "Junge Person - Zimmersuche"
+  },
+  "signup": {
+    "en": "Sign Up",
+    "de": "Anmeldung"
+  },
+  "success_msg": {
+    "en": "Thank you, we will get in touch with you when the website is done!",
+    "de": "Vielen Dank, wir werden Sie kontaktieren, wenn die Website fertig ist!"  
+}
+}

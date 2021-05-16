@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import navbarLocales from "../../locales/locales.navbar.json";
+//import { Link } from "react-router-dom";
+//import navbarLocales from "../../locales/locales.navbar.json";
 import homeLocales from "../../locales/locales.home.json";
 import { HashLink, PageLink } from "../styled";
 import { connect } from 'react-redux';
 import { logout } from '../../store/auth/actions'
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import CookieConsent from '../CookieConsent';
 import "./Navbar.css";
 
-import NavBanner from "./NavBanner";
+//import NavBanner from "./NavBanner";
 
 
 
 const Navbar = (props) => {
-  const history = useHistory();
+  //const history = useHistory();
   const [checked, setChecked] = useState(false);
   const [lang, setLanguage] = useState(localStorage.getItem("lang"))
 
@@ -42,11 +42,11 @@ const Navbar = (props) => {
     localStorage.setItem('ccConfirmed', 'true');
   };
 
-  const logout = (event) => {
-    event.preventDefault();
-    props.logout();
-    history.push('/');
-  };
+  // const logout = (event) => {
+  //   event.preventDefault();
+  //   props.logout();
+  //   history.push('/');
+  // };
 
   const scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -97,7 +97,7 @@ const Navbar = (props) => {
               </HashLink>
               </li>
             
-            { props.isAuth ? (
+            {/* { props.isAuth ? (
               <>
                 <li onClick={toggleNavbar}>
                   <Link onClick={logout} to="/">
@@ -129,7 +129,7 @@ const Navbar = (props) => {
                   </Link>
                 </li>
               </>
-            )}
+            )} */}
             <li>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a>
@@ -145,7 +145,7 @@ const Navbar = (props) => {
           </ul>
         </header>
       </nav>
-      <NavBanner />
+      {/* <NavBanner /> */}
     </div>
   );
 };
