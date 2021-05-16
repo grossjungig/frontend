@@ -29,7 +29,7 @@ class Home extends Component {
         <How id="how-it-works">
           <H2 titleColor="white" className="how-it-works-title">{homeLocales.how[lang]}</H2>
           <div className="category-title-container">
-            <div className="category-title">Seniors</div>
+            <div className="category-title">{homeLocales.senior[lang]}</div>
           </div>
           <HowFlex>
             <Card2 title="#1" text={homeLocales.step_1_sr[lang]} />
@@ -41,7 +41,7 @@ class Home extends Component {
         </How>
         <How backgroundColor="#CFE7F0" id="how-it-works">
           <div className="category-title-container">
-            <div className="category-title">Young</div>
+            <div className="category-title">{homeLocales.young[lang]}</div>
           </div>
           <HowFlex>
             <Card2 title="#1" text={homeLocales.step_1_jr[lang]} />
