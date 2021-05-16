@@ -1,44 +1,27 @@
 import React, { Component } from "react";
 import axios from '../../axios';
 import newAxios from 'axios';
-import Select from 'react-select'
 import { connect } from 'react-redux';
+import { dispatchCheckAuth } from "../../store/auth/thunks";
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { generateBase64FromImage } from '../../utils';
+import offeredhelps from '../../assets/checkbox/help';
+import Checkbox from '../Checkbox/Checkbox'
 
 import apStyles from '../../pages/profile/addProfile/index.module.css'; // ap = Add Profile
 import { fullBlock } from '../../shared/index.module.css';
 import { delBtn, formAction } from './index.module.css';
-
-const options = [
-  { value: 'Shopping', label: 'Shopping' },
-  { value: 'Cooking or baking', label: 'Cooking or baking' },
-  { value: 'Help with digital devices', label: 'Help with digital devices' },
-  { value: 'Mowing the lawn', label: 'Mowing the lawn' },
-  { value: 'Gardening', label: 'Gardening' },
-  { value: 'Reading out loud', label: 'Reading out loud' },
-  { value: 'Car transportation', label: 'Car transportation' },
-  { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
-  { value: 'Accompanying on walks', label: 'Accompanying on walks' },
-  { value: 'Taking care of pets', label: 'Taking care of pets' },
-  { value: 'Taking care of Seniors', label: 'Taking care of Seniors' }
-]
 
 class EditProfile extends Component {
   state = {
     profile: [],
     name: "",
     age: "",
-    email: "",
     gender: "select",
     district: "select",
     description: "",
     price: "",
-    phoneNumber: "",
-    owner: "",
-    help: [],
-    images: [],
-    redirect: false,
+    offeredHelp:[],
 
     avatarUrl: '',
     avatarPreview: dummyAvatar,
@@ -48,7 +31,8 @@ class EditProfile extends Component {
   };
 
   componentDidMount() {
-    axios.get(`api/profiles/${this.props.fetchedUser.profile}`)
+    const profileId = this.props.match.params.id;
+    axios.get(`api/profiles/${profileId}`)
       .then(({data}) => {
         this.setState({
           name: data.user.name,
@@ -59,32 +43,28 @@ class EditProfile extends Component {
           description: data.description,
           price: data.price,
           phoneNumber: data.phoneNumber,
-          owner: data.owner,
-          help: data.help,
-          images: [],
+          offeredHelp: data.help.slice(),
           avatarPreview: data.avatarUrl,
-          avatarUrl: data.avatarUrl
+          avatarUrl: data.avatarUrl,
         });
-       
-        const helps = data.help;
-        var helpsArr = [];
-        for (var i = 0; i < helps.length; i++) {
-            var help = { label: helps[i], value: helps[i] }
-            helpsArr.push(help);
-        }     
-        this.setState({ help: helpsArr })
       })
       .catch((error) => {
         console.log(error);
       });
+
   }
 
-  setHelp = (event) => {
-    this.setState({ help: event })
-  }
+  handleHelp = ({ target }) => {
+    const help = target.name;
+    const isChecked = target.checked;
+    if (isChecked) {
+      this.setState({ offeredHelp: [...this.state.offeredHelp, help] })
+      } else {
+      this.setState(
+        { offeredHelp: this.state.offeredHelp.filter((item) => item !== help) })}
+  };
 
   setFormState = (event) => {
-
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -109,20 +89,18 @@ class EditProfile extends Component {
       this.setState({ avatarFile: avatarFile });
       
     } catch (err) {
-      console.log(err);
       this.setState({ avatarPreviewErr: err.message });
     }
   }
 
-  editProfile = (event) => {
+  onSubmit = (event) => {
     event.preventDefault();
-    const arr=this.state.help;
-    const helps=[];
-    for (var i = 0 ;i < arr.length; i++ )
-    {
-      helps.push(arr[i].value);
-    }
 
+    // Direct Upload to AWS S3
+    const { signedRequest, avatarFile } = this.state;
+    newAxios.put(signedRequest, avatarFile )
+      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
+   
     const obj = {
       name: this.state.name,
       age: this.state.age,
@@ -132,16 +110,10 @@ class EditProfile extends Component {
       description: this.state.description,
       price: this.state.price,
       phoneNumber: this.state.phoneNumber,
-      owner: this.state.owner,
       avatarUrl: this.state.avatarUrl,
-      help: helps,
+      help: this.state.offeredHelp
     };
 
-    // Direct Upload to AWS S3
-    const { signedRequest, avatarFile } = this.state;
-    newAxios.put(signedRequest, avatarFile )
-      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
-   
     axios
       .post(
         `api/edit/${this.props.fetchedUser.profile}`,
@@ -149,7 +121,6 @@ class EditProfile extends Component {
       )
       .then((res) => this.props.history.push(`/profile/${this.props.fetchedUser.profile}`)
       );
-      
   };
 
   cancelEdit = () => {
@@ -157,6 +128,8 @@ class EditProfile extends Component {
   }
 
   render() {
+    const { name, age, gender, price, description, district, offeredHelp, avatarPreview, avatarPreviewErr, message } = this.state;
+
     return (
       <div className={fullBlock}>
         <div className={apStyles.main}>
@@ -171,7 +144,7 @@ class EditProfile extends Component {
                 type="text"
                 name="name"
                 id="name"
-                value={this.state.name}
+                value={name}
                 onChange={this.setFormState}
                 className={apStyles.input}
               />
@@ -182,7 +155,7 @@ class EditProfile extends Component {
               <select
                 name="gender"
                 type="select"
-                value={this.state.gender}
+                value={gender}
                 onChange={this.setFormState}
                 className={apStyles.input}
               >
@@ -199,7 +172,7 @@ class EditProfile extends Component {
                 type="text"
                 name="age"
                 id="age"
-                value={this.state.age}
+                value={age}
                 onChange={this.setFormState}
                 className={apStyles.input}
               />
@@ -210,7 +183,7 @@ class EditProfile extends Component {
               type="number"
               name="price"
               id="price"
-              value={this.state.price}
+              value={price}
               onChange={this.setFormState}
               className={apStyles.input}
             />
@@ -220,28 +193,25 @@ class EditProfile extends Component {
               type="text"
               name="description"
               id="description"
-              value={this.state.description}
+              value={description}
               onChange={this.setFormState}
               maxLength="120"
               rows="3"
               className={apStyles.input}
             />
-            <label>Expected Help</label>
-            <Select
-              isMulti
-              options={options}
-              onChange={this.setHelp}
-              id="help"
-              value={this.state.help}
-              name="help"
-              className={apStyles.input}
-            />
+
+            <label>Offered Help</label>
+            <div>
+            {offeredhelps.map(help => (
+                <Checkbox key={help.key} item={help} checked={offeredHelp.includes(help.name)}  handleHelp={this.handleHelp} />
+              ))}
+            </div>
 
             <label>Prefered district</label>
             <select
               name="district"
               type="select"
-              value={this.state.district}
+              value={district}
               onChange={this.setFormState}
               placeholder="Select"
               className={apStyles.input}
@@ -265,7 +235,7 @@ class EditProfile extends Component {
             <img
               className={apStyles.avatarImg}
               alt="avatar"
-              src={this.state.avatarPreview}
+              src={avatarPreview}
             />
             <input
                 type="file"
@@ -273,7 +243,7 @@ class EditProfile extends Component {
                 onChange={this.handleAvatarChange}
                 className={apStyles.input}
             />
-            <span>{this.state.avatarPreviewErr}</span>
+            <span>{avatarPreviewErr}</span>
 
             <div className={apStyles.msg}>
               By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.
@@ -281,9 +251,9 @@ class EditProfile extends Component {
           
             <div className={formAction}>
               <button className={`${apStyles.btn} ${delBtn}`} onClick={this.cancelEdit}>Cancel</button>
-              <button className={apStyles.btn} onClick={this.editProfile}>Submit</button>
+              <button className={apStyles.btn} onClick={this.onSubmit}>Submit</button>
             </div>
-            {this.state.message && <p>{this.state.message}</p>}
+            {message && <p>{message}</p>}
           </div>
         </div>
       </div>
@@ -293,5 +263,8 @@ class EditProfile extends Component {
 const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
+const mapDispatchToProps = {
+  refreshUser: () => dispatchCheckAuth()
+};
 
-export default connect(mapStateToProps)(EditProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile);

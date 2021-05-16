@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import "./why.css";
+import styles from "./why.module.css";
 import homeLocales from "../../../../locales/locales.home.json";
 import community from '../../../../assets/images/community.png';
 import savings from '../../../../assets/images/savings.png';
@@ -9,25 +9,25 @@ class Why extends Component {
   render() {
     const lang = localStorage.getItem("lang");
     return (
-      <div id="home-page-why">
+      <div className={styles.main}>
         <h2>{homeLocales.why[lang]}</h2>
-        <div className={"why-cards-scroll-container"}>
-          <div className={"why-cards-container"}>
-            <div className={"why-cards"}>
-              <div className={'card'}>
-                <div className={'card-title'}>{homeLocales.card_1_titel[lang]}</div>
-                <img className={'card-image'} src={community} alt="community-logo"/>
-                <div className={'card-text'}>{homeLocales.card_1[lang]}</div>
+        <div className={styles.scrollContainer}>
+          <div className={styles.cardsContainer}>
+            <div className={styles.cards}>
+              <div className={styles.card}>
+                <div className={styles.cardTitle}>{homeLocales.card_1_titel[lang]}</div>
+                <img className={styles.cardImage} src={community} alt="community-logo"/>
+                <div className={styles.cardText}>{homeLocales.card_1[lang]}</div>
               </div>
-              <div className={'card'}>
-                <div className={'card-title'}>{homeLocales.card_2_titel[lang]}</div>
-                <img className={'card-image'} src={savings} alt="savings-logo"/>
-                <div className={'card-text'}>{homeLocales.card_2[lang]}</div>
+              <div className={styles.card}>
+                <div className={styles.cardTitle}>{homeLocales.card_2_titel[lang]}</div>
+                <img className={styles.cardImage} src={savings} alt="savings-logo"/>
+                <div className={styles.cardText}>{homeLocales.card_2[lang]}</div>
               </div>
-              <div className={'card'}>
-                <div className={'card-title'}>{homeLocales.card_3_titel[lang]}</div>
-                <img className={'card-image'} src={clarity} alt="clarity-logo"/>
-                <div className={'card-text'}>{homeLocales.card_3[lang]}</div>
+              <div className={styles.card}>
+                <div className={styles.cardTitle}>{homeLocales.card_3_titel[lang]}</div>
+                <img className={styles.cardImage} src={clarity} alt="clarity-logo"/>
+                <div className={styles.cardText}>{homeLocales.card_3[lang]}</div>
               </div>
             </div>
           </div>

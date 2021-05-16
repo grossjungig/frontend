@@ -1,0 +1,92 @@
+
+.main{
+    background-color: white;
+    padding-top:2rem;
+}
+.target-container{
+    margin:auto;
+    text-align: center;
+    width:90%;
+    max-width: 343px;
+    padding-top:2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+.people-header{
+    background-color:var(--gai-red);
+    color:white;
+    margin:1.5rem 5.2rem ;
+    padding:10px 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.step-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom:1rem;
+
+    
+}
+.step-num{
+    color: var(--gai-red);
+    background: white;
+    height: 30px;
+    width: 30px;
+    margin:0rem 1.5rem auto 1.5rem;
+    border: 2px solid var(--gai-blue);
+    border-radius: 50%;
+    padding-top: 7px;
+    padding-right: 3px;
+    padding-left: 5px;
+    padding-bottom:0px;
+}
+.step-text{
+    margin: 0rem 0.9rem auto auto;
+    flex-grow: 1;
+    text-align: left;
+    width:70%
+}
+.senior-colors{
+    background-color: var(--gai-blue);
+    color:white;
+
+
+}
+.youth-colors{
+    background: var(--gai-white);
+    color:black;
+    border: 2px solid var(--gai-blue)
+}
+.title-youth{
+    color:var(--gai-blue)
+}
+.faq-section{
+    text-align: center;
+    margin:4rem auto;
+}
+.faq-section button{
+    border: 1px solid #333333;
+    padding: 1rem;
+    border-radius: 16px;
+    margin:1.5rem auto;
+    background-color: var(--gai-white);
+
+}
+
+/*desktop*/
+
+@media (min-width: 834px) {
+    .how-it-works-contatiner{
+        display:flex;
+        justify-content: center;
+    }
+    .target-container{
+        margin:0;
+        margin-bottom: 2rem;
+        margin-top: 3rem;
+        margin-left:3rem;
+    }
+  }

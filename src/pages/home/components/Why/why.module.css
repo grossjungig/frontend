@@ -1,14 +1,14 @@
-#home-page-why {
+.main {
     margin: 130px 0 80px;
 }
 
-#home-page-why h2 {
+.main h2 {
     text-align: center;
     font-weight: 600;
     line-height: 30px;
 }
 
-.why-cards-scroll-container {
+.scrollContainer {
     display: flex;
     flex-flow: column;
     align-items: flex-start;
@@ -17,15 +17,15 @@
     scrollbar-width: none;  /* remove scrollbar in Firefox */
 }
 
-.why-cards-scroll-container::-webkit-scrollbar {
+.scrollContainer::-webkit-scrollbar {
     display: none; /* remove scrollbar in Chrome, Safari and other webkit browsers */
 }
 
-.why-cards-container {
+.cardsContainer {
     margin: auto;
 }
 
-.why-cards {
+.cards {
     display: flex;
     flex-direction: row;
 }
@@ -40,7 +40,7 @@
     width: 285px;
 }
 
-.card-title {
+.cardTitle {
     color: white;
     font-weight: 600;
     font-size: 1.5rem;
@@ -52,11 +52,11 @@
     border-top-right-radius: 10px;
 }
 
-.card-image {
+.cardImage {
     margin: 15px 0;
 }
 
-.card-text {
+.cardText {
     text-align: center;
     line-height: 24px;
     padding: 0 12px 15px;
