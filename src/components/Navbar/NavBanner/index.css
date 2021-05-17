@@ -6,6 +6,7 @@
     font-weight: bold;
     justify-content: space-around;
     padding: 10px 20px;
+    padding-top: 15px;
 }
 
 .nav-banner__phone {
@@ -18,5 +19,7 @@
         flex-direction: column;
         justify-content: space-around;
         height: 100px;
+        padding: 10px 20px;
+
     }
 }
