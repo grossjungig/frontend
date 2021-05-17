@@ -100,6 +100,7 @@ class AddProfile extends Component {
 
   render() {
     const { name, age, gender, price, description, district, avatarPreview, avatarPreviewErr, message } = this.state;
+    const lang = localStorage.getItem("lang");
 
     return (
       <div className={fullBlock}>

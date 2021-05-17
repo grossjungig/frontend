@@ -7,6 +7,7 @@ import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { generateBase64FromImage } from '../../utils';
 import offeredhelps from '../../assets/checkbox/help';
 import Checkbox from '../Checkbox/Checkbox'
+import editProfileLocales from '../../locales/locales.Profile.json'
 
 import apStyles from '../../pages/profile/addProfile/index.module.css'; // ap = Add Profile
 import { fullBlock } from '../../shared/index.module.css';
@@ -129,6 +130,7 @@ class EditProfile extends Component {
 
   render() {
     const { name, age, gender, price, description, district, offeredHelp, avatarPreview, avatarPreviewErr, message } = this.state;
+    const lang = localStorage.getItem("lang");
 
     return (
       <div className={fullBlock}>
@@ -203,16 +205,6 @@ class EditProfile extends Component {
             </div>  
             <div className={apStyles.formCtrl} style={{height: "max-content"}} >
               <label>{editProfileLocales.getHelp[lang]}</label>
-              <Select
-                isMulti
-                options={editProfileLocales.options[lang]}
-                onChange={this.setHelp}
-                id="help"
-                value={this.state.help}
-                name="help"
-                className={apStyles.input}
-                style={{height: "max-content"}}
-              />
             </div>
             <div className={apStyles.formCtrl}>
               <label>{editProfileLocales.district[lang]}</label>
