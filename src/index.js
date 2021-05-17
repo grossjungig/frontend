@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-// import App from "./App";
-import UnderConstruction from './pages/UnderConstruction'
+import App from "./App";
+//import UnderConstruction from './pages/UnderConstruction'
 
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
@@ -28,8 +28,7 @@ ReactDOM.render(
           injectFirst?: bool - this gives priority to the component-CSS files 
           over Material UI Default stylings.
         */}
-        {/* <App /> */}
-        <UnderConstruction />
+        <App />
       </StylesProvider>
     </BrowserRouter>
   </Provider>,
