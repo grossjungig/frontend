@@ -3,6 +3,7 @@ import axios from '../../axios';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { capitalizeFirstLetter } from '../../utils';
 import './index.css'
+import peopleLocales from "../../locales/locales.people.json";
 
 export default class People extends Component {
   state = {
@@ -37,12 +38,12 @@ export default class People extends Component {
               <div >
                 <h3>{capitalizeFirstLetter(profile.name)}, {profile.age}</h3>
                 <div>
-                  <span className="profile-card__item">would live in:</span>
+                  <span className="profile-card__item">{peopleLocales.would_live[lang]}</span>
                   {profile.district}
                 </div>
                 <p>
-                <span className="profile-card__item">can pay around:</span>
-                  {profile.price}€ (monthly)
+                <span className="profile-card__item">{peopleLocales.can_pay[lang]}</span>
+                  {profile.price}€ ({peopleLocales.monthly[lang]})
                 </p>
               </div>
             </li>
