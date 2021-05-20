@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from '../../axios';
-//import detailsLocales from "../../locales/locales.details.json";
+import detailsLocales from "../../locales/locales.details.json";
 import { connect } from 'react-redux';
-
 import { fullBlock } from '../../shared/index.module.css'
 import styles from '../Profile/index.module.css'; //style from profile
 
@@ -44,7 +43,7 @@ class Details extends Component {
   };
 
   render() {
-    //const lang = localStorage.getItem("lang");
+    const lang = localStorage.getItem("lang");
     const room = this.state.room;
     const user = this.props.fetchedUser;
 
@@ -53,18 +52,18 @@ class Details extends Component {
       <div className={fullBlock}> 
         <div className={styles.main}>
           <div className={styles.msg}>
-            If you are interested in this room, please contact info@grossjungig.de or +49 30 55231271
-          </div>
+          {detailsLocales.interest[lang]}   
+                  </div>
           <h3>{room.roomTitle}</h3>
           <img  alt="avatar" className={styles.pic} />
           <div className={styles.details}>
-            <span>Owner</span><span>{room.name}</span>
-            <span>Gender</span><span>{room.gender}</span>
-            <span>Age</span><span>{this.getAge(room.birthdate)}</span>
-            <span>Price</span> <span>{room.price}€/month</span>
-            <span>Additional Cost</span><span>50€/month</span>
-            <span>Room In</span><span>{room.district}</span>
-            <span>Help with</span>
+            <span>{detailsLocales.owner[lang]}</span><span>{room.name}</span>
+            <span>{detailsLocales.gender[lang]}</span><span>{room.gender}</span>
+            <span>{detailsLocales.age[lang]}</span><span>{this.getAge(room.birthdate)}</span>
+            <span>{detailsLocales.price[lang]}</span> <span>{room.price}€/{detailsLocales.month[lang]}</span>
+            <span>{detailsLocales.additional_costs[lang]}</span><span>50€/{detailsLocales.month[lang]}</span>
+            <span>{detailsLocales.room_in[lang]}</span><span>{room.district}</span>
+            <span>{detailsLocales.help_with[lang]}</span>
             <span>
               {room.expectedHelp.map(
                 help => <span key = {help}>{help}, </span>)}
@@ -74,10 +73,10 @@ class Details extends Component {
           </div>
           {user && user._id === room.user ? 
             <div className={styles.ctrl}>
-              <button className={styles.btn}>Edit Room</button>
+              <button className={styles.btn}>{detailsLocales.edit_room[lang]}</button>
             <button 
               className={`${styles.btn} ${styles.delBtn}`}
-              onClick={this.deleteRoom}>Delete Room</button>
+              onClick={this.deleteRoom}>{detailsLocales.delete_room[lang]}</button>
           </div> : null}
         </div>
       </div>

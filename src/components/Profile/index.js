@@ -42,7 +42,7 @@ class Profile extends Component {
   render() {
     const profile = this.state.profile;
     const user = this.props.fetchedUser;
-
+    const lang = localStorage.getItem("lang");
     let renderedAvatar = dummyAvatar;
     const { avatarUrl } = this.state.profile;
     if (avatarUrl) renderedAvatar = avatarUrl;

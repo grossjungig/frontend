@@ -23,6 +23,7 @@ export default class People extends Component {
   }
 
   render() {
+    const lang = localStorage.getItem("lang");
     return (
       <ul className="profile-card-container">
         {this.state.people.map((profile) => {
