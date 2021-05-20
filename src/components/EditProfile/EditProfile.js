@@ -7,6 +7,7 @@ import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { generateBase64FromImage } from '../../utils';
 import offeredhelps from '../../assets/checkbox/help';
 import Checkbox from '../Checkbox/Checkbox'
+import ProfileLocales from "../../locales/locales.profile.json";
 
 import apStyles from '../../pages/profile/addProfile/index.module.css'; // ap = Add Profile
 import { fullBlock } from '../../shared/index.module.css';
@@ -129,17 +130,17 @@ class EditProfile extends Component {
 
   render() {
     const { name, age, gender, price, description, district, offeredHelp, avatarPreview, avatarPreviewErr, message } = this.state;
-
+    const lang = localStorage.getItem("lang");
     return (
       <div className={fullBlock}>
         <div className={apStyles.main}>
           <div className={apStyles.msg}>
-            Please do not leave your personal identifying information here.
+          {ProfileLocales.info[lang]}   
           </div>
           
           <div className={apStyles.form}>
             <div className={apStyles.formCtrl}>
-              <label>First Name</label>
+              <label>{ProfileLocales.name2[lang]} </label>
               <input
                 type="text"
                 name="name"
@@ -151,7 +152,7 @@ class EditProfile extends Component {
             </div>
 
             <div className={apStyles.formCtrl}>
-              <label className="label_profile" htmlFor="gender">Gender</label>
+              <label className="label_profile" htmlFor="gender">{ProfileLocales.gender[lang]}   </label>
               <select
                 name="gender"
                 type="select"
@@ -159,15 +160,15 @@ class EditProfile extends Component {
                 onChange={this.setFormState}
                 className={apStyles.input}
               >
-                <option value="" disabled >Select</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="divers">Divers</option>
+                <option value="" disabled >{ProfileLocales.select[lang]}   </option>
+                <option value="male">{ProfileLocales.male[lang]}   </option>
+                <option value="female">{ProfileLocales.female[lang]}   </option>
+                <option value="divers">{ProfileLocales.divers[lang]}   </option>
               </select>
             </div>
 
             <div className={apStyles.formCtrl}>
-              <label>Age</label>
+              <label>{ProfileLocales.age[lang]}   </label>
               <input
                 type="text"
                 name="age"
@@ -178,7 +179,7 @@ class EditProfile extends Component {
               />
             </div>
 
-            <label>Requested room price</label>
+            <label>{ProfileLocales.requestedPrice[lang]}</label>
             <input
               type="number"
               name="price"
@@ -188,7 +189,7 @@ class EditProfile extends Component {
               className={apStyles.input}
             />
 
-            <label>About me (max 120 signs)</label>
+            <label>{ProfileLocales.about[lang]}  </label>
             <textarea
               type="text"
               name="description"
@@ -200,14 +201,14 @@ class EditProfile extends Component {
               className={apStyles.input}
             />
 
-            <label>Offered Help</label>
+            <label>{ProfileLocales.offeredHelp[lang]}  </label>
             <div>
             {offeredhelps.map(help => (
                 <Checkbox key={help.key} item={help} checked={offeredHelp.includes(help.name)}  handleHelp={this.handleHelp} />
               ))}
             </div>
 
-            <label>Prefered district</label>
+            <label>{ProfileLocales.district[lang]}  </label>
             <select
               name="district"
               type="select"
@@ -216,7 +217,7 @@ class EditProfile extends Component {
               placeholder="Select"
               className={apStyles.input}
             >
-              <option value="" disabled >Select</option>
+              <option value="" disabled >{ProfileLocales.select[lang]}   </option>
               <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
               <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
               <option value="Lichtenberg">Lichtenberg</option>
@@ -231,7 +232,7 @@ class EditProfile extends Component {
               <option value="Treptow-Koepenick">Treptow-Koepenick</option>
             </select>
 
-            <label className="label_profile" >Profile picture</label>
+            <label className="label_profile" >{ProfileLocales.picture[lang]} </label>
             <img
               className={apStyles.avatarImg}
               alt="avatar"
@@ -246,12 +247,12 @@ class EditProfile extends Component {
             <span>{avatarPreviewErr}</span>
 
             <div className={apStyles.msg}>
-              By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.
+            {ProfileLocales.policy[lang]}   
             </div>
           
             <div className={formAction}>
-              <button className={`${apStyles.btn} ${delBtn}`} onClick={this.cancelEdit}>Cancel</button>
-              <button className={apStyles.btn} onClick={this.onSubmit}>Submit</button>
+              <button className={`${apStyles.btn} ${delBtn}`} onClick={this.cancelEdit}> {ProfileLocales.cancel[lang]} </button>
+              <button className={apStyles.btn} onClick={this.onSubmit}>{ProfileLocales.submit[lang]}   </button>
             </div>
             {message && <p>{message}</p>}
           </div>

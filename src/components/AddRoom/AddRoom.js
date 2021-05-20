@@ -119,7 +119,7 @@ class AddRoom extends Component {
             />
 
             <label className="label_room" htmlFor="expectedHelp" style={{marginBottom:"2vh"}}>{addRoomLocales.expectedHelp[lang]}</label>
-            <Select isMulti options={options} onChange={this.setHelp} value={this.state.expectedHelp} />
+            <Select isMulti options={addRoomLocales.options[lang]} onChange={this.setHelp} value={this.state.expectedHelp} />
 
             <label htmlFor="description" className="label_room" >{addRoomLocales.about[lang]}</label>
             <textarea
