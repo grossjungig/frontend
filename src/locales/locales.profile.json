@@ -1,0 +1,142 @@
+{
+
+    "name": {
+        "en": "Name",
+        "de": "Name"
+    },
+    "age": {
+        "en": "Age",
+        "de": "Lebensjahr"
+    },
+    "request": {
+        "en": "If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271",
+        "de": "Wenn Sie an dieser Anfrage interessiert sind, wenden Sie sich bitte an info@grossjungig.de oder +49 30 55231271"
+    },
+    "gender": {
+        "en": "Gender",
+        "de": "Geschlecht"
+    },
+    "pays": {
+        "en": "Pays",
+        "de": "Zahlt"
+    },
+    "would_live": {
+        "en": "Would live in",
+        "de": "Würde in leben"
+    },
+    "help_with": {
+        "en": "Help with",
+        "de": "Hilfe mit"
+      },
+   
+    "deleteProfile": {
+        "en": "Delete Profile",
+        "de": "Profil löschen"
+    },
+    "editProfile": {
+        "en": "Edit Profile",
+        "de": "Profil bearbeiten"
+    },
+
+
+    "options": {
+        "en": [
+            { "value": "Shopping", "label": "Shopping" },
+            { "value": "Cooking or baking", "label": "Cooking or baking" },
+            { "value": "Help with digital devices", "label": "Help with digital devices" },
+            { "value": "Moving the lawn", "label": "Moving the lawn" },
+            { "value": "Gardening", "label": "Gardening" },
+            { "value": "Reading out loud", "label": "Reading out loud" },
+            { "value": "Car transportation", "label": "Car transportation" },
+            { "value": "Cleaning or domestic help", "label": "Cleaning or domestic help" },
+            { "value": "Accompanying on walks", "label": "Accompanying on walks" },
+            { "value": "Taking care of pets", "label": "Taking care of pets" },
+            { "value": "Taking care of Seniors", "label": "Taking care of Seniors" }
+        ],
+        "de": [
+            { "value": "Shopping", "label": "Einkaufen" },
+            { "value": "Cooking or baking", "label": "Kochen oder Backen" },
+            { "value": "Help with digital devices", "label": "Hilfe bei digitalen Geräten" },
+            { "value": "Moving the lawn", "label": "Bewegen des Rasens" },
+            { "value": "Gardening", "label": "Gartenarbeit" },
+            { "value": "Reading out loud", "label": "Laut vorlesen" },
+            { "value": "Car transportation", "label": "Autotransport" },
+            { "value": "Cleaning or domestic help", "label": "Reinigung oder Haushaltshilfe" },
+            { "value": "Accompanying on walks", "label": "Begleitung auf Spaziergängen" },
+            { "value": "Taking care of pets", "label": "Pflege von Haustieren" },
+            { "value": "Taking care of Seniors", "label": "Pflege von Senioren" }
+        ]
+    },
+    "info": {
+        "en": "Please do not leave your personal identifying information here.",
+        "de": "Bitte hinterlassen Sie Ihre persönlichen Identifizierungsdaten nicht hier."
+    },
+    
+    
+    "select": {
+        "en": "Select",
+        "de": "Auswählen"
+    },
+    "male": {
+        "en": "Male",
+        "de": "Männliche"
+    },
+    "female": {
+        "en": "Female",
+        "de": "weiblich"
+    },
+    "divers": {
+        "en": "Divers",
+        "de": "Taucher"
+    },
+    
+    "requestedPrice": {
+        "en": "Requested room price",
+        "de": "Gewünschter Zimmerpreis"
+    },
+    "about": {
+        "en": "About me (max 120 signs)",
+        "de": "Über mich (max. 120 Zeichen)"
+    },
+    "offeredHelp": {
+        "en": "Offered Help",
+        "de": "Angebotene Hilfe"
+    },
+    "getHelp": {
+        "en": "Help I'd like to get",
+        "de": "Erwartete Hilfe"
+    },
+    "district": {
+        "en": "Prefered District",
+        "de": "Bevorzugter Bezirk"
+    },
+    "picture": {
+        "en": "Profile Picture",
+        "de": "ProfilBild"
+    },
+    "cancel": {
+        "en": "Cancel",
+        "de": "bbrechen"
+    },
+    "submit": {
+        "en": "Submit",
+        "de": "Weiter"
+    },
+    "policy": {
+        "en": "By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.",
+        "de": "Mit der Erstellung einer Anfrage stimmen Sie unseren Geschäftsbedingungen und Datenschutzrichtlinien zu."
+    },
+    
+    "name2": {
+        "en": "Name",
+        "de": "Namen"
+    },
+    
+    
+    
+    "bio": {
+        "en": "Bio",
+        "de": "Bio"
+    }
+  
+  }
