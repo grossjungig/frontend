@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import howitworksLocales from '../../locales/locales.howitworks.json';
+
 import seniorsi from "../../assets/icons/seniors.svg"
 import youth from "../../assets/icons/youth.svg"
 import styles from  "./howitworks.module.css"
@@ -10,6 +11,7 @@ const { title, seniors, junior, seniorList, juniorList, faq} = howitworksLocales
 export default function HowItWorks() {
     const lang = localStorage.getItem("lang");
     return (
+
         <div className={styles.main}>
         <div className={styles["how-it-works-contatiner"]}>
 <div className={`${styles["target-container"]} ${styles["senior-colors"]}`}>

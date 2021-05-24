@@ -19,5 +19,7 @@
         flex-direction: column;
         justify-content: space-around;
         height: 100px;
+        padding: 10px 20px;
+
     }
 }
