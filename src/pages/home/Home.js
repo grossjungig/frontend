@@ -3,47 +3,22 @@ import { Link } from "react-router-dom";
 import "./home.css";
 
 import homeLocales from "../../locales/locales.home.json";
-import { H1, H2, H3 } from '../../components/typography';
-import { Button, SecButton, PrimaryButtonLong, Card2, Card3 } from "../../components/styled";
-import Contact from "./components/Contact/Contact";
+import { H2, H3 } from '../../components/typography';
+import { Card2, Card3 } from "../../components/styled";
+import Hero from "../home/components/Hero/Hero";
 import Why from "./components/Why/Why.js";
-import { MainPanel, MainRow, SecPanel, RowChoose, RowSearch,
-  Mission, How, HowFlex } from "./styled";
-
+import Contact from "./components/Contact/Contact";
+import {SecPanel, Mission, How, HowFlex } from "./styled";
 import { card3 } from "./cards";
 import Partners from "./components/Partners/Partners";
-import heroBanner from "../../assets/images/backgrounds/hero-home-background-picture.jpg"
+
 
 class Home extends Component {
   render() {
     const lang = localStorage.getItem("lang");
     return (
       <>
-        <div className="home-component" style={{ backgroundImage: heroBanner}}>
-          <MainPanel>
-            <H1 style={{ textAlign: "center" }}>
-              {homeLocales.find[lang]}
-              <br /> {homeLocales.second[lang]}
-              <br /> {homeLocales.grand[lang]}
-            </H1>
-            <MainRow>
-              <RowChoose>
-                <Link to="/berlin">
-                  <Button label={homeLocales.offers[lang]}></Button>
-                </Link>
-                <Link to="/people">
-                  <SecButton>{homeLocales.requests[lang]}</SecButton>
-                </Link>
-              </RowChoose>
-              
-              <RowSearch>
-                <PrimaryButtonLong>
-                  {homeLocales.search[lang]}
-                </PrimaryButtonLong>
-              </RowSearch>
-            </MainRow>
-          </MainPanel>
-        </div>
+        <Hero/>
         <Mission id="about">
           <H3 className="home-mission">
             {homeLocales.mission_1[lang]} <br /> {homeLocales.mission_2[lang]}
