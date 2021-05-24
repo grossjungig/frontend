@@ -92,9 +92,10 @@ const Navbar = (props) => {
               </HashLink>
             </li>
             <li onClick={toggleNavbar}>
-              <HashLink scroll={scrollWithOffset} smooth to="/#contact">
+            {/* scroll={scrollWithOffset} smooth */}
+              <PageLink  to="/contact">
                 {homeLocales.contact[lang]}
-              </HashLink>
+              </PageLink>
               </li>
             
             { props.isAuth ? (

@@ -54,6 +54,7 @@ class Home extends Component {
         <SecPanel>
           <Card3 text={homeLocales.opinion[lang]} source={card3[0].source} />
         </SecPanel>
+        <h2 className="contact-header">{homeLocales.contact[lang]}</h2>
         <Contact />
         <Partners />
       </>
