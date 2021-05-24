@@ -8,7 +8,9 @@ class Body extends Component {
     state = {
         name:'',
         email:'',
-        role: ''
+        phone: '',
+        role: '',
+        message:'',
     }
 
     handleChange = (event) => {
@@ -23,18 +25,21 @@ class Body extends Component {
         axios.post('/api/auth/underConstruction', {
         name: this.state.name,
         email: this.state.email,
+        phone: this.state.phone,
         role: this.state.role
         }).then(response => {
             this.props.history.push('/aboutus');
             alert(bodyLocales.success_msg[lang]);
         }).catch( err => {
-            console.log(err)
+            this.setState({
+                message:"Missing Fields"
+            })
         })
     }
     
 render(){
     const lang = localStorage.getItem("lang");
-    const { name, email } = this.state;
+    const { name, email, phone, message } = this.state;
     return (
      <div className={`${styles.cmp} ${styles.bg}`}>
         <div>
@@ -68,20 +73,23 @@ render(){
         <h2 className={styles["signup_text"]}>{bodyLocales.access[lang]}</h2>
 
 
-        <label className={styles["label_text"]}>{bodyLocales.name[lang]}</label>
-        <input type="text" name="name" value={name} onChange={this.handleChange}/>
-        <label className={styles["label_text"]}>{bodyLocales.email[lang]}</label>
-        <input type="text" name="email" value={email} onChange={this.handleChange}/>
-        <label className={styles["label_text"]}>{bodyLocales.role[lang]}</label>
+        <label className={styles["label_text"]}>{bodyLocales.name[lang]} <span className={styles.required}>*</span></label>
+        <input type="text" name="name" value={name} required onChange={this.handleChange}/>
+        <label className={styles["label_text"]}>{bodyLocales.email[lang]} <span className={styles.required}>*</span></label>
+        <input type="text" name="email" required value={email} onChange={this.handleChange}/>
+        <label className={styles["label_text"]}>{bodyLocales.number[lang]}</label>
+        <input type="tel" name="phone" value={phone} onChange={this.handleChange}/>
+        <label className={styles["label_text"]}></label>
+        <label className={styles["label_text"]}>{bodyLocales.role[lang]}<span className={styles.required}>*</span></label>
         <label className={styles["label_text"]}>
         <input type="radio" name="role" value="senior" onChange={this.handleChange}/>
         {bodyLocales.senior[lang]}
         </label>
-
         <label className={styles["label_text"]}>
         <input className={styles["radio"]} type="radio" name="role" value="junior" onChange={this.handleChange}/>
         {bodyLocales.junior[lang]}
         </label>
+        <div className={styles.required}>{message}</div>
         <button className={`${styles["white_button"]} ${styles["button_text"]}`} type='submit' onClick={this.handleSubmit}>{bodyLocales.signup[lang]}</button>
 
         </div>

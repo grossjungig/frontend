@@ -5,6 +5,7 @@ import AboutUs from '../aboutUs/AboutUs'
 import HowItWorks from '../howItWorks/HowItWorks'
 import Footer from '../../components/Footer/Footer'
 import Impressum from '../impressum/Impressum'
+import Contact from '../../pages/home/components/Contact/Contact' 
 
 import { Route, Switch } from "react-router-dom";
 
@@ -24,6 +25,7 @@ class UnderConstruction extends Component {
                 <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
                 <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
                 <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
+                <Route exact path="/contact" render={(props) => <Contact {...props} />} />
             </Switch>
             </div>
             <div>

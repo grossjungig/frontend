@@ -105,10 +105,16 @@
 .label_text{
     font-size: 16px;
 }
-input[type=text], label {
+
+.required{
+    color: rgba(255, 0, 0, 0.954);
+    font-weight: bold;
+}
+
+input[type=text], input[type="tel"], label {
     display:block;
 }
-input[type=text]{
+input[type=text], input[type="tel"]{
     height: 40px;
     width:100%;
     margin:15px 0 15px 0;

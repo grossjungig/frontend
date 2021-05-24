@@ -35,6 +35,10 @@
     "en":"Email Address",
     "de": "Email-Adresse"
   },
+  "number": {
+    "en":"Phone number (if you would like us to call)",
+    "de":"Telefonnummer (wenn Sie einen Rückruf wünschen)"
+  },
   "role": {
     "en":"What are you looking for?",
     "de": "Wonach suchen Sie?"
