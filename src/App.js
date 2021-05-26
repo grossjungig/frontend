@@ -14,7 +14,7 @@ import AddProfile from "./pages/profile/addProfile";
 
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
-
+import Contact from "./pages/home/components/Contact/Contact"
 import UserPortal from "./components/UserPortal";
 import Berlin from "./components/Berlin/Berlin.js";
 import AddRoom from "./components/AddRoom/AddRoom.js";
@@ -49,6 +49,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/"><Home/></Route>
             <Route exact path="/signup"><Signup/></Route>
+            <Route exact path="/contact"><Contact/></Route>
 
             <Route exact path="/login" render={(props) => (
               <Login history={props.history} />
