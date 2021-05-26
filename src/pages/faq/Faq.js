@@ -3,39 +3,20 @@
 import React,{ useState, useEffect }  from "react";
 import "./faq.css"
 import SingleQuestion from './Question'
-
-
-
-let questionsAnswers = [
-    {id:"1",
-    visible:true,
-      question: "testq",
-      answer:
-        "Test A lorem ipsum",
-    },
-    {id:"2",
-    visible:true,
-
-      question: "testq",
-      answer:
-        "Test A lorem ipsum",
-    } ]
-   
+import faqLocales from "../../locales/locales.faq.js";
 
 
 const Faq=()=>{
-    const [questions, setQuestions] = useState(questionsAnswers)
+    const [questions, setQuestions] = useState(faqLocales)
 
     return (
-      <main>
-        <div className='container'>
-          <section className='info'>
+      
+          <section>
             {questions.map((question) => (
               <SingleQuestion key={question.id} {...question} />
             ))}
           </section>
-        </div>
-      </main>
+    
     )
 }
 

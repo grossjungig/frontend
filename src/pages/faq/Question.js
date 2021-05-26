@@ -1,19 +1,25 @@
 import React, { useState } from 'react'
-// import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+import arrow from "../../assets/icons/arrow.svg"
+
 const Question = ({ question, answer }) => {
   const [expanded, setExpanded] = useState(false)
+  const openQuestion=()=>{
+    setExpanded(!expanded)
+
+  }
+  const lang=localStorage.getItem("lang")
 
   return (
-    <article className='question'>
-      <header>
+    <article>
+      <div className="question">
         <h4 onClick={() => setExpanded(!expanded)} className='question-title'>
-          {question}
+          {question[lang]}
         </h4>
-        <button className='btn' onClick={() => setExpanded(!expanded)}>
-          {/* {expanded ? <AiOutlineMinus /> : <AiOutlinePlus />} */} some tx
+        <button  onClick={openQuestion}>
+          {/* {expanded ? <AiOutlineMinus /> : <AiOutlinePlus />} */} <img className={expanded?"rotate":""} src={arrow}></img>
         </button>
-      </header>
-      {expanded && <p>{answer}</p>}
+      </div>
+      {expanded && <p className="answer">{answer[lang]}</p>}
     </article>
   )
 }
