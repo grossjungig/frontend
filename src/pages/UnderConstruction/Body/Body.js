@@ -10,7 +10,8 @@ class Body extends Component {
         email:'',
         phone: '',
         role: '',
-        message:'',
+        messages: [],
+        isLoading: false,
     }
 
     handleChange = (event) => {
@@ -21,24 +22,34 @@ class Body extends Component {
       }
 
     handleSubmit = () => {
+        this.setState({ isLoading: true });
         const lang = localStorage.getItem("lang");
+
         axios.post('/api/auth/underConstruction', {
         name: this.state.name,
         email: this.state.email,
         phone: this.state.phone,
         role: this.state.role
         }).then(response => {
-            this.props.history.push('/aboutus');
             alert(bodyLocales.success_msg[lang]);
+            this.props.history.push('/aboutus');
         }).catch( err => {
-            this.setState({
-                message:"Missing Fields"
-            })
+            this.setState({ isLoading: false });
+            this.setState({ messages: err.response.data.data });
+            console.log(err.response.data.data)
         })
     }
     
 render(){
     const lang = localStorage.getItem("lang");
+
+    let errorMessages = <p>Hello World</p>;
+    if (this.state.messages) {
+      errorMessages = <ul className="signup-errs">{
+        this.state.messages.map((msg, i) => <li key={i}>{bodyLocales.errors[msg][lang]}</li>)
+      }</ul>
+    }
+
     const { name, email, phone, message } = this.state;
     return (
      <div className={`${styles.cmp} ${styles.bg}`}>
@@ -72,10 +83,10 @@ render(){
         <h2 className={styles["info_header"]}>{bodyLocales.discount[lang]}</h2>
         <h2 className={styles["signup_text"]}>{bodyLocales.access[lang]}</h2>
 
-
+        <form onSubmit={this.handleSubmit}>
         <label className={styles["label_text"]}>{bodyLocales.name[lang]} <span className={styles.required}>*</span></label>
         <input type="text" name="name" value={name} required onChange={this.handleChange}/>
-        <label className={styles["label_text"]}>{bodyLocales.email[lang]} <span className={styles.required}>*</span></label>
+        <label className={styles["label_text"]}>{bodyLocales.email[lang] } <span className={styles.required}>*</span></label>
         <input type="text" name="email" required value={email} onChange={this.handleChange}/>
         <label className={styles["label_text"]}>{bodyLocales.number[lang]}</label>
         <input type="tel" name="phone" value={phone} onChange={this.handleChange}/>
@@ -90,7 +101,8 @@ render(){
         {bodyLocales.junior[lang]}
         </label>
         <div className={styles.required}>{message}</div>
-        <button className={`${styles["white_button"]} ${styles["button_text"]}`} type='submit' onClick={this.handleSubmit}>{bodyLocales.signup[lang]}</button>
+        <button className={`${styles["white_button"]} ${styles["button_text"]}`} type='submit'>{bodyLocales.signup[lang]}</button>
+        </form>
 
         </div>
       </div>

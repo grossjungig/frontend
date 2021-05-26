@@ -58,5 +58,19 @@
   "success_msg": {
     "en": "Thank you, we will get in touch with you when the website is done!",
     "de": "Vielen Dank, wir werden Sie kontaktieren, wenn die Website fertig ist!"  
+},
+  "errors": {
+  "INVALID_NAME": {
+    "en": "Name is not valid.",
+    "de": "Name ist ungültig."
+  },
+  "INVALID_EMAIL": {
+    "en": "Please enter a valid email address.",
+    "de": "Tragen Sie bitte eine gültige E-Mail-Adresse ein."
+  },
+  "EMAIL_ALREADY_EXISTS": {
+    "en": "Email already exists.",
+    "de": "E-Mail ist schon vergeben."
+  }
 }
 }
