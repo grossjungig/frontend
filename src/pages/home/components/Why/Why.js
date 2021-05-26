@@ -10,7 +10,6 @@ class Why extends Component {
     const lang = localStorage.getItem("lang");
     return (
       <div className={styles.main}>
-        <h2>{homeLocales.why[lang]}</h2>
         <div className={styles.scrollContainer}>
           <div className={styles.cardsContainer}>
             <div className={styles.cards}>

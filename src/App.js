@@ -66,7 +66,7 @@ class App extends React.Component {
             <Route exact path="/people" render={(props) => <People {...props} />} />
             <Route exact path="/berlin/:id" render={(props) => <Details {...props} />} />
             <Route exact path="/addRoom" render={(props) => <AddRoom {...props} />} />
-            <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
+            <Route exact path="/about" render={(props) => <AboutUs {...props} />} />
             <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
             <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
             <Route exact path="/edit/:id" render={(props) => <EditProfile {...props} />}/>

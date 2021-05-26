@@ -81,7 +81,7 @@ const Navbar = (props) => {
           </label>
           <ul className="menu">
             <li onClick={toggleNavbar}>
-              <PageLink to="/aboutus">{homeLocales.about[lang]}</PageLink>
+              <PageLink to="/about">{homeLocales.about[lang]}</PageLink>
             </li>
             <li onClick={toggleNavbar}>
               <PageLink to="/how">{homeLocales.how[lang]}</PageLink>
