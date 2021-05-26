@@ -1,18 +1,3 @@
-import React from "react";
-
-const tasksEn=["• Just conversations and drinking tee/coffee together",
-    "• Learn foreign languages",
-    "• Help with digital devices or applications",
-    "• Shopping",
-    "• Cooking and baking",
-    "• Gardening",
-    "• Reading out loud",
-    "• Car transportation",
-    "• Cleaning or domestic help",
-    "• Accompanying on walks",
-    "• Taking care of pets"]
-
-
 const qa=[
     { "id":1,
         "question": {

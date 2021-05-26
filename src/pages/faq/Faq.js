@@ -1,21 +1,21 @@
-// import { Accordion } from "@material-ui/core";
-
-import React,{ useState, useEffect }  from "react";
-import "./faq.css"
+import React,{ useState}  from "react";
+import styles from  "./faq.module.css"
 import SingleQuestion from './Question'
 import faqLocales from "../../locales/locales.faq.js";
 
 
 const Faq=()=>{
-    const [questions, setQuestions] = useState(faqLocales)
+    const [questions, ] = useState(faqLocales)
 
     return (
+      <><div className={styles.header}><p className={styles.headerTxt}>FAQ</p></div>
       
-          <section>
+          <div className={styles.container}>
             {questions.map((question) => (
               <SingleQuestion key={question.id} {...question} />
             ))}
-          </section>
+          </div>
+          </>
     
     )
 }

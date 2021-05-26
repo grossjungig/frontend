@@ -18,8 +18,7 @@ const Footer = () => {
      <a>{footerLocales.company[lang]}</a>
      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a>{footerLocales.contact[lang]}</a>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a>FAQ</a>
+          <Link to="/faq">FAQ</Link>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a>{footerLocales.privacy[lang]}</a>
           <Link to="/impressum" >
