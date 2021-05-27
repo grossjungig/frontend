@@ -11,6 +11,7 @@ import Impressum from './pages/impressum/Impressum';
 import Login from './pages/login/Login.js';
 import Signup from './pages/signup/Signup.js';
 import AddProfile from "./pages/profile/addProfile";
+import ErrorPage from './pages/errorPage/ErrorPage';
 
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
@@ -85,6 +86,10 @@ class App extends React.Component {
               />
             )}/>
             <Route exact path="/reset/:token" component={ResetPassword} />
+
+            <Route>
+              <ErrorPage/>
+            </Route>
           </Switch>
         </div>
         <div className="app__footer">
