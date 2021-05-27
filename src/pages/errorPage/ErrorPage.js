@@ -18,7 +18,12 @@ const ErrorPage = () => {
 
 
                     <p>{message[lang]}</p>
-                    <NavLink to="/">{button[lang]}</NavLink>
+
+                    <NavLink to="/to">
+                    <button className="home-button">
+                      {errorpageLocales.button[lang]}
+                    </button>
+                  </NavLink>
 
 
 
