@@ -15,7 +15,7 @@ import ErrorPage from './pages/errorPage/ErrorPage';
 
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
-
+import Contact from "./pages/home/components/Contact/Contact"
 import UserPortal from "./components/UserPortal";
 import Berlin from "./components/Berlin/Berlin.js";
 import AddRoom from "./components/AddRoom/AddRoom.js";
@@ -50,6 +50,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/"><Home/></Route>
             <Route exact path="/signup"><Signup/></Route>
+            <Route exact path="/contact"><Contact/></Route>
 
             <Route exact path="/login" render={(props) => (
               <Login history={props.history} />
@@ -66,7 +67,7 @@ class App extends React.Component {
             <Route exact path="/people" render={(props) => <People {...props} />} />
             <Route exact path="/berlin/:id" render={(props) => <Details {...props} />} />
             <Route exact path="/addRoom" render={(props) => <AddRoom {...props} />} />
-            <Route exact path="/aboutus" render={(props) => <AboutUs {...props} />} />
+            <Route exact path="/about" render={(props) => <AboutUs {...props} />} />
             <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
             <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
             <Route exact path="/edit/:id" render={(props) => <EditProfile {...props} />}/>

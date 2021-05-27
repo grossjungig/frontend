@@ -1,9 +1,9 @@
 {
-  "senior":{
+  "senior": {
     "en": "Seniors",
     "de": "Senioren"
   },
-  "young":{
+  "young": {
     "en": "Young",
     "de": "Jung"
   },
@@ -47,10 +47,6 @@
     "en": "Search",
     "de": "Suche"
   },
-  "why": {
-    "en": "Why should you use Großjungig?",
-    "de": "Warum sollten Sie Großjungig nutzen?"
-  },
   "how": {
     "en": "How does it work?",
     "de": "Wie funktioniert es?"
@@ -75,99 +71,102 @@
     "en": "We make the world more connected and promote social cohesion.",
     "de": "Indem wir Senioren und junge Menschen zusammenbringen, machen wir die Welt verbundener und fördern den sozialen Zusammenhalt."
   },
-"card_1_titel":{
-"en":"#1:Community",
-"de":"#1:Gemeinschaft"
-},
-"card_2_titel":{
-  "en":"#2:Savings",
-  "de":"#2:Ersparnisse"
-},
-"card_3_titel":{
-  "en":"#3:Clarity",
-  "de":"#3:Transparenz"
-},
-"card_1":{
-  "en":"We provide a solution for two social problems: loneliness and lack of affordable housing in big cities.",
-  "de":"Wir bieten eine Lösung für zwei soziale Probleme: Einsamkeit und Mangel an bezahlbaren Unterkünften in Großstädten."
-},
-"card_2":{
-  "en":"Seniors support youth with advice and get rent. Youth save, up to 20% vs. market price, on rent and support seniors by helping with chores and keeping them company.",
-  "de":"Ältere Menschen unterstützen junge Leute mit Rat und bekommen Geld für die Miete. Junge Menschen sparen bis zu 20% gegenüber dem Marktpreis bei der Miete und unterstützen Senioren, indem sie bei der Hausarbeit helfen und ihnen Gesellschaft leisten."
-},
-"card_3":{
-  "en":      "Flexible and bespoke terms - the best solution for everyone. No more huge shared apartments, no more living alone in big family apartments!",
-  
-  "de":"Flexible und maßgeschneiderte Bedingungen - die beste Lösung für alle. Keine riesigen Wohngemeinschaften mehr, kein Alleinleben mehr in großen Familienwohnungen!"
-},
+  "card_1_titel": {
+    "en": "#1:Community",
+    "de": "#1:Gemeinschaft"
+  },
+  "card_2_titel": {
+    "en": "#2:Savings",
+    "de": "#2:Ersparnisse"
+  },
+  "card_3_titel": {
+    "en": "#3:Clarity",
+    "de": "#3:Transparenz"
+  },
+  "card_1": {
+    "en": "We provide a solution for two social problems: loneliness and lack of affordable housing in big cities.",
+    "de": "Wir bieten eine Lösung für zwei soziale Probleme: Einsamkeit und Mangel an bezahlbaren Unterkünften in Großstädten."
+  },
+  "card_2": {
+    "en": "Seniors support youth with advice and get rent. Youth save, up to 20% vs. market price, on rent and support seniors by helping with chores and keeping them company.",
+    "de": "Ältere Menschen unterstützen junge Leute mit Rat und bekommen Geld für die Miete. Junge Menschen sparen bis zu 20% gegenüber dem Marktpreis bei der Miete und unterstützen Senioren, indem sie bei der Hausarbeit helfen und ihnen Gesellschaft leisten."
+  },
+  "card_3": {
+    "en": "Flexible and bespoke terms - the best solution for everyone. No more huge shared apartments, no more living alone in big family apartments!",
+    "de": "Flexible und maßgeschneiderte Bedingungen - die beste Lösung für alle. Keine riesigen Wohngemeinschaften mehr, kein Alleinleben mehr in großen Familienwohnungen!"
+  },
   "contact": {
     "en": "Contact",
     "de": "Kontakt"
   },
-  "step_1_sr":{
+  "whatsapp": {
+    "en": "WhatsApp channel:",
+    "de": "WhatsApp Kanal:"
+  },
+  "step_1_sr": {
     "en": "Search for your perfect flatmate. See each profile of young people and their request.",
     "de": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jede junge Person und deren Anfrage lesen."
   },
-  "step_2_sr":{
+  "step_2_sr": {
     "en": "When you find the right person and would like to get in touch, please let us know by emailing us at info@grossjungig.de.",
     "de": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit."
   },
-  "step_3_sr":{
+  "step_3_sr": {
     "en": "We keep your information private and secure. We will not reveal your full name, phone number, or full home address to other users.",
     "de": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen, Ihre Telefonnummer und die vollständige Adresse ihrer Wohnung anderen NutzerInnen nicht."
   },
-  "step_4_sr":{
+  "step_4_sr": {
     "en": "We will then introduce you to each other and help you arrange a meeting and rental terms.",
     "de": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen."
   },
-  "step_5_sr":{
+  "step_5_sr": {
     "en": "You will sign a rental agreement with each other and a service agreement with Großjungig AI.",
     "de": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab."
   },
-  "step_1_jr":{
+  "step_1_jr": {
     "en": "Search for your perfect flatmate. See the information for each room and each senior person.",
     "de": "Suchen Sie nach perfekten MitbewohnerInnen, indem Sie die Informationen über jedes Zimmer und jede ältere Person lesen."
   },
-  "step_2_jr":{
+  "step_2_jr": {
     "en": "If you would like to contact someone, please let us know by emailing us at info@grossjungig.de.",
     "de": "Wenn Sie jemanden kontaktieren möchten, teilen Sie uns dies bitte per E-Mail info@grossjungig.de mit."
   },
-  "step_3_jr":{
+  "step_3_jr": {
     "en": "We keep your information private and secure. We do not reveal your full name and phone number to other users.",
     "de": "Wir bewahren Ihre Daten sicher auf. Wir zeigen Ihren vollständigen Namen und Ihre Telefonnummer anderen NutzerInnen nicht."
   },
-  "step_4_jr":{
+  "step_4_jr": {
     "en": "We will introduce you to each other and help you arrange a meeting and rental terms.",
     "de": "Wir stellen Sie einander vor und helfen Ihnen bei der Vereinbarung eines Treffens und der Mietbedingungen."
   },
-  "step_5_jr":{
+  "step_5_jr": {
     "en": "You will sign a rental agreement with each other and a service agreement with Großjungig AI.",
     "de": "Sie schließen einen Mietvertrag miteinander und einen Dienstleistungsvertrag mit Großjungig AI ab."
   },
-  "opinion":{
+  "opinion": {
     "en": "We’ve learnt so much from each other.It’s nice to have someone to talk to.",
     "de": "Wir haben so viel von einander gelernt! Es ist schön, mit jemanden Zuhause reden zu dürfen."
   },
-  "contact_us":{
-    "en":"If you have questions we are happy to answer them!",
-    "de":"Bei Fragen stehen wir Ihnen gerne zur Verfügung! "
+  "contact_us": {
+    "en": "If you have questions we are happy to answer them!",
+    "de": "Bei Fragen stehen wir Ihnen gerne zur Verfügung! "
   },
-  "care":{
-    "en":"cares about our community",
-    "de":"kümmert sich um unsere Gesellschaft"
+  "care": {
+    "en": "cares about our community",
+    "de": "kümmert sich um unsere Gesellschaft"
   },
   "social": {
-    "en": "Social Media",
+    "en": "Social media",
     "de": "Soziale Netzwerke",
-    "facebook" : "https://www.facebook.com/GrossjungigAI",
-    "insta" : "https://www.instagram.com/grossjungig_ai/",
-    "youtube" : "https://www.youtube.com/channel/UCmyASrfotwJXykup9I0wc4Q",
-    "linkedIn" : "https://www.linkedin.com/company/grossjungig-ai/"
+    "facebook": "https://www.facebook.com/GrossjungigAI",
+    "insta": "https://www.instagram.com/grossjungig_ai/",
+    "youtube": "https://www.youtube.com/channel/UCmyASrfotwJXykup9I0wc4Q",
+    "linkedIn": "https://www.linkedin.com/company/grossjungig-ai/"
   },
   "partners": {
     "title": {
-      "en":"Partners",
-      "de":"Partner"
+      "en": "Partners",
+      "de": "Partner"
     }
   }
 }

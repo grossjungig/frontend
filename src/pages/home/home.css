@@ -14,7 +14,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
+.contact-header{
+text-align: center;
+}
 /*Media queries Desktop*/
 @media screen and (max-width: 768px) {
   .why-use {

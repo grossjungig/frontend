@@ -81,7 +81,7 @@ const Navbar = (props) => {
           </label>
           <ul className="menu">
             <li onClick={toggleNavbar}>
-              <PageLink to="/aboutus">{homeLocales.about[lang]}</PageLink>
+              <PageLink to="/about">{homeLocales.about[lang]}</PageLink>
             </li>
             <li onClick={toggleNavbar}>
               <PageLink to="/how">{homeLocales.how[lang]}</PageLink>
@@ -92,9 +92,10 @@ const Navbar = (props) => {
               </HashLink>
             </li>
             <li onClick={toggleNavbar}>
-              <HashLink scroll={scrollWithOffset} smooth to="/#contact">
+            {/* scroll={scrollWithOffset} smooth */}
+              <PageLink  to="/contact">
                 {homeLocales.contact[lang]}
-              </HashLink>
+              </PageLink>
               </li>
             
             { props.isAuth ? (
