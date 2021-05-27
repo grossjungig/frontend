@@ -203,7 +203,7 @@ class EditProfile extends Component {
 
             <label>{ProfileLocales.offeredHelp[lang]}  </label>
             <div>
-            {offeredhelps.map(help => (
+            {offeredhelps[lang].map(help => (
                 <Checkbox key={help.key} item={help} checked={offeredHelp.includes(help.name)}  handleHelp={this.handleHelp} />
               ))}
             </div>
