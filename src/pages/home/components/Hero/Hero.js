@@ -6,7 +6,7 @@ import Select from "@material-ui/core/Select";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListSubheader from '@material-ui/core/ListSubheader'
-import styles from "./hero.module.css"
+import "./hero.scss"
 import homeLocales from "../../../../locales/locales.home.json";
 import heroBanner from "../../../../assets/images/backgrounds/hero-home-background-picture.jpg";
 import roomsLocales from "../../../../locales/locales.rooms.json";
@@ -53,34 +53,35 @@ class Hero extends Component {
       }
     )
     return (
-      <div className={styles.main}>
-        <div style={{backgroundImage: `url(${heroBanner})`}} className={styles.background}>
-          <div className={styles.formContainer}>
-            <div className={styles.header}>
+      <div id="hero-home" className={"main"}>
+        <div style={{backgroundImage: `url(${heroBanner})`}} className={"background"}>
+          <div className={"formContainer"}>
+            <div className={"hero-header"}>
               <h1>{homeLocales.find[lang]}</h1>
             </div>
-            <div className={styles.form}>
-              <div className={`${styles.tabs} ${styles.formGroup}`}>
+
+            <div className={"form"}>
+              <div className={"tabs formGroup"}>
                 <Button onClick={() => this.switchTab('rooms')}
-                        className={`${styles.btn} ${styles.btnSelected} ${styles.tab}`}>
+                        className={"btn btnSelected tab"}>
                   {homeLocales.offers[lang]}
                 </Button>
-                <Link to={"/people"} className={styles.btn}>
-                  <Button className={`${styles.btn} ${styles.tab}`}>
+                <Link to={"/people"} className={"btn"}>
+                  <Button className={"btn tab"}>
                     {homeLocales.requests[lang]}
                   </Button>
                 </Link>
               </div>
-              <div className={styles.dropdowns}>
-                <FormControl variant={"outlined"} className={styles.formGroup}>
+              <div className={"dropdowns"}>
+                <FormControl variant={"outlined"} className={"formGroup"}>
                   <Select
                     name="city"
                     id="city-select"
-                    className={styles.dropdown}
+                    className={"dropdown"}
                     classes={{
-                      root: styles.MuiSelectRoot,
-                      outlined: styles.MuiSelectOutlined,
-                      select: styles.MuiSelect
+                      root: "MuiSelectRoot",
+                      outlined: "MuiSelectOutlined",
+                      select: "MuiSelect"
                     }}
                     displayEmpty
                     IconComponent={ExpandMoreIcon}
@@ -91,19 +92,20 @@ class Hero extends Component {
                       {homeLocales.city[lang]}
                     </MenuItem>
                     <MenuItem value="Berlin">
+
                       Berlin
                     </MenuItem>
                   </Select>
                 </FormControl>
-                <FormControl variant={"outlined"} className={styles.formGroup}>
+                <FormControl variant={"outlined"} className={"formGroup"}>
                   <Select
                     name="district"
                     id="district-select"
-                    className={styles.dropdown}
+                    className={"dropdown"}
                     classes={{
-                      root: styles.MuiSelectRoot,
-                      outlined: styles.MuiSelectOutlined,
-                      select: styles.MuiSelect
+                      root: "MuiSelectRoot",
+                      outlined: "MuiSelectOutlined",
+                      select: "MuiSelect"
                     }}
                     displayEmpty
                     IconComponent={ExpandMoreIcon}
@@ -121,7 +123,7 @@ class Hero extends Component {
                 </FormControl>
               </div>
               <Link to={this.state.tab === 'rooms' ? roomsLink : '/people'}>
-                <Button className={`${styles.btn} ${styles.submit}`}>
+                <Button className={"btn submit"}>
                   {homeLocales.search[lang]}</Button>
               </Link>
             </div>
