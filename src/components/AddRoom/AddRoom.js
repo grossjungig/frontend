@@ -71,7 +71,7 @@ class AddRoom extends Component {
       })
       .then((response) => {
         const roomId = response.data._id
-        this.props.history.push(`/berlin/${roomId}`)
+        this.props.history.push(`/room/${roomId}`)
       })
       .catch((err) => {
         this.setState({

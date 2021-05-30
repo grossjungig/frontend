@@ -44,7 +44,10 @@ class Hero extends Component {
   render() {
     const lang = localStorage.getItem("lang");
     const roomsLink = () => {
-      return `/berlin?${new URLSearchParams(this.state.filters).toString()}`;
+      return `/rooms?${new URLSearchParams(this.state.filters).toString()}`;
+    }
+    const peopleLink = () => {
+      return `/people?${new URLSearchParams(this.state.filters).toString()}`;
     }
     const dropdownItems = berlinDistricts.map((district, index) => {
         return <MenuItem key={index} value={district}>
@@ -63,14 +66,13 @@ class Hero extends Component {
             <div className={"form"}>
               <div className={"tabs formGroup"}>
                 <Button onClick={() => this.switchTab('rooms')}
-                        className={"btn btnSelected tab"}>
+                        className={`btn tab ${this.state.tab === 'rooms' ? 'btnSelected' : ''}`}>
                   {homeLocales.offers[lang]}
                 </Button>
-                <Link to={"/people"} className={"btn"}>
-                  <Button className={"btn tab"}>
-                    {homeLocales.requests[lang]}
-                  </Button>
-                </Link>
+                <Button onClick={() => this.switchTab('people')}
+                        className={`btn tab ${this.state.tab === 'people' ? 'btnSelected' : ''}`}>
+                  {homeLocales.requests[lang]}
+                </Button>
               </div>
               <div className={"dropdowns"}>
                 <FormControl variant={"outlined"} className={"formGroup"}>
@@ -92,7 +94,6 @@ class Hero extends Component {
                       {homeLocales.city[lang]}
                     </MenuItem>
                     <MenuItem value="Berlin">
-
                       Berlin
                     </MenuItem>
                   </Select>
@@ -122,7 +123,7 @@ class Hero extends Component {
                   </Select>
                 </FormControl>
               </div>
-              <Link to={this.state.tab === 'rooms' ? roomsLink : '/people'}>
+              <Link to={this.state.tab === 'rooms' ? roomsLink : peopleLink}>
                 <Button className={"btn submit"}>
                   {homeLocales.search[lang]}</Button>
               </Link>

@@ -17,7 +17,7 @@ import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
 import Contact from "./pages/home/components/Contact/Contact"
 import UserPortal from "./components/UserPortal";
-import Berlin from "./components/Berlin/Berlin.js";
+import Rooms from "./components/Rooms/Rooms.js";
 import AddRoom from "./components/AddRoom/AddRoom.js";
 import UploadPhotos from "./components/UploadPhotos";
 import Details from "./components/Details/Details";
@@ -60,12 +60,12 @@ class App extends React.Component {
               <UserPortal {...props} />}
             />
 
-            <Route exact path="/berlin" render={(props) => 
-              <Berlin {...props} />
+            <Route exact path="/rooms" render={(props) =>
+              <Rooms {...props} />
             }/>
 
             <Route exact path="/people" render={(props) => <People {...props} />} />
-            <Route exact path="/berlin/:id" render={(props) => <Details {...props} />} />
+            <Route exact path="/room/:id" render={(props) => <Details {...props} />} />
             <Route exact path="/addRoom" render={(props) => <AddRoom {...props} />} />
             <Route exact path="/about" render={(props) => <AboutUs {...props} />} />
             <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />

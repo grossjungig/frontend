@@ -11,7 +11,7 @@ import {berlinDistricts} from '../../utils/index'
 import roomsLocales from "../../locales/locales.rooms.json";
 import styles from './index.module.css';
 
-class Berlin extends Component {
+class Rooms extends Component {
   constructor(props) {
     super(props);
     this.setFilter = this.setFilter.bind(this);
@@ -67,9 +67,13 @@ class Berlin extends Component {
       if (value) {
         filtered = true
         filteredRooms = filteredRooms.filter((room) => {
-          // has to work with numbers and strings
-          // eslint-disable-next-line
-          return room[key] == this.state.filters[key];
+          if (key === 'price') {
+            return room.price <= this.state.filters.price
+          } else {
+            // has to work with numbers and strings
+            // eslint-disable-next-line
+            return room[key] == this.state.filters[key];
+          }
         });
       }
     }
@@ -92,7 +96,7 @@ class Berlin extends Component {
     )
     const room = this.state[display].map((el) => {
       return (
-        <Link to={`/berlin/${el._id}`} key={el._id}>
+        <Link to={`/rooms/${el._id}`} key={el._id}>
           <div style={{display: "flex", justifyContent: "center"}}>
             <div className="card_people">
               <div className="card_img">
@@ -227,4 +231,4 @@ class Berlin extends Component {
   }
 }
 
-export default Berlin;
+export default Rooms;
