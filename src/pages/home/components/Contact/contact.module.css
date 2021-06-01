@@ -17,6 +17,7 @@
 
 .container {
     margin-top: 40px;
+    border: 1px solid #365DA7;
     border-radius: 16px;
 }
 
@@ -34,7 +35,6 @@
 .iconsCard {
     background-color: white;
     border-radius: 16px;
-    border: 1px solid #365DA7;
     text-align: center;
     padding: 36px 10px 50px;
     margin: -20px 0 0;
@@ -44,11 +44,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
 }
 
 .icon {
-    margin-bottom: 15px
+    margin-bottom: 36px
 }
 
 .iconSocialContainer {
@@ -65,7 +64,7 @@
     }
 
     .iconsCard {
-        padding: 20px 10px;
+        padding: 50px 10px;
     }
 
     .iconSocialContainer a {
@@ -78,7 +77,7 @@
         display: flex;
         width: 100%;
         max-width: 1032px;
-        background-color: #AAD7EE;
+        border: 1px solid #365FA7;
     }
 
     .textContainer {
