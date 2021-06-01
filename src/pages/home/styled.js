@@ -61,38 +61,3 @@ export const Mission = styled.div`
   font-style: normal;
   font-size: 1rem;
 `;
-
-export const How = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: ${props => props.backgroundColor || "#365FA7"};
-  padding: 2rem 0;
-  /* Media Queries: Tablet Portrait */
-  @media screen and (min-width: 768px) {
-  }
-  /* Media Queries: Desktop */
-  @media screen and (min-width: 1060px) {
-    justify-content: space-between;
-  }
-`;
-
-
-export const HowFlex = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0 8rem;
-
-  @media (max-width: 1500px) {
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
-    justify-content: flex-start;
-    overflow-x: scroll;
-    -ms-overflow-style: none;  /* remove scrollbar in IE and Edge */
-    scrollbar-width: none;  /* remove scrollbar in Firefox */
-
-    &::-webkit-scrollbar {
-      display: none; /* remove scrollbar in Chrome, Safari and other webkit browsers */
-    }
-  }
-`;
-
