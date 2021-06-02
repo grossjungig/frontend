@@ -13,18 +13,12 @@ const Footer = () => {
 
 {/* IMPORTANT!!!! Once the links in the footer are linked with existing pages, delete the lines with " eslint-disable-next-line jsx-a11y/anchor-is-valid
 " */}
-
-{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-     <a>{footerLocales.company[lang]}</a>
-     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a>{footerLocales.contact[lang]}</a>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a>FAQ</a>
+      <Link to='/aboutus'>{footerLocales.company[lang]}</Link>
+      <Link to="/faq">FAQ</Link>
+      <Link to='/contact'>{footerLocales.contact[lang]}</Link>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a>{footerLocales.privacy[lang]}</a>
-          <Link to="/impressum" >
-           {footerLocales.impressum[lang]}
-         </Link>
+      <Link to="/impressum" > {footerLocales.impressum[lang]} </Link>
      </div>
      <div className={styles["footer-logo"]}>
      <img
@@ -44,4 +38,3 @@ const Footer = () => {
 
 
 export default Footer;
-

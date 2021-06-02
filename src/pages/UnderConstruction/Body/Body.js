@@ -43,13 +43,6 @@ class Body extends Component {
 render(){
     const lang = localStorage.getItem("lang");
 
-    let errorMessages = <p>Hello World</p>;
-    if (this.state.messages) {
-      errorMessages = <ul className="signup-errs">{
-        this.state.messages.map((msg, i) => <li key={i}>{bodyLocales.errors[msg][lang]}</li>)
-      }</ul>
-    }
-
     const { name, email, phone, message } = this.state;
     return (
      <div className={`${styles.cmp} ${styles.bg}`}>
