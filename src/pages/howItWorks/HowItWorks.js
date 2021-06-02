@@ -1,5 +1,6 @@
 import React from 'react';
 import howitworksLocales from '../../locales/locales.howitworks.json';
+import { Link } from "react-router-dom";
 
 import seniorsi from "../../assets/icons/seniors.svg"
 import youth from "../../assets/icons/youth.svg"
@@ -67,7 +68,9 @@ export default function HowItWorks() {
     </div>
 <div className={styles["faq-section"]}>
     <p>{faq.header[lang]}</p>
-    <button>{faq.button[lang]}</button>
+    <Link to="/faq">
+    <button>{faq.button[lang]}</button>    
+    </Link>
 </div>
         </div>
     )
