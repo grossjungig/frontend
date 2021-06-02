@@ -11,6 +11,8 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { Link } from "react-router-dom";
+
 
 class Signup extends Component {
   state = {
@@ -73,8 +75,11 @@ class Signup extends Component {
       <div className={fullBlock}>
         <div className="x"></div>
         <div className="login">
+          <div className="welcome-header">
           <h2>{signupLocales.welcome[lang]}</h2>{" "}
-          <h3>{signupLocales.title[lang]}</h3>
+          <h3>{signupLocales.title[lang]}</h3></div>
+          <div className="link-container">
+          <p className="sign-in-up-link">{signupLocales.alreadyHave[lang]} <Link to="/login">{signupLocales.login[lang]}</Link></p></div>
           <form className="login-styles" noValidate autoComplete="off">
             <TextField
               margin="normal"

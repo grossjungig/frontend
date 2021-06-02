@@ -27,12 +27,20 @@
     "en": "Login",
     "de": "Anmelden"
   },
-  "forgot":{
-    "en":"Don’t remember your password?",
-    "de":"Passwort vergessen?"
+  "signUp": {
+    "en": "Sign up",
+    "de": "Registrieren"
   },
-  "click":{
-    "en":"Click here",
-    "de":"Hier klicken"
+  "doNotHave": {
+    "en": "Don't have an account yet?",
+    "de": "Haben Sie noch kein Konto?"
+  },
+  "forgot": {
+    "en": "Don’t remember your password?",
+    "de": "Passwort vergessen?"
+  },
+  "click": {
+    "en": "Click here",
+    "de": "Hier klicken"
   }
 }

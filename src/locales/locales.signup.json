@@ -43,6 +43,14 @@
     "en": "Your account has been created. You can now log in!",
     "de": "Ihr Konto wurde erstellt. Sie können sich jetzt einloggen!"
   },
+  "login": {
+    "en": "Log In",
+    "de": "Anmelden"
+  },
+  "alreadyHave": {
+    "en": "Already have an account?",
+    "de": "Haben Sie bereits ein Konto?"
+  },
   "errors": {
     "INVALID_NAME": {
       "en": "Name is not valid.",

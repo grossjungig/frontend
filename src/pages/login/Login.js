@@ -35,9 +35,11 @@ class Login extends Component {
     return (
       <div className={fullBlock}>
         <div className="login">
+          <div className="welcome-header">
           <h2>{loginLocales.welcome[lang]}</h2>
-          <h3>{loginLocales.prompt[lang]}</h3>
-
+          <h3>{loginLocales.prompt[lang]}</h3></div>
+          <div className="link-container">
+          <p className="sign-in-up-link">{loginLocales.doNotHave[lang]} <Link to="/signup">{loginLocales.signUp[lang]}</Link></p></div>
           <form className="login-styles" onSubmit={this.handleSubmit}>
             <TextField
               margin="normal"
