@@ -48,11 +48,6 @@ const Navbar = (props) => {
     history.push('/');
   };
 
-  const scrollWithOffset = (el) => {
-    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -60;
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
-  };
   const toggleNavbar = () => {
     setChecked(!checked);
   };
@@ -87,9 +82,9 @@ const Navbar = (props) => {
               <PageLink to="/how">{homeLocales.how[lang]}</PageLink>
             </li>
             <li onClick={toggleNavbar}>
-              <HashLink scroll={scrollWithOffset} smooth to="/#community">
-                {homeLocales.community[lang]}
-              </HashLink>
+              <PageLink to="/partners">
+                {homeLocales.partners[lang]}
+              </PageLink>
             </li>
             <li onClick={toggleNavbar}>
             {/* scroll={scrollWithOffset} smooth */}
