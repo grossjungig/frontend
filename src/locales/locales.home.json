@@ -59,9 +59,9 @@
     "en": "About",
     "de": "Über uns"
   },
-  "community": {
-    "en": "Community",
-    "de": "Gemeinschaft"
+  "partners": {
+    "en": "Partners",
+    "de": "Partner"
   },
   "mission_1": {
     "en": "Grossjungig is reinventing intergenerational co-living in big cities by bringing seniors and youth together.",
@@ -162,11 +162,5 @@
     "insta": "https://www.instagram.com/grossjungig_ai/",
     "youtube": "https://www.youtube.com/channel/UCmyASrfotwJXykup9I0wc4Q",
     "linkedIn": "https://www.linkedin.com/company/grossjungig-ai/"
-  },
-  "partners": {
-    "title": {
-      "en": "Partners",
-      "de": "Partner"
-    }
   }
 }

@@ -11,6 +11,7 @@ import Impressum from './pages/impressum/Impressum';
 import Login from './pages/login/Login.js';
 import Signup from './pages/signup/Signup.js';
 import AddProfile from "./pages/profile/addProfile";
+import Partners from "./pages/partners/Index";
 import ErrorPage from './pages/errorPage/ErrorPage';
 
 import Navbar from "./components/Navbar/Navbar.js";
@@ -68,6 +69,7 @@ class App extends React.Component {
             <Route exact path="/berlin/:id" render={(props) => <Details {...props} />} />
             <Route exact path="/addRoom" render={(props) => <AddRoom {...props} />} />
             <Route exact path="/about" render={(props) => <AboutUs {...props} />} />
+            <Route exact path="/partners" render={(props) => <Partners {...props} />} />
             <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
             <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
             <Route exact path="/edit/:id" render={(props) => <EditProfile {...props} />}/>
