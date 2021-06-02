@@ -3,6 +3,7 @@ import bodyLocales from '../../../locales/locales.underconstruction.json';
 import axios from '../../../axios';
 
 import styles from './index.module.css';
+import { Redirect } from 'react-router';
 
 class Body extends Component {
     state = {
@@ -22,26 +23,27 @@ class Body extends Component {
       }
 
     handleSubmit = () => {
-        this.setState({ isLoading: true });
-        const lang = localStorage.getItem("lang");
 
+        this.setState({ isLoading: true });
         axios.post('/api/auth/underConstruction', {
         name: this.state.name,
         email: this.state.email,
         phone: this.state.phone,
         role: this.state.role
         }).then(response => {
-            alert(bodyLocales.success_msg[lang]);
-            this.props.history.push('/aboutus');
+            console.log('redirect')
         }).catch( err => {
             this.setState({ isLoading: false });
             this.setState({ messages: err.response.data.data });
-            console.log(err.response.data.data)
         })
     }
     
 render(){
     const lang = localStorage.getItem("lang");
+    if(this.state.isLoading){
+        window.alert(bodyLocales.success_msg[lang]);
+        return <Redirect to='/aboutus'/>
+    }
 
     const { name, email, phone, message } = this.state;
     return (
