@@ -4,7 +4,7 @@ import Partner from './components/Partners';
 import partnersLocales from '../../locales/locales.partners.json';
 import avatar from "../../assets/icons/avatar/Avatar.svg";
 
-const Index = () => {
+const PartnerIndex = () => {
     const lang = localStorage.getItem("lang");
     return (
         <div>
@@ -17,4 +17,4 @@ const Index = () => {
     )
 }
 
-export default Index
+export default PartnerIndex
