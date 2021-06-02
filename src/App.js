@@ -12,7 +12,7 @@ import Login from './pages/login/Login.js';
 import Signup from './pages/signup/Signup.js';
 import AddProfile from "./pages/profile/addProfile";
 import Faq from "./pages/faq/Faq"
-import Partners from "./pages/partners/components/Partners";
+import Partners from "./pages/partners/Index";
 import ErrorPage from './pages/errorPage/ErrorPage';
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
