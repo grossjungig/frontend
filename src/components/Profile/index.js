@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
-
+import ProfileLocales from "../../locales/locales.profile.json";
 import styles from './index.module.css';
 import { fullBlock } from '../../shared/index.module.css'
 
@@ -42,7 +42,7 @@ class Profile extends Component {
   render() {
     const profile = this.state.profile;
     const user = this.props.fetchedUser;
-
+    const lang = localStorage.getItem("lang");
     let renderedAvatar = dummyAvatar;
     const { avatarUrl } = this.state.profile;
     if (avatarUrl) renderedAvatar = avatarUrl;
@@ -51,18 +51,18 @@ class Profile extends Component {
       <div className={fullBlock}>
         <div className={styles.main}>
           <div className={styles.msg}>
-            If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271
-          </div>
+          {ProfileLocales.request[lang]}     
+               </div>
           
           <img src={renderedAvatar} alt="avatar" className={styles.pic} />
 
           <div className={styles.details}>
-            <span>Name</span><span>{profile.name}</span>
-            <span>Age</span><span>{profile.age}</span>
-            <span>Gender</span><span>{profile.gender}</span>
-            <span>Pays</span> <span>{profile.price}€</span>
-            <span>Would live in</span><span>{profile.district}</span>
-            <span>Helps with</span>
+            <span>{ProfileLocales.name[lang]}</span><span>{profile.name}</span>
+            <span>{ProfileLocales.age[lang]}</span><span>{profile.age}</span>
+            <span>{ProfileLocales.gender[lang]}</span><span>{profile.gender}</span>
+            <span>{ProfileLocales.pays[lang]}</span> <span>{profile.price}€</span>
+            <span>{ProfileLocales.would_live[lang]}</span><span>{profile.district}</span>
+            <span>{ProfileLocales.help_with[lang]}</span>
             <span>
               {profile.length !== 0 && profile.help.map(
                 help => <span key = {help}> -{help} </span>)
@@ -74,12 +74,12 @@ class Profile extends Component {
           {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id &&
             <div className={styles.ctrl}>
               <Link to={`/edit/${profile._id}`}>
-                <button className={styles.btn}>Edit Profile</button>
+                <button className={styles.btn}>{ProfileLocales.editProfile[lang]}</button>
               </Link>
               <button 
                 className={`${styles.btn} ${styles.delBtn}`}
                 onClick={this.deleteProfile}
-              >Delete Profile</button>
+              >{ProfileLocales.deleteProfile[lang]}</button>
             </div>
           }
         </div>

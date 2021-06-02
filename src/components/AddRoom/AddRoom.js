@@ -4,20 +4,8 @@ import './addRoom.css'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import Select from 'react-select'
+import addRoomLocales from '../../locales/locales.addroom.json'
 
-const options = [
-  { value: 'Shopping', label: 'Shopping' },
-  { value: 'Cooking or baking', label: 'Cooking or baking' },
-  { value: 'Help with digital devices', label: 'Help with digital devices' },
-  { value: 'Moving the lawn', label: 'Moving the lawn' },
-  { value: 'Gardening', label: 'Gardening' },
-  { value: 'Reading out loud', label: 'Reading out loud' },
-  { value: 'Car transportation', label: 'Car transportation' },
-  { value: 'Cleaning or domestic help', label: 'Cleaning or domestic help' },
-  { value: 'Accompanying on walks', label: 'Accompanying on walks' },
-  { value: 'Taking care of pets', label: 'Taking care of pets' },
-  { value: 'Pflage/ Taking care of Seniors', label: 'Pflage/ Taking care of Seniors' }
-]
 
 
 class AddRoom extends Component {
@@ -81,6 +69,7 @@ class AddRoom extends Component {
   };
 
   render() {
+    const lang = localStorage.getItem("lang");
     return (
       <div className="div_warning_1_addRoom" >
         <div className="div_warning_2_addRoom" >
@@ -88,7 +77,7 @@ class AddRoom extends Component {
         <div className="main_div_addRoom" >
           <div className="main_div_2_addRoom">
 
-            <label className="label_room" htmlFor="name">First Name</label>
+            <label className="label_room" htmlFor="name">{addRoomLocales.name[lang]}</label>
             <input
               type="text"
               name="name"
@@ -97,7 +86,7 @@ class AddRoom extends Component {
               className="input_room"
             />
             
-             <label className="label_room" htmlFor="gender">Gender</label>
+             <label className="label_room" htmlFor="gender">{addRoomLocales.gender[lang]}</label>
             <select
               name="gender"
               type="select"
@@ -105,13 +94,13 @@ class AddRoom extends Component {
               onChange={this.setFormState}
               className="select_room"
             >
-              <option className="option_room" value="" disabled>Select</option>
-              <option className="option_room" value="male">Male</option>
-              <option className="option_room" value="female">Female</option>
-              <option className="option_room" value="divers">Divers</option>
+              <option className="option_room" value="" disabled>{addRoomLocales.select[lang]}</option>
+              <option className="option_room" value="male">{addRoomLocales.male[lang]}</option>
+              <option className="option_room" value="female">{addRoomLocales.female[lang]}</option>
+              <option className="option_room" value="divers">{addRoomLocales.divers[lang]}</option>
             </select> 
 
-            <label className="label_room" htmlFor="birthdate">Birthdate</label>
+            <label className="label_room" htmlFor="birthdate">{addRoomLocales.birthdate[lang]}</label>
             <input
               type="date"
               name="birthdate"
@@ -120,7 +109,7 @@ class AddRoom extends Component {
               className="input_room"
             /> 
 
-            <label className="label_room" htmlFor="name">Room Title</label>
+            <label className="label_room" htmlFor="name">{addRoomLocales.roomTitle[lang]}</label>
             <input
               type="text"
               name="roomTitle"
@@ -129,10 +118,10 @@ class AddRoom extends Component {
               className="input_room"
             />
 
-            <label className="label_room" htmlFor="expectedHelp" style={{marginBottom:"2vh"}}>Expected Help</label>
-            <Select isMulti options={options} onChange={this.setHelp} value={this.state.expectedHelp} />
+            <label className="label_room" htmlFor="expectedHelp" style={{marginBottom:"2vh"}}>{addRoomLocales.expectedHelp[lang]}</label>
+            <Select isMulti options={addRoomLocales.options[lang]} onChange={this.setHelp} value={this.state.expectedHelp} />
 
-            <label htmlFor="description" className="label_room" >About me (max 120 signs)</label>
+            <label htmlFor="description" className="label_room" >{addRoomLocales.about[lang]}</label>
             <textarea
               type="text"
               name="description"
@@ -144,7 +133,7 @@ class AddRoom extends Component {
             />
 
 
-            <label className="label_room" htmlFor="district">District</label>
+            <label className="label_room" htmlFor="district">{addRoomLocales.district[lang]}</label>
             <select
               name="district"
               type="select"
@@ -152,7 +141,7 @@ class AddRoom extends Component {
               onChange={this.setFormState}
               className="select_room"
             >
-              <option value="" disabled> Select </option>
+              <option value="" disabled> {addRoomLocales.select[lang]} </option>
               <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
               <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
               <option value="Lichtenberg">Lichtenberg</option>
@@ -167,7 +156,7 @@ class AddRoom extends Component {
               <option value="Treptow-Koepenick">Treptow-Koepenick</option>
             </select>
 
-            <label className="label_room" htmlFor="address">Address</label>
+            <label className="label_room" htmlFor="address">{addRoomLocales.address[lang]}</label>
             <input
               type="text"
               name="address"
@@ -176,7 +165,7 @@ class AddRoom extends Component {
               className="input_room"
             />
 
-            <label className="label_room" htmlFor="postcode">Postcode</label>
+            <label className="label_room" htmlFor="postcode">{addRoomLocales.postcode[lang]}</label>
             <input
               type="number"
               name="postcode"
@@ -185,7 +174,7 @@ class AddRoom extends Component {
               className="input_room"
             />
 
-            <label className="label_room" htmlFor="price">Price</label>
+            <label className="label_room" htmlFor="price">{addRoomLocales.price[lang]}</label>
             <input
               type="number"
               name="price"
@@ -194,7 +183,7 @@ class AddRoom extends Component {
               className="input_room"
             />
 
-            <label className="label_room" htmlFor="phoneNumber">Phone Number</label>
+            <label className="label_room" htmlFor="phoneNumber">{addRoomLocales.phoneNumber[lang]}</label>
             <input
               type="tel"
               name="phoneNumber"
@@ -204,14 +193,14 @@ class AddRoom extends Component {
             />
 
 
-            <label className="label_room" >Picture</label>
-            <button type="submit" className="button_room">Upload the picture</button>
+            <label className="label_room" >{addRoomLocales.picture[lang]}</label>
+            <button type="submit" className="button_room">{addRoomLocales.uploadPicture[lang]}</button>
 
             <div className="div_button_addRoom">
             <Link to={'/userportal'}>
-              <button type="submit" className="button_room button_room_cancel" >Cancel</button>
+              <button type="submit" className="button_room button_room_cancel" >{addRoomLocales.cancel[lang]}</button>
             </Link>
-              <button type="submit" className="button_room button_room_submit" onClick={this.addNewRoom} >Submit</button>
+              <button type="submit" className="button_room button_room_submit" onClick={this.addNewRoom} >{addRoomLocales.submit[lang]}   </button>
             </div>
          
           </div>

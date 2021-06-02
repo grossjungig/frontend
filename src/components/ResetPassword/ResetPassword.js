@@ -100,7 +100,7 @@ export default class ResetPassword extends Component {
       return (
         <div>
           <div style={loading}>
-            <h4>Problem resetting password. Please send another reset link.</h4>
+            <h4>{resetLocales.problem[lang]}</h4>
             <Link to="/">
               <Button label={resetLocales.return[lang]}></Button>
             </Link>
