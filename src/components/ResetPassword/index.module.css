@@ -32,5 +32,6 @@
 .showIcon {
     position: absolute;
     right: 5px;
-    top: 5px;
+    bottom: 0px;
+    top:4px
 }
