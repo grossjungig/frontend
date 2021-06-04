@@ -134,7 +134,7 @@ const Navbar = (props) => {
                   onClick={(e) => imageChange(props.updatePage)}
                   alt="Language Switcher"
                 >
-                  {lang === "de" ? "DE" : "EN"}
+                  {lang === "de" ? "EN" : "DE"}
                 </button>
               </a>
             </li>
