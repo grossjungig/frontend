@@ -4,7 +4,7 @@
   background-image: url("../../assets/images/backgrounds/hero-home-background-picture.jpg");
   background-position: bottom;
   background-repeat: no-repeat; 
-  background-size: cover;
+  height:1000px;
   display: flex;
   justify-content: center;
 }
