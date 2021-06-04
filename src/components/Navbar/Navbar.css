@@ -79,12 +79,17 @@ nav {
   height: 25px;
 }
 
-
 .header li a:hover,
 .header .menu-btn:hover {
-  background-color: #f4f4f4;
+  border-bottom: solid 2px black;
 }
-
+.underline{
+  border-bottom: solid 2px black;
+  font-weight:500;
+}
+.navbar-text{
+  color:black;
+}
 .header .logo {
   display: block;
   float: left;

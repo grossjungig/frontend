@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import navbarLocales from "../../locales/locales.navbar.json";
 import homeLocales from "../../locales/locales.home.json";
-import { HashLink, PageLink } from "../styled";
+import { HashLink} from "../styled";
 import { connect } from 'react-redux';
 import { logout } from '../../store/auth/actions'
 import { useHistory } from 'react-router-dom';
@@ -76,21 +76,21 @@ const Navbar = (props) => {
           </label>
           <ul className="menu">
             <li onClick={toggleNavbar}>
-              <PageLink to="/about">{homeLocales.about[lang]}</PageLink>
+              <NavLink className="navbar-text" activeClassName="underline" to="/about">{homeLocales.about[lang]}</NavLink>
             </li>
             <li onClick={toggleNavbar}>
-              <PageLink to="/how">{homeLocales.how[lang]}</PageLink>
+              <NavLink className="navbar-text" activeClassName="underline" to="/how">{homeLocales.how[lang]}</NavLink>
             </li>
             <li onClick={toggleNavbar}>
-              <PageLink to="/partners">
+              <NavLink className="navbar-text" activeClassName="underline" to="/partners">
                 {homeLocales.partners[lang]}
-              </PageLink>
+              </NavLink>
             </li>
             <li onClick={toggleNavbar}>
             {/* scroll={scrollWithOffset} smooth */}
-              <PageLink  to="/contact">
+              <NavLink className="navbar-text" activeClassName="underline"  to="/contact">
                 {homeLocales.contact[lang]}
-              </PageLink>
+              </NavLink>
               </li>
             
             { props.isAuth ? (

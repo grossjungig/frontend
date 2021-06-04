@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React from "react";
 import { NavHashLink } from 'react-router-hash-link';
-import { Link } from "react-router-dom";
 
 export const Card2 = ({ title, image, text, alt }) => (
   <Card2Root>
@@ -19,13 +18,6 @@ export const Card3 = ({ text, source }) => (
 );
 
 export const HashLink = styled(NavHashLink)`
-  text-decoration: none;
-  font-size: 15px;
-  color: black;
-  // margin: auto;
-  // padding: 0rem 1rem;
-`;
-export const PageLink = styled(Link)`
   text-decoration: none;
   font-size: 15px;
   color: black;

@@ -65,7 +65,7 @@ export const staff = [
     { img: ane, role: team.Ane, name: 'Ane' },
     { img: ayodhia, role: team.Ayodhia, name: 'Ayodhia' },
     { img: daria, role: team.Daria, name: 'Daria' },
-    { img: genia, role: team.Genia, name: 'Gernia' },
+    { img: genia, role: team.Genia, name: 'Genia' },
     { img: ruvimbo, role: team.Ruvimbo, name: 'Ruvimbo' },
     { img: katharina, role: team.Katharina, name: 'Katharina' },
     { img: bipul, role: team.Bipul, name: 'Bipul'},
