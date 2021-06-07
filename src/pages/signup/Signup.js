@@ -10,6 +10,9 @@ import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { Link } from "react-router-dom";
+
 
 class Signup extends Component {
   state = {
@@ -19,10 +22,13 @@ class Signup extends Component {
     pwdConfirm: "",
     role: "senior",
     messages: [],
+    isLoading: false,
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.setState({ isLoading: true });
+    const lang = localStorage.getItem("lang");
 
     axios
       .post('api/auth/signup', {
@@ -33,12 +39,14 @@ class Signup extends Component {
         role: this.state.role,
       })
       .then((response) => {
+        this.setState({ isLoading: false });
         if (response.data.message === 'User created') {
           this.props.history.push('/login');
-          alert('Your account has been created. You can now log in!');
+          alert(signupLocales.success_msg[lang]);
         }
       })
       .catch((err) => {
+        this.setState({ isLoading: false });
         this.setState({ messages: err.response.data.data });
       });
   };
@@ -67,8 +75,11 @@ class Signup extends Component {
       <div className={fullBlock}>
         <div className="x"></div>
         <div className="login">
+          <div className="welcome-header">
           <h2>{signupLocales.welcome[lang]}</h2>{" "}
-          <h3>{signupLocales.title[lang]}</h3>
+          <h3>{signupLocales.title[lang]}</h3></div>
+          <div className="link-container">
+          <p className="sign-in-up-link">{signupLocales.alreadyHave[lang]} <Link to="/login">{signupLocales.login[lang]}</Link></p></div>
           <form className="login-styles" noValidate autoComplete="off">
             <TextField
               margin="normal"
@@ -147,7 +158,11 @@ class Signup extends Component {
               onClick={this.handleSubmit}
               type="submit"
             >
-              {signupLocales.submit[lang]}
+              {
+                this.state.isLoading ?
+                <CircularProgress className="progress" size={30} /> :
+                signupLocales.submit[lang]
+              }
             </Button>
           </form>
           {errorMessages}

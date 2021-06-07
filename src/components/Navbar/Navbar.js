@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import navbarLocales from "../../locales/locales.navbar.json";
 import homeLocales from "../../locales/locales.home.json";
-import { HashLink, PageLink } from "../styled";
+import { HashLink} from "../styled";
 import { connect } from 'react-redux';
 import { logout } from '../../store/auth/actions'
 import { useHistory } from 'react-router-dom';
@@ -48,11 +48,6 @@ const Navbar = (props) => {
     history.push('/');
   };
 
-  const scrollWithOffset = (el) => {
-    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -60;
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
-  };
   const toggleNavbar = () => {
     setChecked(!checked);
   };
@@ -81,20 +76,21 @@ const Navbar = (props) => {
           </label>
           <ul className="menu">
             <li onClick={toggleNavbar}>
-              <PageLink to="/aboutus">{homeLocales.about[lang]}</PageLink>
+              <NavLink className="navbar-text" activeClassName="underline" to="/about">{homeLocales.about[lang]}</NavLink>
             </li>
             <li onClick={toggleNavbar}>
-              <PageLink to="/how">{homeLocales.how[lang]}</PageLink>
+              <NavLink className="navbar-text" activeClassName="underline" to="/how">{homeLocales.how[lang]}</NavLink>
             </li>
             <li onClick={toggleNavbar}>
-              <HashLink scroll={scrollWithOffset} smooth to="/#community">
-                {homeLocales.community[lang]}
-              </HashLink>
+              <NavLink className="navbar-text" activeClassName="underline" to="/partners">
+                {homeLocales.partners[lang]}
+              </NavLink>
             </li>
             <li onClick={toggleNavbar}>
-              <HashLink scroll={scrollWithOffset} smooth to="/#contact">
+            {/* scroll={scrollWithOffset} smooth */}
+              <NavLink className="navbar-text" activeClassName="underline"  to="/contact">
                 {homeLocales.contact[lang]}
-              </HashLink>
+              </NavLink>
               </li>
             
             { props.isAuth ? (
@@ -138,7 +134,7 @@ const Navbar = (props) => {
                   onClick={(e) => imageChange(props.updatePage)}
                   alt="Language Switcher"
                 >
-                  {lang === "de" ? "DE" : "EN"}
+                  {lang === "de" ? "EN" : "DE"}
                 </button>
               </a>
             </li>

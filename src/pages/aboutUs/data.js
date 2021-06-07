@@ -3,10 +3,15 @@ import aboutLocales from "../../locales/locales.aboutus.json";
 import anastasia from '../../assets/images/team/anastasia.jpg';
 import olga from '../../assets/images/team/olga.jpg';
 import menna from '../../assets/images/team/menna.jpg';
-import morteza from '../../assets/images/team/morteza.jpg';
 import skander from '../../assets/images/team/skander.jpg';
 
 import luca from '../../assets/images/team/luca.png';
+import ayodhia from '../../assets/images/team/ayodhia.png';
+import daria from '../../assets/images/team/daria.png';
+import genia from '../../assets/images/team/genia.png';
+import ruvimbo from '../../assets/images/team/ruvimbo.png';
+import katharina from '../../assets/images/team/katharina.png';
+import bipul from '../../assets/images/team/bipul.png';
 import magda from '../../assets/images/team/magdalena.jpg';
 import maria from '../../assets/images/team/maria.png';
 import nida from '../../assets/images/team/nida.jpg';
@@ -14,10 +19,7 @@ import pablo from '../../assets/images/team/pablo.jpg';
 import rosina from '../../assets/images/team/rosina.png';
 import sree from '../../assets/images/team/sree.jpg';
 import tammy from '../../assets/images/team/tammy.jpg';
-import vicky from '../../assets/images/team/vicky.jpg';
-import vlad from '../../assets/images/team/vlad.jpg';
 import christian from '../../assets/images/team/christian.jpg';
-import valentina from '../../assets/images/team/valentina.jpg';
 import jen from '../../assets/images/team/jen.jpg';
 import kilian from '../../assets/images/team/kilian.jpg';
 import ane from '../../assets/images/team/ane.jpg';
@@ -40,10 +42,6 @@ export const coreStaff = [
         img: menna, role: team.Menna, name: 'Menna Hisham',
         link: 'https://www.linkedin.com/in/minatallah-hisham/'
     },
-    {
-        img: morteza, role: team.Morteza, name: 'Morteza Jalilifar',
-        link: 'https://www.linkedin.com/in/nancologist/'
-    },
     { 
         img: skander, role: team.Skander, name: 'Skander', 
         link: 'https://www.linkedin.com/in/skander-jmour-613a04170/'
@@ -57,15 +55,19 @@ export const staff = [
     { img: roberta, role: team.Roberta, name: 'Roberta' },
     { img: tammy, role: team.Tammy, name: 'Tammy' },
     { img: kilian, role: team.Kilian, name: 'Kilian' },
-    { img: vicky, role: team.Vicky, name: 'Vicky' },
     { img: jen, role: team.Jen, name: 'Jen' },
-    { img: valentina, role: team.Valentina, name: 'Valentina' },
     { img: luca, role: team.Luca, name: 'Luca' },
     { img: magda, role: team.Magda, name: 'Magdalena' },
     { img: nida, role: team.Nida, name: 'Nida' },
     { img: maria, role: team.Maria, name: 'Maria' },
     { img: chiao, role: team.Chiao, name: 'Chiao' },
     { img: sree, role: team.Sree, name: 'Sree' },
-    { img: vlad, role: team.Vlad, name: 'Vlad' }, 
-    { img: ane, role: team.Ane, name: 'Ane' }
+    { img: ane, role: team.Ane, name: 'Ane' },
+    { img: ayodhia, role: team.Ayodhia, name: 'Ayodhia' },
+    { img: daria, role: team.Daria, name: 'Daria' },
+    { img: genia, role: team.Genia, name: 'Genia' },
+    { img: ruvimbo, role: team.Ruvimbo, name: 'Ruvimbo' },
+    { img: katharina, role: team.Katharina, name: 'Katharina' },
+    { img: bipul, role: team.Bipul, name: 'Bipul'},
+
 ];

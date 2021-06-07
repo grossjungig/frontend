@@ -78,10 +78,6 @@
       "en": "UX/UI Design",
       "de": "UX/UI-Design"
     },
-    "Vicky": {
-      "en": "Web development",
-      "de": "Webentwicklung"
-    },
     "Rosina": {
       "en": "Quality Assurance",
       "de": "Qualitätskontrolle"
@@ -94,10 +90,6 @@
       "en": "Web development",
       "de": "Webentwicklung"
     },
-    "Vlad": {
-      "en": "Business Development",
-      "de": "Geschäftsentwicklung"
-    },
     "Skander": {
       "en": "Investment relations",
       "de": "Investitionen"
@@ -105,10 +97,6 @@
     "Maria": {
       "en": "Marketing",
       "de": "Marketing"
-    },
-    "Morteza": {
-      "en": "Web development & AI",
-      "de": "Webentwicklung & KI"
     },
     "Sree": {
       "en": "Business Development",
@@ -130,10 +118,6 @@
       "en": "Web development",
       "de": "Webentwicklung"
     },
-    "Valentina": {
-      "en": "UX/UI Design",
-      "de": "UX/UI-Design"
-    },
     "Ane": {
       "en": "Investment intern",
       "de": "Investitionen Praktikant"
@@ -145,6 +129,30 @@
     "Roberta": {
       "en": "Product",
       "de": "Produkt"
+    },
+    "Ayodhia":{
+      "en":"Marketing Analyst",
+      "de":"Marktforscher"
+    },
+    "Daria":{
+      "en":"UX/UI Design",
+      "de":"UX/UI Design"
+    },
+    "Genia":{
+      "en":"PR",
+      "de":"PR"
+    },
+    "Ruvimbo":{
+      "en":"Financial Analyst",
+      "de":"Finanzanalyst"
+    },
+    "Katharina":{
+      "en":"Business Development",
+      "de":"Geschäftsentwicklung"
+    },
+    "Bipul":{
+      "en":"Web development",
+      "de":"Webentwicklung"
     }
   }
 }

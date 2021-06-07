@@ -1,0 +1,63 @@
+.main {
+    margin: 130px 0 80px;
+}
+
+.main h2 {
+    text-align: center;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.scrollContainer {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* remove scrollbar in IE and Edge */
+    scrollbar-width: none;  /* remove scrollbar in Firefox */
+}
+
+.scrollContainer::-webkit-scrollbar {
+    display: none; /* remove scrollbar in Chrome, Safari and other webkit browsers */
+}
+
+.cardsContainer {
+    margin: auto;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border: 0.2px solid #365DA7;
+    border-radius: 10px;
+    margin: 1.5rem;
+    width: 320px;
+}
+
+.cardTitle {
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1.2rem 0;
+    background-color: #365DA7;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cardImage {
+    margin: 15px 0;
+}
+
+.cardText {
+    text-align: center;
+    line-height: 24px;
+    padding: 0 12px 15px;
+}

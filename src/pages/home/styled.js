@@ -23,10 +23,6 @@ export const MainPanel = styled.div`
     padding: 3rem;
   }
 `;
-export const MainRow = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 export const SecPanel = styled.div`
   background-image: url(${youngOldPlaying});
@@ -37,13 +33,16 @@ export const SecPanel = styled.div`
   margin: 7rem 8rem;
 
   @media (max-width: 834px) {
-    margin: 1rem 1rem;
+    margin: 1rem;
+    margin-bottom: 200px;
+    height: 300px;
+    background-size: cover;
   }
 
   @media (min-width: 834px) {
-    /* height: 400px; */
-    padding: 6rem;
-
+    margin: 2rem 5rem 10rem;
+    width: 900px;
+    
   }
 
   @media (min-width: 1060px) {
@@ -51,23 +50,7 @@ export const SecPanel = styled.div`
   }
 `;
 
-export const RowChoose = styled.div`
-  display: flex;
-  padding: 0.15rem 0.5rem;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-`;
-
 export const RowSelect = styled.div`
-  display: flex;
-  padding: 0.15rem;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-`;
-
-export const RowSearch = styled.div`
   display: flex;
   padding: 0.15rem;
   justify-content: center;
@@ -81,38 +64,3 @@ export const Mission = styled.div`
   font-style: normal;
   font-size: 1rem;
 `;
-
-export const How = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: ${props => props.backgroundColor || "#365FA7"};
-  padding: 2rem 0;
-  /* Media Queries: Tablet Portrait */
-  @media screen and (min-width: 768px) {
-  }
-  /* Media Queries: Desktop */
-  @media screen and (min-width: 1060px) {
-    justify-content: space-between;
-  }
-`;
-
-
-export const HowFlex = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0 8rem;
-
-  @media (max-width: 1500px) {
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
-    justify-content: flex-start;
-    overflow-x: scroll;
-    -ms-overflow-style: none;  /* remove scrollbar in IE and Edge */
-    scrollbar-width: none;  /* remove scrollbar in Firefox */
-
-    &::-webkit-scrollbar {
-      display: none; /* remove scrollbar in Chrome, Safari and other webkit browsers */
-    }
-  }
-`;
-

@@ -1,23 +1,32 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, {Component} from "react";
+import {Link} from "react-router-dom";
 import axios from '../../axios';
-import roomsLocales from "../../locales/locales.rooms.json";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {berlinDistricts} from '../../utils/index'
+import roomsLocales from "../../locales/locales.rooms.json";
 import styles from './index.module.css';
 
 class Berlin extends Component {
+  constructor(props) {
+    super(props);
+    this.setFilter = this.setFilter.bind(this);
+    this.filterRooms = this.filterRooms.bind(this);
+  }
   state = {
-    rooms: [],
-    search: "",
-    select: "--",
-    maxPrice: "",
-    searchedRoom: [],
+    allRooms: [],
+    filteredRooms: [],
     photos: [],
-    filter: false,
+    filtered: false,
+    filters: {
+      district: '',
+      postcode: '',
+      price: ""
+    }
   };
 
   async componentDidMount() {
@@ -25,58 +34,66 @@ class Berlin extends Component {
       `api/rooms`
     );
     this.setState({
-      rooms: response.data.rooms,
+      allRooms: response.data.rooms,
+    });
+    let url = window.location.toString()
+    let district = new URLSearchParams(url.slice(url.indexOf('?') + 1)).get('district');
+    if (district) {
+      let data = {
+        target: {
+          name: 'district',
+          value: district
+        }
+      }
+      this.setFilter(data);
+      this.filterRooms()
+    }
+  }
+
+  setFilter(event) {
+    const filters = {...this.state.filters};
+    filters[event.target.name] = event.target.value
+    this.setState({
+      filtered: true,
+      filters: filters
     });
   }
-  searchedName = (event) => {
+
+  filterRooms(e) {
+    let filteredRooms = this.state.allRooms
+    let filtered = false
+
+    for (const [key, value] of Object.entries(this.state.filters)) {
+      if (value) {
+        filtered = true
+        filteredRooms = filteredRooms.filter((room) => {
+          // has to work with numbers and strings
+          // eslint-disable-next-line
+          return room[key] == this.state.filters[key];
+        });
+      }
+    }
+
     this.setState({
-      [event.target.name]:
-        event.target.type === "select"
-          ? event.target.selected
-          : event.target.value,
+      filter: filtered,
+      filteredRooms: filteredRooms,
     });
   };
 
-  searchPrice = (event) => {
-    this.setState({
-      maxPrice: event.target.value,
-    });
-  };
-
-  searchRequest = (e) => {
-    const filteredRoomsBySelect = this.state.rooms.filter((room) => {
-      if (this.state.select === "--") {
-        return true;
-      }
-      return room.district === this.state.select;
-    });
-
-    const filteredRooms = filteredRoomsBySelect.filter((room) => {
-      if (this.state.search === "") {
-        return true;
-      }
-      return room.postcode === parseInt(this.state.search);
-    });
-
-    const filteredByPrice = filteredRooms.filter((room) => {
-      if (this.state.maxPrice === "") {
-        return true;
-      }
-      return parseInt(room.price) <= this.state.maxPrice;
-    });
-
-    this.setState({
-      filter: true,
-      searchedRoom: filteredByPrice,
-    });
-  };
   render() {
     const lang = localStorage.getItem("lang");
-    let display = this.state.filter ? "searchedRoom" : "rooms";
+    let display = this.state.filtered ? "filteredRooms" : "allRooms";
+
+    const dropdownItems = berlinDistricts.map((district, index) => {
+        return <MenuItem key={index} value={district}>
+          {district}
+        </MenuItem>
+      }
+    )
     const room = this.state[display].map((el) => {
       return (
         <Link to={`/berlin/${el._id}`} key={el._id}>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{display: "flex", justifyContent: "center"}}>
             <div className="card_people">
               <div className="card_img">
                 <img
@@ -92,7 +109,7 @@ class Berlin extends Component {
                       : "../../image/icon-home-9.jpg"
                   }
                   alt="room placeholder"
-                ></img>{" "}
+                />{" "}
               </div>
 
               <div className="container_people">
@@ -111,7 +128,7 @@ class Berlin extends Component {
       <div className="tables-x">
         <div className={styles.offersTitle}>
           <h1>
-            {roomsLocales.title[lang]} Berlin {this.state.rooms.length}{" "}
+            {roomsLocales.title[lang]} Berlin {this.state.allRooms.length}{" "}
             {roomsLocales.offers[lang]}
           </h1>
         </div>
@@ -131,43 +148,21 @@ class Berlin extends Component {
                   </label>
                 </div>
                 <div>
-                  <FormControl variant="outlined" style={{ width: "100%" }}>
+                  <FormControl variant="outlined" style={{width: "100%"}}>
                     <Select
                       fullWidth
-                      name="select"
+                      name="district"
                       type="select"
-                      labelId="demo-simple-select-outlined-label"
-                      id="demo-simple-select-outlined"
-                      value={this.state.select}
-                      onChange={this.searchedName}
+                      id="district-select"
+                      value={this.state.filters.district ?? ''}
+                      onChange={this.setFilter}
+                      displayEmpty
+                      IconComponent={ExpandMoreIcon}
                     >
-                      <MenuItem value="--">
-                        <em>{roomsLocales.search_district[lang]}</em>
+                      <MenuItem value="">
+                        {roomsLocales.search_district[lang]}
                       </MenuItem>
-                      <MenuItem value="Charlottenburg-Wilmersdorf">
-                        Charlottenburg-Wilmersdorf
-                      </MenuItem>
-                      <MenuItem value="Friedrichshain-Kreuzberg">
-                        Friedrichshain-Kreuzberg
-                      </MenuItem>
-                      <MenuItem value="Lichtenberg">Lichtenberg</MenuItem>
-                      <MenuItem value="Marzahn-Hellersdorf">
-                        Marzahn-Hellersdorf
-                      </MenuItem>
-                      <MenuItem value="Mitte">Mitte</MenuItem>
-                      <MenuItem value="Neukoelln">Neukoelln</MenuItem>
-                      <MenuItem value="Pankow">Pankow</MenuItem>
-                      <MenuItem value="Reinickendorf">Reinickendorf</MenuItem>
-                      <MenuItem value="Spandau">Spandau</MenuItem>
-                      <MenuItem value="Steglitz-Zehlendorf">
-                        Steglitz-Zehlendorf
-                      </MenuItem>
-                      <MenuItem value="Tempelhof-Schoeneberg">
-                        Tempelhof-Schoeneberg
-                      </MenuItem>
-                      <MenuItem value="Treptow-Koepenick">
-                        Treptow-Koepenick
-                      </MenuItem>
+                      {dropdownItems}
                     </Select>
                   </FormControl>
                 </div>
@@ -183,9 +178,9 @@ class Berlin extends Component {
                 <TextField
                   fullWidth
                   id="outlined-search"
-                  name="search"
-                  value={this.state.search}
-                  onChange={this.searchedName}
+                  name="postcode"
+                  value={this.state.filters.postcode}
+                  onChange={this.setFilter}
                   type="search"
                   variant="outlined"
                 />
@@ -202,15 +197,16 @@ class Berlin extends Component {
                   <TextField
                     fullWidth
                     id="outlined-search"
-                    name="search"
+                    name="price"
                     type="search"
                     variant="outlined"
-                    value={this.state.MaxPrice}
-                    onChange={this.searchPrice}
+                    value={this.state.filters.price}
+                    onChange={this.setFilter}
                   />
                 </div>
               </div>
-            </div>{" "}
+            </div>
+            {" "}
             <Button
               style={{
                 color: "white",
@@ -218,7 +214,7 @@ class Berlin extends Component {
                 marginTop: "10px",
               }}
               variant="contained"
-              onClick={this.searchRequest}
+              onClick={this.filterRooms}
             >
               Search
             </Button>{" "}
@@ -230,4 +226,5 @@ class Berlin extends Component {
     );
   }
 }
+
 export default Berlin;

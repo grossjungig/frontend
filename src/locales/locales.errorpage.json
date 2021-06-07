@@ -1,0 +1,10 @@
+{
+    "message" : {
+        "en" : "We are sorry, but the page you requested was not found",
+        "de" : "Es tut uns leid, allerdings konnte die von Ihnen angeforderte Seite nicht gefunden werden"
+    },
+    "button" : {
+        "en" : "Back Home",
+        "de" : "Zurück zur Startseite"
+    }
+}

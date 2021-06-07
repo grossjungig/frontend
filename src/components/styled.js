@@ -1,85 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import React from "react";
 import { NavHashLink } from 'react-router-hash-link';
-import { Link } from "react-router-dom";
-
-export const basicButtonCSS = css`
-  padding: 0.6rem 2rem;
-  margin: 0.25rem;
-  border-radius: 0.85rem;
-`;
-export const basicButtonLongCSS = css`
-  padding: 0.65rem 6rem;
-  margin: 0.25rem;
-  border-radius: 0.85rem;
-`;
-
-export const basicButtonSearchCSS = css`
-  padding: 0.6rem 2.5rem;
-  margin: 0.25rem;
-  border-radius: 0.85rem;
-`;
-
-export const submitButtons = css`
-  margin-top: 3vh;
-  border: none;
-  padding: 10px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 19px;
-  background: #baafa1;
-  border-radius: 1rem;
-  color: #ffffff;
-`;
-
-export const SimpleButton = styled.button`
-  ${basicButtonCSS};
-  border: 1px solid grey;
-  background-color: white;
-`;
-
-export const Button = ({ onClick, label }) => (
-  <SimpleButton onClick={onClick}>{label}</SimpleButton>
-);
-
-export const PrimaryButton = styled.button`
-  ${basicButtonCSS};
-  background-color: #365da7;
-  border-style: none;
-`;
-
-export const PrimaryButtonLong = styled.button`
-  ${basicButtonLongCSS};
-  background-color: #365da7;
-  border-style: none;
-`;
-
-export const SecButton = styled.button`
-  ${basicButtonCSS};
-  border: 1px solid grey;
-  background-color: black;
-  color: white;
-`;
-
-export const SecButtonLong = styled.button`
-  ${basicButtonLongCSS};
-  border: 1px solid grey;
-  background-color: black;
-  color: white;
-`;
-
-// export const SearchField = styled.input`
-//   ${basicButtonCSS};
-//   border: 1px solid grey;
-//   background-color: #f2f0f0;
-// `;
-
-// export const SearchFieldLong = styled.input`
-//   ${basicButtonSearchCSS};
-//   border: 1px solid grey;
-//   background-color: white;
-// `;
 
 export const Card2 = ({ title, image, text, alt }) => (
   <Card2Root>
@@ -97,13 +18,6 @@ export const Card3 = ({ text, source }) => (
 );
 
 export const HashLink = styled(NavHashLink)`
-  text-decoration: none;
-  font-size: 15px;
-  color: black;
-  // margin: auto;
-  // padding: 0rem 1rem;
-`;
-export const PageLink = styled(Link)`
   text-decoration: none;
   font-size: 15px;
   color: black;
