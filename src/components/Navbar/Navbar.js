@@ -97,7 +97,9 @@ const Navbar = (props) => {
               <>
                 <li onClick={toggleNavbar}>
                   <Link onClick={logout} to="/">
+                  <button className="white-button">
                     {navbarLocales.logout[lang]}
+                    </button>
                   </Link>
                 </li>
                 <li>

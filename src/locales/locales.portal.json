@@ -11,6 +11,10 @@
         "en": "Find a room in Berlin",
         "de": "Zimmer in Berlin finden"
     },
+    "people":{
+        "en":"Find people in Berlin",
+        "de":"Finden Menschen in Berlin"
+    },
     "add": {
         "en": "Add Room",
         "de": "Zimmer hinzufügen"
