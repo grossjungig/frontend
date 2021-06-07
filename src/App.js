@@ -14,6 +14,7 @@ import AddProfile from "./pages/profile/addProfile";
 import Faq from "./pages/faq/Faq"
 import Partners from "./pages/partners/Index";
 import ErrorPage from './pages/errorPage/ErrorPage';
+import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
 import Contact from "./pages/home/components/Contact/Contact"
@@ -54,6 +55,7 @@ class App extends React.Component {
             <Route exact path="/contact"><Contact/></Route>
             <Route exact path="/faq"><Faq/></Route>
 
+            <Route exact path="/termsandconditions"><TermsAndConditions/></Route>
             <Route exact path="/login" render={(props) => (
               <Login history={props.history} />
             )}/>
