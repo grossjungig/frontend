@@ -16,8 +16,7 @@ const Footer = () => {
       
       <Link to='/about'>{footerLocales.company[lang]}</Link>
       <Link to="/faq">FAQ</Link>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a>{footerLocales.privacy[lang]}</a>
+      <Link to='/termsandconditions'>{footerLocales.privacy[lang]}</Link>
       <Link to="/impressum" > {footerLocales.impressum[lang]} </Link>
       <Link to='/contact'>{footerLocales.contact[lang]}</Link>
      </div>
