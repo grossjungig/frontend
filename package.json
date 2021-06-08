@@ -25,6 +25,7 @@
         "react-router-hash-link-offset": "^1.2.0",
         "react-scripts": "4.0.0",
         "react-select": "^4.1.0",
+        "react-toastify": "^7.0.4",
         "reactstrap": "^8.9.0",
         "redux": "^4.0.5",
         "redux-thunk": "^2.3.0",

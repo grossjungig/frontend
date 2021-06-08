@@ -1,12 +1,132 @@
-.cookie-consent {
+.cc__body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: var(--gai-light-blue);
     border: var(--gai-red) 2px solid;
-    padding: 10px;
+    padding: 20px 40px;
+    border-top-right-radius:20px;
+    border-top-left-radius: 20px;
 }
 
-.cookie-consent__btn {
+.cc__content{
+    display: flex;
+    flex-direction: column;
+    max-width: 65%;
+}
+
+.cc__buttons{
+    display:flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    align-items:center;
+    /* float:right; */
+}
+.cc__title{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.whitecc__button,
+.bluecc__button {
+    width: 180px;
+    height: 52px;
+    border-radius: 14px;
+    padding: 10px;
+    font-weight: 500;
+    /* margin: auto 20px; */
+    margin: auto 15px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+.whitecc__button {
+    background-color: var(--gai-white);
+    border: 2px solid var(--gai-blue);
+    color: #365da7;
+  }
+
+.bluecc__button {
     background-color: var(--gai-blue);
-    border-radius: var(--gai-btn-radius);
+    border: 2px solid var(--gai-blue);
     color: var(--gai-white);
-    padding: 10px 20px;
+  }
+
+.cc__language {
+    border: 2px solid var(--gai-blue);
+    background-color: var(--gai-white);
+    border-radius: 50%;
+    color: var(--gai-red);
+    /* margin-top: 5px; */
+    margin-left: 15px;
+    height: 50px!important;
+    width: 50px!important;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+.cc__text{
+    margin-right: 20px;
+}
+
+@media only screen and (max-width : 1246px){
+    .cc__body{
+        padding: 10px 20px ;
+        flex-direction: column;
+    }
+
+    .cc__content{
+        max-width:100%;
+        margin-bottom: 10px
+    }
+
+    .cc__buttons{
+        margin:auto;
+        padding: auto;
+    }
+}
+
+@media only screen and (max-width : 556px){
+    .cc__buttons{
+        flex-direction: column;
+    }
+
+    .bluecc__button,.whitecc__button,.cc__language{
+        margin:5px 10px;
+    }
+}
+
+@media only screen and (max-width : 474px){
+    .cc__body{
+        padding: 5px 15px;
+        padding-bottom: 10px;
+    }
+    .cc__title{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    /* .cc__buttons{
+        flex-direction: column;
+    } */
+    .cc__text{
+        margin: 0px;
+    }
+    .cc__content{
+        margin-bottom: 0px
+    }
+    .bluecc__button,.whitecc__button{
+        margin:5px 10px;
+    }
+
+}
+
+@media only screen and (max-width : 321px){
+    .cc__title{
+        margin: 5px 0px;
+    }
+    .cc__desc{
+        margin:5px 0px;
+    }
 }
