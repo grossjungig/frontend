@@ -53,7 +53,16 @@ font-size: 0.8rem;
 .sign-in-up-link a{
   font-weight: 900;
   font-size: 0.9rem;
-
+}
+.blue-button {
+  background-color: var(--gai-blue);
+  border: 2px solid var(--gai-blue);
+  color: var(--gai-white);
+  width: 151px;
+  border-radius: 14px;
+  padding: 10px;
+  margin: -5px -10px;
+  font-weight: 500;
 }
 
 @media (min-width: 900px) {
