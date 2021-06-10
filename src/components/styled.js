@@ -169,6 +169,5 @@ const Card3Source = styled.div`
     font-size: 18px;
     position: static;
     text-align: right;
-    padding-top: 1.5rem;
   }
 `;
