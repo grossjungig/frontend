@@ -59,7 +59,7 @@ const qa = [
         "id": 6,
         "question": {
             "de": "Wie lang ist die Mietdauer und der Probezeitraum?",
-            "en": "How long does the test and the rent periode last?"
+            "en": "How long does the test and the rent period last?"
         },
         "answer": {
             "de": "Die Miet- und die Probezeit kann von einem Vertrag zum anderen unterscheiden und wird im individuellen Einzelfall besprochen und festgelegt. In der Regel hat der Mietvertrag jedoch eine Mindestlaufzeit von drei Monaten und die Probezeit kann zwischen 2 und 4 Wochen variieren.",
