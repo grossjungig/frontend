@@ -1,0 +1,116 @@
+.cc__body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--gai-light-blue);
+    border: var(--gai-red) 2px solid;
+    padding: 5px 5px;
+}
+
+.cc__content{
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cc__buttons{
+    display:flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    align-items:center;
+    margin: 10px 10px;
+}
+
+.cc__title{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 5px 10px;
+}
+
+.whitecc__button,
+.bluecc__button {
+    width: 151px;
+    height: 43.2px;
+    border-radius: 14px;
+    padding: 10px 10px;
+    font-weight: 500;
+    margin: auto 13px;
+    font-weight: 550;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+.whitecc__button {
+    background-color: var(--gai-white);
+    border: 2px solid var(--gai-blue);
+    color: #365da7;
+  }
+
+.bluecc__button {
+    background-color: var(--gai-blue);
+    border: 2px solid var(--gai-blue);
+    color: var(--gai-white);
+  }
+
+.cc__desc{
+    margin: 10px 10px;
+    margin-top: 0px;
+    font-size: 14px;
+}
+.cc__text{
+    margin: 5px 10px;
+    font-size: 14px;
+}
+
+@media only screen and (max-width : 1115px){
+    .cc__body{
+        flex-direction: column;
+    }
+
+    .cc__content{
+        margin-right:0px;
+    }
+    .cc__desc{
+        margin-bottom: 0px;
+    }
+    .cc__buttons{
+        flex-direction: row-reverse;
+    }
+    .bluecc__button,.whitecc__button{
+        margin: 0px 10px;
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (max-width : 556px){
+    .cc__buttons{
+        margin: auto;
+    }
+
+    .bluecc__button,.whitecc__button{
+        margin:5px 10px;
+    }
+}
+
+
+@media only screen and (max-width : 372px){
+    .cc__title{
+        margin: 5px 0px;
+    }
+    .cc__text{
+        margin: 5px 0px;
+    }
+    .cc__desc{
+        margin:5px 0px;
+    }
+}
+
+@media only screen and (max-width: 350px){
+    .cc__buttons{
+        flex-direction:column;
+    }
+    .bluecc__button, .whitecc__button{
+        padding: 10px 5px;
+    }
+}
