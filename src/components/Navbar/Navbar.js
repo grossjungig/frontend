@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import navbarLocales from "../../locales/locales.navbar.json";
 import homeLocales from "../../locales/locales.home.json";
@@ -6,7 +6,7 @@ import { HashLink} from "../styled";
 import { connect } from 'react-redux';
 import { logout } from '../../store/auth/actions'
 import { useHistory } from 'react-router-dom';
-import CookieConsent from '../CookieConsent';
+// import CookieConsent from '../CookieConsent';
 import "./Navbar.css";
 
 import NavBanner from "./NavBanner";
@@ -31,17 +31,6 @@ const Navbar = (props) => {
     updatePage();  
   };
 
-  // cc = Cookie Consent
-  const [ ccDisplayed, setCcDisplayed ] = useState(false) 
-  useEffect(() => {
-    const ccConfirmed = localStorage.getItem('ccConfirmed')
-    if (!ccConfirmed) setCcDisplayed(true);
-  }, [])
-  const confirmCc = () => {
-    setCcDisplayed(false)
-    localStorage.setItem('ccConfirmed', 'true');
-  };
-
   const logout = (event) => {
     event.preventDefault();
     props.logout();
@@ -56,7 +45,6 @@ const Navbar = (props) => {
     <div>
       <nav >
         <header className="header">
-          {ccDisplayed ? <CookieConsent clicked={confirmCc} />: null}
           <HashLink smooth className="logo" to="/#">
             <img
               style={{ height: "34px" }}

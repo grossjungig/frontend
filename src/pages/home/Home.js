@@ -17,6 +17,7 @@ class Home extends Component {
     return (
       <>
         <Hero/>
+
         <Mission id="about">
           <H3 className="home-mission">
             {homeLocales.mission_1[lang]} <br /> {homeLocales.mission_2[lang]}

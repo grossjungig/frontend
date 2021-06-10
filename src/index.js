@@ -17,6 +17,9 @@ import { StylesProvider } from '@material-ui/core/styles'
 if (!localStorage.getItem("lang")) {
   localStorage.setItem("lang", "de");
 }
+if (!localStorage.getItem("cclang")) {
+  localStorage.setItem("cclang", "de");
+}
 
 const store = createStore(authReducer, applyMiddleware(ReduxThunk));
 

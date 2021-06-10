@@ -25,6 +25,7 @@ import Details from "./components/Details/Details";
 import MapView from "./components/MapView/MapView";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import Profile from "./components/Profile";
+import Cookie from "./components/CookieConsent/Consent/Consent";
 
 import People from "./components/People/People";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
@@ -48,23 +49,24 @@ class App extends React.Component {
       <div className="app">
         <div className="app__content">
           <Navbar updatePage={this.updatePage} />
+          <Cookie />
           <Switch>
-            <Route exact path="/"><Home/></Route>
-            <Route exact path="/signup"><Signup/></Route>
-            <Route exact path="/contact"><Contact/></Route>
-            <Route exact path="/faq"><Faq/></Route>
+            <Route exact path="/"><Home /></Route>
+            <Route exact path="/signup"><Signup /></Route>
+            <Route exact path="/contact"><Contact /></Route>
+            <Route exact path="/faq"><Faq /></Route>
 
             <Route exact path="/login" render={(props) => (
               <Login history={props.history} />
-            )}/>
+            )} />
 
-            <Route exact path="/userportal" render={(props) => 
+            <Route exact path="/userportal" render={(props) =>
               <UserPortal {...props} />}
             />
 
-            <Route exact path="/berlin" render={(props) => 
+            <Route exact path="/berlin" render={(props) =>
               <Berlin {...props} />
-            }/>
+            } />
 
             <Route exact path="/people" render={(props) => <People {...props} />} />
             <Route exact path="/berlin/:id" render={(props) => <Details {...props} />} />
@@ -73,7 +75,7 @@ class App extends React.Component {
             <Route exact path="/partners" render={(props) => <Partners {...props} />} />
             <Route exact path="/how" render={(props) => <HowItWorks {...props} />} />
             <Route exact path="/impressum" render={(props) => <Impressum {...props} />} />
-            <Route exact path="/edit/:id" render={(props) => <EditProfile {...props} />}/>
+            <Route exact path="/edit/:id" render={(props) => <EditProfile {...props} />} />
             <Route exact path="/uploadphotos/:roomId" component={UploadPhotos} />
             <Route exact path="/maps" component={MapView} />
             <Route exact path="/forgotPassword" component={ForgotPassword} />
@@ -86,13 +88,12 @@ class App extends React.Component {
               <Profile
                 history={props.history}
                 {...props}
-              
-              />
-            )}/>
-            <Route exact path="/reset/:token" component={ResetPassword} />
 
+              />
+            )} />
+            <Route exact path="/reset/:token" component={ResetPassword} />
             <Route>
-              <ErrorPage/>
+              <ErrorPage />
             </Route>
           </Switch>
         </div>
