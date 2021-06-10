@@ -39,14 +39,19 @@ export const SecPanel = styled.div`
     background-size: cover;
   }
 
-  @media (min-width: 834px) {
-    margin: 2rem 5rem 10rem;
-    width: 900px;
+  @media (min-width: 1024px) {
+    margin: 2rem 4rem 10rem;
+    background-position: top;
+    
+  }
+  @media (min-width: 768px) {
+    height: 500px;
     
   }
 
   @media (min-width: 1060px) {
     padding: 10rem;
+    height: 400px;
   }
 `;
 

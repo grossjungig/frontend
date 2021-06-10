@@ -41,7 +41,7 @@ export const howCards = [
 export const card3 = [
   {
     text:
-      "We’ve learnt so much from each other.It’s nice to have someone to talk to.",
+      "We’ve learnt so much from each other. It’s nice to have someone to talk to.",
     source: "Ulrich, 64",
   },
 ];
