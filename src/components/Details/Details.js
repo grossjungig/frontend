@@ -38,7 +38,7 @@ class Details extends Component {
     event.preventDefault();
     const deleteRoomId = this.props.match.params.id;
     await axios.delete(`api/rooms/${deleteRoomId}/delete`).then(response => {
-      this.props.history.push("/berlin");
+      this.props.history.push("/rooms");
     })
   };
 

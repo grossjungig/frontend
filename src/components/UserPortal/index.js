@@ -21,7 +21,7 @@ const UserPortal = (props) => {
   if (user.role === "senior") {
     renderedLinks =[<Link to="/people">
     <button className={styles.btn}>{portalLocales.people[lang]}</button>
-    </Link>, 
+    </Link>,
     <Link to="/addroom">
       <button className={styles.btn}>
         {portalLocales.add[lang]}
@@ -36,13 +36,13 @@ const UserPortal = (props) => {
             {portalLocales.people[lang]}
           </button>
         </div>
-      </Link>, 
-      <Link to="/berlin">
+      </Link>,
+      <Link to="/rooms">
           <button className={styles.btn}>{portalLocales.rooms[lang]}</button>
       </Link>];
     } else {
       renderedLinks = [
-      <Link to="/berlin">
+      <Link to="/rooms">
       <button className={styles.btn}>{portalLocales.rooms[lang]}</button>
       </Link>,
       <Link to={`profile/${user.profile}`}>
