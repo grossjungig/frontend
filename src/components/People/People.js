@@ -1,16 +1,16 @@
 import React, {Component} from "react";
 import axios from '../../axios';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
-import {berlinDistricts, capitalizeFirstLetter} from '../../utils';
-import './index.css'
 import MenuItem from "@material-ui/core/MenuItem";
-import styles from "../Rooms/index.module.css";
-import roomsLocales from "../../locales/locales.rooms.json";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import {berlinDistricts, capitalizeFirstLetter} from '../../utils';
+import roomsLocales from "../../locales/locales.rooms.json";
+import styles from "../Rooms/index.module.css";
+import './index.css'
 
 export default class People extends Component {
   constructor(props) {
