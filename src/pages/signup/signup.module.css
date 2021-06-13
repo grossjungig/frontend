@@ -1,0 +1,32 @@
+.signup-errs {
+  color: red;
+  font-weight: 600;
+  list-style-type: initial;
+}
+
+.progress {
+  color: white;
+}
+.blue-button {
+  background-color: var(--gai-blue);
+  border: 2px solid var(--gai-blue);
+  color: var(--gai-white);
+  width: 151px;
+  border-radius: 14px;
+  padding: 10px;
+  margin: -5px -10px;
+  font-weight: 500;
+}
+.blue-button:disabled {
+  opacity: 0.5
+}
+.privacy-container{
+  display: flex;
+  padding-top:20px;
+}
+
+.privacy-label{
+  font-size:15px;
+  margin-top: 10px;
+  margin-left:10px;
+}

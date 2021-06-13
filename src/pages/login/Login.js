@@ -5,7 +5,6 @@ import "./login.css";
 import { fullBlock } from '../../shared/index.module.css';
 import loginLocales from "../../locales/locales.login.json";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import { connect } from 'react-redux';
 import { dispatchLogin } from '../../store/auth/thunks';
 
@@ -35,9 +34,11 @@ class Login extends Component {
     return (
       <div className={fullBlock}>
         <div className="login">
+          <div className="welcome-header">
           <h2>{loginLocales.welcome[lang]}</h2>
-          <h3>{loginLocales.prompt[lang]}</h3>
-
+          <h3>{loginLocales.prompt[lang]}</h3></div>
+          <div className="link-container">
+          <p className="sign-in-up-link">{loginLocales.doNotHave[lang]} <Link to="/signup">{loginLocales.signUp[lang]}</Link></p></div>
           <form className="login-styles" onSubmit={this.handleSubmit}>
             <TextField
               margin="normal"
@@ -67,17 +68,9 @@ class Login extends Component {
                 {loginLocales.click[lang]}
               </Link>
             </h5>
-            <Button
-              style={{
-                backgroundColor: "#365da7",
-                color: "white",
-              }}
-              variant="contained"
-              id="login-submit-button"
-              type="submit"
-            >
+            <button className="blue-button">
               {loginLocales.login[lang]}
-            </Button>
+            </button>
           </form>
 
           {this.props.errMsg && <p className="warning">{this.props.errMsg}</p>}

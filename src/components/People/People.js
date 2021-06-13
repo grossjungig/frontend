@@ -11,6 +11,7 @@ import {berlinDistricts, capitalizeFirstLetter} from '../../utils';
 import roomsLocales from "../../locales/locales.rooms.json";
 import styles from "../Rooms/index.module.css";
 import './index.css'
+import peopleLocales from "../../locales/locales.people.json";
 
 export default class People extends Component {
   constructor(props) {
@@ -176,7 +177,6 @@ export default class People extends Component {
             </Button>{" "}
           </div>
         </div>
-
         <ul className="profile-card-container">
           {this.state[display].map((profile) => {
             return (
@@ -191,12 +191,12 @@ export default class People extends Component {
                 <div>
                   <h3>{capitalizeFirstLetter(profile.name)}, {profile.age}</h3>
                   <div>
-                    <span className="profile-card__item">would live in:</span>
+                    <span className="profile-card__item">{peopleLocales.would_live[lang]}</span>
                     {profile.district}
                   </div>
                   <p>
-                    <span className="profile-card__item">can pay around:</span>
-                    {profile.price}€ (monthly)
+                    <span className="profile-card__item">{peopleLocales.can_pay[lang]}</span>
+                    {profile.price}€ ({peopleLocales.monthly[lang]})
                   </p>
                 </div>
               </li>

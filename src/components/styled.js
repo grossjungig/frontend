@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React from "react";
 import { NavHashLink } from 'react-router-hash-link';
-import { Link } from "react-router-dom";
 
 export const Card2 = ({ title, image, text, alt }) => (
   <Card2Root>
@@ -19,13 +18,6 @@ export const Card3 = ({ text, source }) => (
 );
 
 export const HashLink = styled(NavHashLink)`
-  text-decoration: none;
-  font-size: 15px;
-  color: black;
-  // margin: auto;
-  // padding: 0rem 1rem;
-`;
-export const PageLink = styled(Link)`
   text-decoration: none;
   font-size: 15px;
   color: black;
@@ -125,11 +117,17 @@ const Card3Root = styled.div`
     width: 100%;
     height: 150px;
   }
+  @media(min-width: 1024px){
+    left:0%;
+    top:80%;
+    padding:10px;
+    height:150px;
+    width:490px;
+  }
 `;
 
 const Card3Text = styled.div`
   font-style: normal;
-  text-align: justify;
   color: #202020;
   font-weight: 600;
   @media (max-width: 834px) {
@@ -142,6 +140,9 @@ const Card3Text = styled.div`
     text-align: center;
     color: rgb(32, 32, 32);
     margin-top: 1.5rem;
+  }
+  @media (min-width: 1024px){
+    margin-top:10px;
   }
 `;
 
@@ -160,6 +161,7 @@ const Card3Source = styled.div`
   @media (min-width: 768px) {
     font-size: 16px;
     right: 2rem;
+    bottom:10px;
   }
 
   /* for desktop*/
@@ -167,6 +169,5 @@ const Card3Source = styled.div`
     font-size: 18px;
     position: static;
     text-align: right;
-    padding-top: 1.5rem;
   }
 `;

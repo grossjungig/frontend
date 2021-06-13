@@ -19,27 +19,37 @@ const UserPortal = (props) => {
 
   let renderedLinks;
   if (user.role === "senior") {
-    renderedLinks = <Link to="/addroom">
+    renderedLinks =[<Link to="/people">
+    <button className={styles.btn}>{portalLocales.people[lang]}</button>
+    </Link>,
+    <Link to="/addroom">
       <button className={styles.btn}>
         {portalLocales.add[lang]}
       </button>
-    </Link>;
+    </Link>,   ];
   } else {
     // role = junior
     if (!user.profile) {
-      renderedLinks = <Link to="/addprofile">
+      renderedLinks = [ <Link to="/addprofile">
         <div>
           <button className={styles.btn}>
-            {portalLocales.profile[lang]}
+            {portalLocales.people[lang]}
           </button>
         </div>
-      </Link>;
+      </Link>,
+      <Link to="/rooms">
+          <button className={styles.btn}>{portalLocales.rooms[lang]}</button>
+      </Link>];
     } else {
-      renderedLinks = <Link to={`profile/${user.profile}`}>
+      renderedLinks = [
+      <Link to="/rooms">
+      <button className={styles.btn}>{portalLocales.rooms[lang]}</button>
+      </Link>,
+      <Link to={`profile/${user.profile}`}>
         <button className={styles.btn}>
           {portalLocales.profile2[lang]}{" "}
         </button>
-      </Link>;
+      </Link>];
     }
   }
 
@@ -47,9 +57,6 @@ const UserPortal = (props) => {
     <div className={fullBlock}>
       <div className={styles.main}>
         <h1 className={styles.title}>{portalLocales.greeting[lang]} {user.name}!</h1>
-        <Link to="/rooms">
-          <button className={styles.btn}>{portalLocales.rooms[lang]}</button>
-        </Link>
         {renderedLinks}
       </div>
     </div>

@@ -7,6 +7,8 @@ import resetLocales from "../../locales/locales.resetpassword.json";
 import { fullBlock } from '../../shared/index.module.css';
 import styles from './index.module.css';
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import IconButton from '@material-ui/core/IconButton';
 
 const loading = {
   margin: "1em",
@@ -23,7 +25,8 @@ export default class ResetPassword extends Component {
       updated: false,
       isLoading: true,
       error: false,
-      inputType: "password"
+      inputType: "password",
+      showPassword:false
     };
   }
 
@@ -60,6 +63,11 @@ export default class ResetPassword extends Component {
       [name]: event.target.value,
     });
   };
+  handleTogglePassword = () => {
+    this.setState({
+      showPassword: !this.state.showPassword
+    })
+  }
 
   updatePassword = async (e) => {
     e.preventDefault();
@@ -100,7 +108,7 @@ export default class ResetPassword extends Component {
       return (
         <div>
           <div style={loading}>
-            <h4>Problem resetting password. Please send another reset link.</h4>
+            <h4>{resetLocales.problem[lang]}</h4>
             <Link to="/">
               <Button label={resetLocales.return[lang]}></Button>
             </Link>
@@ -128,14 +136,16 @@ export default class ResetPassword extends Component {
               label="password"
               onChange={this.handleChange("password")}
               value={password}
-              type={this.state.inputType}
+              type={this.state.showPassword ? "text" : "password"}
               placeholder="Enter a new password"
             />
-            <VisibilityIcon
+            <IconButton
               className={styles.showIcon}
-              onMouseDown={() => {this.setState({ inputType: "text" })}}
-              onMouseUp={() => {this.setState({ inputType: "password" })}}
-            />
+              aria-label="toggle password visibility"
+              onClick={this.handleTogglePassword}
+            >
+            {this.state.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+            </IconButton>
           </div>
           <Button 
             type="submit"

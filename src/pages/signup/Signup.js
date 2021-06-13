@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "../../pages/login/login.css";
-import './signup.css';
+import styles from './signup.module.css';
 import { fullBlock } from '../../shared/index.module.css';
 import axios from '../../axios';
 import signupLocales from "../../locales/locales.signup.json";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Checkbox from '@material-ui/core/Checkbox';
+import { Link } from "react-router-dom";
+
 
 class Signup extends Component {
   state = {
@@ -20,6 +22,7 @@ class Signup extends Component {
     pwdConfirm: "",
     role: "senior",
     messages: [],
+    checked:false,
     isLoading: false,
   };
 
@@ -27,7 +30,6 @@ class Signup extends Component {
     event.preventDefault();
     this.setState({ isLoading: true });
     const lang = localStorage.getItem("lang");
-
     axios
       .post('api/auth/signup', {
         name: this.state.name,
@@ -55,16 +57,24 @@ class Signup extends Component {
     });
   };
 
+  handleCheck = (event) =>{
+    this.setState({
+      checked: event.target.checked
+    })
+   
+  }
+
   onChange = (event) => {
     this.setState({ role: event.target.value });
   };
 
   render() {
+    console.log('state', this.state.checked)
     const lang = localStorage.getItem("lang");
 
     let errorMessages = <p>Hello World</p>;
     if (this.state.messages) {
-      errorMessages = <ul className="signup-errs">{
+      errorMessages = <ul className={styles["signup-errs"]}>{
         this.state.messages.map((msg, i) => <li key={i}>{signupLocales.errors[msg][lang]}</li>)
       }</ul>
     }
@@ -73,8 +83,11 @@ class Signup extends Component {
       <div className={fullBlock}>
         <div className="x"></div>
         <div className="login">
+          <div className="welcome-header">
           <h2>{signupLocales.welcome[lang]}</h2>{" "}
-          <h3>{signupLocales.title[lang]}</h3>
+          <h3>{signupLocales.title[lang]}</h3></div>
+          <div className="link-container">
+          <p className="sign-in-up-link">{signupLocales.alreadyHave[lang]} <Link to="/login">{signupLocales.login[lang]}</Link></p></div>
           <form className="login-styles" noValidate autoComplete="off">
             <TextField
               margin="normal"
@@ -144,21 +157,21 @@ class Signup extends Component {
               <MenuItem value={"youth"}>{signupLocales.youth[lang]}</MenuItem>
             </Select>
             <br />
-            <Button
-              style={{
-                backgroundColor: "#365da7",
-                color: "white",
-              }}
-              variant="contained"
-              onClick={this.handleSubmit}
-              type="submit"
-            >
-              {
-                this.state.isLoading ?
-                <CircularProgress className="progress" size={30} /> :
-                signupLocales.submit[lang]
-              }
-            </Button>
+            <div className={styles["privacy-container"]}>
+            <Checkbox 
+            color="primary"
+            checked={this.state.checked}
+            onChange={this.handleCheck}
+            />
+            <label className={styles["privacy-label"]}>{signupLocales.joining[lang]} <Link to='/termsandconditions'>{signupLocales.privacy_policy[lang]}</Link></label>
+            </div>
+            <button disabled={!this.state.checked ? true: false} onClick={this.handleSubmit} className={styles["blue-button"]}>
+            {
+              this.state.isLoading ?
+              <CircularProgress className={styles.progress} size={30} /> :
+              signupLocales.submit[lang]
+            }
+          </button>
           </form>
           {errorMessages}
         </div>

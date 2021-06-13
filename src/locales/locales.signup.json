@@ -43,7 +43,27 @@
     "en": "Your account has been created. You can now log in!",
     "de": "Ihr Konto wurde erstellt. Sie können sich jetzt einloggen!"
   },
+  "login": {
+    "en": "Log In",
+    "de": "Anmelden"
+  },
+  "alreadyHave": {
+    "en": "Already have an account?",
+    "de": "Haben Sie bereits ein Konto?"
+  },
+  "joining":{
+    "en":"By joining, you agree with our Terms and Conditions and ",
+    "de":"Mit der Anmeldung erklären Sie sich mit unseren Allgemeinen Geschäftsbedingungen und der Datenschutzerklärung einverstanden, "
+  },
+  "privacy_policy":{
+    "en":"Privacy Policy.",
+    "de":"Datenschutz."
+  },
   "errors": {
+    "PRIVACY_POLICY":{
+      "en":"Please agree to privacy policy",
+      "de":"Agree please"
+    },
     "INVALID_NAME": {
       "en": "Name is not valid.",
       "de": "Name ist ungültig."

@@ -1,0 +1,35 @@
+.partner-label{
+background: #F9F8F8;
+border-top-right-radius:  64px;
+border-bottom-right-radius: 64px;
+padding: 15px 23px;
+margin-top: 10px;
+margin-bottom: 10px;
+margin-right: 1.25rem;
+display: flex;
+width: fit-content;
+line-height: 2rem;
+}
+
+.partner-label > p {
+    margin-left: 25px; 
+}
+
+.partner-label > img {
+    width: 64px;
+    height: auto;
+}
+
+@media only screen and (max-width: 1000px) {
+    .partner-label
+    {
+        padding: 10px 23px;
+    } 
+}
+
+@media only screen and (max-width: 578px) {
+    .partner-label
+    {
+        line-height: 1.2rem;
+    }   
+}

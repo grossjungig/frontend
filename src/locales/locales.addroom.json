@@ -1,32 +1,113 @@
 {
-  "title": {
-    "en": "Rooms",
-    "de": "Zimmer"
-  },
-  "district": {
-    "en": "District",
-    "de": "Bezirk"
-  },
-  "add": {
-    "en": "Add New Room",
-    "de": "Neues Zimmer hinzufügen"
-  },
-  "search": {
-    "en": "Search Room by Postcode",
-    "de": "Zimmer sortieren beim Postleitzahl"
-  },
-  "placeholder": {
-    "en": "Search by Postcode",
-    "de": "Zimmer beim Postleitzahl"
-  },
+  "options": {
+    "en": [
+        { "value": "Shopping", "label": "Shopping" },
+        { "value": "Cooking or baking", "label": "Cooking or baking" },
+        { "value": "Help with digital devices", "label": "Help with digital devices" },
+        { "value": "Moving the lawn", "label": "Moving the lawn" },
+        { "value": "Gardening", "label": "Gardening" },
+        { "value": "Reading out loud", "label": "Reading out loud" },
+        { "value": "Car transportation", "label": "Car transportation" },
+        { "value": "Cleaning or domestic help", "label": "Cleaning or domestic help" },
+        { "value": "Accompanying on walks", "label": "Accompanying on walks" },
+        { "value": "Taking care of pets", "label": "Taking care of pets" },
+        { "value": "Taking care of Seniors", "label": "Taking care of Seniors" }
+    ],
+    "de": [
+        { "value": "Shopping", "label": "Einkaufen" },
+        { "value": "Cooking or baking", "label": "Kochen oder Backen" },
+        { "value": "Help with digital devices", "label": "Hilfe bei digitalen Geräten" },
+        { "value": "Moving the lawn", "label": "Bewegen des Rasens" },
+        { "value": "Gardening", "label": "Gartenarbeit" },
+        { "value": "Reading out loud", "label": "Laut vorlesen" },
+        { "value": "Car transportation", "label": "Autotransport" },
+        { "value": "Cleaning or domestic help", "label": "Reinigung oder Haushaltshilfe" },
+        { "value": "Accompanying on walks", "label": "Begleitung auf Spaziergängen" },
+        { "value": "Taking care of pets", "label": "Pflege von Haustieren" },
+        { "value": "Taking care of Seniors", "label": "Pflege von Senioren" }
+    ]
+},
+"name": {
+  "en": "First Name",
+  "de": "Vorname"
+},
+"gender": {
+  "en": "Gender",
+  "de": "Geschlecht"
+},
+"select": {
+  "en": "Select",
+  "de": "Auswählen"
+},
+"male": {
+  "en": "Male",
+  "de": "Männliche"
+},
+"female": {
+  "en": "Female",
+  "de": "weiblich"
+},
+"divers": {
+  "en": "Divers",
+  "de": "Taucher"
+},
+"age": {
+  "en": "Age",
+  "de": "Lebensjahr"
+},
+"birthdate": {
+  "en": "Birthdate",
+  "de": "Lebensjahr"
+},
 
-  "suburb": {
-    "en": "Suburb",
-    "de": "Stadteil"
-  },
+"roomTitle": {
+  "en": "Room Title",
+  "de": "Zimmer Titel"
+},
+"expectedHelp": {
+  "en": "Expected Help",
+  "de": "Erwartete Hilfe"
+},
+"about": {
+  "en": "About me (max 120 signs)",
+  "de": "Über mich (max. 120 Zeichen)"
+},
+"district": {
+  "en": "District",
+  "de": "Bezirk"
+},
 
-  "postcode": {
-    "en": "Postcode",
-    "de": "Postleitzahl"
-  }
+"address": {
+  "en": "Address",
+  "de": "Adresse"
+},
+"postcode": {
+  "en": "Postcode",
+  "de": "Postleitzahl"
+},
+"price": {
+  "en": "Price",
+  "de": "Preis"
+},
+"phoneNumber": {
+  "en": "Phone Number",
+  "de": "Telefonnummer"
+},
+"picture": {
+  "en": "Picture",
+  "de": "Bild"
+},
+"uploadPicture": {
+  "en": "Upload the picture",
+  "de": "Hochladen des Bildes"
+},
+"cancel": {
+  "en": "Cancel",
+  "de": "bbrechen"
+},
+"submit": {
+  "en": "Submit",
+  "de": "Weiter"
+}
+
 }

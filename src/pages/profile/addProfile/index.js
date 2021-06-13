@@ -9,6 +9,7 @@ import Checkbox from '../../../components/Checkbox/Checkbox'
 import { dispatchCheckAuth } from "../../../store/auth/thunks";
 import dummyAvatar from '../../../assets/images/dummy-avatar.jpg'
 import { generateBase64FromImage } from '../../../utils';
+import ProfileLocales from "../../../locales/locales.profile.json";
 
 
 class AddProfile extends Component {
@@ -98,17 +99,18 @@ class AddProfile extends Component {
 
   render() {
     const { name, age, gender, price, description, district, avatarPreview, avatarPreviewErr, message } = this.state;
-
+    const lang = localStorage.getItem("lang");
+    console.log('helps',offeredhelps[lang] )
     return (
       <div className={fullBlock}>
         <div className={styles.main}>
           <div className={styles.msg}>
-            Please do not leave your personal identifying information here.
+          {ProfileLocales.info[lang]}  
           </div>
 
           <div className={styles.form}>
             <div className={styles.formCtrl}>
-              <label htmlFor="name">First Name</label>
+              <label htmlFor="name"> {ProfileLocales.name2[lang]} </label>
               <input
                 type="text"
                 name="name"
@@ -120,7 +122,7 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="gender">Gender</label>
+              <label htmlFor="gender"> {ProfileLocales.gender[lang]}  </label>
               <select
                 name="gender"
                 type="select"
@@ -128,15 +130,15 @@ class AddProfile extends Component {
                 onChange={this.setFormState}
                 className={styles.input}
               >
-                <option  value="" disabled>Select</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="divers">Divers</option>
+                <option  value="" disabled> {ProfileLocales.select[lang]}  </option>
+                <option value="male"> {ProfileLocales.male[lang]}  </option>
+                <option value="female"> {ProfileLocales.female[lang]}  </option>
+                <option value="divers"> {ProfileLocales.divers[lang]}  </option>
               </select>
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="age">Age</label>
+              <label htmlFor="age"> {ProfileLocales.age[lang]}  </label>
               <input
                 type="text"
                 name="age"
@@ -148,7 +150,7 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="price">Requested room price</label>
+              <label htmlFor="price"> {ProfileLocales.requestedPrice[lang]}  </label>
               <input
                 type="number"
                 name="price"
@@ -160,7 +162,7 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="district" >About me (max 120 signs)</label>
+              <label htmlFor="district" > {ProfileLocales.about[lang]} </label>
               <textarea
                 type="text"
                 name="description"
@@ -174,16 +176,16 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="help">Offered Help</label>
+              <label htmlFor="help"> {ProfileLocales.offeredHelp[lang]} </label>
               <div>
-              {offeredhelps.map(help => (
-                <Checkbox key={help.key} item={help} handleHelp={this.handleHelp} />
+              {offeredhelps[lang].map(help => (
+                <Checkbox key={help.name} item={help} handleHelp={this.handleHelp} />
               ))}
               </div>
             </div>
 
             <div className={styles.formCtrl}>
-              <label htmlFor="select">Prefered district</label>
+              <label htmlFor="select"> {ProfileLocales.district[lang]} </label>
               <select
                 name="district"
                 type="select"
@@ -192,7 +194,7 @@ class AddProfile extends Component {
                 placeholder="Select"
                 className={styles.input}
               >
-                <option value="" disabled>Select</option>
+                <option value="" disabled> {ProfileLocales.select[lang]}  </option>
                 <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
                 <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
                 <option value="Lichtenberg">Lichtenberg</option>
@@ -209,7 +211,7 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.formCtrl}>
-              <label >Profile picture</label>
+              <label > {ProfileLocales.picture[lang]}  Profile picture</label>
               <img src={avatarPreview} className={styles.avatarImg} alt="avatar"/>
               <input
                   type="file"
@@ -221,11 +223,11 @@ class AddProfile extends Component {
             </div>
 
             <div className={styles.msg}>
-              By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.
+            {ProfileLocales.policy[lang]} 
             </div>
 
             <div>
-              <button type="submit" className={styles.btn} onClick={this.onSubmit} >Submit</button>
+              <button type="submit" className={styles.btn} onClick={this.onSubmit} >{ProfileLocales.submit[lang]} </button>
             </div>
           </div>
           {message && <p>{message}</p>}

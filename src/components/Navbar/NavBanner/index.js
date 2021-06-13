@@ -10,7 +10,7 @@ export default () => {
             <span>{ banner.text[lang] }</span>
             <div className="nav-banner__phone">
                 <PhoneIcon/>
-                <span>+49 30 55231271</span>
+                <a href="tel:+493055231271"><span>30 55231271</span></a>
             </div>
         </div>
     )

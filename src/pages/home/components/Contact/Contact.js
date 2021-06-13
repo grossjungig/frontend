@@ -26,12 +26,12 @@ class Contact extends Component {
             <div className={styles.iconContainer}>
               
               <div className={styles.icon}>
-                <img src={email} alt="contact-logo"/>
+                <a href="mailto:info@grossjungig.de"><img src={email} alt="contact-logo"/></a>
                 <h4>info@grossjungig.de</h4>
               </div>
               <div className={styles.icon}>
-                <img src={phone} alt="contact-logo"/>
-                <h4>+49 30 55231271</h4>
+              <a  href="tel:+493055231271"><img src={phone} alt="contact-logo"/></a>
+                <h4>30 55231271</h4>
               </div>
             </div>
             <h3>{homeLocales.social[lang]}:</h3>
@@ -42,8 +42,8 @@ class Contact extends Component {
               <a href={homeLocales.social.linkedIn} target={'_blank'} rel={'noreferrer'}><img src={linkedIn} alt="linkedIn-logo"/></a>
             </div>
             <h3>{homeLocales.whatsapp[lang]}</h3>
-<div>              <img src={whatsapp} alt="contact-logo"/>
-                <h4>+49 1575 1587481</h4>
+<div>              <a href="https://wa.me/4915751587481"><img src={whatsapp} alt="contact-logo"/></a>
+                <h4>1575 1587481</h4>
 </div>
           </div>
         </div>
