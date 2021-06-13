@@ -59,7 +59,7 @@ class Hero extends Component {
       <div id="hero-home" className={"main"}>
         <div style={{backgroundImage: `url(${heroBanner})`}} className={"background"}>
           <div className={"formContainer"}>
-            <div className={"hero-header"}>
+            <div className={"header"}>
               <h1>{homeLocales.find[lang]}</h1>
             </div>
 
