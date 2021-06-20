@@ -1,0 +1,35 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999999999;
+}
+
+.popup_inner {
+    position:fixed;
+    background: #365FA7;
+    width: 45%;
+    height: auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 16px;
+    margin-top: 10vh;
+}
+
+.close {
+    background: #F9F8F8;
+    padding:10px;
+    border-radius: 100%;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width:18px;
+    height:18px;
+    display: flex;
+    justify-content: center;
+
+}
