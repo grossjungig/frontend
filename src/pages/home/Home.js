@@ -23,7 +23,10 @@ class Home extends Component {
   componentDidMount() {
     setTimeout(() => { this.setState({ test: !this.state.test }) }, 1000);
   }
-
+  myCallback = (dataFromChild) => {
+    console.log("callback", dataFromChild)
+    this.setState({test:dataFromChild})
+}
   render() {
     console.log('testtt',this.state.test)
     const lang = localStorage.getItem("lang");
@@ -33,7 +36,7 @@ class Home extends Component {
       {this.state.test===true ?
       
       
-   <NewsLetter></NewsLetter>
+   <NewsLetter lang={lang} callbackFromParent={this.myCallback}></NewsLetter>
       
       
       
