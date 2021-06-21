@@ -1,10 +1,30 @@
-.main {
+/* .fullBlock{
+    width: 100vw;
+} */
+
+.upperHead{
+    margin: 10px 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin: auto;
 }
+
+.lineone{
+    display: flex;
+}
+
+.arrowBackIcon{
+    cursor: pointer;
+    width: 30px !important;
+    height: 30px !important;
+    margin: 10px 10px!important;
+}
+
+.addRequest{
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 10px
+}
+
+
 
 .msg {
     background-color: var(--gai-white);
@@ -13,43 +33,467 @@
     border-radius: 8px;
     color: var(--gai-blue);
     font-size: 10px;
-    max-width: 700px;
+    max-width: 310px;
     margin-bottom: 10px;
+    padding: 16px;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.msgBottom{
+    background-color: var(--gai-white);
+    border: 1px solid #365fa7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: var(--gai-blue);
+    font-size: 12px;
+    max-width: 420px;
+    margin: 20px 10px;
     padding: 16px;
     width: fit-content;
 }
 
-.form {
-    width: 70%;
+.main {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 900px;
+    padding: 10px 10px;
+    margin: auto;
 }
 
-.form > * {
+.profiletitle{
+    font-size: 24px;
+    font-weight: 600;
     margin-bottom: 10px;
-    margin-top: 10px;
 }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    width: 100%;
+}
+
 
 .formCtrl label {
     display: block;
 }
 
-.input {
-    width: 250px;
-    height: 30px;
+.quesPrimary{
+    display: grid;
+    margin: 10px 10px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 20px;
+    grid-template-areas:
+        "a b"
+        "c d"
+        "e f"
+        "g h";
+    align-items: start; 
+
 }
 
-.avatarImg {
+.roomQuestions{
+    display: grid;
+    margin: 10px 10px;
+    margin-top: 20px;;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 20px;
+    grid-template-areas:
+        "i j"
+        "k l";
+    align-items: start; 
+
+}
+.PartnerQuestions{
+    display: grid;
+    margin: 10px 10px;
+    margin-top: 20px;;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 20px;
+    grid-template-areas:
+        "m a";
+    align-items: start; 
+
+}
+
+.quesPrimary > div > label, .roomQuestions > div > label {
+    display: block;
+    margin: 5px 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.ExtraQuestions{
+    display: grid;
+    margin: 10px 10px;
+    margin-top: 20px;;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 20px;
+    grid-template-areas:
+        "n a"
+        "o a"
+        "p a";
+    align-items: start; 
+
+}
+
+.PartnerQuestions > div > label {
+
+    display: block;
+    margin: 5px 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.ExtraQuestions > div > label {
+
+    display: block;
+    margin: 5px 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.name{
+    grid-area: a;
+}
+.dob{
+    grid-area: b;
+}
+.gender{
+    grid-area: c;
+}
+.langs{
+    grid-area: d;
+}
+.occupation{
+    grid-area: e;
+}
+.doYouSmoke{
+    grid-area: f;
+}
+.accomodation{
+    grid-area: g;
+}
+.pets{
+    grid-area: h;
+}
+.size{
+    grid-area: i;
+}
+.price{
+    grid-area: j;
+}
+.exptdDate{
+    grid-area: k;
+}
+.exptdDuration{
+    grid-area: l;
+}
+
+.partner{
+    grid-area: m;
+}
+.findaboutus{
+    grid-area: n;
+}
+.liketoshare{
+    grid-area: o;
+}
+.phonenumber{
+    grid-area: p;
+}
+
+.input {
+    width: 100% !important;
+    background-color: #F9F8F8 !important;
+}
+
+.inputRight{
+    float: right;
+    width: 400px;
+    background-color: #F9F8F8 !important;
+}
+
+.hobby{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(440px, 40px));
+}
+
+.hobbyText{
+    margin: 10px 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.roomHeading{
+    margin: 10px 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.extraHeading{
+    margin: 10px 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.partnerHeading{
+    margin: 10px 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.roomsubHeading{
+    margin: 10px 10px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.district{
+    margin: 10px 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.dates{
+    background-color: #F9F8F8;
+    padding: 12px 14px;
+    width: 420px;
+    border-radius: 4px;
+    border: 1px rgb(181, 179, 179) solid;
+}
+.room{
+    margin:-5px 0px;
+}
+.help{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(440px, 40px));
+}
+.districtc{
+    display: grid;
+    grid-template-columns: repeat(1, minmax(900px, 40px));
+}
+
+.helpText{
+    margin: 10px 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.checkboxesrow{
+    display: flex;
+}
+
+.checkboxesleft{
+    margin-right: 150px;
+}
+
+.checkboxesright{
+    margin-left: 150px;
+}
+
+.profileBanner{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+    width: 420px;
+}
+
+.banner{
+   margin-left: auto;
+   font-weight: 500;
+   font-size: 10px;
+}
+
+.profileButton{
     width: 100%;
 }
 
-.btn {
+.avatarImg {
+    margin: 10px 10px;
+    width: 420px;
+}
+
+.buttonGroup{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 10px 10px;
+}
+
+.avatar-preview-err{
+    color: red;
+    font-weight: 600;
+}
+
+.leftButton{
+    margin-left: auto;
+}
+.photo > label {
+    display: block;
+    margin: 10px 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.photo{
+    display: flex;
+    flex-direction: column;
+}
+
+.btnBlue {
     background-color: var(--gai-blue);
     border: 1px solid var(--gai-blue);
     border-radius: 5px;
     font-weight: 500;
+    width: 150px;
     color: var(--gai-white);
     padding: 10px 20px;
-    width: 100%;
-    margin: 5px;
+}
+
+.btnWhite{
+    background-color: var(--gai-white);
+    border: 1px solid var(--gai-blue);
+    border-radius: 5px;
+    font-weight: 500;
+    width: 150px;
+    color: var(--gai-blue);
+    padding: 10px 20px;
+}
+
+@media only screen and (max-width: 1023px) {
+    .upperHead{
+        margin: 10px 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .msg{
+        margin: 10px auto ;
+    }
+
+    .main{
+        margin: auto auto;
+        width: 600px;
+        /* justify-content: left; */
+    }
+    
+    .quesPrimary{
+        display: grid;
+        grid-template-columns: repeat(1, 0.5fr);
+        grid-template-areas:
+            "a" "b" "c" "d" "e" "f" "g" "h";
+        align-items: start; 
+    
+    }
+
+    .hobbySection{
+        margin-top: 10px;
+    }
+
+    .hobby{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(450px, 40px));
+    }
+
+    .help{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(450px, 40px));
+    }
+
+    .helpSection{
+        margin: 20px auto;
+    }
+
+    .inputRight{
+        float: left;
+        width: 450px;
+        margin: auto 10px;
+        background-color: #F9F8F8 !important;
+    }
+
+    .roomQuestions{
+        display: grid;
+        grid-template-columns: repeat(1, 0.777fr);
+        column-gap: 40px;
+        row-gap: 20px;
+        grid-template-areas:
+            "i" "j"
+            "k" "l";
+        align-items: start; 
+    
+    }
+
+    .PartnerQuestions{
+        display: grid;
+        grid-template-columns: repeat(1, 0.777fr);
+        column-gap: 40px;
+        row-gap: 20px;
+        grid-template-areas:
+            "m";
+        align-items: start; 
+    
+    }
+
+    .ExtraQuestions{
+        display: grid;
+        grid-template-columns: repeat(1, 0.777fr);
+        column-gap: 40px;
+        row-gap: 20px;
+        grid-template-areas:
+            "n" "o" "p";
+        align-items: start; 
+    
+    }
+
+    .avatarImg{
+        width: 450px;
+    }
+
+    @media only screen and (max-width: 624px){
+        .main{
+            width: 400px;
+        }
+
+        .input{
+            width: 380px !important;
+        }
+
+        .inputRight{
+            float: left;
+            margin: auto 10px;
+            width: 380px;
+            background-color: #F9F8F8 !important;
+        }
+
+        .roomQuestions, .PartnerQuestions, .ExtraQuestions{
+            grid-template-columns: (1, 0.5fr);
+        }
+
+        .avatarImg{
+            width: 380px;
+        }
+        .hobby{
+            display: grid;
+            grid-template-columns: repeat(1, minmax(350px, 40px));
+        }
+
+        .dates{
+            width: 350px;
+        }
+    
+        .districtlabel{
+           /* margin-right: 20px; */
+           width: 50%;
+        }
+
+        .profileBanner{
+            width: 380px;
+        }
+
+        .help{
+            display: grid;
+            grid-template-columns: repeat(1, minmax(350px, 40px));
+        }
+    }
+
 }
