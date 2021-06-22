@@ -224,7 +224,7 @@ class AddProfile extends Component {
         <div className={styles.upperHead}>
           <div className={styles.lineone}>
             <ArrowBackIcon className={styles.arrowBackIcon} onClick={this.props.history.goBack} />
-            <span className={styles.addRequest}>Add My Request</span>
+            <span className={styles.addRequest}>{ProfileLocales.request[lang]}</span>
           </div>
           <div className={styles.msg}>
             {ProfileLocales.info[lang]}
@@ -235,14 +235,14 @@ class AddProfile extends Component {
           <form className={styles.form} onSubmit={this.onSubmitForm}>
             <div className={styles.quesPrimary}>
               <div className={styles.name}>
-                <label htmlFor="name"> {ProfileLocales.name[lang]} </label>
+                <label htmlFor="name"> <span className={styles.red}>* </span>{ProfileLocales.name[lang]} </label>
                 <TextField name="name" id="name" value={name}
                   onChange={this.setFormState}
                   variant="outlined" size="small" required className={styles.input} />
               </div>
 
               <div className="dob">
-                <label htmlFor="dob"> {ProfileLocales.dob[lang]} </label>
+                <label htmlFor="dob"> <span className={styles.red}>*</span> {ProfileLocales.dob[lang]} </label>
                 {/* <TextField name="dob" id="dob" value={dob} onChange={(date) => {
                   this.setFormState(date);
                   console.log(date);
@@ -254,7 +254,7 @@ class AddProfile extends Component {
               </div>
 
               <div className={styles.gender}>
-                <label htmlFor="gender"> {ProfileLocales.gender[lang]} </label>
+                <label htmlFor="gender"> <span className={styles.red}>* </span>{ProfileLocales.gender[lang]} </label>
                 <TextField name="gender" id="gender" value={gender}
                   onChange={this.setFormState} select
                   variant="outlined" size="small" className={styles.input} required>
@@ -267,21 +267,21 @@ class AddProfile extends Component {
               </div>
 
               <div className={styles.langs}>
-                <label htmlFor="langs"> {ProfileLocales.langs[lang]} </label>
+                <label htmlFor="langs"><span className={styles.red}>* </span>{ProfileLocales.langs[lang]} </label>
                 <TextField name="langs" id="langs" value={langs}
                   onChange={this.setFormState}
                   variant="outlined" size="small" className={styles.input} required />
               </div>
 
               <div className={styles.occupation}>
-                <label htmlFor="occupation"> {ProfileLocales.occupation[lang]} </label>
+                <label htmlFor="occupation"> <span className={styles.red}>* </span>{ProfileLocales.occupation[lang]} </label>
                 <TextField name="occupation" id="occupation" value={occupation}
                   onChange={this.setFormState}
                   variant="outlined" size="small" className={styles.input} required />
               </div>
 
               <div className={styles.doYouSmoke}>
-                <label htmlFor="doYouSmoke"> {ProfileLocales.doYouSmoke[lang]} </label>
+                <label htmlFor="doYouSmoke"><span className={styles.red}>* </span>{ProfileLocales.doYouSmoke[lang]} </label>
                 <TextField name="doYouSmoke" select id="doYouSmoke" value={doYouSmoke}
                   onChange={this.setFormState}
                   variant="outlined" size="small" className={styles.input} required >
@@ -294,7 +294,7 @@ class AddProfile extends Component {
               </div>
 
               <div className={styles.accomodation}>
-                <label htmlFor="accomodation"> {ProfileLocales.accomodation[lang]} </label>
+                <label htmlFor="accomodation"><span className={styles.red}>* </span>{ProfileLocales.accomodation[lang]} </label>
                 <TextField name="accomodation" select id="accomodation" value={accomodation}
                   onChange={this.setFormState}
                   variant="outlined" size="small" className={styles.input} required>
@@ -322,7 +322,7 @@ class AddProfile extends Component {
 
             <div className={styles.hobbySection}>
               <div className={styles.hobbyText}>
-                <label htmlFor="hobby"> {ProfileLocales.hobbyText[lang]}
+                <label htmlFor="hobby"> <span className={styles.red}>*</span> {ProfileLocales.hobbyText[lang]}
                 </label>
               </div>
 
@@ -355,7 +355,7 @@ class AddProfile extends Component {
 
             <div className={styles.helpSection}>
               <div className={styles.helpText}>
-                <label htmlFor="hobby"> {ProfileLocales.helpText[lang]}
+                <label htmlFor="hobby"> <span className={styles.red}>*</span> {ProfileLocales.helpText[lang]}
                 </label>
               </div>
 
@@ -387,7 +387,7 @@ class AddProfile extends Component {
 
             <div className={styles.roomSection}>
               <div className={styles.roomHeading}>{ProfileLocales.RoomHeading[lang]}</div>
-              <div className={styles.roomsubHeading}>{ProfileLocales.Roomsubheading[lang]}</div>
+              <div className={styles.roomsubHeading}> <span className={styles.red}>*</span> {ProfileLocales.Roomsubheading[lang]}</div>
               <div>
                 <RadioGroup aria-label="rooms" name="rooms" defaultValue='one-room-flat' value={this.value} required onChange={this.handleChangeRooms}>
                   <FormControlLabel value="one-room-flat" control={<Radio color="primary" />} label={ProfileLocales.oneroom[lang]}
@@ -398,25 +398,25 @@ class AddProfile extends Component {
               </div>
               <div className={styles.roomQuestions}>
                 <div className={styles.size}>
-                  <label htmlFor="size"> {ProfileLocales.size[lang]} </label>
+                  <label htmlFor="size"> <span className={styles.red}>*</span> {ProfileLocales.size[lang]} </label>
                   <TextField name="size" id="size" value={size}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input} required />
                 </div>
                 <div className={styles.price}>
-                  <label htmlFor="price"> {ProfileLocales.price[lang]} </label>
+                  <label htmlFor="price"> <span className={styles.red}>*</span> {ProfileLocales.price[lang]} </label>
                   <TextField name="price" id="price" value={price}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input} required />
                 </div>
                 <div className={styles.exptdDate}>
-                  <label htmlFor="exptdDate"> {ProfileLocales.exptdDate[lang]} </label>
+                  <label htmlFor="exptdDate"> <span className={styles.red}>*</span> {ProfileLocales.exptdDate[lang]} </label>
                   <TextField name="exptdDate" id="exptdDate" value={exptdDate}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input} required />
                 </div>
                 <div className={styles.exptdDuration}>
-                  <label htmlFor="exptdDuration"> {ProfileLocales.exptdDuration[lang]} </label>
+                  <label htmlFor="exptdDuration"> <span className={styles.red}>*</span> {ProfileLocales.exptdDuration[lang]} </label>
                   <TextField name="exptdDuration" id="exptdDuration" value={exptdDuration}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input} required />
@@ -428,7 +428,7 @@ class AddProfile extends Component {
 
             <div className={styles.districtSection}>
               <div className={styles.district}>
-                <label htmlFor="district">  {ProfileLocales.district[lang]}
+                <label htmlFor="district"> <span className={styles.red}>*</span> {ProfileLocales.district[lang]}
                 </label>
               </div>
 
@@ -449,7 +449,7 @@ class AddProfile extends Component {
               <div className={styles.partnerHeading}>{ProfileLocales.PartnerHeading[lang]}</div>
               <div className={styles.PartnerQuestions}>
                 <div className={styles.partner}>
-                  <label htmlFor="partner"> {ProfileLocales.partner[lang]} </label>
+                  <label htmlFor="partner"> <span className={styles.red}>*</span> {ProfileLocales.partner[lang]} </label>
                   <TextField name="partner" id="partner" value={partner}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input} required />
@@ -479,7 +479,7 @@ class AddProfile extends Component {
                     name="phonenumber"
                     id="phonenumber"
                     data-cy="user-phone"
-                    defaultCountry={"in"}
+                    defaultCountry={"de"}
                     value={phonenumber}
                     onChange={(event) =>
                       this.setState({

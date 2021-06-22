@@ -1,7 +1,3 @@
-/* .fullBlock{
-    width: 100vw;
-} */
-
 .upperHead{
     margin: 10px 20px;
     display: flex;
@@ -24,7 +20,9 @@
     margin: 10px 10px
 }
 
-
+.red{
+    color: red;
+}
 
 .msg {
     background-color: var(--gai-white);
@@ -367,14 +365,30 @@
         flex-direction: column;
     }
 
-    .msg{
+    .msg, .msgBottom{
         margin: 10px auto ;
     }
 
     .main{
         margin: auto auto;
         width: 600px;
-        /* justify-content: left; */
+    }
+    .input{
+        width: 550px !important;
+    }
+
+    .inputRight{
+        float: left;
+        width: 550px!important;
+        margin: auto 10px;
+    }
+
+    .dates{
+        width: 520px;
+    }
+
+    .profileBanner{
+        width: 550px;
     }
     
     .quesPrimary{
@@ -392,28 +406,21 @@
 
     .hobby{
         display: grid;
-        grid-template-columns: repeat(1, minmax(450px, 40px));
+        grid-template-columns: repeat(1, minmax(550px, 40px));
     }
 
     .help{
         display: grid;
-        grid-template-columns: repeat(1, minmax(450px, 40px));
+        grid-template-columns: repeat(1, minmax(550px, 40px));
     }
 
     .helpSection{
         margin: 20px auto;
     }
 
-    .inputRight{
-        float: left;
-        width: 450px;
-        margin: auto 10px;
-        background-color: #F9F8F8 !important;
-    }
-
     .roomQuestions{
         display: grid;
-        grid-template-columns: repeat(1, 0.777fr);
+        grid-template-columns: repeat(1, 0.5fr);
         column-gap: 40px;
         row-gap: 20px;
         grid-template-areas:
@@ -425,7 +432,7 @@
 
     .PartnerQuestions{
         display: grid;
-        grid-template-columns: repeat(1, 0.777fr);
+        grid-template-columns: repeat(1, 0.5fr);
         column-gap: 40px;
         row-gap: 20px;
         grid-template-areas:
@@ -436,7 +443,7 @@
 
     .ExtraQuestions{
         display: grid;
-        grid-template-columns: repeat(1, 0.777fr);
+        grid-template-columns: repeat(1, 0.5fr);
         column-gap: 40px;
         row-gap: 20px;
         grid-template-areas:
@@ -446,7 +453,7 @@
     }
 
     .avatarImg{
-        width: 450px;
+        width: 550px;
     }
 
     @media only screen and (max-width: 624px){
@@ -460,13 +467,7 @@
 
         .inputRight{
             float: left;
-            margin: auto 10px;
-            width: 380px;
-            background-color: #F9F8F8 !important;
-        }
-
-        .roomQuestions, .PartnerQuestions, .ExtraQuestions{
-            grid-template-columns: (1, 0.5fr);
+            width: 380px !important;
         }
 
         .avatarImg{
@@ -482,8 +483,7 @@
         }
     
         .districtlabel{
-           /* margin-right: 20px; */
-           width: 50%;
+           width: 40%;
         }
 
         .profileBanner{
@@ -493,6 +493,131 @@
         .help{
             display: grid;
             grid-template-columns: repeat(1, minmax(350px, 40px));
+        }
+    }
+
+    @media only screen and (max-width: 424px){
+        .main{
+            width: 350px;
+        }
+
+        .input{
+            width: 330px !important;
+        }
+
+        .inputRight{
+            width: 330px !important;
+            background-color: #F9F8F8 !important;
+        }
+
+        .avatarImg{
+            width: 330px;
+        }
+        .hobby{
+            display: grid;
+            grid-template-columns: repeat(1, minmax(300px, 40px));
+        }
+
+        .dates{
+            width: 300px;
+        }
+
+        .profileBanner{
+            width: 330px;
+        }
+
+        .help{
+            display: grid;
+            grid-template-columns: repeat(1, minmax(300px, 40px));
+        }
+    }
+
+    @media only screen and (max-width: 369px){
+        .main{
+            width: 320px;
+        }
+
+        .input{
+            width: 300px !important;
+        }
+
+        .inputRight{
+            float: left;
+            margin: auto 10px;
+            width: 300px !important;
+            background-color: #F9F8F8 !important;
+        }
+
+        .avatarImg{
+            width: 300px;
+        }
+        .hobby{
+            display: grid;
+            grid-template-columns: repeat(1, minmax(300px, 40px));
+        }
+
+        .dates{
+            width: 270px;
+        }
+    
+        .districtlabel{
+           width: 36%;
+        }
+
+        .profileBanner{
+            width: 300px;
+        }
+
+        .help{
+            display: grid;
+            grid-template-columns: repeat(1, minmax(300px, 40px));
+        }
+
+        .buttonGroup{
+            margin: auto 0;
+        }
+    }
+
+    @media only screen and (max-width: 321px){
+        .main{
+            width: 270px;
+        }
+
+        .input{
+            width: 250px !important;
+        }
+
+        .inputRight{
+            width: 250px !important;
+        }
+
+        .avatarImg{
+            width: 250px;
+        }
+        .hobby{
+            display: grid;
+            grid-template-columns: repeat(1, minmax(250px, 40px));
+        }
+
+        .btnWhite{
+            width: 130px;
+        }
+        .btnBlue{
+            width: 130px;
+        }
+
+        .dates{
+            width: 220px;
+        }
+    
+
+        .profileBanner{
+            width: 250px;
+        }
+
+        .help{
+            display: grid;
+            grid-template-columns: repeat(1, minmax(250px, 40px));
         }
     }
 

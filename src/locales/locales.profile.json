@@ -3,45 +3,49 @@
         "de": " ______[Name des Benutzers], erzählen Sie uns etwas über sich:",
         "en": "  ______ [name of the user], tell us about you:"
     },
+    "request": {
+        "de": "Meine Anfrage hinzufügen",
+        "en": "Add My Request"
+    },
     "name": {
-        "en": "*Name",
-        "de": "*Name"
+        "en": "Name",
+        "de": "Name"
     },
     "dob": {
-        "en": "*Date of birth",
-        "de": "*Geburtsdatum"
+        "en": "Date of birth",
+        "de": "Geburtsdatum"
     },
     "gender": {
-        "en": "*Gender",
-        "de": "*Geschlecht"
+        "en": "Gender",
+        "de": "Geschlecht"
     },
     "langs": {
-        "en": "*Languages that you speak and level",
-        "de": "*Sprachen, die Du sprichst, und das Niveau "
+        "en": "Languages that you speak and level",
+        "de": "Sprachen, die Du sprichst, und das Niveau "
     },
     "occupation": {
-        "en": "*Occupation",
-        "de": "*Beruf oder Studium "
+        "en": "Occupation",
+        "de": "Beruf oder Studium "
     },
     "doYouSmoke": {
-        "en": "*Do You Smoke ? ",
-        "de": "*Rauchst Du? "
+        "en": "Do You Smoke ? ",
+        "de": "Rauchst Du? "
     },
     "accomodation": {
-        "en": "*Are you looking for accommdation only for yourself? ",
-        "de": "*Sie suchen eine Unterkunft oder Zimmer nur für sich selbst? "
+        "en": "Are you looking for accommdation only for yourself? ",
+        "de": "Sie suchen eine Unterkunft oder Zimmer nur für sich selbst? "
     },
     "pets": {
         "en": "Do you have pets with which you would like to move in?",
         "de": "Hast Du Haustiere, mit welchen Du ins neue Zimmer einziehen möchtest?"
     },
     "hobbyText": {
-        "en": "*What hobbies and interests do you have?",
-        "de": "*Welche Hobbys und Interessen hast Du?"
+        "en": "What hobbies and interests do you have?",
+        "de": "Welche Hobbys und Interessen hast Du?"
     },
     "helpText": {
-        "en": "*What kind of help could you offer to an older person with whom you will be living together (the more you help, the less you pay):",
-        "de": "*Welche Hilfe kannst Du der mitwohnenden älteren Person anbieten (je mehr Du hilfst, desto weniger zahlst Du) :"
+        "en": "What kind of help could you offer to an older person with whom you will be living together (the more you help, the less you pay):",
+        "de": "Welche Hilfe kannst Du der mitwohnenden älteren Person anbieten (je mehr Du hilfst, desto weniger zahlst Du) :"
     },
     "PartnerHeading": {
         "en": "______ [name of the user], tell us about the person you would like to live with : ",
@@ -56,8 +60,8 @@
         "de": "Zusätzliche Informationen - (nur für die Verwaltung sichtbar):"
     },
     "Roomsubheading": {
-        "en": "*What kind of accommodation are you looking for?",
-        "de": "*Welche Unterkunft suchst Du?"
+        "en": "What kind of accommodation are you looking for?",
+        "de": "Welche Unterkunft suchst Du?"
     },
     "findaboutus": {
         "en": "How did you find out about us?",
@@ -72,8 +76,8 @@
         "de":"Gibt es noch etwas, das Sie teilen möchten?"
     },
     "partner": {
-        "en": "*Who is an ideal flatmate for you?",
-        "de":"*Wer ist ein/e ideale/r Mitbewohner/in für Sie?"
+        "en": "Who is an ideal flatmate for you?",
+        "de":"Wer ist ein/e ideale/r Mitbewohner/in für Sie?"
     },
     "info": {
         "de": "Bitte hinterlassen Sie hier keine persönlichen Daten, sondern wählen Sie nur mehrere Bezirke aus, für die Sie sich interessieren. In das Textfeld schreiben Sie bitte Ihren Vornamen, Ihr Alter und Ihr Geschlecht, sowie eine kurze Beschreibung Ihrer Persönlichkeit, eine kurze Beschreibung des Hilfsangebots und eine Zimmerpreisanfrage.",
@@ -88,24 +92,24 @@
         "en": "two-room-flat"
     },
     "size": {
-        "de": "*Wie groß in Quadratmetern sollte das Zimmer und die gesamte Wohnung sein?",
-        "en": "*What should be the size in sq m of the room and the whole apartment?"
+        "de": "Wie groß in Quadratmetern sollte das Zimmer und die gesamte Wohnung sein?",
+        "en": "What should be the size in sq m of the room and the whole apartment?"
     },
     "price": {
-        "de": "*Welches ist der monatliche Höchstpreis, den Du bereit bist zu zahlen (in Euro)?",
-        "en": "*What is the maximum monthly price you are willing to pay (in EUR)?"
+        "de": "Welches ist der monatliche Höchstpreis, den Du bereit bist zu zahlen (in Euro)?",
+        "en": "What is the maximum monthly price you are willing to pay (in EUR)?"
     },
     "exptdDate": {
-        "de": "*Wann möchtest Du einziehen?",
-        "en": "*When are you looking to move in?"
+        "de": "Wann möchtest Du einziehen?",
+        "en": "When are you looking to move in?"
     },
     "exptdDuration": {
-        "de": "*Für wie lange brauchst Du diese Unterkunft?",
-        "en": "*For how long do you need this room?"
+        "de": "Für wie lange brauchst Du diese Unterkunft?",
+        "en": "For how long do you need this room?"
     },
     "district": {
-        "de": "*Berliner Bezirk, wo Du ein Zimmer/eine Wohnung suchst-",
-        "en": "*Area of Berlin, in which you are looking for a room/apartment-"
+        "de": "Berliner Bezirk, wo Du ein Zimmer/eine Wohnung suchst-",
+        "en": "Area of Berlin, in which you are looking for a room/apartment-"
     },
     "select": {
         "en": "Select",
@@ -123,29 +127,9 @@
         "en": "Divers",
         "de": "Taucher"
     },
-    "requestedPrice": {
-        "en": "Requested room price",
-        "de": "Gewünschter Zimmerpreis"
-    },
-    "about": {
-        "en": "About me (max 120 signs)",
-        "de": "Über mich (max. 120 Zeichen)"
-    },
-    "offeredHelp": {
-        "en": "Offered Help",
-        "de": "Angebotene Hilfe"
-    },
-    "getHelp": {
-        "en": "Help I'd like to get",
-        "de": "Erwartete Hilfe"
-    },
-    "picture": {
+      "picture": {
         "en": "Profile Picture",
         "de": "ProfilBild"
-    },
-    "cancel": {
-        "en": "Cancel",
-        "de": "bbrechen"
     },
     "submit": {
         "en": "Submit",
@@ -153,18 +137,10 @@
     },
     "dismiss": {
         "en": "Dismiss",
-        "de": "Dismiss"
+        "de": "Entlassen"
     },
     "policy": {
         "en": "By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.",
         "de": "Mit der Erstellung einer Anfrage stimmen Sie unseren Geschäftsbedingungen und Datenschutzrichtlinien zu."
-    },
-    "name2": {
-        "en": "First Name",
-        "de": "VorName"
-    },
-    "bio": {
-        "en": "Bio",
-        "de": "Bio"
     }
 }
