@@ -49,7 +49,8 @@ class AddProfile extends Component {
     avatarPreview: dummyAvatar,
     avatarFile: {},
     avatarPreviewErr: '',
-    signedRequest: ''
+    signedRequest: '',
+    messages: [],
   };
 
 
@@ -182,6 +183,7 @@ class AddProfile extends Component {
       this.props.history.push(`/profile/${res.data._id}`);
     }).catch((err) => {
       console.log(err);
+      this.setState({ messages: err.response.data.data });
     });
 
 
@@ -189,10 +191,16 @@ class AddProfile extends Component {
 
 
   render() {
-    const { name, dob, gender, langs, occupation, doYouSmoke, accomodation, pets, hobbies, otherhobbies, helps, otherhelp, room, size, price, exptdDate, exptdDuration, district, partner, findaboutus, liketoshare, phonenumber, avatarPreview, avatarPreviewErr, message } = this.state;
+    const { name, dob, gender, langs, occupation, doYouSmoke, accomodation, pets, hobbies, otherhobbies, helps, otherhelp, room, size, price, exptdDate, exptdDuration, district, partner, findaboutus, liketoshare, phonenumber, avatarPreview, avatarPreviewErr, messages } = this.state;
     const lang = localStorage.getItem("lang");
     console.log('helps', offeredhelps[lang]);
     console.log(hobbies);
+    let errorMessages = <p>Hello World</p>;
+    if (this.state.messages) {
+      errorMessages = <ul className={styles["signup-errs"]}>{
+        this.state.messages.map((msg, i) => <li key={i}>{ProfileLocales.errors[msg][lang]}</li>)
+      }</ul>
+    }
 
     const sex = [
       {
@@ -270,7 +278,10 @@ class AddProfile extends Component {
                 <label htmlFor="langs"> {ProfileLocales.langs[lang]} </label>
                 <TextField name="langs" id="langs" value={langs}
                   onChange={this.setFormState}
-                  variant="outlined" size="small" className={styles.input} required />
+                  variant="outlined" size="small" className={styles.input} required  error={
+                    this.state.messages.includes('INVALID_LANGUAGE') ||
+                    this.state.messages.includes('INVALID_LANGUAGE_TYPE')
+                  }/>
               </div>
 
               <div className={styles.occupation}>
@@ -524,7 +535,7 @@ class AddProfile extends Component {
               </div>
             </div>
           </form>
-          {message && <p>{message}</p>}
+          {messages && <p>{messages}</p>}
 
         </div>
       </div >

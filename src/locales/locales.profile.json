@@ -166,5 +166,15 @@
     "bio": {
         "en": "Bio",
         "de": "Bio"
+    },
+    "errors": {
+        "INVALID_LANGUAGE":{
+        "en":"Please enter the language",
+        "de":"Bla bla bla"
+        },
+        "INVALID_LANGUAGE_TYPE":{
+            "en":"Please enter a correct language",
+            "de":"bla bla bla"
+        }
     }
 }
