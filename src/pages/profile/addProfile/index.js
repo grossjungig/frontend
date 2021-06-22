@@ -189,7 +189,7 @@ class AddProfile extends Component {
 
 
   render() {
-    const { name, dob, gender, langs, occupation, doYouSmoke, accomodation, pets, hobbies, otherhobbies, helps, otherhelp, room, size, price, exptdDate, exptdDuration, district, partner, findaboutus, liketoshare, phonenumber, avatarPreview, avatarPreviewErr, message } = this.state;
+    const { name, dob, gender, langs, occupation, doYouSmoke, accomodation, pets, hobbies, otherhobbies, otherhelp, size, price, exptdDate, exptdDuration, partner, findaboutus, liketoshare, phonenumber, avatarPreview, avatarPreviewErr, message } = this.state;
     const lang = localStorage.getItem("lang");
     console.log('helps', offeredhelps[lang]);
     console.log(hobbies);
