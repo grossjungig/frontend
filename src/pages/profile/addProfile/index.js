@@ -179,7 +179,7 @@ class AddProfile extends Component {
               <label htmlFor="help"> {ProfileLocales.offeredHelp[lang]} </label>
               <div>
               {offeredhelps[lang].map(help => (
-                <Checkbox key={help.name} item={help} handleHelp={this.handleHelp} />
+                <Checkbox key={help.key} item={help} handleHelp={this.handleHelp} />
               ))}
               </div>
             </div>

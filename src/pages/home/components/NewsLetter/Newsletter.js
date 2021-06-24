@@ -14,7 +14,6 @@ class NewsLetter extends Component {
         });
     };
     close = (event) => {
-        console.log("closee")
         this.props.callbackFromParent(false);
     };
     render() {
@@ -22,12 +21,12 @@ class NewsLetter extends Component {
         return (
             <div className={nlStyles.popup}>
                 <div className={nlStyles.popup_inner}>
-                    <div>
-                        <div>
-                            <img src={bg} style={{ height: "80vh" }} alt="newsletter"></img>
+                   
+                        <div className={nlStyles.div_img}>
+                            <img src={bg} className={nlStyles.img}  alt="newsletter"></img>
                         </div>
 
-                        <div style={{ display: "flex" }}>
+                        <div className={nlStyles.div_text} style={{ display: "flex" }}>
                             <div className={nlStyles.close}>
                                 <button onClick={(e) => this.close(e)}>X</button>
                             </div>
@@ -70,7 +69,7 @@ class NewsLetter extends Component {
                             </div>
                         </div>
 
-                    </div>
+                  
                 </div>
             </div>
 

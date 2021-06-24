@@ -38,35 +38,6 @@
         "de": "Profil bearbeiten"
     },
 
-
-    "options": {
-        "en": [
-            { "value": "Shopping", "label": "Shopping" },
-            { "value": "Cooking or baking", "label": "Cooking or baking" },
-            { "value": "Help with digital devices", "label": "Help with digital devices" },
-            { "value": "Moving the lawn", "label": "Moving the lawn" },
-            { "value": "Gardening", "label": "Gardening" },
-            { "value": "Reading out loud", "label": "Reading out loud" },
-            { "value": "Car transportation", "label": "Car transportation" },
-            { "value": "Cleaning or domestic help", "label": "Cleaning or domestic help" },
-            { "value": "Accompanying on walks", "label": "Accompanying on walks" },
-            { "value": "Taking care of pets", "label": "Taking care of pets" },
-            { "value": "Taking care of Seniors", "label": "Taking care of Seniors" }
-        ],
-        "de": [
-            { "value": "Shopping", "label": "Einkaufen" },
-            { "value": "Cooking or baking", "label": "Kochen oder Backen" },
-            { "value": "Help with digital devices", "label": "Hilfe bei digitalen Geräten" },
-            { "value": "Moving the lawn", "label": "Bewegen des Rasens" },
-            { "value": "Gardening", "label": "Gartenarbeit" },
-            { "value": "Reading out loud", "label": "Laut vorlesen" },
-            { "value": "Car transportation", "label": "Autotransport" },
-            { "value": "Cleaning or domestic help", "label": "Reinigung oder Haushaltshilfe" },
-            { "value": "Accompanying on walks", "label": "Begleitung auf Spaziergängen" },
-            { "value": "Taking care of pets", "label": "Pflege von Haustieren" },
-            { "value": "Taking care of Seniors", "label": "Pflege von Senioren" }
-        ]
-    },
     "info": {
         "en": "Please do not leave your personal identifying information here.",
         "de": "Bitte hinterlassen Sie Ihre persönlichen Identifizierungsdaten nicht hier."

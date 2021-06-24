@@ -24,11 +24,9 @@ class Home extends Component {
     setTimeout(() => { this.setState({ test: !this.state.test }) }, 1000);
   }
   myCallback = (dataFromChild) => {
-    console.log("callback", dataFromChild)
     this.setState({test:dataFromChild})
 }
   render() {
-    console.log('testtt',this.state.test)
     const lang = localStorage.getItem("lang");
     return (
       <>
