@@ -81,7 +81,7 @@ class App extends React.Component {
             <Route exact path="/forgotPassword" component={ForgotPassword} />
             <Route
               exact
-              path="/addProfile"
+              path="/addprofile"
               render={(props) => <AddProfile {...props} />}
             />
             <Route exact path="/profile/:id" render={(props) => (

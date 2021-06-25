@@ -1,78 +1,116 @@
 {
-
+    "title": {
+        "de": ", erzählen Sie uns etwas über sich:",
+        "en": ", tell us about you:"
+    },
+    "request": {
+        "de": "Meine Anfrage hinzufügen",
+        "en": "Add My Request"
+    },
     "name": {
         "en": "Name",
         "de": "Name"
     },
-    "age": {
-        "en": "Age",
-        "de": "Lebensjahr"
-    },
-    "request": {
-        "en": "If you are interested in this request, please contact info@grossjungig.de or +49 30 55231271",
-        "de": "Wenn Sie an dieser Anfrage interessiert sind, wenden Sie sich bitte an info@grossjungig.de oder +49 30 55231271"
+    "dob": {
+        "en": "Date of birth",
+        "de": "Geburtsdatum"
     },
     "gender": {
         "en": "Gender",
         "de": "Geschlecht"
     },
-    "pays": {
-        "en": "Pays",
-        "de": "Zahlt"
+    "langs": {
+        "en": "Languages that you speak and level",
+        "de": "Sprachen, die Du sprichst, und das Niveau "
     },
-    "would_live": {
-        "en": "Would live in",
-        "de": "Würde in leben"
+    "occupation": {
+        "en": "Occupation",
+        "de": "Beruf oder Studium "
     },
-    "help_with": {
-        "en": "Help with",
-        "de": "Hilfe mit"
-      },
-   
-    "deleteProfile": {
-        "en": "Delete Profile",
-        "de": "Profil löschen"
+    "doYouSmoke": {
+        "en": "Do You Smoke ? ",
+        "de": "Rauchst Du? "
     },
-    "editProfile": {
-        "en": "Edit Profile",
-        "de": "Profil bearbeiten"
+    "accomodation": {
+        "en": "Are you looking for accommdation only for yourself? ",
+        "de": "Sie suchen eine Unterkunft oder Zimmer nur für sich selbst? "
     },
-
-
-    "options": {
-        "en": [
-            { "value": "Shopping", "label": "Shopping" },
-            { "value": "Cooking or baking", "label": "Cooking or baking" },
-            { "value": "Help with digital devices", "label": "Help with digital devices" },
-            { "value": "Moving the lawn", "label": "Moving the lawn" },
-            { "value": "Gardening", "label": "Gardening" },
-            { "value": "Reading out loud", "label": "Reading out loud" },
-            { "value": "Car transportation", "label": "Car transportation" },
-            { "value": "Cleaning or domestic help", "label": "Cleaning or domestic help" },
-            { "value": "Accompanying on walks", "label": "Accompanying on walks" },
-            { "value": "Taking care of pets", "label": "Taking care of pets" },
-            { "value": "Taking care of Seniors", "label": "Taking care of Seniors" }
-        ],
-        "de": [
-            { "value": "Shopping", "label": "Einkaufen" },
-            { "value": "Cooking or baking", "label": "Kochen oder Backen" },
-            { "value": "Help with digital devices", "label": "Hilfe bei digitalen Geräten" },
-            { "value": "Moving the lawn", "label": "Bewegen des Rasens" },
-            { "value": "Gardening", "label": "Gartenarbeit" },
-            { "value": "Reading out loud", "label": "Laut vorlesen" },
-            { "value": "Car transportation", "label": "Autotransport" },
-            { "value": "Cleaning or domestic help", "label": "Reinigung oder Haushaltshilfe" },
-            { "value": "Accompanying on walks", "label": "Begleitung auf Spaziergängen" },
-            { "value": "Taking care of pets", "label": "Pflege von Haustieren" },
-            { "value": "Taking care of Seniors", "label": "Pflege von Senioren" }
-        ]
+    "pets": {
+        "en": "Do you have pets with which you would like to move in?",
+        "de": "Hast Du Haustiere, mit welchen Du ins neue Zimmer einziehen möchtest?"
+    },
+    "hobbyText": {
+        "en": "What hobbies and interests do you have?",
+        "de": "Welche Hobbys und Interessen hast Du?"
+    },
+    "helpText": {
+        "en": "What kind of help could you offer to an older person with whom you will be living together (the more you help, the less you pay):",
+        "de": "Welche Hilfe kannst Du der mitwohnenden älteren Person anbieten (je mehr Du hilfst, desto weniger zahlst Du) :"
+    },
+    "PartnerHeading": {
+        "en": ", tell us about the person you would like to live with : ",
+        "de": ", erzähl uns über die Person, mit der Du gerne zusammen leben würdest :"
+    },
+    "RoomHeading": {
+        "en": ", tell us about the room you are looking for:",
+        "de": ", erzähl uns über das Zimmer, das Du suchst:"
+    },
+    "ExtraHeading": {
+        "en": "Additional information – (visible ony for administration):",
+        "de": "Zusätzliche Informationen - (nur für die Verwaltung sichtbar):"
+    },
+    "Roomsubheading": {
+        "en": "What kind of accommodation are you looking for?",
+        "de": "Welche Unterkunft suchst Du?"
+    },
+    "findaboutus": {
+        "en": "How did you find out about us?",
+        "de":"Wo haben Sie über uns erfahren? "
+    },
+    "phonenumber": {
+        "en": "Please leave your phone number so that we can contact you",
+        "de":"Bitte hinterlassen Sie Ihre Mobilnummer, damit wir Sie kontaktieren können"
+    },
+    "liketoshare": {
+        "en": "Is there anything else you would like to share?",
+        "de":"Gibt es noch etwas, das Sie teilen möchten?"
+    },
+    "partner": {
+        "en": "Who is an ideal flatmate for you?",
+        "de":"Wer ist ein/e ideale/r Mitbewohner/in für Sie?"
     },
     "info": {
-        "en": "Please do not leave your personal identifying information here.",
-        "de": "Bitte hinterlassen Sie Ihre persönlichen Identifizierungsdaten nicht hier."
+        "de": "Bitte hinterlassen Sie hier keine persönlichen Daten, sondern wählen Sie nur mehrere Bezirke aus, für die Sie sich interessieren. In das Textfeld schreiben Sie bitte Ihren Vornamen, Ihr Alter und Ihr Geschlecht, sowie eine kurze Beschreibung Ihrer Persönlichkeit, eine kurze Beschreibung des Hilfsangebots und eine Zimmerpreisanfrage.",
+        "en": "Please do not leave your personal identifying information here, you can only select several districts you are interested in, and in the text box, please write your first name, age and gender, as well as a brief description of personality, brief help offer description, and room price request."
     },
-    
-    
+    "oneroom": {
+        "de": "1-Zimmer-Wohnung",
+        "en": "one-room-flat"
+    },
+    "tworoom": {
+        "de": "2-Zimmer-Wohnung",
+        "en": "two-room-flat"
+    },
+    "size": {
+        "de": "Wie groß in Quadratmetern sollte das Zimmer und die gesamte Wohnung sein?",
+        "en": "What should be the size in sq m of the room and the whole apartment?"
+    },
+    "price": {
+        "de": "Welches ist der monatliche Höchstpreis, den Du bereit bist zu zahlen (in Euro)?",
+        "en": "What is the maximum monthly price you are willing to pay (in EUR)?"
+    },
+    "exptdDate": {
+        "de": "Wann möchtest Du einziehen?",
+        "en": "When are you looking to move in?"
+    },
+    "exptdDuration": {
+        "de": "Für wie lange brauchst Du diese Unterkunft?",
+        "en": "For how long do you need this room?"
+    },
+    "district": {
+        "de": "Berliner Bezirk, wo Du ein Zimmer/eine Wohnung suchst-",
+        "en": "Area of Berlin, in which you are looking for a room/apartment-"
+    },
     "select": {
         "en": "Select",
         "de": "Auswählen"
@@ -89,54 +127,41 @@
         "en": "Divers",
         "de": "Taucher"
     },
-    
-    "requestedPrice": {
-        "en": "Requested room price",
-        "de": "Gewünschter Zimmerpreis"
-    },
-    "about": {
-        "en": "About me (max 120 signs)",
-        "de": "Über mich (max. 120 Zeichen)"
-    },
-    "offeredHelp": {
-        "en": "Offered Help",
-        "de": "Angebotene Hilfe"
-    },
-    "getHelp": {
-        "en": "Help I'd like to get",
-        "de": "Erwartete Hilfe"
-    },
-    "district": {
-        "en": "Prefered District",
-        "de": "Bevorzugter Bezirk"
-    },
-    "picture": {
+      "picture": {
         "en": "Profile Picture",
         "de": "ProfilBild"
-    },
-    "cancel": {
-        "en": "Cancel",
-        "de": "bbrechen"
     },
     "submit": {
         "en": "Submit",
         "de": "Weiter"
     },
+    "dismiss": {
+        "en": "Dismiss",
+        "de": "Entlassen"
+    },
     "policy": {
         "en": "By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.",
         "de": "Mit der Erstellung einer Anfrage stimmen Sie unseren Geschäftsbedingungen und Datenschutzrichtlinien zu."
     },
-    
-    "name2": {
-        "en": "First Name",
-        "de": "VorName"
+    "hobbyError":{
+        "en": "Please select at least 3 hobbies",
+        "de":"Bitte wählen Sie mindestens 3 Hobbys aus"
     },
-    
-    
-    
-    "bio": {
-        "en": "Bio",
-        "de": "Bio"
+    "helpError":{
+        "en":"Please select at least 2 helps",
+        "de": "Bitte wählen Sie mindestens 2 Hilfen aus"
+    },
+    "selectError":{
+        "en":"Please select one",
+        "de":"Bitte wählen Sie eine"
+    },
+    "numberError":{
+        "en":"Please enter a valid phone number",
+        "de":"Bitte geben Sie eine gültige Rufnummer ein"
+    },
+    "errors":{
+        "en":"Please fill missing fields",
+        "de":"Fehlende Felder bitte ausfüllen"
     }
-  
-  }
+
+}

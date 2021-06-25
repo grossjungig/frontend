@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { dispatchCheckAuth } from "../../store/auth/thunks";
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg';
 import { generateBase64FromImage } from '../../utils';
-import offeredhelps from '../../assets/checkbox/help';
+import offeredhelps from '../../assets/profile/help';
 import Checkbox from '../Checkbox/Checkbox'
 import ProfileLocales from "../../locales/locales.profile.json";
 
