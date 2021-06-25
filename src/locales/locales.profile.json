@@ -1,7 +1,7 @@
 {
     "title": {
-        "de": " ______[Name des Benutzers], erzählen Sie uns etwas über sich:",
-        "en": "  ______ [name of the user], tell us about you:"
+        "de": ", erzählen Sie uns etwas über sich:",
+        "en": ", tell us about you:"
     },
     "request": {
         "de": "Meine Anfrage hinzufügen",
@@ -48,12 +48,12 @@
         "de": "Welche Hilfe kannst Du der mitwohnenden älteren Person anbieten (je mehr Du hilfst, desto weniger zahlst Du) :"
     },
     "PartnerHeading": {
-        "en": "______ [name of the user], tell us about the person you would like to live with : ",
-        "de": "______[name of the user], erzähl uns über die Person, mit der Du gerne zusammen leben würdest :"
+        "en": ", tell us about the person you would like to live with : ",
+        "de": ", erzähl uns über die Person, mit der Du gerne zusammen leben würdest :"
     },
     "RoomHeading": {
-        "en": "______ [name of the user], tell us about the room you are looking for:",
-        "de": "______[name of the user], erzähl uns über das Zimmer, das Du suchst:"
+        "en": ", tell us about the room you are looking for:",
+        "de": ", erzähl uns über das Zimmer, das Du suchst:"
     },
     "ExtraHeading": {
         "en": "Additional information – (visible ony for administration):",
@@ -142,14 +142,26 @@
     "policy": {
         "en": "By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.",
         "de": "Mit der Erstellung einer Anfrage stimmen Sie unseren Geschäftsbedingungen und Datenschutzrichtlinien zu."
-    "errors": {
-        "INVALID_LANGUAGE":{
-        "en":"Please enter the language",
-        "de":"Bla bla bla"
-        },
-        "INVALID_LANGUAGE_TYPE":{
-            "en":"Please enter a correct language",
-            "de":"bla bla bla"
-        }
+    },
+    "hobbyError":{
+        "en": "Please select at least 3 hobbies",
+        "de":"Bitte wählen Sie mindestens 3 Hobbys aus"
+    },
+    "helpError":{
+        "en":"Please select at least 2 helps",
+        "de": "Bitte wählen Sie mindestens 2 Hilfen aus"
+    },
+    "selectError":{
+        "en":"Please select one",
+        "de":"Bitte wählen Sie eine"
+    },
+    "numberError":{
+        "en":"Please enter a valid phone number",
+        "de":"Bitte geben Sie eine gültige Rufnummer ein"
+    },
+    "errors":{
+        "en":"Please fill missing fields",
+        "de":"Fehlende Felder bitte ausfüllen"
     }
+
 }

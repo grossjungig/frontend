@@ -23,35 +23,34 @@ import ProfileLocales from "../../../locales/locales.profile.json";
 
 class AddProfile extends Component {
   state = {
-    name: "",
     dob: null,
     gender: "",
-    langs: "",
+    language: "",
     occupation: "",
-    doYouSmoke: "",
+    smoke: "",
     accomodation: "",
     pets: "",
-    theHobbies: [],
-    otherhobbies: "",
+    hobbies: [],
+    otherHobbies: "",
     offeredHelp: [],
-    otherhelp: "",
+    otherHelp: "",
     rooms: "",
     size: "",
     price: "",
-    exptdDate: "",
-    exptdDuration: "",
-    districtList: "",
-    partner: "",
-    findaboutus: "",
-    liketoshare: "",
-    phonenumber: null,
+    moveInDate: "",
+    duration: "",
+    district: "",
+    idealFlatmate: "",
+    howFound: "",
+    additionalInfo: "",
+    phoneNumber: "",
     avatarUrl: '',
     avatarPreview: dummyAvatar,
     avatarFile: {},
     avatarPreviewErr: '',
     signedRequest: '',
+    messages:[]
   };
-
 
   setFormState = (event) => {
     this.setState({
@@ -63,7 +62,6 @@ class AddProfile extends Component {
   handleHelp = ({ target }) => {
     const help = target.name;
     const isChecked = target.checked;
-    console.log(isChecked);
     if (isChecked) {
       this.setState({ offeredHelp: [...this.state.offeredHelp, help] });
     } else {
@@ -76,11 +74,10 @@ class AddProfile extends Component {
   handleHobby = ({ target }) => {
     const hobby = target.name;
     const isChecked = target.checked;
-    console.log(isChecked);
     if (isChecked) {
-      this.setState({ theHobbies: [...this.state.theHobbies, hobby] });
+      this.setState({ hobbies: [...this.state.hobbies, hobby] });
     } else {
-      this.setState({ theHobbies: this.state.theHobbies.filter((item) => item !== hobby) });
+      this.setState({ hobbies: this.state.hobbies.filter((item) => item !== hobby) });
     }
 
   };
@@ -88,11 +85,10 @@ class AddProfile extends Component {
   handleDistrict = ({ target }) => {
     const district = target.name;
     const isChecked = target.checked;
-    console.log(isChecked);
     if (isChecked) {
-      this.setState({ districtList: [...this.state.districtList, district] });
+      this.setState({ district: [...this.state.district, district] });
     } else {
-      this.setState({ districtList: this.state.districtList.filter((item) => item !== district) });
+      this.setState({ district: this.state.district.filter((item) => item !== district) });
     }
 
   };
@@ -146,42 +142,42 @@ class AddProfile extends Component {
 
   onSubmitForm = (event) => {
     event.preventDefault();
+
     // Direct Upload to AWS S3
     const { signedRequest, avatarFile } = this.state;
     newAxios.put(signedRequest, avatarFile)
-      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
-
+      .catch(err => { this.setState({ avatarPreviewErr: err.message }) })
     const obj = {
-      name: this.state.name,
       dob: this.state.dob,
       gender: this.state.gender,
-      langs: this.state.langs,
+      language: this.state.language,
       occupation: this.state.occupation,
-      doYouSmoke: this.state.doYouSmoke,
+      smoke: this.state.smoke,
       accomodation: this.state.accomodation,
       pets: this.state.pets,
-      hobby: this.state.theHobbies,
-      otherhobbies: this.state.otherhobbies,
-      help: this.state.offeredHelp,
-      otherhelp: this.state.otherhelp,
+      hobbies: this.state.hobbies,
+      otherHobbies: this.state.otherHobbies,
+      offeredHelp: this.state.offeredHelp,
+      otherHelp: this.state.otherHelp,
       rooms: this.state.rooms,
       size: this.state.size,
       price: this.state.price,
-      exptdDate: this.state.exptdDate,
-      exptdDuration: this.state.exptdDuration,
-      district: this.state.districtList,
-      partner: this.state.partner,
-      findaboutus: this.state.findaboutus,
-      liketoshare: this.state.liketoshare,
-      phonenumber: this.state.phonenumber,
+      moveInDate: this.state.moveInDate,
+      duration: this.state.duration,
+      district: this.state.district,
+      idealFlatmate: this.state.idealFlatmate,
+      howFound: this.state.howFound,
+      additionalInfo: this.state.additionalInfo,
       avatarUrl: this.state.avatarUrl,
     };
+    if(this.state.phoneNumber){
+      obj.phoneNumber= this.state.phoneNumber
+    }
 
     axios.post('api/addProfile', obj).then((res) => {
       this.props.refreshUser();
       this.props.history.push(`/profile/${res.data._id}`);
     }).catch((err) => {
-      console.log(err);
       this.setState({ messages: err.response.data.data });
     });
 
@@ -190,28 +186,25 @@ class AddProfile extends Component {
 
 
   render() {
-    const { name, dob, gender, langs, occupation, doYouSmoke, accomodation, pets, hobbies, otherhobbies, otherhelp, size, price, exptdDate, exptdDuration, partner, findaboutus, liketoshare, phonenumber, avatarPreview, avatarPreviewErr, message } = this.state;
-    const lang = localStorage.getItem("lang");
-    console.log('helps', offeredhelps[lang]);
-    console.log(hobbies);
-    let errorMessages = <p>Hello World</p>;
-    if (this.state.messages) {
-      errorMessages = <ul className={styles["signup-errs"]}>{
-        this.state.messages.map((msg, i) => <li key={i}>{ProfileLocales.errors[msg][lang]}</li>)
-      }</ul>
+    var name;
+    if(this.props.fetchedUser){
+      name = this.props.fetchedUser.name
     }
+    const {dob, gender, language, occupation, smoke, accomodation, pets, otherHobbies, otherHelp, size, price, moveInDate, duration, idealFlatmate, howFound, additionalInfo, phoneNumber, avatarPreview, messages } = this.state;
+    const lang = localStorage.getItem("lang");
+
 
     const sex = [
       {
-        value: "male",
+        value: "Male",
         label: ProfileLocales.male[lang],
       },
       {
-        value: "female",
+        value: "Female",
         label: ProfileLocales.female[lang],
       },
       {
-        value: "divers",
+        value: "Divers",
         label: ProfileLocales.divers[lang],
       },
     ];
@@ -238,15 +231,16 @@ class AddProfile extends Component {
           </div>
         </div>
         <div className={styles.main}>
-          < div className={styles.profiletitle}>{ProfileLocales.title[lang]}</div>
+          < div className={styles.profiletitle}>{name + ProfileLocales.title[lang]}</div>
           <form className={styles.form} onSubmit={this.onSubmitForm}>
             <div className={styles.quesPrimary}>
-              <div className={styles.name}>
+              {/* <div className={styles.name}>
                 <label htmlFor="name"> <span className={styles.red}>* </span>{ProfileLocales.name[lang]} </label>
                 <TextField name="name" id="name" value={name}
                   onChange={this.setFormState}
-                  variant="outlined" size="small" required className={styles.input} />
-              </div>
+                  variant="outlined" size="small"  className={styles.input}
+                   />
+              </div> */}
 
               <div className="dob">
                 <label htmlFor="dob"> <span className={styles.red}>*</span> {ProfileLocales.dob[lang]} </label>
@@ -255,16 +249,17 @@ class AddProfile extends Component {
                   console.log(date);
                 }} variant="outlined"
                   size="small" className={styles.input} /> */}
-                <DatePicker id="dob" className={styles.dates} selected={dob} onChange={(e) => {
+                <DatePicker id="dob" className={styles.dates} required selected={dob} onChange={(e) => {
                   this.setState({ dob: e });
-                }} isClearable showYearDropdown scrollableMonthYearDropdown required />
+                }} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_DOB')}  />
               </div>
 
               <div className={styles.gender}>
                 <label htmlFor="gender"> <span className={styles.red}>* </span>{ProfileLocales.gender[lang]} </label>
                 <TextField name="gender" id="gender" value={gender}
                   onChange={this.setFormState} select
-                  variant="outlined" size="small" className={styles.input} required>
+                  variant="outlined" size="small" className={styles.input} error={
+                    this.state.messages.includes('INVALID_GENDER')}>
                   {sex.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
                       {option.label}
@@ -274,10 +269,10 @@ class AddProfile extends Component {
               </div>
 
               <div className={styles.langs}>
-                <label htmlFor="langs"><span className={styles.red}>* </span>{ProfileLocales.langs[lang]} </label>
-                <TextField name="langs" id="langs" value={langs}
+                <label htmlFor="language"><span className={styles.red}>* </span>{ProfileLocales.langs[lang]} </label>
+                <TextField name="language" id="language" value={language}
                   onChange={this.setFormState}
-                  variant="outlined" size="small" className={styles.input} required  error={
+                  variant="outlined" size="small" className={styles.input}  error={
                     this.state.messages.includes('INVALID_LANGUAGE') ||
                     this.state.messages.includes('INVALID_LANGUAGE_TYPE')
                   }/>
@@ -287,14 +282,16 @@ class AddProfile extends Component {
                 <label htmlFor="occupation"> <span className={styles.red}>* </span>{ProfileLocales.occupation[lang]} </label>
                 <TextField name="occupation" id="occupation" value={occupation}
                   onChange={this.setFormState}
-                  variant="outlined" size="small" className={styles.input} required />
+                  variant="outlined" size="small" className={styles.input}   error={
+                    this.state.messages.includes('INVALID_OCCUPATION')}/>
               </div>
 
               <div className={styles.doYouSmoke}>
-                <label htmlFor="doYouSmoke"><span className={styles.red}>* </span>{ProfileLocales.doYouSmoke[lang]} </label>
-                <TextField name="doYouSmoke" select id="doYouSmoke" value={doYouSmoke}
+                <label htmlFor="smoke"><span className={styles.red}>* </span>{ProfileLocales.doYouSmoke[lang]} </label>
+                <TextField name="smoke" select id="smoke" value={smoke}
                   onChange={this.setFormState}
-                  variant="outlined" size="small" className={styles.input} required >
+                  variant="outlined" size="small" className={styles.input} error={
+                    this.state.messages.includes('INVALID_SMOKE')} >
                   {binary.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
                       {option.label}
@@ -307,7 +304,8 @@ class AddProfile extends Component {
                 <label htmlFor="accomodation"><span className={styles.red}>* </span>{ProfileLocales.accomodation[lang]} </label>
                 <TextField name="accomodation" select id="accomodation" value={accomodation}
                   onChange={this.setFormState}
-                  variant="outlined" size="small" className={styles.input} required>
+                  variant="outlined" size="small" className={styles.input} error={
+                    this.state.messages.includes('INVALID_ACCOMODATION')} >
                   {binary.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
                       {option.label}
@@ -332,8 +330,11 @@ class AddProfile extends Component {
 
             <div className={styles.hobbySection}>
               <div className={styles.hobbyText}>
-                <label htmlFor="hobby"> <span className={styles.red}>*</span> {ProfileLocales.hobbyText[lang]}
+                <label htmlFor="hobbies"> <span className={styles.red}>*</span> {ProfileLocales.hobbyText[lang]}
                 </label>
+              </div>
+              <div>
+              {this.state.messages.includes('INVALID_HOBBIES')? <p className={styles.red}> {ProfileLocales.hobbyError[lang]} </p>: null}
               </div>
 
               <div className={styles.hobby}>
@@ -355,7 +356,7 @@ class AddProfile extends Component {
               </div>
 
               <div className={styles.hobbyother}>
-                <TextField name="otherhobbies" id="otherhobbies" label={lang === "de" ? "Bitte schreiben Sie hier" : "Please write others"} value={otherhobbies}
+                <TextField name="otherHobbies" id="otherHobbies" label={lang === "de" ? "Bitte schreiben Sie hier" : "Please write others"} value={otherHobbies}
                   onChange={this.setFormState} size="small" disabled={!this.state.hobbychecked ? true : false}
                   variant="outlined" className={styles.inputRight} />
               </div>
@@ -367,6 +368,9 @@ class AddProfile extends Component {
               <div className={styles.helpText}>
                 <label htmlFor="hobby"> <span className={styles.red}>*</span> {ProfileLocales.helpText[lang]}
                 </label>
+              </div>
+              <div>
+              {this.state.messages.includes('INVALID_HELP')? <p className={styles.red}> {ProfileLocales.helpError[lang]} </p>: null}
               </div>
 
               <div className={styles.help}>
@@ -389,17 +393,20 @@ class AddProfile extends Component {
 
 
               <div className={styles.helpother}>
-                <TextField name="otherhelp" id="otherhelp" label={lang === "de" ? "Bitte schreiben Sie hier" : "Please write others"} value={otherhelp}
+                <TextField name="otherHelp" id="otherHelp" label={lang === "de" ? "Bitte schreiben Sie hier" : "Please write others"} value={otherHelp}
                   onChange={this.setFormState} disabled={!this.state.helpchecked ? true : false}
                   size="small" variant="outlined" className={styles.inputRight} />
               </div>
             </div>
 
             <div className={styles.roomSection}>
-              <div className={styles.roomHeading}>{ProfileLocales.RoomHeading[lang]}</div>
+              <div className={styles.roomHeading}>{name + ProfileLocales.RoomHeading[lang]}</div>
               <div className={styles.roomsubHeading}> <span className={styles.red}>*</span> {ProfileLocales.Roomsubheading[lang]}</div>
               <div>
-                <RadioGroup aria-label="rooms" name="rooms" defaultValue='one-room-flat' value={this.value} required onChange={this.handleChangeRooms}>
+              {this.state.messages.includes('INVALID_ROOMS')? <p className={styles.red}> {ProfileLocales.selectError[lang]} </p>: null}
+              </div>
+              <div>
+                <RadioGroup aria-label="rooms" name="rooms" value={this.value}  onChange={this.handleChangeRooms}>
                   <FormControlLabel value="one-room-flat" control={<Radio color="primary" />} label={ProfileLocales.oneroom[lang]}
                     className={styles.room} />
                   <FormControlLabel value="two-room-flat" control={<Radio color="primary" />} label={ProfileLocales.tworoom[lang]}
@@ -411,25 +418,25 @@ class AddProfile extends Component {
                   <label htmlFor="size"> <span className={styles.red}>*</span> {ProfileLocales.size[lang]} </label>
                   <TextField name="size" id="size" value={size}
                     onChange={this.setFormState}
-                    variant="outlined" size="small" className={styles.input} required />
+                    variant="outlined" size="small" className={styles.input}  error={this.state.messages.includes('INVALID_SIZE')}/>
                 </div>
                 <div className={styles.price}>
                   <label htmlFor="price"> <span className={styles.red}>*</span> {ProfileLocales.price[lang]} </label>
                   <TextField name="price" id="price" value={price}
                     onChange={this.setFormState}
-                    variant="outlined" size="small" className={styles.input} required />
+                    variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_PRICE')}  />
                 </div>
                 <div className={styles.exptdDate}>
-                  <label htmlFor="exptdDate"> <span className={styles.red}>*</span> {ProfileLocales.exptdDate[lang]} </label>
-                  <TextField name="exptdDate" id="exptdDate" value={exptdDate}
+                  <label htmlFor="moveInDate"> <span className={styles.red}>*</span> {ProfileLocales.exptdDate[lang]} </label>
+                  <TextField name="moveInDate" id="moveInDate" value={moveInDate}
                     onChange={this.setFormState}
-                    variant="outlined" size="small" className={styles.input} required />
+                    variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_MOVEIN_DATE')}  />
                 </div>
                 <div className={styles.exptdDuration}>
-                  <label htmlFor="exptdDuration"> <span className={styles.red}>*</span> {ProfileLocales.exptdDuration[lang]} </label>
-                  <TextField name="exptdDuration" id="exptdDuration" value={exptdDuration}
+                  <label htmlFor="duration"> <span className={styles.red}>*</span> {ProfileLocales.exptdDuration[lang]} </label>
+                  <TextField name="duration" id="duration" value={duration}
                     onChange={this.setFormState}
-                    variant="outlined" size="small" className={styles.input} required />
+                    variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_DURATION')} />
                 </div>
 
 
@@ -440,6 +447,9 @@ class AddProfile extends Component {
               <div className={styles.district}>
                 <label htmlFor="district"> <span className={styles.red}>*</span> {ProfileLocales.district[lang]}
                 </label>
+              </div>
+              <div>
+              {this.state.messages.includes('INVALID_DISTRICT')? <p className={styles.red}> {ProfileLocales.selectError[lang]} </p>: null}
               </div>
 
               <div className={styles.districtc}>
@@ -456,13 +466,13 @@ class AddProfile extends Component {
 
 
             <div className={styles.partnerSection}>
-              <div className={styles.partnerHeading}>{ProfileLocales.PartnerHeading[lang]}</div>
+              <div className={styles.partnerHeading}>{name + ProfileLocales.PartnerHeading[lang]}</div>
               <div className={styles.PartnerQuestions}>
                 <div className={styles.partner}>
-                  <label htmlFor="partner"> <span className={styles.red}>*</span> {ProfileLocales.partner[lang]} </label>
-                  <TextField name="partner" id="partner" value={partner}
+                  <label htmlFor="idealFlatmate"> <span className={styles.red}>*</span> {ProfileLocales.partner[lang]} </label>
+                  <TextField name="idealFlatmate" id="idealFlatmate" value={idealFlatmate}
                     onChange={this.setFormState}
-                    variant="outlined" size="small" className={styles.input} required />
+                    variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_IDEAL_FLATMATE')}  />
                 </div>
               </div>
             </div>
@@ -471,31 +481,33 @@ class AddProfile extends Component {
               <div className={styles.extraHeading}>{ProfileLocales.ExtraHeading[lang]}</div>
               <div className={styles.ExtraQuestions}>
                 <div className={styles.findaboutus}>
-                  <label htmlFor="findaboutus"> {ProfileLocales.findaboutus[lang]} </label>
-                  <TextField name="findaboutus" id="findaboutus" value={findaboutus}
+                  <label htmlFor="howFound"> {ProfileLocales.findaboutus[lang]} </label>
+                  <TextField name="howFound" id="howFound" value={howFound}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input} />
                 </div>
                 <div className={styles.liketoshare}>
-                  <label htmlFor="liketoshare"> {ProfileLocales.liketoshare[lang]} </label>
-                  <TextField name="liketoshare" id="liketoshare" value={liketoshare}
+                  <label htmlFor="additionalInfo"> {ProfileLocales.liketoshare[lang]} </label>
+                  <TextField name="additionalInfo" id="additionalInfo" value={additionalInfo}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input} />
                 </div>
                 <div className={styles.phonenumber}>
-                  <label htmlFor="phonenumber"> {ProfileLocales.phonenumber[lang]} </label>
+                  <label htmlFor="phoneNumber"> {ProfileLocales.phonenumber[lang]} </label>
+                  {this.state.messages.includes('INVALID_PHONE_NUMBER')? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p>: null}
 
                   <MuiPhoneNumber
                     name="phonenumber"
                     id="phonenumber"
                     data-cy="user-phone"
                     defaultCountry={"de"}
-                    value={phonenumber}
+                    value={phoneNumber}
                     onChange={(event) =>
                       this.setState({
-                        phonenumber: event
+                        phoneNumber: event.split(' ').join('')
                       })}
                     variant="outlined" size="small" className={styles.input}
+                    error={this.state.messages.includes('INVALID_PHONE_NUMBER')}
                   />
                 </div>
               </div>
@@ -518,8 +530,10 @@ class AddProfile extends Component {
                   Max {lang === "de" ? 'Größe' : 'Size'}: 5MB
                 </div>
               </div>
-              <span className={styles["avatar-preview-err"]}>{avatarPreviewErr}</span>
+              {/* <span className={styles["avatar-preview-err"]}>{avatarPreviewErr}</span> */}
             </div>
+
+            {messages.length ?<div> <p className={styles["fields-err"]}>{ProfileLocales.errors[lang]}</p> </div>: null}
 
             <div className={styles.msgBottom}>
               {ProfileLocales.policy[lang]}
@@ -534,8 +548,7 @@ class AddProfile extends Component {
               </div>
             </div>
           </form>
-          {messages && <p>{messages}</p>}
-
+        
         </div>
       </div >
     );
