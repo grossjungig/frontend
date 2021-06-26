@@ -162,6 +162,19 @@
     "errors":{
         "en":"Please fill missing fields",
         "de":"Fehlende Felder bitte ausfüllen"
+    },
+
+    "editProfile":{
+        "en":"Edit Profile",
+        "de":"Profile bearbeiten"
+    },
+    "deleteProfile":{
+        "en":"Delete Profile",
+        "de":"Profile löschen"
+    },
+    "about":{
+        "en":"About",
+        "de":"Über"
     }
 
 }

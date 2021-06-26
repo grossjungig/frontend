@@ -452,7 +452,7 @@ class AddProfile extends Component {
               {this.state.messages.includes('INVALID_DISTRICT')? <p className={styles.red}> {ProfileLocales.selectError[lang]} </p>: null}
               </div>
 
-              <div className={styles.districtc}>
+              <div className={styles.district}>
                 {districtBerlin[lang].map(e => (
                   <div className={styles.districtlabel}>
                     <Checkbox key={e.name} color="primary"
