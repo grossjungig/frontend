@@ -3,7 +3,7 @@
         position: fixed;
         background: #365FA7;
         width: 50%;
-        height: 8 0%;
+        height: auto;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -173,7 +173,7 @@
 .img {
     max-height: fit-content;
     grid-column: 1/2;
-    height: 100%;
+    height: fit-content;
     width: 125%;
 }
 
