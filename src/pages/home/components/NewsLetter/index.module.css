@@ -3,7 +3,7 @@
         position: fixed;
         background: #365FA7;
         width: 50%;
-        height: auto;
+        height: 8 0%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -15,12 +15,12 @@
     }
     .text_area {
         align-items: center;
-        padding-left: 20px;
-        padding: 70px 0;
+        margin-left: 20px;
+        padding: 20px 0;
     }
 }
 
-@media (min-width: 710px) {
+@media (min-width: 750px) and (max-width: 834px) {
     .popup_inner {
         position: fixed;
         background: #365FA7;
@@ -43,12 +43,26 @@
     }
     .text_area {
         align-items: center;
-        padding-left: 20px;
-        padding: 70px 0;
+        margin-left: 20px;
+        padding: 20px 0;
     }
 }
 
-@media (min-width: 676px) {
+@media (min-width: 676px) and (max-width: 750px) {
+    .popup_inner {
+        position: fixed;
+        background: #365FA7;
+        width: 70%;
+        height: 8 0%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 16px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        max-width: fit-content;
+        max-height: fit-content;
+    }
     .text_area {
         align-items: center;
         padding-left: 20px;
