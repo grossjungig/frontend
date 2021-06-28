@@ -17,6 +17,7 @@
         align-items: center;
         margin-left: 20px;
         padding: 20px 0;
+        padding-left: 20px;
     }
 }
 
@@ -216,4 +217,15 @@
 .form {
     margin-top: 20px;
     max-width: 90%;
+}
+
+.email_error {
+    color: #e8615b;
+    font-weight: 500;
+}
+
+.asterix {
+    color: #e8615b;
+    margin-left: 2px;
+    font-size: 20px;
 }

@@ -11,6 +11,10 @@
         "en": "Email",
         "de": "E-Mail Adresse"
     },
+    "email_error": {
+        "en": "You have entered an invalid email!",
+        "de": "Sie haben eine ungültige E-Mail-Adresse eingegeben!"
+    },
     "signUp": {
         "en": "Sign up",
         "de": "Registrieren"
