@@ -29,7 +29,7 @@ import Profile from "./components/Profile";
 
 import People from "./components/People/People";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
-import EditProfile from "./components/EditProfile/EditProfile";
+import EditProfile from "./pages/profile/editProfile";
 
 import { connect } from 'react-redux';
 import { dispatchCheckAuth } from './store/auth/thunks';

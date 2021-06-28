@@ -155,13 +155,34 @@
         "en":"Please select one",
         "de":"Bitte wählen Sie eine"
     },
-    "numberError":{
+    "phoneError":{
         "en":"Please enter a valid phone number",
         "de":"Bitte geben Sie eine gültige Rufnummer ein"
+    },
+    "numberError":{
+        "en":"Please enter only a number",
+        "de":"Bitte nur eine Zahl eingeben"
     },
     "errors":{
         "en":"Please fill missing fields",
         "de":"Fehlende Felder bitte ausfüllen"
+    },
+
+    "profile":{
+        "en":"Profile",
+        "de":"Profil"
+    },
+    "editProfile":{
+        "en":"Edit Profile",
+        "de":"Profile bearbeiten"
+    },
+    "deleteProfile":{
+        "en":"Delete Profile",
+        "de":"Profile löschen"
+    },
+    "about":{
+        "en":"About",
+        "de":"Über"
     }
 
 }

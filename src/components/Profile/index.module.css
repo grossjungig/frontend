@@ -34,7 +34,7 @@
     margin: 30px 0;
 }
 
-.btn {
+/* .btn {
     background-color: var(--gai-blue);
     color: var(--gai-white);
     margin: 0 10px;
@@ -44,14 +44,32 @@
 
 .btn:hover {
     opacity: 0.9;
-}
+} */
 
 .delBtn {
     background-color: var(--gai-white);
+    border: 2px solid var(--gai-red);
     color: var(--gai-red);
-    border: 1px solid var(--gai-red);
-    font-weight: 600;
-}
+    
+  }
+  .blue-button {
+    background-color: var(--gai-blue);
+    border: 2px solid var(--gai-blue);
+    color: var(--gai-white);
+    margin-right: 70px;
+  }
+  
+  .delBtn,
+  .blue-button {
+    width: 151px;
+    border-radius: 14px;
+    padding: 10px;
+    margin: -5px -10px;
+    font-weight: 500;
+  }
+  .del-button{
+    margin-top: 5px;
+  }
 
 .details .bio {
     font-weight: normal !important;
