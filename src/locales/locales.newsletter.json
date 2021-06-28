@@ -19,6 +19,18 @@
         "en": "Sign up",
         "de": "Registrieren"
     },
+    "success_message": {
+        "en": "You have successfully registered to newsletter!",
+        "de": "Sie haben sich erfolgreich für den Newsletter angemeldet!"
+    },
+    "sending_message": {
+        "en": "Sending",
+        "de": "Senden"
+    },
+    "error_message": {
+        "en": "Error",
+        "de": "Error"
+    },
     "name": {
         "en": "Name",
         "de": "Namen"

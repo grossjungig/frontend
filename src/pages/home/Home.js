@@ -23,47 +23,31 @@ class Home extends Component {
     componentDidMount() {
         setTimeout(() => { this.setState({ time: !this.state.time }) }, 1000);
     }
-    myCallback = (dataFromChild) => {
-        this.setState({ time: dataFromChild })
+     myCallback = (dataFromChild) => {
+       this.setState({ time: dataFromChild })
     }
     render() {
         const lang = localStorage.getItem("lang");
-        return ( <
-            >
+        return ( 
+            <>
 
             {
                 this.state.time === true ?
-
-
-                <
-                NewsLetter lang = { lang }
-                callbackFromParent = { this.myCallback } > < /NewsLetter>
-
-
-
-                :
-                    null
+                // <NewsLetter lang = { lang } callbackFromParent = { this.myCallback } > </NewsLetter>
+                <NewsLetter callbackFromParent = { this.myCallback } /> 
+                :null
             }
 
-            <
-            Hero / >
-            <
-            Mission id = "about" >
-            <
-            H3 className = "home-mission" > { homeLocales.mission_1[lang] } < br / > { homeLocales.mission_2[lang] } <
-            /H3> <
-            Link className = "mission-button"
-            to = "/about" > Learn more < /Link> <
-            /Mission> <
-            Why / >
-            <
-            SecPanel >
-            <
-            Card3 text = { homeLocales.opinion[lang] }
-            source = { card3[0].source }
-            /> <
-            /SecPanel> <
-            />
+            <Hero/>
+            <Mission id = "about" >
+            <H3 className = "home-mission" > { homeLocales.mission_1[lang] } < br/> { homeLocales.mission_2[lang] } </H3> 
+            <Link className = "mission-button" to = "/about" > Learn more </Link> 
+            </Mission> 
+            <Why/>
+            <SecPanel >
+            <Card3 text = { homeLocales.opinion[lang] } source = { card3[0].source }/> 
+            </SecPanel> 
+            </>
         );
     }
 }

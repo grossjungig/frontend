@@ -219,13 +219,41 @@
     max-width: 90%;
 }
 
-.email_error {
-    color: #e8615b;
-    font-weight: 500;
+.message {
+    color: #FFFFFF;
+    margin-left: 2px;
+    font-size: 24px;
+    font-weight: 600;
+    width: 100px;
 }
 
-.asterix {
+.animation {
     color: #e8615b;
     margin-left: 2px;
     font-size: 20px;
+    width: 100px;
+    animation: mymove 5s infinite;
+    animation-timing-function: ease;
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+@keyframes mymove {
+    from {
+        left: 0px;
+    }
+    to {
+        left: 80px;
+    }
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
 }
