@@ -5,7 +5,10 @@ import { connect } from 'react-redux';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
 import ProfileLocales from "../../locales/locales.profile.json";
 import styles from './index.module.css';
-import { fullBlock } from '../../shared/index.module.css'
+import HomeIcon from '@material-ui/icons/Home';
+import FaceIcon from '@material-ui/icons/Face';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 class Profile extends Component {
   state = {
@@ -16,7 +19,7 @@ class Profile extends Component {
     const profileId = this.props.match.params.id;
     axios.get(`api/profiles/${profileId}`)
       .then((response) => {
-        this.setState({ profile: response.data});
+        this.setState({ profile: response.data });
       })
       .catch(function (error) {
         console.log(error);
@@ -46,70 +49,85 @@ class Profile extends Component {
     let renderedAvatar = dummyAvatar;
     const { avatarUrl } = this.state.profile;
     if (avatarUrl) renderedAvatar = avatarUrl;
-    const pets = [<span>{ProfileLocales.pets[lang]}</span>,<span>{profile.pets}</span>]
-    
-    
+    const pets = [<span>{ProfileLocales.pets[lang]}</span>, <span>{profile.pets}</span>]
+
+
     return (
-      <div className={fullBlock}>
-        <div className={styles.main}>
-          <div className={styles.msg}>
-          {ProfileLocales.request[lang]}     
-          </div>
-          
-          <img src={renderedAvatar} alt="avatar" className={styles.pic} />
 
-          <div>
-            <span>{ProfileLocales.about[lang]}</span>
-            <div><span>{ProfileLocales.dob[lang]}</span><span>{profile.dob}</span></div>
-            <div><span>{ProfileLocales.gender[lang]}</span><span>{profile.gender}</span></div>
-            <div><span>{ProfileLocales.price[lang]}</span> <span>{profile.price}€</span></div>
-            <div><span>{ProfileLocales.occupation[lang]}</span><span>{profile.occupation}</span></div>
-            <div><span>{ProfileLocales.doYouSmoke[lang]}</span><span>{profile.smoke}</span></div>
-            <div><span>{ProfileLocales.accomodation[lang]}</span><span>{profile.accomodation}</span></div>
-
-            <div>{profile.pets ? pets : null }</div>
-
-            <span>{ProfileLocales.hobbyText[lang]}
-            {profile.length !== 0 && profile.hobbies.map(hobby => (
-              <span>-{hobby } </span>
-            ))}
-            </span>
-
-            <span>{ProfileLocales.helpText[lang]}
-            {profile.length !== 0 && profile.offeredHelp.map(help => (
-              <span> -{help} </span>
-            ))}
-            </span>
-            <p></p>
-            <div>About Room</div>
-            <div><span>{ProfileLocales.Roomsubheading[lang]}</span><span>{profile.rooms}</span></div>
-            <div><span>{ProfileLocales.size[lang]}</span><span>{profile.size}</span></div>
-            <div><span>{ProfileLocales.exptdDate[lang]}</span><span>{profile.moveInDate}</span></div>
-            <div><span>{ProfileLocales.exptdDuration[lang]}</span><span>{profile.duration}</span></div>
-            <span>{ProfileLocales.district[lang]}
-            {profile.length !== 0 && profile.district.map(district => (
-              <span>-{district }</span>
-            ))}
-              </span>
-
-            <p></p>
-            <div>About the person to live with</div>
-            <div><span>{ProfileLocales.partner[lang]}</span><span>{profile.idealFlatmate}</span></div>
-            
-          </div>
-          {profile.length !== 0 && user !==null && user.profile === this.props.match.params.id &&
-            <div className={styles.ctrl}>
-              <Link to={`/edit/${profile._id}`}>
-                <button className={styles["blue-button"]}>{ProfileLocales.editProfile[lang]}</button>
-              </Link>
-              <button 
-                className={styles.delBtn}
-                onClick={this.deleteProfile}
-              >{ProfileLocales.deleteProfile[lang]}</button>
-            </div>
-          }
+      <div className={styles.section}>
+        <div className={styles.msg}>
+          {lang === "en" ? "My Profile" : "Mein Profil"}
         </div>
-      </div>    
+        <div className={styles.main}>
+
+          <div className={styles.leftPortion}>
+            <img src={renderedAvatar} alt="avatar" className={styles.pic} />
+            <div className={styles.name}>erfyeggy</div>
+          </div>
+
+          <div className={styles.rightPortion}>
+            <div className={styles.mainContent}>
+              <div className={styles.about}>
+                <div className={styles.heading}><FaceIcon />{lang==="en" ? "About" : "Über"}</div>
+                <div className={styles.item}><span>{ProfileLocales.dob[lang]}:  </span><span>{String(profile.dob).split("T")[0]}</span></div>
+                <div className={styles.item}><span>{ProfileLocales.gender[lang]}:  </span><span>{profile.gender}</span></div>
+                <div className={styles.item}><span>{ProfileLocales.price[lang]}  </span> <span>{profile.price}€</span></div>
+                <div className={styles.item}><span>{ProfileLocales.occupation[lang]}:  </span><span>{profile.occupation}</span></div>
+                <div className={styles.item}><span>{ProfileLocales.doYouSmoke[lang]}  </span><span>{profile.smoke}</span></div>
+                <div className={styles.item}><span>{ProfileLocales.accomodation[lang]}  </span><span>{profile.accomodation}</span></div>
+
+                <div className={styles.item}>{profile.pets ? pets : null}</div>
+
+                <div className={styles.item}> <span> {ProfileLocales.hobbyText[lang]} </span>  
+                  {profile.length !== 0 && profile.hobbies.map(hobby => (
+                    <p> <ArrowForwardIosIcon fontSize="small"/> {hobby} </p>
+                  ))}
+                </div>
+
+                <div className={styles.item}> <span> {ProfileLocales.helpText[lang]} </span>  
+                  {profile.length !== 0 && profile.offeredHelp.map(help => (
+                    <p> <ArrowForwardIosIcon fontSize="small"/> {help} </p>
+                  ))}
+                </div>
+                <p></p>
+              </div>
+
+              <div className={styles.room}>
+                <div className={styles.heading}><HomeIcon/>{lang==="en" ? "About Room" : "Über Zimmer"}</div>
+                <div className={styles.item}><span>{ProfileLocales.Roomsubheading[lang]} </span><span>{profile.rooms}</span></div>
+                <div className={styles.item}><span>{ProfileLocales.size[lang]} </span><span>{profile.size}m²</span></div>
+                <div className={styles.item}><span>{ProfileLocales.exptdDate[lang]} </span><span>{profile.moveInDate}</span></div>
+                <div className={styles.item}><span>{ProfileLocales.exptdDuration[lang]} </span><span>{profile.duration}</span></div>
+                <div className={styles.item}><span>{ProfileLocales.district[lang]} </span>
+                  {profile.length !== 0 && profile.district.map(district => (
+                    <p> <ArrowForwardIosIcon fontSize="small"/>{district}</p>
+                  ))}
+                </div>
+              </div>
+
+
+              <div className={styles.roommate}>
+                <div className={styles.heading}><EmojiPeopleIcon/>{lang==="en" ? "About the person to live with" : "Über die Person, mit der Sie leben möchten"}</div>
+                <div className={styles.item}><span>{ProfileLocales.partner[lang]} </span><span>{profile.idealFlatmate}</span></div>
+              </div>
+
+            </div>
+
+            {profile.length !== 0 && user !== null && user.profile === this.props.match.params.id &&
+              <div className={styles.ctrl}>
+                <Link to={`/edit/${profile._id}`}>
+                  <button className={styles["blue-button"]}>{ProfileLocales.editProfile[lang]}</button>
+                </Link>
+                <button
+                  className={styles.delBtn}
+                  onClick={this.deleteProfile}
+                >{ProfileLocales.deleteProfile[lang]}</button>
+              </div>
+            }
+          </div>
+        </div>
+
+      </div>
     );
 
   }

@@ -1,54 +1,105 @@
-.main {
+.section{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.main {
+    display: flex;
     margin: 0 auto;
     padding: 0 20px;
-    width: 80%;
+    width: 86%;
 }
 
 .msg {
+    font-size: 1.8em;
     margin: 20px 0;
-    color: var(--gai-blue);
     font-weight: 600;
-    text-align: center;
+    color: var(--gai-blue);
+}
+
+.leftPortion{
+    display: flex;
+    max-width: 400px;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.mainContent{
+    border-radius: 16px;
+    padding: 20px 20px;
+    background-color: var(--gai-white);
+    border: solid 2px var(--gai-blue);
+    margin: auto 20px;
+}
+
+.rightPortion{
+    min-width: 400px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+}
+
+.item > p {
+    display: flex;
+    flex-direction: row;
+}
+.name{
+    font-size: 1.2em;
+    margin: 20px auto;
+    font-weight: 600;
+    color: var(--gai-red);
 }
 
 .pic {
-    width: 60%;
+    max-width: 300px;
+    height: auto;
+    border: 2px solid var( --gai-red );
+    border-radius: 16px;
+    margin: auto 20px;
 }
 
-.details {
-    display: grid;
-    row-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 20px;
+.about, .room{
+    margin: 0px 10px;
+    margin-bottom: 40px;    
 }
 
-.details span:nth-child(2n) {
+.roommate{
+    margin: 0px 10px;
+}
+
+.item{
+    margin: 15px auto;
+}
+
+
+.heading {
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+    font-size: 18px;
+}
+
+
+.item span:nth-child(1){
+    font-weight: 600;
+    line-height: 25px;
 }
 
 .ctrl {
     display: flex;
-    margin: 30px 0;
+    margin: 40px 30px;
 }
-
-/* .btn {
-    background-color: var(--gai-blue);
-    color: var(--gai-white);
-    margin: 0 10px;
-    padding: 10px 20px;
-    border: 1px solid var(--gai-blue);
-}
-
-.btn:hover {
-    opacity: 0.9;
-} */
 
 .delBtn {
+    margin-left: auto;
     background-color: var(--gai-white);
     border: 2px solid var(--gai-red);
+    float: right;
     color: var(--gai-red);
     
   }
@@ -56,34 +107,75 @@
     background-color: var(--gai-blue);
     border: 2px solid var(--gai-blue);
     color: var(--gai-white);
-    margin-right: 70px;
   }
   
   .delBtn,
   .blue-button {
-    width: 151px;
+    width: 161px;
     border-radius: 14px;
-    padding: 10px;
-    margin: -5px -10px;
+    padding:10px 5px;
     font-weight: 500;
-  }
-  .del-button{
-    margin-top: 5px;
-  }
+ }
+ 
+ @media only screen and (max-width: 1023px) {
+     .main{
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+     }
+     .leftPortion{
+         margin: 20px auto;
+     }
+ }
 
-.details .bio {
-    font-weight: normal !important;
-    font-style: italic;
-}
+ @media only screen and (max-width:420px){
+     .main{
+         margin: 20px auto;
+     }
 
-@media (max-width: 810px) {
-    .ctrl {
-        flex-direction: column;
-        justify-content: center;
+     .ctrl {
+        display: flex;
+        margin: 40px 20px;
+    }
+     .mainContent{
+         padding: 0px 0px;
+     }
+
+     .rightPortion{
+         min-width: 390px;
+     }
+
+     .pic{
+         max-height: 200px;
+         max-width: 300px;
+     }
+
+ }
+
+ @media only screen and (max-width: 362px){
+    .rightPortion{
+        min-width: 360px;
     }
 
-    .btn {
-        margin-top: 10px;
-        width: 200px;
-    }
-}
+    .delBtn,
+  .blue-button {
+    width: 151px;
+ }
+ }
+
+ @media only screen and (max-width: 329px){
+     .main{
+         margin: 0px;
+         width: 250px;
+     }
+    
+     .rightPortion{
+         width:320px;
+     }
+     
+     .pic{
+         width: 250px;
+         margin: 0px 0px;
+         padding: 0px 0px;
+     }
+ }
