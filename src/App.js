@@ -57,7 +57,7 @@ class App extends React.Component {
 
             <Route exact path="/termsandconditions"><TermsAndConditions/></Route>
             <Route exact path="/login" render={(props) => (
-              <Login history={props.history} />
+              <Login {...props} />
             )}/>
 
             <Route exact path="/userportal" render={(props) => 
