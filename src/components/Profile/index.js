@@ -13,13 +13,19 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 class Profile extends Component {
   state = {
     profile: [],
+    user:''
   };
 
   componentDidMount() {
     const profileId = this.props.match.params.id;
+    console.log(profileId)
     axios.get(`api/profiles/${profileId}`)
       .then((response) => {
-        this.setState({ profile: response.data });
+        console.log(response)
+        this.setState({ 
+          profile: response.data,
+          user:response.data.user
+         });
       })
       .catch(function (error) {
         console.log(error);
@@ -44,7 +50,16 @@ class Profile extends Component {
 
   render() {
     const profile = this.state.profile;
-    const user = this.props.fetchedUser;
+    console.log(typeof profile)
+    const user = this.state.user
+    const fetchedUser = this.props.fetchedUser
+    console.log(fetchedUser)
+    console.log(this.state.user)
+    // console.log(this.state.profile)
+    // var user;
+    // if(this.props.fetchedUser){
+    //   user = this.props.fetchedUser
+    // }
     const lang = localStorage.getItem("lang");
     let renderedAvatar = dummyAvatar;
     const { avatarUrl } = this.state.profile;
@@ -55,20 +70,17 @@ class Profile extends Component {
     return (
 
       <div className={styles.section}>
-        <div className={styles.msg}>
-          {lang === "en" ? "My Profile" : "Mein Profil"}
-        </div>
         <div className={styles.main}>
 
           <div className={styles.leftPortion}>
             <img src={renderedAvatar} alt="avatar" className={styles.pic} />
-            <div className={styles.name}>erfyeggy</div>
+            <div className={styles.name}>{user.name}</div>
           </div>
 
           <div className={styles.rightPortion}>
             <div className={styles.mainContent}>
               <div className={styles.about}>
-                <div className={styles.heading}><FaceIcon />{lang==="en" ? "About" : "Über"}</div>
+                <div className={styles.heading}>{lang==="en" ? "ABOUT" : "ÜBER"}</div>
                 <div className={styles.item}><span>{ProfileLocales.dob[lang]}:  </span><span>{String(profile.dob).split("T")[0]}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.gender[lang]}:  </span><span>{profile.gender}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.price[lang]}  </span> <span>{profile.price}€</span></div>
@@ -93,7 +105,7 @@ class Profile extends Component {
               </div>
 
               <div className={styles.room}>
-                <div className={styles.heading}><HomeIcon/>{lang==="en" ? "About Room" : "Über Zimmer"}</div>
+                <div className={styles.heading}>{lang==="en" ? "ABOUT ROOM" : "ÜBER ZIMMER"}</div>
                 <div className={styles.item}><span>{ProfileLocales.Roomsubheading[lang]} </span><span>{profile.rooms}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.size[lang]} </span><span>{profile.size}m²</span></div>
                 <div className={styles.item}><span>{ProfileLocales.exptdDate[lang]} </span><span>{profile.moveInDate}</span></div>
@@ -107,13 +119,13 @@ class Profile extends Component {
 
 
               <div className={styles.roommate}>
-                <div className={styles.heading}><EmojiPeopleIcon/>{lang==="en" ? "About the person to live with" : "Über die Person, mit der Sie leben möchten"}</div>
+                <div className={styles.heading}>{lang==="en" ? "ABOUT THE PERSON TO LIVE WITH" : "ÜBER DIE PERSON, MIT DER SIE LEBEN MÖCHTEN"}</div>
                 <div className={styles.item}><span>{ProfileLocales.partner[lang]} </span><span>{profile.idealFlatmate}</span></div>
               </div>
 
             </div>
 
-            {profile.length !== 0 && user !== null && user.profile === this.props.match.params.id &&
+            {profile.length !== 0 && fetchedUser!==null && fetchedUser.profile === this.props.match.params.id  &&
               <div className={styles.ctrl}>
                 <Link to={`/edit/${profile._id}`}>
                   <button className={styles["blue-button"]}>{ProfileLocales.editProfile[lang]}</button>

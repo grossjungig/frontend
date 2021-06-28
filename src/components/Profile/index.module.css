@@ -17,7 +17,7 @@
     font-size: 1.8em;
     margin: 20px 0;
     font-weight: 600;
-    color: var(--gai-blue);
+    color: var(--gai-black);
 }
 
 .leftPortion{
@@ -31,7 +31,6 @@
     border-radius: 16px;
     padding: 20px 20px;
     background-color: var(--gai-white);
-    border: solid 2px var(--gai-blue);
     margin: auto 20px;
 }
 
@@ -50,14 +49,13 @@
 .name{
     font-size: 1.2em;
     margin: 20px auto;
-    font-weight: 600;
-    color: var(--gai-red);
+    font-weight: 500;
+    color: var(--gai-black);
 }
 
 .pic {
     max-width: 300px;
     height: auto;
-    border: 2px solid var( --gai-red );
     border-radius: 16px;
     margin: auto 20px;
 }
@@ -77,23 +75,25 @@
 
 
 .heading {
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     margin: 15px auto;
-    font-size: 18px;
+    font-size: 15px;
+    color: var(--gai-red);
 }
 
 
 .item span:nth-child(1){
-    font-weight: 600;
-    line-height: 25px;
+    font-weight: 500;
+    line-height: 30px;
 }
 
 .ctrl {
     display: flex;
     margin: 40px 30px;
 }
+
 
 .delBtn {
     margin-left: auto;
