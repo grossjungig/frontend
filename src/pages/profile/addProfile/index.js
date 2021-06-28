@@ -244,7 +244,7 @@ class AddProfile extends Component {
 
               <div className="dob">
                 <label htmlFor="dob"> <span className={styles.red}>*</span> {ProfileLocales.dob[lang]} </label>
-                <DatePicker id="dob" className={styles.dates} required selected={dob} onChange={(e) => {
+                <DatePicker id="dob" className={dob?styles.dates:[`${styles.dates} ${styles["dates-error"]}`]} selected={dob} onChange={(e) => {
                   this.setState({ dob: e });
                 }} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_DOB')}  />
               </div>
@@ -411,12 +411,14 @@ class AddProfile extends Component {
               <div className={styles.roomQuestions}>
                 <div className={styles.size}>
                   <label htmlFor="size"> <span className={styles.red}>*</span> {ProfileLocales.size[lang]} </label>
+                  {this.state.messages.includes('INVALID_SIZE')? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p>: null}
                   <TextField name="size" id="size" value={size}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input}  error={this.state.messages.includes('INVALID_SIZE')}/>
                 </div>
                 <div className={styles.price}>
                   <label htmlFor="price"> <span className={styles.red}>*</span> {ProfileLocales.price[lang]} </label>
+                  {this.state.messages.includes('INVALID_PRICE') ? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p>: null}
                   <TextField name="price" id="price" value={price}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_PRICE')}  />
@@ -444,7 +446,7 @@ class AddProfile extends Component {
                 </label>
               </div>
               <div>
-              {this.state.messages.includes('INVALID_DISTRICT')? <p className={styles.red}> {ProfileLocales.selectError[lang]} </p>: null}
+              {this.state.messages.includes('INVALID_DISTRICT')? <p className={styles.red}> {ProfileLocales.districtError[lang]} </p>: null}
               </div>
 
               <div>

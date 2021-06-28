@@ -155,6 +155,10 @@
         "en":"Please select one",
         "de":"Bitte wählen Sie eine"
     },
+    "districtError":{
+        "en":"Please select at least one",
+        "de":"Bitte wählen Sie mindestens einen"
+    },
     "phoneError":{
         "en":"Please enter a valid phone number",
         "de":"Bitte geben Sie eine gültige Rufnummer ein"
