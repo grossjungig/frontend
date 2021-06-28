@@ -6,6 +6,7 @@ import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
 import ProfileLocales from "../../locales/locales.profile.json";
 import styles from './index.module.css';
 import { fullBlock } from '../../shared/index.module.css'
+import { dispatchCheckAuth } from "../../store/auth/thunks";
 
 class Profile extends Component {
   state = {
@@ -30,6 +31,7 @@ class Profile extends Component {
       try {
         const { data: { msg } } = await axios.delete(`api/profiles/${profileId}`)
         if (msg === 'profile_deleted') {
+          this.props.refreshUser();
           this.props.history.push('/userportal')
           alert('Profile successfully deleted.')
         }
@@ -118,5 +120,9 @@ class Profile extends Component {
 const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
+const mapDispatchToProps = {
+  refreshUser: () => dispatchCheckAuth()
+};
 
-export default connect(mapStateToProps)(Profile);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
