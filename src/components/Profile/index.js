@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
 import ProfileLocales from "../../locales/locales.profile.json";
 import styles from './index.module.css';
-import HomeIcon from '@material-ui/icons/Home';
-import FaceIcon from '@material-ui/icons/Face';
-import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 class Profile extends Component {
