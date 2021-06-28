@@ -491,7 +491,7 @@ class AddProfile extends Component {
                 </div>
                 <div className={styles.phonenumber}>
                   <label htmlFor="phoneNumber"> {ProfileLocales.phonenumber[lang]} </label>
-                  {this.state.messages.includes('INVALID_PHONE_NUMBER')? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p>: null}
+                  {this.state.messages.includes('INVALID_PHONE_NUMBER')? <p className={styles.red}> {ProfileLocales.phoneError[lang]} </p>: null}
 
                   <MuiPhoneNumber
                     name="phonenumber"
