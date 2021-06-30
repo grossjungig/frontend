@@ -63,7 +63,7 @@ class Profile extends Component {
               <ArrowBackIcon className={styles.arrowBackIcon} onClick={this.props.history.goBack} />
               <span className={styles.view}>{ lang==="en" ? "Go Back" : "Zurück" }</span>
             </div>
-            {profile.length !== 0 && fetchedUser !== null && fetchedUser.profile !== this.props.match.params.id &&
+            {fetchedUser === null &&
             <div className={styles.info}>
               {ProfileLocales.person[lang]} <span className={styles.red}>info@grossjungig.de</span>
             </div>}
