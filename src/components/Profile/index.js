@@ -6,21 +6,22 @@ import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
 import ProfileLocales from "../../locales/locales.profile.json";
 import styles from './index.module.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 class Profile extends Component {
   state = {
     profile: [],
-    user:''
+    user: ''
   };
 
   componentDidMount() {
     const profileId = this.props.match.params.id;
     axios.get(`api/profiles/${profileId}`)
       .then((response) => {
-        this.setState({ 
+        this.setState({
           profile: response.data,
-          user:response.data.user
-         });
+          user: response.data.user
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -57,6 +58,17 @@ class Profile extends Component {
     return (
 
       <div className={styles.section}>
+          <div className={styles.upperHead}>
+            <div className={styles.lineone}>
+              <ArrowBackIcon className={styles.arrowBackIcon} onClick={this.props.history.goBack} />
+              <span className={styles.view}>{ lang==="en" ? "Go Back" : "Zurück" }</span>
+            </div>
+            {profile.length !== 0 && fetchedUser !== null && fetchedUser.profile !== this.props.match.params.id &&
+            <div className={styles.info}>
+              {ProfileLocales.person[lang]} <span className={styles.red}>info@grossjungig.de</span>
+            </div>}
+          </div>
+        
         <div className={styles.main}>
 
           <div className={styles.leftPortion}>
@@ -67,7 +79,7 @@ class Profile extends Component {
           <div className={styles.rightPortion}>
             <div className={styles.mainContent}>
               <div className={styles.about}>
-                <div className={styles.heading}>{lang==="en" ? "ABOUT" : "ÜBER"}</div>
+                <div className={styles.heading}>{lang === "en" ? "ABOUT" : "ÜBER"}</div>
                 <div className={styles.item}><span>{ProfileLocales.dob[lang]}:  </span><span>{String(profile.dob).split("T")[0]}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.gender[lang]}:  </span><span>{profile.gender}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.price[lang]}  </span> <span>{profile.price}€</span></div>
@@ -77,42 +89,42 @@ class Profile extends Component {
 
                 <div className={styles.item}>{profile.pets ? pets : null}</div>
 
-                <div className={styles.item}> <span> {ProfileLocales.hobbyText[lang]} </span>  
+                <div className={styles.item}> <span> {ProfileLocales.hobbyText[lang]} </span>
                   {profile.length !== 0 && profile.hobbies.map(hobby => (
-                    <p> <ArrowForwardIosIcon fontSize="small"/> {hobby} </p>
+                    <p> <ArrowForwardIosIcon fontSize="small" /> {hobby} </p>
                   ))}
                 </div>
 
-                <div className={styles.item}> <span> {ProfileLocales.helpText[lang]} </span>  
+                <div className={styles.item}> <span> {ProfileLocales.helpText[lang]} </span>
                   {profile.length !== 0 && profile.offeredHelp.map(help => (
-                    <p> <ArrowForwardIosIcon fontSize="small"/> {help} </p>
+                    <p> <ArrowForwardIosIcon fontSize="small" /> {help} </p>
                   ))}
                 </div>
                 <p></p>
               </div>
 
               <div className={styles.room}>
-                <div className={styles.heading}>{lang==="en" ? "ABOUT ROOM" : "ÜBER ZIMMER"}</div>
+                <div className={styles.heading}>{lang === "en" ? "ABOUT ROOM" : "ÜBER ZIMMER"}</div>
                 <div className={styles.item}><span>{ProfileLocales.Roomsubheading[lang]} </span><span>{profile.rooms}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.size[lang]} </span><span>{profile.size}m²</span></div>
                 <div className={styles.item}><span>{ProfileLocales.exptdDate[lang]} </span><span>{profile.moveInDate}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.exptdDuration[lang]} </span><span>{profile.duration}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.district[lang]} </span>
                   {profile.length !== 0 && profile.district.map(district => (
-                    <p> <ArrowForwardIosIcon fontSize="small"/>{district}</p>
+                    <p> <ArrowForwardIosIcon fontSize="small" />{district}</p>
                   ))}
                 </div>
               </div>
 
 
               <div className={styles.roommate}>
-                <div className={styles.heading}>{lang==="en" ? "ABOUT THE PERSON TO LIVE WITH" : "ÜBER DIE PERSON, MIT DER SIE LEBEN MÖCHTEN"}</div>
+                <div className={styles.heading}>{lang === "en" ? "ABOUT THE PERSON TO LIVE WITH" : "ÜBER DIE PERSON, MIT DER SIE LEBEN MÖCHTEN"}</div>
                 <div className={styles.item}><span>{ProfileLocales.partner[lang]} </span><span>{profile.idealFlatmate}</span></div>
               </div>
 
             </div>
 
-            {profile.length !== 0 && fetchedUser!==null && fetchedUser.profile === this.props.match.params.id  &&
+            {profile.length !== 0 && fetchedUser !== null && fetchedUser.profile === this.props.match.params.id &&
               <div className={styles.ctrl}>
                 <Link to={`/edit/${profile._id}`}>
                   <button className={styles["blue-button"]}>{ProfileLocales.editProfile[lang]}</button>

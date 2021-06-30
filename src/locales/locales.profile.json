@@ -3,6 +3,11 @@
         "de": ", erzählen Sie uns etwas über sich:",
         "en": ", tell us about you:"
     },
+    "person": {
+        "de": "Wenn Sie an dieser Person interessiert sind, kontaktieren Sie uns unter :",
+        "en": "If you are interested in this person, contact us at :"
+    },
+
     "request": {
         "de": "Meine Anfrage hinzufügen",
         "en": "Add My Request"

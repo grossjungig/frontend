@@ -1,16 +1,52 @@
 .section{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin: 20px auto;
 }
 
 .main {
     display: flex;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 0 20px;
     width: 86%;
+}
+.upperHead{
+    margin: 10px 20px;
+    display: flex;
+}
+
+.red{
+    color: red;
+}
+.lineone{
+    display: flex;
+}
+
+.arrowBackIcon{
+    cursor: pointer;
+    width: 30px !important;
+    height: 30px !important;
+    margin: 10px 10px!important;
+}
+
+.info{
+    background-color: var(--gai-white);
+    border: 1px solid #365fa7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: var(--gai-blue);
+    font-size: 13px;
+    max-width: 310px;
+    margin-bottom: 10px;
+    padding: 16px;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.view{
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 10px
 }
 
 .msg {
@@ -47,7 +83,7 @@
     flex-direction: row;
 }
 .name{
-    font-size: 1.2em;
+    font-size: 23px;
     margin: 20px auto;
     font-weight: 500;
     color: var(--gai-black);
@@ -122,10 +158,23 @@
          flex-direction: column;
          justify-content: center;
          align-items: center;
+         margin: 10px auto;
      }
      .leftPortion{
          margin: 20px auto;
      }
+ }
+
+ @media only screen and (max-width: 800px){
+    .upperHead{
+        margin: 10px 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info{
+        margin: 20px auto;
+    }
  }
 
  @media only screen and (max-width:420px){
@@ -153,6 +202,12 @@
  }
 
  @media only screen and (max-width: 362px){
+
+    .leftPortion{
+        margin: auto auto;
+        width: 300px;
+    }
+
     .rightPortion{
         min-width: 360px;
     }
@@ -166,16 +221,19 @@
  @media only screen and (max-width: 329px){
      .main{
          margin: 0px;
-         width: 250px;
+     }
+
+     .leftPortion{
+         width: 280px;
+         height: auto;
+     }
+
+     .pic{
+        margin: auto auto;
      }
     
      .rightPortion{
-         width:320px;
+         width:240px;
      }
      
-     .pic{
-         width: 250px;
-         margin: 0px 0px;
-         padding: 0px 0px;
-     }
  }
