@@ -54,8 +54,8 @@
 }
 
 .pic {
-    max-width: 300px;
-    height: auto;
+    width: auto;
+    height: 300px;
     border-radius: 16px;
     margin: auto 20px;
 }
