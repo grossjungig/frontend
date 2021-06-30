@@ -15,10 +15,8 @@ class Profile extends Component {
 
   componentDidMount() {
     const profileId = this.props.match.params.id;
-    console.log(profileId)
     axios.get(`api/profiles/${profileId}`)
       .then((response) => {
-        console.log(response)
         this.setState({ 
           profile: response.data,
           user:response.data.user
@@ -47,16 +45,8 @@ class Profile extends Component {
 
   render() {
     const profile = this.state.profile;
-    console.log(typeof profile)
     const user = this.state.user
     const fetchedUser = this.props.fetchedUser
-    console.log(fetchedUser)
-    console.log(this.state.user)
-    // console.log(this.state.profile)
-    // var user;
-    // if(this.props.fetchedUser){
-    //   user = this.props.fetchedUser
-    // }
     const lang = localStorage.getItem("lang");
     let renderedAvatar = dummyAvatar;
     const { avatarUrl } = this.state.profile;
