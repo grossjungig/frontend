@@ -35,6 +35,7 @@ class Profile extends Component {
       try {
         const { data: { msg } } = await axios.delete(`api/profiles/${profileId}`)
         if (msg === 'profile_deleted') {
+          this.props.refreshUser();
           this.props.history.push('/userportal')
           alert('Profile successfully deleted.')
         }
@@ -147,5 +148,9 @@ class Profile extends Component {
 const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
+const mapDispatchToProps = {
+  refreshUser: () => dispatchCheckAuth()
+};
 
-export default connect(mapStateToProps)(Profile);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

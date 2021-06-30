@@ -21,7 +21,7 @@ import dummyAvatar from '../../../assets/images/dummy-avatar.jpg'
 import { generateBase64FromImage } from '../../../utils';
 import ProfileLocales from "../../../locales/locales.profile.json";
 
-class AddProfile extends Component {
+class EditProfile extends Component {
   state = {
     dob: null,
     gender: "",
@@ -32,8 +32,10 @@ class AddProfile extends Component {
     pets: "",
     hobbies: [],
     otherHobbies: "",
+    hobbychecked:false,
     offeredHelp: [],
     otherHelp: "",
+    helpchecked:false,
     rooms: "",
     size: "",
     price: "",
@@ -52,6 +54,48 @@ class AddProfile extends Component {
     messages:[]
   };
 
+  componentDidMount() {
+    const profileId = this.props.match.params.id;
+    axios.get(`api/profiles/${profileId}`)
+      .then(({data}) => {
+        if(data.otherHobbies){
+          this.setState({hobbychecked:true})
+        }
+        if(data.otherHelp){
+          this.setState({helpchecked:true})
+        }
+        this.setState({
+          name: data.user.name,
+          dob: data.dob,
+          gender: data.gender,
+          language: data.language,
+          occupation: data.occupation,
+          smoke: data.smoke,
+          accomodation: data.accomodation,
+          pets: data.pets,
+          hobbies: data.hobbies.slice(),
+          otherHobbies: data.otherHobbies,
+          offeredHelp: data.offeredHelp.slice(),
+          otherHelp: data.otherHelp,
+          rooms: data.rooms,
+          size: data.size,
+          price: data.price,
+          moveInDate: data.moveInDate,
+          duration: data.duration,
+          district: data.district,
+          idealFlatmate: data.idealFlatmate,
+          howFound: data.howFound,
+          additionalInfo: data.additionalInfo,
+          phoneNumber:data.phoneNumber,
+          avatarUrl: data.avatarUrl,
+          avatarPreview: data.avatarUrl,
+      })
+    })
+      .catch((error) => {
+        console.log(error);
+      });
+    
+  }
   setFormState = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -99,16 +143,18 @@ class AddProfile extends Component {
       hobbychecked: event.target.checked
     })
     if(this.state.hobbychecked){
-      this.setState({
-        otherHobbies:''
-      })
+      this.setState({otherHobbies:''})
     }
+  
   }
 
   handleCheckHelp = (event) => {
     this.setState({
       helpchecked: event.target.checked
     })
+    if(this.state.helpchecked){
+      this.setState({otherHelp:''})
+    }
 
   }
 
@@ -119,7 +165,6 @@ class AddProfile extends Component {
       }
     )
   }
-
 
   handleAvatarChange = async (event) => {
     const avatarFile = event.target.files[0];
@@ -138,7 +183,7 @@ class AddProfile extends Component {
       this.setState({ signedRequest: signedRequest });
       this.setState({ avatarUrl: imageUrl });
       this.setState({ avatarFile: avatarFile });
-
+      
     } catch (err) {
       this.setState({ avatarPreviewErr: err.message });
     }
@@ -149,8 +194,9 @@ class AddProfile extends Component {
 
     // Direct Upload to AWS S3
     const { signedRequest, avatarFile } = this.state;
-    newAxios.put(signedRequest, avatarFile)
-      .catch(err => { this.setState({ avatarPreviewErr: err.message }) })
+    newAxios.put(signedRequest, avatarFile )
+      .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
+   
     const obj = {
       dob: this.state.dob,
       gender: this.state.gender,
@@ -179,25 +225,26 @@ class AddProfile extends Component {
     }else{
       delete obj.phoneNumber
     }
-
-    axios.post('api/addProfile', obj).then((res) => {
+    axios.post(`api/edit/${this.props.fetchedUser.profile}`,obj).then((res) => {
       this.props.refreshUser();
-      this.props.history.push(`/profile/${res.data._id}`);
-    }).catch((err) => {
-      this.setState({ messages: err.response.data.data });
-    });
-
-
+      this.props.history.push(`/profile/${res.data}`)
+      }
+      ).catch((err)=>{
+        this.setState({ messages: err.response.data.data });
+      })
   };
 
+  cancelEdit = () => {
+    this.props.history.push('/userportal');
+  }
 
   render() {
-    
+    const date = new Date(this.state.dob)
     var name;
     if(this.props.fetchedUser){
       name = this.props.fetchedUser.name
     }
-    const {dob, gender, language, occupation, smoke, accomodation, pets, otherHobbies, otherHelp, size, price, moveInDate, duration, idealFlatmate, howFound, additionalInfo, phoneNumber, avatarPreview, messages } = this.state;
+    const {dob, gender, language, occupation, smoke, rooms, accomodation, pets, hobbies, otherHobbies, hobbychecked, offeredHelp, otherHelp, helpchecked, district, size, price, moveInDate, duration, idealFlatmate, howFound, additionalInfo, phoneNumber, avatarPreview, messages } = this.state;
     const lang = localStorage.getItem("lang");
 
 
@@ -231,7 +278,7 @@ class AddProfile extends Component {
         <div className={styles.upperHead}>
           <div className={styles.lineone}>
             <ArrowBackIcon className={styles.arrowBackIcon} onClick={this.props.history.goBack} />
-            <span className={styles.addRequest}>{ProfileLocales.request[lang]}</span>
+            <span className={styles.addRequest}>{ProfileLocales.profile[lang]}</span>
           </div>
           <div className={styles.msg}>
             {ProfileLocales.info[lang]}
@@ -244,7 +291,7 @@ class AddProfile extends Component {
 
               <div className="dob">
                 <label htmlFor="dob"> <span className={styles.red}>*</span> {ProfileLocales.dob[lang]} </label>
-                <DatePicker id="dob" className={styles.dates} required selected={dob} onChange={(e) => {
+                <DatePicker id="dob" className={dob?styles.dates:[`${styles.dates} ${styles["dates-error"]}`]} selected={dob?date:undefined} onChange={(e) => {
                   this.setState({ dob: e });
                 }} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_DOB')}  />
               </div>
@@ -335,7 +382,7 @@ class AddProfile extends Component {
               <div className={styles.hobby}>
                 {listhobbies[lang].map(hobby => (
                   <div>
-                    <Checkbox key={hobby.key} color="primary"
+                    <Checkbox key={hobby.key} color="primary" checked={hobbies.includes(hobby.name)}
                       inputProps={{ 'aria-label': 'secondary checkbox' }}
                       name={hobby.name} onChange={this.handleHobby} />
                     <label>{hobby.label}</label>
@@ -344,7 +391,7 @@ class AddProfile extends Component {
                 <div>
                   <Checkbox
                     color="secondary"
-                    hobbychecked={this.state.checked}
+                    checked={hobbychecked}
                     onChange={this.handleCheckHobby}
                   /><label>{lang === "de" ? "Sonstiges" : "Others"}</label>
                 </div>
@@ -371,7 +418,7 @@ class AddProfile extends Component {
               <div className={styles.help}>
                 {offeredhelps[lang].map(help => (
                   <div>
-                    <Checkbox key={help.key} color="primary"
+                    <Checkbox key={help.key} color="primary" checked={offeredHelp.includes(help.name)}
                       inputProps={{ 'aria-label': 'secondary checkbox' }}
                       name={help.name} onChange={this.handleHelp} />
                     <label>{help.label}</label>
@@ -380,7 +427,7 @@ class AddProfile extends Component {
                 <div>
                   <Checkbox
                     color="secondary"
-                    helpchecked={this.state.checked}
+                    checked={helpchecked}
                     onChange={this.handleCheckHelp}
                   /><label>{lang === "de" ? "Sonstiges" : "Others"}</label>
                 </div>
@@ -401,7 +448,7 @@ class AddProfile extends Component {
               {this.state.messages.includes('INVALID_ROOMS')? <p className={styles.red}> {ProfileLocales.selectError[lang]} </p>: null}
               </div>
               <div>
-                <RadioGroup aria-label="rooms" name="rooms" value={this.value}  onChange={this.handleChangeRooms}>
+                <RadioGroup aria-label="rooms" name="rooms" value={rooms}  onChange={this.handleChangeRooms}>
                   <FormControlLabel value="one-room-flat" control={<Radio color="primary" />} label={ProfileLocales.oneroom[lang]}
                     className={styles.room} />
                   <FormControlLabel value="two-room-flat" control={<Radio color="primary" />} label={ProfileLocales.tworoom[lang]}
@@ -411,12 +458,14 @@ class AddProfile extends Component {
               <div className={styles.roomQuestions}>
                 <div className={styles.size}>
                   <label htmlFor="size"> <span className={styles.red}>*</span> {ProfileLocales.size[lang]} </label>
+                  {this.state.messages.includes('INVALID_SIZE')? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p>: null}
                   <TextField name="size" id="size" value={size}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input}  error={this.state.messages.includes('INVALID_SIZE')}/>
                 </div>
                 <div className={styles.price}>
                   <label htmlFor="price"> <span className={styles.red}>*</span> {ProfileLocales.price[lang]} </label>
+                  {this.state.messages.includes('INVALID_PRICE') ? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p>: null}
                   <TextField name="price" id="price" value={price}
                     onChange={this.setFormState}
                     variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_PRICE')}  />
@@ -450,7 +499,7 @@ class AddProfile extends Component {
               <div>
                 {districtBerlin[lang].map(e => (
                   <div className={styles.districtlabel}>
-                    <Checkbox key={e.name} color="primary"
+                    <Checkbox key={e.name} color="primary" checked={district.includes(e.name)}
                       inputProps={{ 'aria-label': 'secondary checkbox' }}
                       name={e.name} onChange={this.handleDistrict} />
                     <label>{e.label}</label>
@@ -489,7 +538,7 @@ class AddProfile extends Component {
                 </div>
                 <div className={styles.phonenumber}>
                   <label htmlFor="phoneNumber"> {ProfileLocales.phonenumber[lang]} </label>
-                  {this.state.messages.includes('INVALID_PHONE_NUMBER')? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p>: null}
+                  {this.state.messages.includes('INVALID_PHONE_NUMBER')? <p className={styles.red}> {ProfileLocales.phoneError[lang]} </p>: null}
 
                   <MuiPhoneNumber
                     name="phonenumber"
@@ -549,13 +598,11 @@ class AddProfile extends Component {
     );
   }
 }
-
 const mapStateToProps = (reduxState) => ({
   fetchedUser: reduxState.user
 });
-
 const mapDispatchToProps = {
   refreshUser: () => dispatchCheckAuth()
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile);

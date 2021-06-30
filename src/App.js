@@ -29,7 +29,7 @@ import Profile from "./components/Profile";
 
 import People from "./components/People/People";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
-import EditProfile from "./components/EditProfile/EditProfile";
+import EditProfile from "./pages/profile/editProfile";
 
 import { connect } from 'react-redux';
 import { dispatchCheckAuth } from './store/auth/thunks';
@@ -57,7 +57,7 @@ class App extends React.Component {
 
             <Route exact path="/termsandconditions"><TermsAndConditions/></Route>
             <Route exact path="/login" render={(props) => (
-              <Login history={props.history} />
+              <Login {...props} />
             )}/>
 
             <Route exact path="/userportal" render={(props) => 
