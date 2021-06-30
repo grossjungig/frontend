@@ -7,6 +7,7 @@ import ProfileLocales from "../../locales/locales.profile.json";
 import styles from './index.module.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { dispatchCheckAuth } from "../../store/auth/thunks";
 
 class Profile extends Component {
   state = {
