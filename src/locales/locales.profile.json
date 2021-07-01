@@ -48,14 +48,28 @@
         "en": "What hobbies and interests do you have?",
         "de": "Welche Hobbys und Interessen hast Du?"
     },
+    "would_live": {
+        "en": "Would live in",
+        "de": "Würde in leben"
     "helpText": {
         "en": "What kind of help could you offer to an older person with whom you will be living together (the more you help, the less you pay):",
         "de": "Welche Hilfe kannst Du der mitwohnenden älteren Person anbieten (je mehr Du hilfst, desto weniger zahlst Du) :"
     },
+    "help_with": {
+        "en": "Help with",
+        "de": "Hilfe mit"
+      },
+   
+    "deleteProfile": {
+        "en": "Delete Profile",
+        "de": "Profil löschen"
     "PartnerHeading": {
         "en": ", tell us about the person you would like to live with : ",
         "de": ", erzähl uns über die Person, mit der Du gerne zusammen leben würdest :"
     },
+    "editProfile": {
+        "en": "Edit Profile",
+        "de": "Profil bearbeiten"
     "RoomHeading": {
         "en": ", tell us about the room you are looking for:",
         "de": ", erzähl uns über das Zimmer, das Du suchst:"
