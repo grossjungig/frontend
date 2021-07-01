@@ -91,7 +91,7 @@
 
 .pic {
     width: auto;
-    height: 300px;
+    height: auto;
     border-radius: 16px;
     margin: auto 20px;
 }
