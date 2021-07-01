@@ -67,7 +67,7 @@ class Profile extends Component {
             </div>
             {fetchedUser === null || fetchedUser.profile !== this.props.match.params.id ?
             <div className={styles.info}>
-              {ProfileLocales.person[lang]} <span className={styles.red}>info@grossjungig.de</span>
+              {ProfileLocales.person[lang]} <span className={styles.red}>info@grossjungig.de</span> { lang==="de" ? "oder" : "or" } <span className={styles.red}>+49-30-55231271</span>
             </div> : null}
           </div>
         
