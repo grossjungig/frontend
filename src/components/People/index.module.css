@@ -30,8 +30,7 @@
 .profile-card__avatar img {
     object-fit: cover;
     height: 219px;
-    width: auto;
-    max-width:232px;
+    width: 232px;
 }
 .icons{
     margin-right: 10px !important;
@@ -72,9 +71,6 @@
     .profile-card__avatar img {
         margin: 30px 10px;
         margin-bottom: 0px;
-        height: 219px;
-        width: auto;
-        max-width:232px;
     }
 
     .profile-card {
