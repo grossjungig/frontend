@@ -12,7 +12,7 @@
     transition: 0.3s;
     display: flex;
     align-items: center;
-    width: 672px;
+    width: 680px;
     min-height: 219px;
 }
 
@@ -45,7 +45,7 @@
 }
 .profile-card__district {
     display: flex;
-    width: fit-content;
+    flex-wrap: wrap;
     margin:10px 10px;
 }
 

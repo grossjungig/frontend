@@ -5,7 +5,7 @@ import RoomTwoToneIcon from '@material-ui/icons/RoomTwoTone';
 import EventAvailableTwoToneIcon from '@material-ui/icons/EventAvailableTwoTone';
 import MeetingRoomTwoToneIcon from '@material-ui/icons/MeetingRoomTwoTone';
 import EuroSymbolTwoToneIcon from '@material-ui/icons/EuroSymbolTwoTone';
-import './index.css'
+import styles from './index.module.css';
 import peopleLocales from "../../locales/locales.people.json";
 
 export default class People extends Component {
@@ -33,27 +33,27 @@ export default class People extends Component {
   render() {
     const lang = localStorage.getItem("lang");
     return (
-      <ul className="profile-card-container">
+      <ul className={styles["profile-card-container"]}>
         {this.state.people.map((profile) => {
           return (
             <li
-              className="profile-card"
+              className={styles["profile-card"]}
               onClick={() => this.handleClick(profile._id)}
               key={profile._id}
             >
-              <div className="profile-card__avatar">
+              <div className={styles["profile-card__avatar"]}>
                 <img src={profile.avatarUrl || dummyAvatar} alt="person" />
               </div>
-              <div className="profile-card__content">
+              <div className={styles["profile-card__content"]}>
                 {/* <h3>{capitalizeFirstLetter(profile.name)}, {profile.age}</h3> */}
-                <h3 className="heading">Bipul, {lang === "de" ? "Alter:" : "Age:"}  {this.toAge(profile.dob)}</h3>
+                <h3 className={styles["heading"]}>Bipul,  {this.toAge(profile.dob)}</h3>
                 <div>
-                  <span className="profile-card__district"><RoomTwoToneIcon fontSize="small" className="icons" />  Berlin  {profile.district.map(district => (
-                    <span className="districts-list">,{district}</span>
+                  <span className={styles["profile-card__district"]}><RoomTwoToneIcon fontSize="small" className={styles["icons"]} />  Berlin  {profile.district.map(district => (
+                    <span className={styles["districts-list"]}>, {district}</span>
                   ))}</span>
-                  <div className="profile-card__item"><MeetingRoomTwoToneIcon fontSize="small" className="icons" />  {profile.size}m²</div>
-                  <div className="profile-card__item"><EventAvailableTwoToneIcon fontSize="small" className="icons" />  {lang === "en" ? "Move In:" : "Einziehen:"} {profile.moveInDate}</div>
-                  <div className="profile-card__item"><EuroSymbolTwoToneIcon fontSize="small" className="icons" />{peopleLocales.can_pay[lang]}  {profile.price}€  ({peopleLocales.monthly[lang]})</div>
+                  <div className={styles["profile-card__item"]}><MeetingRoomTwoToneIcon fontSize="small" className={styles["icons"]} />  {profile.size}m²</div>
+                  <div className={styles["profile-card__item"]}><EventAvailableTwoToneIcon fontSize="small" className={styles["icons"]} />  {lang === "en" ? "Move In:" : "Einziehen:"} {profile.moveInDate}</div>
+                  <div className={styles["profile-card__item"]}><EuroSymbolTwoToneIcon fontSize="small" className={styles["icons"]} />{peopleLocales.can_pay[lang]}  {profile.price}€  ({peopleLocales.monthly[lang]})</div>
                 </div>
               </div>
             </li>
