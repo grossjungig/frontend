@@ -33,33 +33,40 @@ export default class People extends Component {
   render() {
     const lang = localStorage.getItem("lang");
     return (
-      <ul className={styles["profile-card-container"]}>
-        {this.state.people.map((profile) => {
-          return (
-            <li
-              className={styles["profile-card"]}
-              onClick={() => this.handleClick(profile._id)}
-              key={profile._id}
-            >
-              <div className={styles["profile-card__avatar"]}>
-                <img src={profile.avatarUrl || dummyAvatar} alt="person" />
-              </div>
-              <div className={styles["profile-card__content"]}>
-                {/* <h3>{capitalizeFirstLetter(profile.name)}, {profile.age}</h3> */}
-                <h3 className={styles["heading"]}>Bipul,  {this.toAge(profile.dob)}</h3>
-                <div>
-                  <span className={styles["profile-card__district"]}><RoomTwoToneIcon fontSize="small" className={styles["icons"]} />  Berlin  {profile.district.map(district => (
-                    <span className={styles["districts-list"]}>, {district}</span>
-                  ))}</span>
-                  <div className={styles["profile-card__item"]}><MeetingRoomTwoToneIcon fontSize="small" className={styles["icons"]} />  {profile.size}m²</div>
-                  <div className={styles["profile-card__item"]}><EventAvailableTwoToneIcon fontSize="small" className={styles["icons"]} />  {lang === "en" ? "Move In:" : "Einziehen:"} {profile.moveInDate}</div>
-                  <div className={styles["profile-card__item"]}><EuroSymbolTwoToneIcon fontSize="small" className={styles["icons"]} />{peopleLocales.can_pay[lang]}  {profile.price}€  ({peopleLocales.monthly[lang]})</div>
+      <>
+        <div className={styles.offersTitle}>
+          <h1>
+            {peopleLocales.people[lang]} Berlin {this.state.people.length} {peopleLocales.offers[lang]}
+          </h1>
+        </div>
+        <ul className={styles["profile-card-container"]}>
+          {this.state.people.map((profile) => {
+            return (
+              <li
+                className={styles["profile-card"]}
+                onClick={() => this.handleClick(profile._id)}
+                key={profile._id}
+              >
+                <div className={styles["profile-card__avatar"]}>
+                  <img src={profile.avatarUrl || dummyAvatar} alt="person" />
                 </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+                <div className={styles["profile-card__content"]}>
+                  {/* <h3>{capitalizeFirstLetter(profile.name)}, {profile.age}</h3> */}
+                  <h3 className={styles["heading"]}>Bipul,  {this.toAge(profile.dob)}</h3>
+                  <div>
+                    <span className={styles["profile-card__district"]}><RoomTwoToneIcon fontSize="small" className={styles["icons"]} />  <span className={styles.berlinFixed}>Berlin</span>  {profile.district.map(district => (
+                      <span className={styles["districts-list"]}>, {district}</span>
+                    ))}</span>
+                    <div className={styles["profile-card__item"]}><MeetingRoomTwoToneIcon fontSize="small" className={styles["icons"]} />  {profile.size}m²</div>
+                    <div className={styles["profile-card__item"]}><EventAvailableTwoToneIcon fontSize="small" className={styles["icons"]} />  {lang === "en" ? "Move In:" : "Einziehen:"} {profile.moveInDate}</div>
+                    <div className={styles["profile-card__item"]}><EuroSymbolTwoToneIcon fontSize="small" className={styles["icons"]} />{peopleLocales.can_pay[lang]}  {profile.price}€  ({peopleLocales.monthly[lang]})</div>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </>
     );
   }
 }
