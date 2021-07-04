@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
-
 import homeLocales from "../../locales/locales.home.json";
 import { H3 } from '../../components/typography';
 import { Card3 } from "../../components/styled";
@@ -11,7 +10,6 @@ import NewsLetter from "./components/NewsLetter/Newsletter.js";
 import { SecPanel, Mission } from "./styled";
 import { card3 } from "./cards";
 
-
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +17,6 @@ class Home extends Component {
             time: false,
         };
     }
-
     componentDidMount() {
         setTimeout(() => { this.setState({ time: !this.state.time }) }, 1000);
     }
@@ -30,14 +27,7 @@ class Home extends Component {
         const lang = localStorage.getItem("lang");
         return ( 
             <>
-
-            {
-                this.state.time === true ?
-                // <NewsLetter lang = { lang } callbackFromParent = { this.myCallback } > </NewsLetter>
-                <NewsLetter callbackFromParent = { this.myCallback } /> 
-                :null
-            }
-
+            { this.state.time === true ? <NewsLetter callbackFromParent = { this.myCallback } /> : null}
             <Hero/>
             <Mission id = "about" >
             <H3 className = "home-mission" > { homeLocales.mission_1[lang] } < br/> { homeLocales.mission_2[lang] } </H3> 
