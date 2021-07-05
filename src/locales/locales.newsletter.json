@@ -1,0 +1,38 @@
+{
+    "header": {
+        "en": "Sign up for Newsletter",
+        "de": "Abonnieren Sie ihren Newsletter"
+    },
+    "text": {
+        "en": "Be the first one to know about our members looking for a flat or offering a place to stay and get exclusive offers — become part of our fast-growing community and sign up for our Newsletter now!",
+        "de": "Seien Sie die Erste, die von unseren Mitgliedern, die eine Wohnung suchen oder eine Unterkunft anbieten, erfährt und erhalten Sie exklusive Angebote - werden Sie Teil unserer schnell wachsenden Community und melden Sie sich jetzt für unseren Newsletter an!"
+    },
+    "email": {
+        "en": "Email",
+        "de": "E-Mail Adresse"
+    },
+    "email_error": {
+        "en": "You have entered an invalid email!",
+        "de": "Sie haben eine ungültige E-Mail-Adresse eingegeben!"
+    },
+    "signUp": {
+        "en": "Sign up",
+        "de": "Registrieren"
+    },
+    "success_message": {
+        "en": "You have successfully registered to newsletter!",
+        "de": "Sie haben sich erfolgreich für den Newsletter angemeldet!"
+    },
+    "sending_message": {
+        "en": "Sending",
+        "de": "Senden"
+    },
+    "error_message": {
+        "en": "Error",
+        "de": "Error"
+    },
+    "name": {
+        "en": "Name",
+        "de": "Namen"
+    }
+}
