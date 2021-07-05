@@ -1,0 +1,103 @@
+.profile-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.profile-card {
+    background: var(--gai-white);
+    box-shadow: rgba(0, 0, 0, 0.15) 4px 4px 2.6px;
+    margin: 20px 30px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    width: 680px;
+    min-height: 219px;
+}
+
+.offersTitle {
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-card__avatar{
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card__avatar img {
+    object-fit: cover;
+    height: 219px;
+    width: 232px;
+}
+.icons{
+    margin-right: 10px !important;
+}
+
+.heading{
+    margin: auto 14px;  
+}
+.profile-card__content{
+    margin: 10px 14px;  
+}
+
+.berlinFixed{
+    font-weight: 600;
+}
+
+.profile-card__item {
+    display: flex;
+    width: fit-content;
+    margin:10px 10px;
+}
+.profile-card__district {
+    display: flex;
+    flex-wrap: wrap;
+    margin:10px 10px;
+}
+
+.profile-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+@media only screen and (max-width: 741px){
+    .profile-card{
+        flex-direction: column;
+    }
+    
+    .profile-card__avatar img {
+        margin: 30px 10px;
+        margin-bottom: 0px;
+    }
+
+    .profile-card {
+        width: 352px;
+        min-height: 219px;
+        margin: 20px 10px;
+    }
+
+    .profile-card__item {
+        display: flex;
+        margin:10px 20px !important;
+    }
+
+    .district-list{
+        display: block;
+    }
+
+    .profile-card__district{
+        display: block;
+        margin: auto 20px;
+    }
+
+    .profile-card__content{
+        margin: 10px auto;  
+    }
+    
+    .heading{
+        text-align: center;
+    }
+}

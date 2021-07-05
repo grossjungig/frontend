@@ -30,16 +30,17 @@ const UserPortal = (props) => {
   } else {
     // role = junior
     if (!user.profile) {
-      renderedLinks = [ <Link to="/addprofile">
-        <div>
-          <button className={styles.btn}>
-            {portalLocales.people[lang]}
-          </button>
-        </div>
-      </Link>, 
+      renderedLinks = [ 
       <Link to="/berlin">
           <button className={styles.btn}>{portalLocales.rooms[lang]}</button>
-      </Link>];
+      </Link>,
+      <Link to="/addprofile">
+      <div>
+        <button className={styles.btn}>
+          {portalLocales.profile[lang]}
+        </button>
+      </div>
+    </Link>];
     } else {
       renderedLinks = [
       <Link to="/berlin">

@@ -1,71 +1,239 @@
-.main {
+.section{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
+    margin: 20px auto;
+}
+
+.main {
+    display: flex;
+    margin: 20px auto;
     padding: 0 20px;
-    width: 80%;
+    width: 86%;
+}
+.upperHead{
+    margin: 10px 20px;
+    display: flex;
+}
+
+.red{
+    color: red;
+}
+.lineone{
+    display: flex;
+}
+
+.arrowBackIcon{
+    cursor: pointer;
+    width: 30px !important;
+    height: 30px !important;
+    margin: 10px 10px!important;
+}
+
+.info{
+    background-color: var(--gai-white);
+    border: 1px solid #365fa7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: var(--gai-blue);
+    font-size: 13px;
+    max-width: 310px;
+    margin-bottom: 10px;
+    padding: 16px;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.view{
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 10px
 }
 
 .msg {
+    font-size: 1.8em;
     margin: 20px 0;
-    color: var(--gai-blue);
     font-weight: 600;
-    text-align: center;
+    color: var(--gai-black);
+}
+
+.leftPortion{
+    display: flex;
+    max-width: 400px;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.mainContent{
+    border-radius: 16px;
+    padding: 20px 20px;
+    background-color: var(--gai-white);
+    margin: auto 20px;
+}
+
+.rightPortion{
+    min-width: 400px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+}
+
+.item > p {
+    display: flex;
+    flex-direction: row;
+}
+.name{
+    font-size: 23px;
+    margin: 20px auto;
+    font-weight: 500;
+    color: var(--gai-black);
 }
 
 .pic {
-    width: 60%;
+    width: auto;
+    height: auto;
+    border-radius: 16px;
+    margin: auto 20px;
 }
 
-.details {
-    display: grid;
-    row-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 20px;
+.about, .room{
+    margin: 0px 10px;
+    margin-bottom: 40px;    
 }
 
-.details span:nth-child(2n) {
-    font-weight: 600;
+.roommate{
+    margin: 0px 10px;
+}
+
+.item{
+    margin: 15px auto;
+}
+
+
+.heading {
+    font-weight: 700;
+    display: flex;
+    justify-content: left;
+    margin: 15px auto;
+    font-size: 15px;
+    color: var(--gai-red);
+}
+
+
+.item span:nth-child(1){
+    font-weight: 500;
+    line-height: 30px;
 }
 
 .ctrl {
     display: flex;
-    margin: 30px 0;
+    margin: 40px 30px;
 }
 
-.btn {
-    background-color: var(--gai-blue);
-    color: var(--gai-white);
-    margin: 0 10px;
-    padding: 10px 20px;
-    border: 1px solid var(--gai-blue);
-}
-
-.btn:hover {
-    opacity: 0.9;
-}
 
 .delBtn {
+    margin-left: auto;
     background-color: var(--gai-white);
+    border: 2px solid var(--gai-red);
+    float: right;
     color: var(--gai-red);
-    border: 1px solid var(--gai-red);
-    font-weight: 600;
-}
+    
+  }
+  .blue-button {
+    background-color: var(--gai-blue);
+    border: 2px solid var(--gai-blue);
+    color: var(--gai-white);
+  }
+  
+  .delBtn,
+  .blue-button {
+    width: 161px;
+    border-radius: 14px;
+    padding:10px 5px;
+    font-weight: 500;
+ }
+ 
+ @media only screen and (max-width: 1023px) {
+     .main{
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         margin: 10px auto;
+     }
+     .leftPortion{
+         margin: 20px auto;
+     }
+ }
 
-.details .bio {
-    font-weight: normal !important;
-    font-style: italic;
-}
-
-@media (max-width: 810px) {
-    .ctrl {
+ @media only screen and (max-width: 800px){
+    .upperHead{
+        margin: 10px 20px;
+        display: flex;
         flex-direction: column;
-        justify-content: center;
     }
 
-    .btn {
-        margin-top: 10px;
-        width: 200px;
+    .info{
+        margin: 20px auto;
     }
-}
+ }
+
+ @media only screen and (max-width:420px){
+     .main{
+         margin: 20px auto;
+     }
+
+     .ctrl {
+        display: flex;
+        margin: 40px 20px;
+    }
+     .mainContent{
+         padding: 0px 0px;
+     }
+
+     .rightPortion{
+         min-width: 390px;
+     }
+
+     .pic{
+         max-height: 200px;
+         max-width: 300px;
+     }
+
+ }
+
+ @media only screen and (max-width: 362px){
+
+    .leftPortion{
+        margin: auto auto;
+        width: 300px;
+    }
+
+    .rightPortion{
+        min-width: 360px;
+    }
+
+    .delBtn,
+  .blue-button {
+    width: 151px;
+ }
+ }
+
+ @media only screen and (max-width: 329px){
+     .main{
+         margin: 0px;
+     }
+
+     .leftPortion{
+         width: 280px;
+         height: auto;
+     }
+
+     .pic{
+        margin: auto auto;
+     }
+    
+     .rightPortion{
+         width:240px;
+     }
+     
+ }

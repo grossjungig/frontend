@@ -261,6 +261,9 @@
     border-radius: 4px;
     border: 1px rgb(181, 179, 179) solid;
 }
+.dates-error{
+    border: 1px red solid;
+}
 .room{
     margin:-5px 0px;
 }
