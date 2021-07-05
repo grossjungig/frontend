@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from '../../axios';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -7,7 +7,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import {berlinDistricts} from '../../utils/index'
+import { berlinDistricts } from '../../utils/index'
 import roomsLocales from "../../locales/locales.rooms.json";
 import styles from './index.module.css';
 
@@ -51,7 +51,7 @@ class Berlin extends Component {
   }
 
   setFilter(event) {
-    const filters = {...this.state.filters};
+    const filters = { ...this.state.filters };
     filters[event.target.name] = event.target.value
     this.setState({
       filtered: true,
@@ -85,15 +85,15 @@ class Berlin extends Component {
     let display = this.state.filtered ? "filteredRooms" : "allRooms";
 
     const dropdownItems = berlinDistricts.map((district, index) => {
-        return <MenuItem key={index} value={district}>
-          {district}
-        </MenuItem>
-      }
+      return <MenuItem key={index} value={district}>
+        {district}
+      </MenuItem>
+    }
     )
     const room = this.state[display].map((el) => {
       return (
         <Link to={`/berlin/${el._id}`} key={el._id}>
-          <div style={{display: "flex", justifyContent: "center"}}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <div className="card_people">
               <div className="card_img">
                 <img
@@ -148,7 +148,7 @@ class Berlin extends Component {
                   </label>
                 </div>
                 <div>
-                  <FormControl variant="outlined" style={{width: "100%"}}>
+                  <FormControl variant="outlined" style={{ width: "100%" }}>
                     <Select
                       fullWidth
                       name="district"

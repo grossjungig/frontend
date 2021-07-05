@@ -10,7 +10,7 @@ export const generateBase64FromImage = imageFile => {
 };
 
 export const capitalizeFirstLetter = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  // return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 };
 
 export const berlinDistricts = [
