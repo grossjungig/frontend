@@ -7,6 +7,7 @@ import MeetingRoomTwoToneIcon from '@material-ui/icons/MeetingRoomTwoTone';
 import EuroSymbolTwoToneIcon from '@material-ui/icons/EuroSymbolTwoTone';
 import styles from './index.module.css';
 import peopleLocales from "../../locales/locales.people.json";
+import Spinner from "../Spinner"
 
 export default class People extends Component {
   state = {
@@ -32,6 +33,7 @@ export default class People extends Component {
 
   render() {
     const lang = localStorage.getItem("lang");
+    if(this.state.people.length!==0){
     return (
       <>
         <div className={styles.offersTitle}>
@@ -68,5 +70,7 @@ export default class People extends Component {
         </ul>
       </>
     );
+      }
+      else return <Spinner/>
   }
 }
