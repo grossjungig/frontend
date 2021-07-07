@@ -17,7 +17,7 @@ import ErrorPage from './pages/errorPage/ErrorPage';
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
-import Contact from "./pages/home/components/Contact/Contact"
+import Contact from "./pages/Contact/Contact"
 import UserPortal from "./components/UserPortal";
 import Berlin from "./components/Berlin/Berlin.js";
 import AddRoom from "./components/AddRoom/AddRoom.js";

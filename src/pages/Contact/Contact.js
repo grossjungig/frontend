@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import styles from "./contact.module.css";
-import homeLocales from "../../../../locales/locales.home.json";
+import homeLocales from "../../locales/locales.home.json";
 import email from '../../../../assets/icons/email.svg'
 import phone from '../../../../assets/icons/phone.svg'
 import facebook from '../../../../assets/icons/facebook.svg'
@@ -17,7 +17,7 @@ class Contact extends Component {
         <div className={styles.container}>
           <div className={styles.textCard}>
             <div className={styles.textContainer}>
-              <h2>Großjungig AI <br/> {homeLocales.care[lang]}</h2>
+              <h2>Großjungig<br/> {homeLocales.care[lang]}</h2>
               <h4>{homeLocales.contact_us[lang]}{" "}</h4>
             </div>
           </div>
