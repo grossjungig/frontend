@@ -197,7 +197,7 @@ class addProfileSenior extends Component {
         if (this.props.fetchedUser) {
             name = this.props.fetchedUser.name
         }
-        const { dob, roomTitle, gender, language, occupation, smoke, pets, alone, otherHobbies, otherHelp, address, accomodation, rooms, size, postcode, district, duration, price, moveIn, registration, childrenAllowed, smokeAllowed, petsAllowed, idealFlatmate, howFound, additionalInfo, phoneNumber, avatarPreview, messages } = this.state;
+        const { dob, roomTitle, gender, language, occupation, smoke, pets, alone, otherHobbies, otherHelp, address, size, postcode, district, duration, price, moveIn, registration, childrenAllowed, smokeAllowed, petsAllowed, idealFlatmate, howFound, additionalInfo, phoneNumber, avatarPreview, messages } = this.state;
         const lang = localStorage.getItem("lang");
 
 
