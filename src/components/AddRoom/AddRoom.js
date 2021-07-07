@@ -16,6 +16,7 @@ import offeredhelps from '../../assets/profile/help';
 import MuiPhoneNumber from "material-ui-phone-number";
 import listhobbies from '../../assets/profile/hobbies';
 import districtBerlin from '../../assets/profile/district';
+import dummyAvatar from '../../assets/images/dummy-avatar.jpg'
 import { dispatchCheckAuth } from "../../store/auth/thunks";
 import { generateBase64FromImage } from '../../utils';
 import ProfileLocales from "../../locales/locales.addroom.json";
@@ -51,6 +52,10 @@ class addProfileSenior extends Component {
         howFound: "",
         additionalInfo: "",
         phoneNumber: "",
+        avatarUrl: '',
+        avatarPreview: dummyAvatar,
+        avatarFile: {},
+        avatarPreviewErr: '',
         signedRequest: '',
         messages: []
     };
@@ -167,6 +172,7 @@ class addProfileSenior extends Component {
             idealFlatmate: this.state.idealFlatmate,
             howFound: this.state.howFound,
             additionalInfo: this.state.additionalInfo,
+            avatarUrl: this.state.avatarUrl,
         };
         if (this.state.phoneNumber && this.state.phoneNumber.length > 3) {
             obj.phoneNumber = this.state.phoneNumber
@@ -191,7 +197,7 @@ class addProfileSenior extends Component {
         if (this.props.fetchedUser) {
             name = this.props.fetchedUser.name
         }
-        const { dob, roomTitle, gender, language, occupation, smoke, pets, alone, otherHobbies, otherHelp, address, accomodation, rooms, size, postcode, district, duration, price, moveIn, registration, childrenAllowed, smokeAllowed, petsAllowed, idealFlatmate, howFound, additionalInfo, phoneNumber, messages } = this.state;
+        const { dob, roomTitle, gender, language, occupation, smoke, pets, alone, otherHobbies, otherHelp, address, accomodation, rooms, size, postcode, district, duration, price, moveIn, registration, childrenAllowed, smokeAllowed, petsAllowed, idealFlatmate, howFound, additionalInfo, phoneNumber, avatarPreview, messages } = this.state;
         const lang = localStorage.getItem("lang");
 
 
@@ -603,11 +609,10 @@ class addProfileSenior extends Component {
                             </div>
                         </div>
 
-
-
                         <div className={styles.photo}>
                             <label > {ProfileLocales.picture[lang]}</label>
-
+                            <div className={styles.profilePictureInfo}>{ProfileLocales.profilePicture[lang]}</div>
+                            <img src={avatarPreview} className={styles.avatarImg} alt="avatar" />
                             <div className={styles.profileBanner}>
                                 <input
                                     type="file"
@@ -621,6 +626,11 @@ class addProfileSenior extends Component {
                                 </div>
                             </div>
                             {/* <span className={styles["avatar-preview-err"]}>{avatarPreviewErr}</span> */}
+                        </div>
+                        
+                        <div className={styles.roomPics}>
+                            <label> {ProfileLocales.roomPicturesLabel[lang]}</label>
+                            <div className={styles.photosRoomInfo}>{ProfileLocales.roomPictures[lang]}</div>
                         </div>
 
                         {messages.length ? <div> <p className={styles["fields-err"]}>{ProfileLocales.errors[lang]}</p> </div> : null}

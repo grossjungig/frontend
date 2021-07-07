@@ -171,6 +171,18 @@
     "en": "Profile Picture",
     "de": "ProfilBild"
   },
+  "roomPicturesLabel": {
+    "en": "Photos of Room",
+    "de": "Fotos von Ihrem Zimmer"
+  },
+  "profilePicture": {
+    "en": "Please upload your profile picture.",
+    "de": "Bitte laden Sie Ihr Profilbild hoch."
+  },
+  "roomPictures": {
+    "en": "Please upload the photos of your room/flat/accommodation",
+    "de": "Bitte laden Sie die Fotos Ihres Zimmers/Wohnung/Unterkunft hoch"
+  },
   "submit": {
     "en": "Submit",
     "de": "Weiter"

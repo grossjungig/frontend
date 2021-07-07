@@ -152,13 +152,38 @@
     font-weight: 600;
     font-size: 16px;
 }
-.ExtraQuestions > div > label {
+.ExtraQuestions > div > label, .roomPics > label{
 
     display: block;
     margin: 5px 10px;
     font-weight: 600;
     font-size: 16px;
 }
+
+.button_room {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    align-items: center;
+    text-align: center;
+    /* Blue */
+    background: #f9f8f8;
+    /* Blue */
+    width: inherit;
+    height: 52px;
+    border: 1px solid #365fa7;
+    box-sizing: border-box;
+    color: #365fa7;
+}
+
+.profilePictureInfo, .photosRoomInfo{
+    margin: 5px 10px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
 .dob{
     grid-area: a;
 }
