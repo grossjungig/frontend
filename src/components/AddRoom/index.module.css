@@ -390,7 +390,7 @@
 
     .main{
         margin: auto auto;
-        width: 600px;
+        width: 570px;
     }
     .input{
         width: 550px !important;
@@ -403,7 +403,7 @@
     }
 
     .dates{
-        width: 520px;
+        width: 520px !important;
     }
 
     .profileBanner{
@@ -412,9 +412,9 @@
     
     .quesPrimary{
         display: grid;
-        grid-template-columns: repeat(1, 0.5fr);
+        grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "a" "b" "c" "d" "e" "f" "g" "h";
+            "a" "b" "c" "d" "e" "f" "g";
         align-items: start; 
     
     }
@@ -439,34 +439,26 @@
 
     .roomQuestions{
         display: grid;
-        grid-template-columns: repeat(1, 0.5fr);
-        column-gap: 40px;
-        row-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "i" "j"
-            "k" "l";
+            "h" "i" "j" "k""l" "m" "n" "o" "p";
         align-items: start; 
-    
     }
 
     .PartnerQuestions{
         display: grid;
-        grid-template-columns: repeat(1, 0.5fr);
-        column-gap: 40px;
-        row-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "m";
+            "q" "r" "s" "t";
         align-items: start; 
     
     }
 
     .ExtraQuestions{
         display: grid;
-        grid-template-columns: repeat(1, 0.5fr);
-        column-gap: 40px;
-        row-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "n" "o" "p";
+            "u" "v" "w";
         align-items: start; 
     
     }
@@ -498,7 +490,7 @@
         }
 
         .dates{
-            width: 350px;
+            width: 350px !important;
         }
         .profileBanner{
             width: 380px;
@@ -533,7 +525,7 @@
         }
 
         .dates{
-            width: 300px;
+            width: 300px !important;
         }
 
         .profileBanner{
@@ -571,7 +563,7 @@
         }
 
         .dates{
-            width: 270px;
+            width: 270px !important;
         }
 
         .profileBanner{
@@ -617,7 +609,7 @@
         }
 
         .dates{
-            width: 220px;
+            width: 220px !important;
         }
     
 
