@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import styles from "./contact.module.css";
 import homeLocales from "../../locales/locales.home.json";
-import email from '../../../../assets/icons/email.svg'
-import phone from '../../../../assets/icons/phone.svg'
-import facebook from '../../../../assets/icons/facebook.svg'
-import youtube from '../../../../assets/icons/youtube.svg'
-import insta from '../../../../assets/icons/insta.svg'
-import linkedIn from '../../../../assets/icons/linkedIn.svg'
-import whatsapp from '../../../../assets/icons/whatsapp.svg'
+import email from '../../assets/icons/email.svg'
+import phone from '../../assets/icons/phone.svg'
+import facebook from '../../assets/icons/facebook.svg'
+import youtube from '../../assets/icons/youtube.svg'
+import insta from '../../assets/icons/insta.svg'
+import linkedIn from '../../assets/icons/linkedIn.svg'
+import whatsapp from '../../assets/icons/whatsapp.svg'
 class Contact extends Component {
   render() {
     const lang = localStorage.getItem("lang");
@@ -31,7 +31,7 @@ class Contact extends Component {
               </div>
               <div className={styles.icon}>
               <a  href="tel:+493055231271"><img src={phone} alt="contact-logo"/></a>
-                <h4>30 55231271</h4>
+                <h4>030 55231271</h4>
               </div>
             </div>
             <h3>{homeLocales.social[lang]}:</h3>
