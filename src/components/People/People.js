@@ -26,7 +26,13 @@ export default class People extends Component {
   }
 
   toAge = (a) => {
-    let age = Math.abs(new Date(Date.now() - new Date(`'` + String(a).split('T')[0].split("-")[1] + `/` + String(a).split('T')[0].split("-")[2] + `/` + String(a).split('T')[0].split("-")[0] + `'`).getTime()).getUTCFullYear() - 1970);
+    var today = new Date();
+    var birthDate = new Date(a);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())){
+          age--;
+    }
     return age;
   }
 
