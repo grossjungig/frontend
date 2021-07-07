@@ -222,8 +222,6 @@
 .petsAllowed{
     grid-area: t;
 }
-
-
 .findaboutus{
     grid-area: u;
 }
@@ -316,7 +314,6 @@
     margin: 10px 10px;
     width: 420px;
 }
-
 .banner{
    margin-left: auto;
    font-weight: 500;

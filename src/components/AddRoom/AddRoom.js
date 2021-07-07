@@ -66,9 +66,9 @@ class addProfileSenior extends Component {
         const help = target.name;
         const isChecked = target.checked;
         if (isChecked) {
-            this.setState({ offeredHelp: [...this.state.offeredHelp, help] });
+            this.setState({ expectedHelp: [...this.state.expectedHelp, help] });
         } else {
-            this.setState({ offeredHelp: this.state.offeredHelp.filter((item) => item !== help) });
+            this.setState({ expectedHelp: this.state.expectedHelp.filter((item) => item !== help) });
         }
 
     };
@@ -91,18 +91,12 @@ class addProfileSenior extends Component {
         this.setState({
             hobbychecked: event.target.checked
         })
-        if (this.state.hobbychecked) {
-            this.setState({
-                otherHobbies: ''
-            })
-        }
     }
 
     handleCheckHelp = (event) => {
         this.setState({
             helpchecked: event.target.checked
         })
-
     }
 
     handleChangeRooms = (event) => {
@@ -270,7 +264,7 @@ class addProfileSenior extends Component {
                                 <label htmlFor="dob"> <span className={styles.red}>*</span> {ProfileLocales.dob[lang]} </label>
                                 <DatePicker id="dob" className={dob ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={dob} onChange={(e) => {
                                     this.setState({ dob: e });
-                                }} placeholderText={ lang=== "en" ? "Select Your Date Of Birth" : "Wählen Sie Ihr Geburtsdatum"} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_DOB')} />
+                                }} placeholderText={lang === "en" ? "Select Your Date Of Birth" : "Wählen Sie Ihr Geburtsdatum"} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_DOB')} />
                             </div>
 
                             <div className={styles.gender}>
@@ -429,7 +423,7 @@ class addProfileSenior extends Component {
                                 <RadioGroup aria-label="accomodation" name="accomodation" value={this.value} onChange={this.handleChangeRooms}>
                                     <FormControlLabel value="One-room-flat" control={<Radio color="primary" />} label={ProfileLocales.oneroom[lang]}
                                         className={styles.room} />
-                                    <FormControlLabel value="Two-flat-room" control={<Radio color="primary" />} label={ProfileLocales.tworoom[lang]}
+                                    <FormControlLabel value="Two-room-flat" control={<Radio color="primary" />} label={ProfileLocales.tworoom[lang]}
                                         className={styles.room} />
                                     <FormControlLabel value="Studio" control={<Radio color="primary" />} label={ProfileLocales.studio[lang]}
                                         className={styles.room} />
@@ -441,16 +435,15 @@ class addProfileSenior extends Component {
                             <div className={styles.roomQuestions}>
                                 <div className={styles.roomTitle}>
                                     <label htmlFor="roomTitle"> {ProfileLocales.roomTitle[lang]} </label>
-                                    <TextField name="price" id="price" value={price}
+                                    <TextField name="roomTitle" id="roomTitle" value={roomTitle}
                                         onChange={this.setFormState}
                                         variant="outlined" size="small" className={styles.input} />
                                 </div>
                                 <div className={styles.size}>
-                                    <label htmlFor="size"> <span className={styles.red}>* </span> {ProfileLocales.size[lang]} </label>
-                                    {this.state.messages.includes('INVALID_SIZE') ? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p> : null}
+                                    <label htmlFor="size"> {ProfileLocales.size[lang]} </label>
                                     <TextField name="size" id="size" value={size}
                                         onChange={this.setFormState}
-                                        variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_SIZE')} />
+                                        variant="outlined" size="small" className={styles.input} />
                                 </div>
                                 <div className={styles.price}>
                                     <label htmlFor="price"> <span className={styles.red}>*</span> {ProfileLocales.price[lang]} </label>
@@ -467,12 +460,15 @@ class addProfileSenior extends Component {
                                         variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_DURATION')} />
                                 </div>
 
+                                {/*Check*/}
                                 <div className={styles.exptdDate}>
                                     <label htmlFor="moveIn"> <span className={styles.red}>*</span> {ProfileLocales.exptdDate[lang]} </label>
                                     <DatePicker id="moveIn" className={moveIn ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={moveIn} onChange={(e) => {
                                         this.setState({ moveIn: e });
-                                    }} minDate={new Date()} placeholderText={lang==="de" ? "Ein Datum auswählen" : "Select a date"} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_MOVEIN')} />
+                                    }} minDate={new Date()} placeholderText={lang === "de" ? "Ein Datum auswählen" : "Select a date"} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_MOVEIN')} />
                                 </div>
+
+                                {/*Check*/}
                                 <div className={styles.address}>
                                     <label htmlFor="address"> <span className={styles.red}>*</span> {ProfileLocales.address[lang]} </label>
                                     {this.state.messages.includes('INVALID_ADDRESS') ? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p> : null}
@@ -489,6 +485,9 @@ class addProfileSenior extends Component {
                                 </div>
                                 <div className={styles.district}>
                                     <label htmlFor="district"> <span className={styles.red}>*</span> {ProfileLocales.district[lang]}</label>
+                                    <div>
+                                        {this.state.messages.includes('INVALID_DISTRICT') ? <p className={styles.red}> {ProfileLocales.selectError[lang]} </p> : null}
+                                    </div>
                                     <TextField name="district" select id="district" value={district}
                                         onChange={this.setFormState}
                                         variant="outlined" size="small" className={styles.input} error={
@@ -502,6 +501,9 @@ class addProfileSenior extends Component {
                                 </div>
                                 <div className={styles.registration}>
                                     <label htmlFor="registration"> <span className={styles.red}>*</span> {ProfileLocales.registration[lang]} </label>
+                                    <div>
+                                        {this.state.messages.includes('INVALID_REGISTRATION') ? <p className={styles.red}> {ProfileLocales.selectError[lang]} </p> : null}
+                                    </div>
                                     <TextField name="registration" select id="registration" value={registration}
                                         onChange={this.setFormState}
                                         variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_REGISTRATION')}>
@@ -529,7 +531,7 @@ class addProfileSenior extends Component {
                                     <TextField name="childrenAllowed" select id="childrenAllowed" value={childrenAllowed}
                                         onChange={this.setFormState}
                                         variant="outlined" size="small" className={styles.input}>
-                                            {binary.map((option) => (
+                                        {binary.map((option) => (
                                             <MenuItem key={option.value} value={option.value}>
                                                 {option.label}
                                             </MenuItem>
