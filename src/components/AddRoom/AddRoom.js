@@ -627,10 +627,22 @@ class addProfileSenior extends Component {
                             </div>
                             {/* <span className={styles["avatar-preview-err"]}>{avatarPreviewErr}</span> */}
                         </div>
-                        
+
                         <div className={styles.roomPics}>
                             <label> {ProfileLocales.roomPicturesLabel[lang]}</label>
                             <div className={styles.photosRoomInfo}>{ProfileLocales.roomPictures[lang]}</div>
+                            <div className={styles.profileBanner}>
+                                <input
+                                    type="file"
+                                    accept="image/png, image/jpeg, image/jpg"
+                                    // onChange={this.handleRoomPhoto}
+                                    className={styles["button_room"]}
+
+                                />
+                                 <div className={styles.banner}>
+                                    Max {lang === "de" ? 'Größe' : 'Size'}: 5MB
+                                </div>
+                            </div>
                         </div>
 
                         {messages.length ? <div> <p className={styles["fields-err"]}>{ProfileLocales.errors[lang]}</p> </div> : null}

@@ -180,8 +180,8 @@
     "de": "Bitte laden Sie Ihr Profilbild hoch."
   },
   "roomPictures": {
-    "en": "Please upload the photos of your room/flat/accommodation",
-    "de": "Bitte laden Sie die Fotos Ihres Zimmers/Wohnung/Unterkunft hoch"
+    "en": "Please upload the photos of your room/flat",
+    "de": "Bitte laden Sie die Fotos Ihres Zimmers/Wohnung"
   },
   "submit": {
     "en": "Submit",
@@ -194,6 +194,10 @@
   "policy": {
     "en": "By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.",
     "de": "Mit dem Anlegen einer Anfrage erklären Sie sich mit unseren Allgemeinen Geschäftsbedingungen und der Datenschutzerklärung einverstanden."
+  },
+  "uploadPicture": {
+    "en": "Upload Picture",
+    "de": "Bild hochladen"
   },
   "hobbyError": {
     "en": "Please select at least 3 hobbies",
