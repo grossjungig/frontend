@@ -7,12 +7,11 @@
         "de": "Wenn Sie an dieser Person interessiert sind, kontaktieren Sie uns unter :",
         "en": "If you are interested in this person, contact us at :"
     },
-
     "request": {
         "de": "Meine Anfrage hinzufügen",
         "en": "Add My Request"
     },
-    "name": {
+    "profileName": {
         "en": "Name",
         "de": "Name"
     },
@@ -70,19 +69,19 @@
     },
     "findaboutus": {
         "en": "How did you find out about us?",
-        "de":"Wo haben Sie über uns erfahren? "
+        "de": "Wo haben Sie über uns erfahren? "
     },
     "phonenumber": {
         "en": "Please leave your phone number so that we can contact you",
-        "de":"Bitte hinterlassen Sie Ihre Mobilnummer, damit wir Sie kontaktieren können"
+        "de": "Bitte hinterlassen Sie Ihre Mobilnummer, damit wir Sie kontaktieren können"
     },
     "liketoshare": {
         "en": "Is there anything else you would like to share?",
-        "de":"Gibt es noch etwas, das Sie teilen möchten?"
+        "de": "Gibt es noch etwas, das Sie teilen möchten?"
     },
     "partner": {
         "en": "Who is an ideal flatmate for you?",
-        "de":"Wer ist ein/e ideale/r Mitbewohner/in für Sie?"
+        "de": "Wer ist ein/e ideale/r Mitbewohner/in für Sie?"
     },
     "info": {
         "de": "Bitte hinterlassen Sie hier keine persönlichen Daten, sondern wählen Sie nur mehrere Bezirke aus, für die Sie sich interessieren. In das Textfeld schreiben Sie bitte Ihren Vornamen, Ihr Alter und Ihr Geschlecht, sowie eine kurze Beschreibung Ihrer Persönlichkeit, eine kurze Beschreibung des Hilfsangebots und eine Zimmerpreisanfrage.",
@@ -132,7 +131,7 @@
         "en": "Divers",
         "de": "Taucher"
     },
-      "picture": {
+    "picture": {
         "en": "Profile Picture",
         "de": "ProfilBild"
     },
@@ -148,50 +147,48 @@
         "en": "By creating a request, you agree to our Terms and Conditions and Data Privacy Policy.",
         "de": "Mit der Erstellung einer Anfrage stimmen Sie unseren Geschäftsbedingungen und Datenschutzrichtlinien zu."
     },
-    "hobbyError":{
+    "hobbyError": {
         "en": "Please select at least 3 hobbies",
-        "de":"Bitte wählen Sie mindestens 3 Hobbys aus"
+        "de": "Bitte wählen Sie mindestens 3 Hobbys aus"
     },
-    "helpError":{
-        "en":"Please select at least 2 helps",
+    "helpError": {
+        "en": "Please select at least 2 helps",
         "de": "Bitte wählen Sie mindestens 2 Hilfen aus"
     },
-    "selectError":{
-        "en":"Please select one",
-        "de":"Bitte wählen Sie eine"
+    "selectError": {
+        "en": "Please select one",
+        "de": "Bitte wählen Sie eine"
     },
-    "districtError":{
-        "en":"Please select at least one",
-        "de":"Bitte wählen Sie mindestens einen"
+    "districtError": {
+        "en": "Please select at least one",
+        "de": "Bitte wählen Sie mindestens einen"
     },
-    "phoneError":{
-        "en":"Please enter a valid phone number",
-        "de":"Bitte geben Sie eine gültige Rufnummer ein"
+    "phoneError": {
+        "en": "Please enter a valid phone number",
+        "de": "Bitte geben Sie eine gültige Rufnummer ein"
     },
-    "numberError":{
-        "en":"Please enter only a number",
-        "de":"Bitte nur eine Zahl eingeben"
+    "numberError": {
+        "en": "Please enter only a number",
+        "de": "Bitte nur eine Zahl eingeben"
     },
-    "errors":{
-        "en":"Please fill missing fields",
-        "de":"Fehlende Felder bitte ausfüllen"
+    "errors": {
+        "en": "Please fill missing fields",
+        "de": "Fehlende Felder bitte ausfüllen"
     },
-
-    "profile":{
-        "en":"Profile",
-        "de":"Profil"
+    "profile": {
+        "en": "Profile",
+        "de": "Profil"
     },
-    "editProfile":{
-        "en":"Edit Profile",
-        "de":"Profile bearbeiten"
+    "editProfile": {
+        "en": "Edit Profile",
+        "de": "Profile bearbeiten"
     },
-    "deleteProfile":{
-        "en":"Delete Profile",
-        "de":"Profile löschen"
+    "deleteProfile": {
+        "en": "Delete Profile",
+        "de": "Profile löschen"
     },
-    "about":{
-        "en":"About",
-        "de":"Über"
+    "about": {
+        "en": "About",
+        "de": "Über"
     }
-
 }

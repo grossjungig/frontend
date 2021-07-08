@@ -23,6 +23,7 @@ import ProfileLocales from "../../../locales/locales.profile.json";
 
 class AddProfile extends Component {
   state = {
+    profileName: "",
     dob: null,
     gender: "",
     language: "",
@@ -152,6 +153,7 @@ class AddProfile extends Component {
     newAxios.put(signedRequest, avatarFile)
       .catch(err => { this.setState({ avatarPreviewErr: err.message }) })
     const obj = {
+      profileName: this.state.profileName,
       dob: this.state.dob,
       gender: this.state.gender,
       language: this.state.language,
@@ -197,7 +199,7 @@ class AddProfile extends Component {
     if (this.props.fetchedUser) {
       name = this.props.fetchedUser.name
     }
-    const { dob, gender, language, occupation, smoke, accomodation, pets, otherHobbies, otherHelp, size, price, moveInDate, duration, idealFlatmate, howFound, additionalInfo, phoneNumber, avatarPreview, messages } = this.state;
+    const { profileName, dob, gender, language, occupation, smoke, accomodation, pets, otherHobbies, otherHelp, size, price, moveInDate, duration, idealFlatmate, howFound, additionalInfo, phoneNumber, avatarPreview, messages } = this.state;
     const lang = localStorage.getItem("lang");
 
 
@@ -241,7 +243,15 @@ class AddProfile extends Component {
           < div className={styles.profiletitle}>{name + ProfileLocales.title[lang]}</div>
           <form className={styles.form} onSubmit={this.onSubmitForm}>
             <div className={styles.quesPrimary}>
-
+              <div className={styles.name}>
+                <label htmlFor="profileName"><span className={styles.red}>* </span>{ProfileLocales.profileName[lang]} </label>
+                {this.state.messages.includes('INVALID_PROFILE_NAME') ? <p className={styles.red}> {ProfileLocales.errors[lang]} </p> : null}
+                <TextField name="profileName" id="profileName" value={profileName}
+                  onChange={this.setFormState}
+                  variant="outlined" size="small" className={styles.input} error={
+                    this.state.messages.includes('INVALID_PROFILE_NAME')
+                  } />
+              </div>
               <div className="dob">
                 <label htmlFor="dob"> <span className={styles.red}>*</span> {ProfileLocales.dob[lang]} </label>
                 <DatePicker id="dob" className={!this.state.messages.includes('INVALID_DOB') ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={dob} onChange={(e) => {
