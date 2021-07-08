@@ -257,7 +257,7 @@
 .dates{
     background-color: #F9F8F8;
     padding: 12px 14px;
-    width: 420px;
+    width: 390px !important;
     border-radius: 4px;
     border: 1px rgb(181, 179, 179) solid;
 }
@@ -302,7 +302,6 @@
    margin-left: auto;
    font-weight: 500;
    font-size: 10px;
-   color:red
 }
 
 .profileButton{
@@ -320,11 +319,9 @@
     margin: 10px 10px;
 }
 
-.fields-err{ 
-    padding: 20px;
-    background-color: #f44336; /* Red */
-    color: white;
-    margin-bottom: 15px;
+.avatar-preview-err{
+    color: red;
+    font-weight: 600;
 }
 
 .leftButton{
@@ -374,7 +371,7 @@
 
     .main{
         margin: auto auto;
-        width: 600px;
+        width: 570px;
     }
     .input{
         width: 550px !important;
@@ -387,7 +384,7 @@
     }
 
     .dates{
-        width: 520px;
+        width: 520px !important;
     }
 
     .profileBanner{
@@ -482,7 +479,7 @@
         }
 
         .dates{
-            width: 350px;
+            width: 350px !important;
         }
     
         .districtlabel{
@@ -522,7 +519,7 @@
         }
 
         .dates{
-            width: 300px;
+            width: 300px !important;
         }
 
         .profileBanner{
@@ -560,7 +557,7 @@
         }
 
         .dates{
-            width: 270px;
+            width: 270px !important;
         }
     
         .districtlabel{

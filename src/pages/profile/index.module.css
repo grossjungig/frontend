@@ -85,7 +85,7 @@
     column-gap: 40px;
     row-gap: 20px;
     grid-template-areas:
-        "a b"
+        "p b"
         "c d"
         "e f"
         "g h";
@@ -114,7 +114,7 @@
     column-gap: 40px;
     row-gap: 20px;
     grid-template-areas:
-        "m a";
+        "m b";
     align-items: start; 
 
 }
@@ -134,9 +134,9 @@
     column-gap: 40px;
     row-gap: 20px;
     grid-template-areas:
-        "n a"
-        "o a"
-        "p a";
+        "n b"
+        "o b"
+        "p b";
     align-items: start; 
 
 }
@@ -156,9 +156,7 @@
     font-size: 16px;
 }
 
-.name{
-    grid-area: a;
-}
+
 .dob{
     grid-area: b;
 }
@@ -257,7 +255,7 @@
 .dates{
     background-color: #F9F8F8;
     padding: 12px 14px;
-    width: 420px;
+    width: 390px !important;
     border-radius: 4px;
     border: 1px rgb(181, 179, 179) solid;
 }
@@ -377,7 +375,7 @@
 
     .main{
         margin: auto auto;
-        width: 600px;
+        width: 570px;
     }
     .input{
         width: 550px !important;
@@ -390,7 +388,7 @@
     }
 
     .dates{
-        width: 520px;
+        width: 520px !important;
     }
 
     .profileBanner{
@@ -401,7 +399,7 @@
         display: grid;
         grid-template-columns: repeat(1, 0.5fr);
         grid-template-areas:
-            "a" "b" "c" "d" "e" "f" "g" "h";
+             "b" "c" "d" "e" "f" "g" "h";
         align-items: start; 
     
     }
@@ -485,7 +483,7 @@
         }
 
         .dates{
-            width: 350px;
+            width: 350px !important;
         }
     
         .districtlabel{
@@ -525,7 +523,7 @@
         }
 
         .dates{
-            width: 300px;
+            width: 300px !important;
         }
 
         .profileBanner{
@@ -563,7 +561,7 @@
         }
 
         .dates{
-            width: 270px;
+            width: 270px !important;
         }
     
         .districtlabel{
