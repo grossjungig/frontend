@@ -244,7 +244,7 @@ class AddProfile extends Component {
 
               <div className="dob">
                 <label htmlFor="dob"> <span className={styles.red}>*</span> {ProfileLocales.dob[lang]} </label>
-                <DatePicker id="dob" className={dob ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={dob} onChange={(e) => {
+                <DatePicker id="dob" className={!this.state.messages.includes('INVALID_DOB') ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={dob} onChange={(e) => {
                   this.setState({ dob: e });
                 }} placeholderText={lang === "en" ? "Select Your Date Of Birth" : "Wählen Sie Ihr Geburtsdatum"} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_DOB')} />
               </div>
@@ -425,7 +425,7 @@ class AddProfile extends Component {
                 </div>
                 <div className={styles.exptdDate}>
                   <label htmlFor="moveInDate"> <span className={styles.red}>*</span> {ProfileLocales.exptdDate[lang]} </label>
-                  <DatePicker id="moveInDate" className={moveInDate ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={moveInDate} onChange={(e) => {
+                  <DatePicker id="moveInDate" className={!this.state.messages.includes('INVALID_MOVEIN_DATE') ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={moveInDate} onChange={(e) => {
                     this.setState({ moveInDate: e });
                   }} minDate={new Date()} placeholderText={lang === "de" ? "Ein Datum auswählen" : "Select a date"} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_MOVEIN_DATE')} />
                 </div>

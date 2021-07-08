@@ -239,7 +239,8 @@ class EditProfile extends Component {
   }
 
   render() {
-    const date = new Date(this.state.dob)
+    const dobdate = new Date(this.state.dob);
+    const moveindate = new Date(this.state.moveInDate);
     var name;
     if (this.props.fetchedUser) {
       name = this.props.fetchedUser.name
@@ -291,7 +292,7 @@ class EditProfile extends Component {
 
               <div className="dob">
                 <label htmlFor="dob"> <span className={styles.red}>*</span> {ProfileLocales.dob[lang]} </label>
-                <DatePicker id="dob" className={dob ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={dob} onChange={(e) => {
+                <DatePicker id="dob" className={dob ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={dob?dobdate:undefined} onChange={(e) => {
                   this.setState({ dob: e });
                 }} placeholderText={lang === "en" ? "Select Your Date Of Birth" : "Wählen Sie Ihr Geburtsdatum"} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_DOB')} />
               </div>
@@ -472,7 +473,7 @@ class EditProfile extends Component {
                 </div>
                 <div className={styles.exptdDate}>
                   <label htmlFor="moveInDate"> <span className={styles.red}>*</span> {ProfileLocales.exptdDate[lang]} </label>
-                  <DatePicker id="moveInDate" className={moveInDate ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={moveInDate} onChange={(e) => {
+                  <DatePicker id="moveInDate" className={moveInDate ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={moveInDate?moveindate:undefined} onChange={(e) => {
                     this.setState({ moveInDate: e });
                   }} minDate={new Date()} placeholderText={lang === "de" ? "Ein Datum auswählen" : "Select a date"} isClearable showYearDropdown scrollableMonthYearDropdown error={this.state.messages.includes('INVALID_MOVEIN_DATE')} />
                 </div>

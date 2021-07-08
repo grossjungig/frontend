@@ -90,9 +90,17 @@
         "e f"
         "g h";
     align-items: start; 
-
 }
-
+.roomTitleQuestion{
+    display: grid;
+    margin: 10px 10px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 20px;
+    grid-template-areas:
+        "i b";
+    align-items: start; 
+}
 .roomQuestions{
     display: grid;
     margin: 10px 10px;
@@ -101,13 +109,11 @@
     column-gap: 40px;
     row-gap: 20px;
     grid-template-areas:
-        "h a"
-        "i j"
-        "k l"
-        "m n"
-        "o p";
+        "j k"
+        "l m"
+        "n o"
+        "p q";
     align-items: start; 
-
 }
 .PartnerQuestions{
     display: grid;
@@ -117,13 +123,14 @@
     column-gap: 40px;
     row-gap: 20px;
     grid-template-areas:
-        "q r"
-        "s t";
+        "r s"
+        "t u";
     align-items: start; 
 
 }
 
-.quesPrimary > div > label, .roomQuestions > div > label {
+.quesPrimary > div > label, .roomQuestions > div > label, .roomTitleQuestion > div > label
+ {
     display: block;
     margin: 5px 10px;
     font-weight: 600;
@@ -138,9 +145,9 @@
     column-gap: 40px;
     row-gap: 20px;
     grid-template-areas:
-        "u a"
         "v a"
-        "w a";
+        "w a"
+        "x a";
     align-items: start; 
 
 }
@@ -165,78 +172,82 @@
     font-weight: 400;
     font-size: 16px;
 }
-
-.dob{
+.name{
     grid-area: a;
 }
-.gender{
+.dob{
     grid-area: b;
 }
-.langs{
+.gender{
     grid-area: c;
 }
-.occupation{
+.langs{
     grid-area: d;
 }
-.doYouSmoke{
+.occupation{
     grid-area: e;
 }
-.alone{
+.doYouSmoke{
     grid-area: f;
 }
-.pets{
+.alone{
     grid-area: g;
 }
-.roomTitle{
+.pets{
     grid-area: h;
+}
+.roomTitle{
+    grid-area: i;
 }
 
 .size{
-    grid-area: i;
+    grid-area: j;
     margin-top: auto;
 }
 .price{
-    grid-area: j;
-}
-.duration{
     grid-area: k;
 }
-.exptdDate{
+.duration{
     grid-area: l;
 }
-.address{
+.exptdDate{
     grid-area: m;
+    margin-top: auto;
 }
-.postcode{
+.address{
     grid-area: n;
 }
-.district{
+.postcode{
     grid-area: o;
+}
+.district{
+    grid-area: p;
     margin-top: auto;
 }
 .registration{
-    grid-area: p;
-}
-.partner{
     grid-area: q;
 }
-.childrenAllowed{
+.partner{
     grid-area: r;
+    margin-top: auto;
 }
-.smokeAllowed{
+.childrenAllowed{
     grid-area: s;
 }
-.petsAllowed{
+.smokeAllowed{
     grid-area: t;
 }
-.findaboutus{
+.petsAllowed{
     grid-area: u;
 }
-.liketoshare{
+.findaboutus{
     grid-area: v;
 }
-.phonenumber{
+.liketoshare{
     grid-area: w;
+}
+.phonenumber{
+    grid-area: x;
 }
 
 .input {
@@ -276,7 +287,7 @@
     font-size: 20px;
 }
 .roomsubHeading{
-    margin: 10px 10px;
+    margin: 10px 20px;
     font-weight: 600;
     font-size: 16px;
     margin-top: 20px;
@@ -424,7 +435,15 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "a" "b" "c" "d" "e" "f" "g";
+            "a" "b" "c" "d" "e" "f" "g" "h";
+        align-items: start; 
+    
+    }
+    .roomTitleQuestion{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+            "i";
         align-items: start; 
     
     }
@@ -451,7 +470,7 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "h" "i" "j" "k""l" "m" "n" "o" "p";
+            "j" "k""l" "m" "n" "o" "p""q";
         align-items: start; 
     }
 
@@ -459,7 +478,7 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "q" "r" "s" "t";
+            "r" "s" "t" "u";
         align-items: start; 
     
     }
@@ -468,7 +487,7 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "u" "v" "w";
+            "v" "w" "x";
         align-items: start; 
     
     }

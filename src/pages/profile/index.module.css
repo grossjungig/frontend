@@ -186,6 +186,7 @@
 }
 .exptdDate{
     grid-area: k;
+    margin-top: auto;
 }
 .exptdDuration{
     grid-area: l;

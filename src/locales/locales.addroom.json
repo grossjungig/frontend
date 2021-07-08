@@ -11,7 +11,7 @@
     "de": "Meinen Raum hinzufügen",
     "en": "Add My Room"
   },
-  "name": {
+  "profileName": {
     "en": "Name",
     "de": "Name"
   },
@@ -84,8 +84,8 @@
     "de": "Wer ist ein/e ideale/r Mitbewohner/in für Sie?"
   },
   "info": {
-    "de": "Bitte hinterlassen Sie hier keine persönlichen Identifikationsdaten! Bitte schreiben Sie in das untenstehende Formular Ihren Vornamen, Ihr Alter und Ihr Geschlecht sowie eine kurze Beschreibung Ihrer Persönlichkeit, die Beschreibung Ihres Hilfegesuchs und Ihr Zimmerpreisangebot.",
-    "en": "Please do not leave your personal identifying information here! In the form below, please write your age and gender, as well as a brief description of your personality, help request description, and room price offer."
+    "de": "Bitte hinterlassen Sie hier keine persönlichen Identifikationsdaten! In das untenstehende Formular schreiben Sie bitte Ihren Namen, Ihr Alter und Ihr Geschlecht sowie eine kurze Beschreibung Ihrer Persönlichkeit, die Beschreibung Ihres Hilfegesuchs und Ihr Zimmerpreisangebot.",
+    "en": "Please do not leave your personal identifying information here! In the form below, please write your name, age and gender, as well as a brief description of your personality, help request description, and room price offer."
   },
   "oneroom": {
     "de": "1-Zimmer-Wohnung",
@@ -124,8 +124,8 @@
     "en": "What is the monthly price for your room/flat? (utilities included): "
   },
   "duration": {
-    "de": "Für wie lange möchten Sie mit einer Person zusammenwohnen? ",
-    "en": "For how long do you offer this accommodation? "
+    "de": "Für wie lange möchten Sie mit einer Person zusammenwohnen?(Geben Sie nur die Anzahl der Monate ein) ",
+    "en": "For how long do you offer this accommodation?(Enter only the number of months) "
   },
   "exptdDate": {
     "de": "Wann möchten Sie Ihre/n neue/n MitbewohnerIn einziehen lassen?",
@@ -207,6 +207,10 @@
     "en": "Please select at least 2 helps",
     "de": "Bitte wählen Sie mindestens 2 Hilfen aus"
   },
+  "durationError":{
+     "en": "Please only enter a number in months",
+     "de": "Bitte nur eine Zahl in Monaten eingeben"
+  },
   "selectError": {
     "en": "Please select one",
     "de": "Bitte wählen Sie eine"
@@ -222,6 +226,14 @@
   "numberError": {
     "en": "Please enter only a number",
     "de": "Bitte nur eine Zahl eingeben"
+  },
+  "addressError": {
+    "en": "Please provide a valid street name",
+    "de": "Bitte geben Sie einen gültigen Straßennamen an"
+  },
+  "postcodeError": {
+    "en": "Please provide a valid post code",
+    "de": "Bitte geben Sie eine gültige Postleitzahl an"
   },
   "errors": {
     "en": "Please fill missing fields",
