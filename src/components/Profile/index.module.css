@@ -109,6 +109,16 @@
     margin: 15px auto;
 }
 
+.itemList{
+    display: flex;
+}
+
+.itemColumns{
+    margin: 15px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 
 .heading {
     font-weight: 700;

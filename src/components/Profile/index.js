@@ -60,17 +60,17 @@ class Profile extends Component {
     return (
 
       <div className={styles.section}>
-          <div className={styles.upperHead}>
-            <div className={styles.lineone}>
-              <ArrowBackIcon className={styles.arrowBackIcon} onClick={this.props.history.goBack} />
-              <span className={styles.view}>{ lang==="en" ? "Go Back" : "Zurück" }</span>
-            </div>
-            {fetchedUser === null || fetchedUser.profile !== this.props.match.params.id ?
-            <div className={styles.info}>
-              {ProfileLocales.person[lang]} <span className={styles.red}>info@grossjungig.de</span> { lang==="de" ? "oder" : "or" } <span className={styles.red}>+49-30-55231271</span>
-            </div> : null}
+        <div className={styles.upperHead}>
+          <div className={styles.lineone}>
+            <ArrowBackIcon className={styles.arrowBackIcon} onClick={this.props.history.goBack} />
+            <span className={styles.view}>{lang === "en" ? "Go Back" : "Zurück"}</span>
           </div>
-        
+          {fetchedUser === null || fetchedUser.profile !== this.props.match.params.id ?
+            <div className={styles.info}>
+              {ProfileLocales.person[lang]} <span className={styles.red}>info@grossjungig.de</span> {lang === "de" ? "oder" : "or"} <span className={styles.red}>+49-30-55231271</span>
+            </div> : null}
+        </div>
+
         <div className={styles.main}>
 
           <div className={styles.leftPortion}>
@@ -92,15 +92,20 @@ class Profile extends Component {
                 <div className={styles.item}>{profile.pets ? pets : null}</div>
 
                 <div className={styles.item}> <span> {ProfileLocales.hobbyText[lang]} </span>
-                  {profile.length !== 0 && profile.hobbies.map(hobby => (
-                    <p> <ArrowForwardIosIcon fontSize="small" /> {hobby} </p>
-                  ))}
+                  <div className={styles.itemColumns}>
+                    {profile.length !== 0 && profile.hobbies.map(hobby => (
+                      <p className={styles.itemList}> <ArrowForwardIosIcon fontSize="small" /> {hobby} </p>
+                    ))}
+                  </div>
                 </div>
 
                 <div className={styles.item}> <span> {ProfileLocales.helpText[lang]} </span>
-                  {profile.length !== 0 && profile.offeredHelp.map(help => (
-                    <p> <ArrowForwardIosIcon fontSize="small" /> {help} </p>
-                  ))}
+                  <div className={styles.itemColumns}>
+                    {profile.length !== 0 && profile.offeredHelp.map(help => (
+                      <p className={styles.itemList}> <ArrowForwardIosIcon fontSize="small" /> {help} </p>
+                    ))}
+                  </div>
+
                 </div>
                 <p></p>
               </div>
@@ -112,9 +117,11 @@ class Profile extends Component {
                 <div className={styles.item}><span>{ProfileLocales.exptdDate[lang]} </span><span>{String(profile.moveInDate).split("T")[0]}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.exptdDuration[lang]} </span><span> {profile.duration} {ProfileLocales.months[lang]}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.district[lang]} </span>
-                  {profile.length !== 0 && profile.district.map(district => (
-                    <p> <ArrowForwardIosIcon fontSize="small" />{district}</p>
-                  ))}
+                  <div className={styles.itemColumns}>
+                    {profile.length !== 0 && profile.district.map(district => (
+                      <p className={styles.itemList}> <ArrowForwardIosIcon fontSize="small" />{district}</p>
+                    ))}
+                  </div>
                 </div>
               </div>
 
