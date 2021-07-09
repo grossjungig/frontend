@@ -103,13 +103,17 @@
         "de": "Welches ist der monatliche Höchstpreis, den Du bereit bist zu zahlen (in Euro)?",
         "en": "What is the maximum monthly price you are willing to pay (in EUR)?"
     },
+    "months": {
+        "de": " Monate",
+        "en": " months"
+    },
     "exptdDate": {
         "de": "Wann möchtest Du einziehen?",
         "en": "When are you looking to move in?"
     },
     "exptdDuration": {
-        "de": "Für wie lange brauchst Du diese Unterkunft?",
-        "en": "For how long do you need this room?"
+        "de": "Für wie lange brauchst Du diese Unterkunft?(Geben Sie nur die Anzahl der Monate ein)",
+        "en": "For how long do you need this room?(Enter only the number of months)"
     },
     "district": {
         "de": "Berliner Bezirk, wo Du ein Zimmer/eine Wohnung suchst-",

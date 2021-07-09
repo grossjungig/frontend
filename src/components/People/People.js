@@ -52,13 +52,13 @@ export default class People extends Component {
                 </div>
                 <div className={styles["profile-card__content"]}>
                   {/* <h3>{capitalizeFirstLetter(profile.name)}, {profile.age}</h3> */}
-                  <h3 className={styles["heading"]}>Bipul,  {this.toAge(profile.dob)}</h3>
+                  <h3 className={styles["heading"]}>{profile.profileName},  {this.toAge(profile.dob)}</h3>
                   <div>
                     <span className={styles["profile-card__district"]}><RoomTwoToneIcon fontSize="small" className={styles["icons"]} />  <span className={styles.berlinFixed}>Berlin</span>  {profile.district.map(district => (
                       <span className={styles["districts-list"]}>, {district}</span>
                     ))}</span>
                     <div className={styles["profile-card__item"]}><MeetingRoomTwoToneIcon fontSize="small" className={styles["icons"]} />  {profile.size}m²</div>
-                    <div className={styles["profile-card__item"]}><EventAvailableTwoToneIcon fontSize="small" className={styles["icons"]} />  {lang === "en" ? "Move In:" : "Einziehen:"} {profile.moveInDate}</div>
+                    <div className={styles["profile-card__item"]}><EventAvailableTwoToneIcon fontSize="small" className={styles["icons"]} />  {lang === "en" ? "Move In:" : "Einziehen:"} {String(profile.moveInDate).split("T")[0]}</div>
                     <div className={styles["profile-card__item"]}><EuroSymbolTwoToneIcon fontSize="small" className={styles["icons"]} />{peopleLocales.can_pay[lang]}  {profile.price}€  ({peopleLocales.monthly[lang]})</div>
                   </div>
                 </div>

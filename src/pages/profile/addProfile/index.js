@@ -181,6 +181,11 @@ class AddProfile extends Component {
     } else {
       delete obj.phoneNumber
     }
+    if (this.state.pets) {
+      obj.pets = this.state.pets
+    } else {
+      delete obj.pets
+    }
 
     axios.post('api/addProfile', obj).then((res) => {
       this.props.refreshUser();
@@ -195,6 +200,7 @@ class AddProfile extends Component {
 
   render() {
 
+    console.log(this.state.messages);
     var name;
     if (this.props.fetchedUser) {
       name = this.props.fetchedUser.name
@@ -219,11 +225,11 @@ class AddProfile extends Component {
     ];
     const binary = [
       {
-        value: "yes",
+        value: "Yes",
         label: lang === "de" ? "Ja" : "Yes",
       },
       {
-        value: "no",
+        value: "No",
         label: lang === "de" ? "Nein" : "No",
       },
     ];
@@ -245,11 +251,10 @@ class AddProfile extends Component {
             <div className={styles.quesPrimary}>
               <div className={styles.name}>
                 <label htmlFor="profileName"><span className={styles.red}>* </span>{ProfileLocales.profileName[lang]} </label>
-                {this.state.messages.includes('INVALID_PROFILE_NAME') ? <p className={styles.red}> {ProfileLocales.errors[lang]} </p> : null}
                 <TextField name="profileName" id="profileName" value={profileName}
                   onChange={this.setFormState}
                   variant="outlined" size="small" className={styles.input} error={
-                    this.state.messages.includes('INVALID_PROFILE_NAME')
+                    this.state.messages.includes('INVALID_NAME')
                   } />
               </div>
               <div className="dob">
@@ -412,9 +417,9 @@ class AddProfile extends Component {
               </div>
               <div>
                 <RadioGroup aria-label="rooms" name="rooms" value={this.value} onChange={this.handleChangeRooms}>
-                  <FormControlLabel value="one-room-flat" control={<Radio color="primary" />} label={ProfileLocales.oneroom[lang]}
+                  <FormControlLabel value="One-room-flat" control={<Radio color="primary" />} label={ProfileLocales.oneroom[lang]}
                     className={styles.room} />
-                  <FormControlLabel value="two-room-flat" control={<Radio color="primary" />} label={ProfileLocales.tworoom[lang]}
+                  <FormControlLabel value="Two-room-flat" control={<Radio color="primary" />} label={ProfileLocales.tworoom[lang]}
                     className={styles.room} />
                 </RadioGroup>
               </div>
@@ -441,9 +446,10 @@ class AddProfile extends Component {
                 </div>
                 <div className={styles.exptdDuration}>
                   <label htmlFor="duration"> <span className={styles.red}>*</span> {ProfileLocales.exptdDuration[lang]} </label>
+                  {this.state.messages.includes('INVALID_DURATION_TYPE') ? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p> : null}
                   <TextField name="duration" id="duration" value={duration}
                     onChange={this.setFormState}
-                    variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_DURATION')} />
+                    variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_DURATION') || this.state.messages.includes('INVALID_DURATION_TYPE')} />
                 </div>
 
 

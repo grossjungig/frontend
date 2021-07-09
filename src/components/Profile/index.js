@@ -75,7 +75,7 @@ class Profile extends Component {
 
           <div className={styles.leftPortion}>
             <img src={renderedAvatar} alt="avatar" className={styles.pic} />
-            <div className={styles.name}>{user.name}</div>
+            <div className={styles.name}>{profile.profileName}</div>
           </div>
 
           <div className={styles.rightPortion}>
@@ -109,8 +109,8 @@ class Profile extends Component {
                 <div className={styles.heading}>{lang === "en" ? "ABOUT ROOM" : "ÜBER ZIMMER"}</div>
                 <div className={styles.item}><span>{ProfileLocales.Roomsubheading[lang]} </span><span>{profile.rooms}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.size[lang]} </span><span>{profile.size}m²</span></div>
-                <div className={styles.item}><span>{ProfileLocales.exptdDate[lang]} </span><span>{profile.moveInDate}</span></div>
-                <div className={styles.item}><span>{ProfileLocales.exptdDuration[lang]} </span><span>{profile.duration}</span></div>
+                <div className={styles.item}><span>{ProfileLocales.exptdDate[lang]} </span><span>{String(profile.moveInDate).split("T")[0]}</span></div>
+                <div className={styles.item}><span>{ProfileLocales.exptdDuration[lang]} </span><span>: {profile.duration}{ProfileLocales.months[lang]}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.district[lang]} </span>
                   {profile.length !== 0 && profile.district.map(district => (
                     <p> <ArrowForwardIosIcon fontSize="small" />{district}</p>

@@ -23,6 +23,7 @@ import ProfileLocales from "../../../locales/locales.profile.json";
 
 class EditProfile extends Component {
   state = {
+    profileName: "",
     dob: null,
     gender: "",
     language: "",
@@ -64,8 +65,8 @@ class EditProfile extends Component {
         if (data.otherHelp) {
           this.setState({ helpchecked: true })
         }
-        this.setState({
-          name: data.user.name,
+        this.setState({ 
+          profileName: data.profileName,
           dob: data.dob,
           gender: data.gender,
           language: data.language,
@@ -198,6 +199,7 @@ class EditProfile extends Component {
       .catch(err => { this.setState({ avatarPreviewErr: err.message }) });
 
     const obj = {
+      profileName: this.state.profileName,
       dob: this.state.dob,
       gender: this.state.gender,
       language: this.state.language,
@@ -225,6 +227,11 @@ class EditProfile extends Component {
     } else {
       delete obj.phoneNumber
     }
+    if (this.state.pets) {
+      obj.pets = this.state.pets
+    } else {
+      delete obj.pets
+    }
     axios.post(`api/edit/${this.props.fetchedUser.profile}`, obj).then((res) => {
       this.props.refreshUser();
       this.props.history.push(`/profile/${res.data}`)
@@ -239,13 +246,10 @@ class EditProfile extends Component {
   }
 
   render() {
+
     const dobdate = new Date(this.state.dob);
     const moveindate = new Date(this.state.moveInDate);
-    var name;
-    if (this.props.fetchedUser) {
-      name = this.props.fetchedUser.name
-    }
-    const { dob, gender, language, occupation, smoke, rooms, accomodation, pets, hobbies, otherHobbies, hobbychecked, offeredHelp, otherHelp, helpchecked, district, size, price, moveInDate, duration, idealFlatmate, howFound, additionalInfo, phoneNumber, avatarPreview, messages } = this.state;
+    const { profileName, dob, gender, language, occupation, smoke, rooms, accomodation, pets, hobbies, otherHobbies, hobbychecked, offeredHelp, otherHelp, helpchecked, district, size, price, moveInDate, duration, idealFlatmate, howFound, additionalInfo, phoneNumber, avatarPreview, messages } = this.state;
     const lang = localStorage.getItem("lang");
 
 
@@ -265,11 +269,11 @@ class EditProfile extends Component {
     ];
     const binary = [
       {
-        value: "yes",
+        value: "Yes",
         label: lang === "de" ? "Ja" : "Yes",
       },
       {
-        value: "no",
+        value: "No",
         label: lang === "de" ? "Nein" : "No",
       },
     ];
@@ -286,10 +290,17 @@ class EditProfile extends Component {
           </div>
         </div>
         <div className={styles.main}>
-          < div className={styles.profiletitle}>{name + ProfileLocales.title[lang]}</div>
+          < div className={styles.profiletitle}>{profileName + ProfileLocales.title[lang]}</div>
           <form className={styles.form} onSubmit={this.onSubmitForm}>
             <div className={styles.quesPrimary}>
-
+            <div className={styles.name}>
+                <label htmlFor="profileName"><span className={styles.red}>* </span>{ProfileLocales.profileName[lang]} </label>
+                <TextField name="profileName" id="profileName" value={profileName}
+                  onChange={this.setFormState}
+                  variant="outlined" size="small" className={styles.input} error={
+                    this.state.messages.includes('INVALID_NAME')
+                  } />
+              </div>
               <div className="dob">
                 <label htmlFor="dob"> <span className={styles.red}>*</span> {ProfileLocales.dob[lang]} </label>
                 <DatePicker id="dob" className={dob ? styles.dates : [`${styles.dates} ${styles["dates-error"]}`]} selected={dob?dobdate:undefined} onChange={(e) => {
@@ -443,16 +454,16 @@ class EditProfile extends Component {
             </div>
 
             <div className={styles.roomSection}>
-              <div className={styles.roomHeading}>{name + ProfileLocales.RoomHeading[lang]}</div>
+              <div className={styles.roomHeading}>{profileName + ProfileLocales.RoomHeading[lang]}</div>
               <div className={styles.roomsubHeading}> <span className={styles.red}>*</span> {ProfileLocales.Roomsubheading[lang]}</div>
               <div>
                 {this.state.messages.includes('INVALID_ROOMS') ? <p className={styles.red}> {ProfileLocales.selectError[lang]} </p> : null}
               </div>
               <div>
                 <RadioGroup aria-label="rooms" name="rooms" value={rooms} onChange={this.handleChangeRooms}>
-                  <FormControlLabel value="one-room-flat" control={<Radio color="primary" />} label={ProfileLocales.oneroom[lang]}
+                  <FormControlLabel value="One-room-flat" control={<Radio color="primary" />} label={ProfileLocales.oneroom[lang]}
                     className={styles.room} />
-                  <FormControlLabel value="two-room-flat" control={<Radio color="primary" />} label={ProfileLocales.tworoom[lang]}
+                  <FormControlLabel value="Two-room-flat" control={<Radio color="primary" />} label={ProfileLocales.tworoom[lang]}
                     className={styles.room} />
                 </RadioGroup>
               </div>
@@ -479,9 +490,10 @@ class EditProfile extends Component {
                 </div>
                 <div className={styles.exptdDuration}>
                   <label htmlFor="duration"> <span className={styles.red}>*</span> {ProfileLocales.exptdDuration[lang]} </label>
+                  {this.state.messages.includes('INVALID_DURATION_TYPE') ? <p className={styles.red}> {ProfileLocales.numberError[lang]} </p> : null}
                   <TextField name="duration" id="duration" value={duration}
                     onChange={this.setFormState}
-                    variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_DURATION')} />
+                    variant="outlined" size="small" className={styles.input} error={this.state.messages.includes('INVALID_DURATION') || this.state.messages.includes('INVALID_DURATION_TYPE')} />
                 </div>
 
 
@@ -511,7 +523,7 @@ class EditProfile extends Component {
 
 
             <div className={styles.partnerSection}>
-              <div className={styles.partnerHeading}>{name + ProfileLocales.PartnerHeading[lang]}</div>
+              <div className={styles.partnerHeading}>{profileName + ProfileLocales.PartnerHeading[lang]}</div>
               <div className={styles.PartnerQuestions}>
                 <div className={styles.partner}>
                   <label htmlFor="idealFlatmate"> <span className={styles.red}>*</span> {ProfileLocales.partner[lang]} </label>
