@@ -112,8 +112,8 @@
         "en": "When are you looking to move in?"
     },
     "exptdDuration": {
-        "de": "Für wie lange brauchst Du diese Unterkunft?(Geben Sie nur die Anzahl der Monate ein)",
-        "en": "For how long do you need this room?(Enter only the number of months)"
+        "de": "Für wie lange brauchst Du diese Unterkunft?(Geben Sie nur die Anzahl der Monate ein):",
+        "en": "For how long do you need this room?(Enter only the number of months):"
     },
     "district": {
         "de": "Berliner Bezirk, wo Du ein Zimmer/eine Wohnung suchst-",

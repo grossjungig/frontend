@@ -180,9 +180,11 @@
 }
 .size{
     grid-area: i;
+    margin-top: auto;
 }
 .price{
     grid-area: j;
+    margin-top: auto;
 }
 .exptdDate{
     grid-area: k;

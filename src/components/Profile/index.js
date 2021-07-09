@@ -110,7 +110,7 @@ class Profile extends Component {
                 <div className={styles.item}><span>{ProfileLocales.Roomsubheading[lang]} </span><span>{profile.rooms}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.size[lang]} </span><span>{profile.size}m²</span></div>
                 <div className={styles.item}><span>{ProfileLocales.exptdDate[lang]} </span><span>{String(profile.moveInDate).split("T")[0]}</span></div>
-                <div className={styles.item}><span>{ProfileLocales.exptdDuration[lang]} </span><span>: {profile.duration}{ProfileLocales.months[lang]}</span></div>
+                <div className={styles.item}><span>{ProfileLocales.exptdDuration[lang]} </span><span> {profile.duration} {ProfileLocales.months[lang]}</span></div>
                 <div className={styles.item}><span>{ProfileLocales.district[lang]} </span>
                   {profile.length !== 0 && profile.district.map(district => (
                     <p> <ArrowForwardIosIcon fontSize="small" />{district}</p>
