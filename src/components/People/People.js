@@ -7,6 +7,7 @@ import MeetingRoomTwoToneIcon from '@material-ui/icons/MeetingRoomTwoTone';
 import EuroSymbolTwoToneIcon from '@material-ui/icons/EuroSymbolTwoTone';
 import styles from './index.module.css';
 import peopleLocales from "../../locales/locales.people.json";
+import Spinner from "../Spinner"
 
 export default class People extends Component {
   state = {
@@ -26,12 +27,19 @@ export default class People extends Component {
   }
 
   toAge = (a) => {
-    let age = Math.abs(new Date(Date.now() - new Date(`'` + String(a).split('T')[0].split("-")[1] + `/` + String(a).split('T')[0].split("-")[2] + `/` + String(a).split('T')[0].split("-")[0] + `'`).getTime()).getUTCFullYear() - 1970);
+    var today = new Date();
+    var birthDate = new Date(a);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())){
+          age--;
+    }
     return age;
   }
 
   render() {
     const lang = localStorage.getItem("lang");
+    if(this.state.people.length!==0){
     return (
       <>
         <div className={styles.offersTitle}>
@@ -68,5 +76,7 @@ export default class People extends Component {
         </ul>
       </>
     );
+      }
+      else return <Spinner/>
   }
 }
