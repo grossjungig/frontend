@@ -84,9 +84,9 @@
         "de": "Wer ist ein/e ideale/r Mitbewohner/in für Sie?"
     },
     "info": {
-        "de": "Bitte hinterlassen Sie hier keine persönlichen Daten, sondern wählen Sie nur mehrere Bezirke aus, für die Sie sich interessieren. In das Textfeld schreiben Sie bitte Ihren Namen, Ihr Alter und Ihr Geschlecht, sowie eine kurze Beschreibung Ihrer Persönlichkeit, eine kurze Beschreibung des Hilfsangebots und eine Zimmerpreisanfrage.",
-        "en": "Please do not leave your personal identifying information here, you can only select several districts you are interested in, and in the text box, please write your name, age and gender, as well as a brief description of personality, brief help offer description, and room price request."
-    },
+        "de": "Bitte hinterlassen Sie hier keine persönlichen Informationen zur Identifizierung.",
+        "en": "Please don’t leave your personal identifying information here."
+      },
     "oneroom": {
         "de": "1-Zimmer-Wohnung",
         "en": "one-room-flat"
