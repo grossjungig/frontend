@@ -11,8 +11,7 @@ import { dispatchCheckAuth } from "../../store/auth/thunks";
 
 class Profile extends Component {
   state = {
-    profile: [],
-    user: ''
+    profile: []
   };
 
   componentDidMount() {
@@ -21,7 +20,6 @@ class Profile extends Component {
       .then((response) => {
         this.setState({
           profile: response.data,
-          user: response.data.user
         });
       })
       .catch(function (error) {
@@ -48,7 +46,6 @@ class Profile extends Component {
 
   render() {
     const profile = this.state.profile;
-    const user = this.state.user
     const fetchedUser = this.props.fetchedUser
     const lang = localStorage.getItem("lang");
     let renderedAvatar = dummyAvatar;
