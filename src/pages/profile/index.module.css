@@ -30,7 +30,7 @@
     box-sizing: border-box;
     border-radius: 8px;
     color: var(--gai-blue);
-    font-size: 10px;
+    font-size: 12px;
     max-width: 310px;
     margin-bottom: 10px;
     padding: 16px;
@@ -109,7 +109,6 @@
 .PartnerQuestions{
     display: grid;
     margin: 10px 10px;
-    margin-top: 20px;;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;
     row-gap: 20px;
@@ -129,7 +128,6 @@
 .ExtraQuestions{
     display: grid;
     margin: 10px 10px;
-    margin-top: 20px;;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;
     row-gap: 20px;
@@ -182,12 +180,15 @@
 }
 .size{
     grid-area: i;
+    margin-top: auto;
 }
 .price{
     grid-area: j;
+    margin-top: auto;
 }
 .exptdDate{
     grid-area: k;
+    margin-top: auto;
 }
 .exptdDuration{
     grid-area: l;
@@ -228,17 +229,17 @@
     font-size: 16px;
 }
 .roomHeading{
-    margin: 10px 10px;
+    margin: 20px 10px;
     font-weight: 600;
     font-size: 20px;
 }
 .extraHeading{
-    margin: 10px 10px;
+    margin: 20px 10px;
     font-weight: 600;
     font-size: 20px;
 }
 .partnerHeading{
-    margin: 10px 10px;
+    margin: 20px 10px;
     font-weight: 600;
     font-size: 20px;
 }
@@ -257,7 +258,7 @@
 .dates{
     background-color: #F9F8F8;
     padding: 12px 14px;
-    width: 420px;
+    width: 390px !important;
     border-radius: 4px;
     border: 1px rgb(181, 179, 179) solid;
 }
@@ -305,7 +306,6 @@
    margin-left: auto;
    font-weight: 500;
    font-size: 10px;
-   color:red
 }
 
 .profileButton{
@@ -323,11 +323,9 @@
     margin: 10px 10px;
 }
 
-.fields-err{ 
-    padding: 20px;
-    background-color: #f44336; /* Red */
-    color: white;
-    margin-bottom: 15px;
+.avatar-preview-err{
+    color: red;
+    font-weight: 600;
 }
 
 .leftButton{
@@ -342,6 +340,12 @@
 .photo{
     display: flex;
     flex-direction: column;
+}
+.fields-err{
+    padding: 20px;
+    background-color: #F44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
 }
 
 .btnBlue {
@@ -377,7 +381,7 @@
 
     .main{
         margin: auto auto;
-        width: 600px;
+        width: 570px;
     }
     .input{
         width: 550px !important;
@@ -390,7 +394,7 @@
     }
 
     .dates{
-        width: 520px;
+        width: 520px !important;
     }
 
     .profileBanner{
@@ -439,8 +443,6 @@
     .PartnerQuestions{
         display: grid;
         grid-template-columns: repeat(1, 0.5fr);
-        column-gap: 40px;
-        row-gap: 20px;
         grid-template-areas:
             "m";
         align-items: start; 
@@ -485,12 +487,9 @@
         }
 
         .dates{
-            width: 350px;
+            width: 350px !important;
         }
-    
-        .districtlabel{
-           width: 40%;
-        }
+
 
         .profileBanner{
             width: 380px;
@@ -525,7 +524,7 @@
         }
 
         .dates{
-            width: 300px;
+            width: 300px !important;
         }
 
         .profileBanner{
@@ -563,13 +562,9 @@
         }
 
         .dates{
-            width: 270px;
+            width: 270px !important;
         }
     
-        .districtlabel{
-           width: 36%;
-        }
-
         .profileBanner{
             width: 300px;
         }

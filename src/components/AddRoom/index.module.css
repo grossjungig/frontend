@@ -30,7 +30,7 @@
     box-sizing: border-box;
     border-radius: 8px;
     color: var(--gai-blue);
-    font-size: 10px;
+    font-size: 12px;
     max-width: 310px;
     margin-bottom: 10px;
     padding: 16px;
@@ -90,9 +90,17 @@
         "e f"
         "g h";
     align-items: start; 
-
 }
-
+.roomTitleQuestion{
+    display: grid;
+    margin: 10px 10px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 20px;
+    grid-template-areas:
+        "i b";
+    align-items: start; 
+}
 .roomQuestions{
     display: grid;
     margin: 10px 10px;
@@ -101,10 +109,11 @@
     column-gap: 40px;
     row-gap: 20px;
     grid-template-areas:
-        "i j"
-        "k l";
+        "j k"
+        "l m"
+        "n o"
+        "p q";
     align-items: start; 
-
 }
 .PartnerQuestions{
     display: grid;
@@ -114,12 +123,14 @@
     column-gap: 40px;
     row-gap: 20px;
     grid-template-areas:
-        "m a";
+        "r s"
+        "t u";
     align-items: start; 
 
 }
 
-.quesPrimary > div > label, .roomQuestions > div > label {
+.quesPrimary > div > label, .roomQuestions > div > label, .roomTitleQuestion > div > label
+ {
     display: block;
     margin: 5px 10px;
     font-weight: 600;
@@ -134,9 +145,9 @@
     column-gap: 40px;
     row-gap: 20px;
     grid-template-areas:
-        "n a"
-        "o a"
-        "p a";
+        "v a"
+        "w a"
+        "x a";
     align-items: start; 
 
 }
@@ -148,7 +159,7 @@
     font-weight: 600;
     font-size: 16px;
 }
-.ExtraQuestions > div > label {
+.ExtraQuestions > div > label{
 
     display: block;
     margin: 5px 10px;
@@ -156,6 +167,11 @@
     font-size: 16px;
 }
 
+.profilePictureInfo, .photosRoomInfo{
+    margin: 5px 10px;
+    font-weight: 400;
+    font-size: 16px;
+}
 .name{
     grid-area: a;
 }
@@ -174,36 +190,64 @@
 .doYouSmoke{
     grid-area: f;
 }
-.accomodation{
+.alone{
     grid-area: g;
 }
 .pets{
     grid-area: h;
 }
-.size{
+.roomTitle{
     grid-area: i;
 }
-.price{
+
+.size{
     grid-area: j;
+    margin-top: auto;
 }
-.exptdDate{
+.price{
     grid-area: k;
 }
-.exptdDuration{
+.duration{
     grid-area: l;
 }
-
-.partner{
+.exptdDate{
     grid-area: m;
+    margin-top: auto;
 }
-.findaboutus{
+.address{
     grid-area: n;
 }
-.liketoshare{
+.postcode{
     grid-area: o;
 }
-.phonenumber{
+.district{
     grid-area: p;
+    margin-top: auto;
+}
+.registration{
+    grid-area: q;
+}
+.partner{
+    grid-area: r;
+    margin-top: auto;
+}
+.childrenAllowed{
+    grid-area: s;
+}
+.smokeAllowed{
+    grid-area: t;
+}
+.petsAllowed{
+    grid-area: u;
+}
+.findaboutus{
+    grid-area: v;
+}
+.liketoshare{
+    grid-area: w;
+}
+.phonenumber{
+    grid-area: x;
 }
 
 .input {
@@ -243,23 +287,21 @@
     font-size: 20px;
 }
 .roomsubHeading{
-    margin: 10px 10px;
+    margin: 10px 20px;
     font-weight: 600;
     font-size: 16px;
     margin-top: 20px;
-}
-.district{
-    margin: 10px 10px;
-    font-weight: 600;
-    font-size: 16px;
 }
 
 .dates{
     background-color: #F9F8F8;
     padding: 12px 14px;
-    width: 420px;
+    width: 390px !important;
     border-radius: 4px;
     border: 1px rgb(181, 179, 179) solid;
+}
+.dates-error{
+    border: 1px red solid;
 }
 .room{
     margin:-5px 0px;
@@ -267,10 +309,6 @@
 .help{
     display: grid;
     grid-template-columns: repeat(2, minmax(440px, 40px));
-}
-.districtc{
-    display: grid;
-    grid-template-columns: repeat(1, minmax(900px, 40px));
 }
 
 .helpText{
@@ -297,7 +335,6 @@
     margin: 10px 10px;
     width: 420px;
 }
-
 .banner{
    margin-left: auto;
    font-weight: 500;
@@ -330,13 +367,13 @@
 .leftButton{
     margin-left: auto;
 }
-.photo > label {
+.photo > label, .roomPics > label {
     display: block;
     margin: 10px 10px;
     font-weight: 600;
     font-size: 16px;
 }
-.photo{
+.photo, .roomPics{
     display: flex;
     flex-direction: column;
 }
@@ -374,7 +411,7 @@
 
     .main{
         margin: auto auto;
-        width: 600px;
+        width: 570px;
     }
     .input{
         width: 550px !important;
@@ -387,7 +424,7 @@
     }
 
     .dates{
-        width: 520px;
+        width: 520px !important;
     }
 
     .profileBanner{
@@ -396,9 +433,17 @@
     
     .quesPrimary{
         display: grid;
-        grid-template-columns: repeat(1, 0.5fr);
+        grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
             "a" "b" "c" "d" "e" "f" "g" "h";
+        align-items: start; 
+    
+    }
+    .roomTitleQuestion{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+            "i";
         align-items: start; 
     
     }
@@ -423,34 +468,26 @@
 
     .roomQuestions{
         display: grid;
-        grid-template-columns: repeat(1, 0.5fr);
-        column-gap: 40px;
-        row-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "i" "j"
-            "k" "l";
+            "j" "k""l" "m" "n" "o" "p""q";
         align-items: start; 
-    
     }
 
     .PartnerQuestions{
         display: grid;
-        grid-template-columns: repeat(1, 0.5fr);
-        column-gap: 40px;
-        row-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "m";
+            "r" "s" "t" "u";
         align-items: start; 
     
     }
 
     .ExtraQuestions{
         display: grid;
-        grid-template-columns: repeat(1, 0.5fr);
-        column-gap: 40px;
-        row-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "n" "o" "p";
+            "v" "w" "x";
         align-items: start; 
     
     }
@@ -482,13 +519,8 @@
         }
 
         .dates{
-            width: 350px;
+            width: 350px !important;
         }
-    
-        .districtlabel{
-           width: 40%;
-        }
-
         .profileBanner{
             width: 380px;
         }
@@ -522,7 +554,7 @@
         }
 
         .dates{
-            width: 300px;
+            width: 300px !important;
         }
 
         .profileBanner{
@@ -560,11 +592,7 @@
         }
 
         .dates{
-            width: 270px;
-        }
-    
-        .districtlabel{
-           width: 36%;
+            width: 270px !important;
         }
 
         .profileBanner{
@@ -610,7 +638,7 @@
         }
 
         .dates{
-            width: 220px;
+            width: 220px !important;
         }
     
 
