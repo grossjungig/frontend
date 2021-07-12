@@ -184,6 +184,7 @@ class addProfileSenior extends Component {
 
         axios.post('api/addRoom', obj).then((response) => {
             const roomId = response.data._id
+            this.props.refreshUser();
             this.props.history.push(`/berlin/${roomId}`)
         }).catch((err) => {
             this.setState({ messages: err.response.data.data });
